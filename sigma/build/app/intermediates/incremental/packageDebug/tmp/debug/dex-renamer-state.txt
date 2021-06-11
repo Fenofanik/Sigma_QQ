@@ -1,0 +1,4 @@
+#Fri Jun 11 22:14:29 EEST 2021
+base.0=D\:\\SIgmaProject\\sigma\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
