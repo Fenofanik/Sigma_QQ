@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'view/splash_screen.dart';
+import 'view/screens/splash_screen.dart';
 import 'config/routes.dart';
 import 'package:get/get.dart';
 

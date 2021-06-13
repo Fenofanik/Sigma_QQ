@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ea4475c-24b4-4816-b7d8-375a831780fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/3x/splash1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/view/Reg_Screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/view/SignInScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Colors/App_Colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Resources/App_Colors.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Login_register/Reg_Screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Login_register/SignInScreen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Splash/splash_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/splash_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-    </list>
+    <list default="true" id="6ea4475c-24b4-4816-b7d8-375a831780fd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +19,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1tf1v6YNVokHAJa1MqxEdGmWVIm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -48,7 +39,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TestSigma/Sigma-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../flutter-firebase-shopping-app-master" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -58,6 +49,7 @@
       <recent name="D:\SIgmaProject\sigma\assets\3x" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SIgmaProject\sigma\lib\view\screens" />
       <recent name="D:\SIgmaProject\sigma\lib\view" />
       <recent name="D:\SIgmaProject\sigma\lib" />
     </key>

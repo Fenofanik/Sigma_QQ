@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:sigma/view/OnBoardingScreen.dart';
-import 'package:sigma/view/Reg_Screen.dart';
-import 'package:sigma/view/SignInScreen.dart';
+import 'package:sigma/view/screens/OnBoardingScreen.dart';
+import 'package:sigma/view/screens/Reg_Screen.dart';
+import 'package:sigma/view/screens/SignInScreen.dart';
 
 class AppRoutes {
   static final routes = [

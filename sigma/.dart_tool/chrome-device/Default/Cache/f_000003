@@ -19,16 +19,16 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "3EzfD9LPFc72Wtc5RupIsg==";
+    window.$dartAppId = "1NT7X5C5M6IMCtd7/sDLrQ==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "11.0.2";
-window.$dwdsDevHandlerPath = "http://localhost:52027/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:56830/$dwdsSseHandler";
 window.$dwdsEnableDevtoolsLaunch = true;
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:52029/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:56832/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -490,7 +490,7 @@ let modulePaths = {
  "packages/get/get_connect/http/src/exceptions/exceptions.dart": "packages/get/get_connect/http/src/exceptions/exceptions.dart.lib",
  "packages/get/get_connect/http/src/certificates/certificates.dart": "packages/get/get_connect/http/src/certificates/certificates.dart.lib",
  "packages/sigma/config/routes.dart": "packages/sigma/config/routes.dart.lib",
- "packages/sigma/view/SignInScreen.dart": "packages/sigma/view/SignInScreen.dart.lib",
+ "packages/sigma/view/screens/SignInScreen.dart": "packages/sigma/view/screens/SignInScreen.dart.lib",
  "packages/sigma/Resources/App_borders.dart": "packages/sigma/Resources/App_borders.dart.lib",
  "packages/sigma/Resources/App_Colors.dart": "packages/sigma/Resources/App_Colors.dart.lib",
  "packages/sigma/Resources/App_TextStyle.dart": "packages/sigma/Resources/App_TextStyle.dart.lib",
@@ -550,9 +550,11 @@ let modulePaths = {
  "packages/crypto/src/sha1.dart": "packages/crypto/src/sha1.dart.lib",
  "packages/crypto/src/md5.dart": "packages/crypto/src/md5.dart.lib",
  "packages/crypto/src/hmac.dart": "packages/crypto/src/hmac.dart.lib",
- "packages/sigma/view/Reg_Screen.dart": "packages/sigma/view/Reg_Screen.dart.lib",
- "packages/sigma/view/OnBoardingScreen.dart": "packages/sigma/view/OnBoardingScreen.dart.lib",
- "packages/sigma/view/splash_screen.dart": "packages/sigma/view/splash_screen.dart.lib"
+ "packages/sigma/Resources/App_ElevatedButton_style.dart": "packages/sigma/Resources/App_ElevatedButton_style.dart.lib",
+ "packages/sigma/view/screens/Reg_Screen.dart": "packages/sigma/view/screens/Reg_Screen.dart.lib",
+ "packages/sigma/view/screens/OnBoardingScreen.dart": "packages/sigma/view/screens/OnBoardingScreen.dart.lib",
+ "packages/sigma/core/controllers/page_controller.dart": "packages/sigma/core/controllers/page_controller.dart.lib",
+ "packages/sigma/view/screens/splash_screen.dart": "packages/sigma/view/screens/splash_screen.dart.lib"
 };
 let moduleNames = {
  "web_entrypoint.dart.lib": "web_entrypoint.dart",
@@ -964,7 +966,7 @@ let moduleNames = {
  "packages/get/get_connect/http/src/exceptions/exceptions.dart.lib": "packages/get/get_connect/http/src/exceptions/exceptions.dart",
  "packages/get/get_connect/http/src/certificates/certificates.dart.lib": "packages/get/get_connect/http/src/certificates/certificates.dart",
  "packages/sigma/config/routes.dart.lib": "packages/sigma/config/routes.dart",
- "packages/sigma/view/SignInScreen.dart.lib": "packages/sigma/view/SignInScreen.dart",
+ "packages/sigma/view/screens/SignInScreen.dart.lib": "packages/sigma/view/screens/SignInScreen.dart",
  "packages/sigma/Resources/App_borders.dart.lib": "packages/sigma/Resources/App_borders.dart",
  "packages/sigma/Resources/App_Colors.dart.lib": "packages/sigma/Resources/App_Colors.dart",
  "packages/sigma/Resources/App_TextStyle.dart.lib": "packages/sigma/Resources/App_TextStyle.dart",
@@ -1024,9 +1026,11 @@ let moduleNames = {
  "packages/crypto/src/sha1.dart.lib": "packages/crypto/src/sha1.dart",
  "packages/crypto/src/md5.dart.lib": "packages/crypto/src/md5.dart",
  "packages/crypto/src/hmac.dart.lib": "packages/crypto/src/hmac.dart",
- "packages/sigma/view/Reg_Screen.dart.lib": "packages/sigma/view/Reg_Screen.dart",
- "packages/sigma/view/OnBoardingScreen.dart.lib": "packages/sigma/view/OnBoardingScreen.dart",
- "packages/sigma/view/splash_screen.dart.lib": "packages/sigma/view/splash_screen.dart"
+ "packages/sigma/Resources/App_ElevatedButton_style.dart.lib": "packages/sigma/Resources/App_ElevatedButton_style.dart",
+ "packages/sigma/view/screens/Reg_Screen.dart.lib": "packages/sigma/view/screens/Reg_Screen.dart",
+ "packages/sigma/view/screens/OnBoardingScreen.dart.lib": "packages/sigma/view/screens/OnBoardingScreen.dart",
+ "packages/sigma/core/controllers/page_controller.dart.lib": "packages/sigma/core/controllers/page_controller.dart",
+ "packages/sigma/view/screens/splash_screen.dart.lib": "packages/sigma/view/screens/splash_screen.dart"
 };
 if(!window.$requireLoader) {
    window.$requireLoader = {
