@@ -13,17 +13,14 @@ class RegScreen extends StatefulWidget {
 class _RegScreenState extends State<RegScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorsManager.backgroundColor,
-      body: regUI(context),
-    );
+    return regUI(context);
   }
 
   regUI(context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        decoration: BoxDecoration(gradient: ColorsManager.gradientForStart),
+        decoration: BoxDecoration(gradient: gradientForStart),
         child: Column(children: <Widget>[
           Padding(
               padding: const EdgeInsets.only(top: 77, left: 16, right: 170),
@@ -40,7 +37,7 @@ class _RegScreenState extends State<RegScreen> {
                   prefixIcon: Icon(
                     Icons.phone_outlined,
                     size: 18,
-                    color: ColorsManager.borderColor,
+                    color: borderColor,
                   ),
                   hintText: "Номер телефона",
                   hintStyle: TextStyles().style_2,
@@ -63,7 +60,7 @@ class _RegScreenState extends State<RegScreen> {
                          child: Text(
                             "Нажимая кнопку “Далее”, я принимаю условия Пользовательского соглашения и Политику конфиденциальности.",
                             textAlign: TextAlign.center,
-                            style: TextStyles().style_3),
+                            style: TextStyles().style_6),
                        ),
 
                   ],

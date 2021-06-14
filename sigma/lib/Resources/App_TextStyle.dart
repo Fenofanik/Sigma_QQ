@@ -2,36 +2,46 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sigma/Resources/App_Colors.dart';
 
-class TextStyles{
+class TextStyles {
   TextStyle style_1 = GoogleFonts.openSans(
-    color:ColorsManager.whiteColors,
-    fontWeight:FontWeight.bold,
+      color: whiteColors,
+      fontWeight: FontWeight.bold,
       fontSize: 36,
-      decoration: TextDecoration.none
-  );
+      decoration: TextDecoration.none);
   TextStyle style_2 = GoogleFonts.openSans(
-      color:ColorsManager.whiteColors,
-      fontWeight:FontWeight.normal,
+      color: whiteColors,
+      fontWeight: FontWeight.normal,
       fontSize: 14,
-      decoration: TextDecoration.none
-  );
+      decoration: TextDecoration.none);
   TextStyle style_3 = GoogleFonts.openSans(
-      color:ColorsManager.textForUser,
-      fontWeight:FontWeight.normal,
+      color: textForUser,
+      fontWeight: FontWeight.normal,
       fontSize: 14,
-      decoration: TextDecoration.none
-  );
+      decoration: TextDecoration.none);
   TextStyle style_4 = GoogleFonts.openSans(
-      color:ColorsManager.textForUser,
-      fontWeight:FontWeight.w600,
+      color: textForUser,
+      fontWeight: FontWeight.w600,
       fontSize: 14,
       decoration: TextDecoration.underline,
-      decorationColor: ColorsManager.textForUser
-  );
+      decorationColor: textForUser);
   TextStyle style_5 = GoogleFonts.openSans(
-      color:ColorsManager.blackColors,
-      fontWeight:FontWeight.bold,
+      color: blackColors,
+      fontWeight: FontWeight.bold,
       fontSize: 16,
-      decoration: TextDecoration.none
-  );
+      decoration: TextDecoration.none);
+  TextStyle style_6 = GoogleFonts.openSans(
+      color: textForUser,
+      fontWeight: FontWeight.normal,
+      fontSize: 12,
+      decoration: TextDecoration.none);
+  TextStyle style_7 = GoogleFonts.openSans(
+      color: whiteColors,
+      fontWeight: FontWeight.bold,
+      fontSize: 20,
+      decoration: TextDecoration.none);
+  TextStyle style_8 = GoogleFonts.openSans(
+      color: borderColor,
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      decoration: TextDecoration.none);
 }

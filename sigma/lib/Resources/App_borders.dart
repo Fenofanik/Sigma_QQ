@@ -6,7 +6,7 @@ class RadiusManager {
 }
 
 class BorderForTextField {
-  final borders = BorderSide(width: 2, color: ColorsManager.borderColor);
+  final borders = BorderSide(width: 2, color: borderColor);
 }
 
 class OutlineInputBorders {

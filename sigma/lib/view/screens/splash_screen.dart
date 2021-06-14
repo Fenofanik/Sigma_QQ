@@ -9,7 +9,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final splashDelay = 3;
+  final splashDelay = 4;
 
   @override
   void initState() {
@@ -23,14 +23,14 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Get.toNamed('/FirstScreen');
+    Get.toNamed('/CategorySelection');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(gradient: ColorsManager.gradientForStart),
+        decoration: BoxDecoration(gradient: gradientForStart),
         child: Center(
           child: Image.asset('assets/3x/splash1.png',
           width: 242.25, height: 66,),
