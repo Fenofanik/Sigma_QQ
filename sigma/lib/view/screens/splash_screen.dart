@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sigma/Resources/App_Colors.dart';
+import 'package:sigma/config/constant_routes.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final splashDelay = 4;
+  final splashDelay = 1;
 
   @override
   void initState() {
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Get.toNamed('/CategorySelection');
+    Navigator.pushNamed(context, category);
   }
 
   @override

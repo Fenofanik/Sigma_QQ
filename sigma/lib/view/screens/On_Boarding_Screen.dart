@@ -5,6 +5,7 @@ import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
 import 'package:sigma/Resources/App_borders.dart';
+import 'package:sigma/config/constant_routes.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   int _currentPage = 0;
 
   void navigationPage() {
-    Get.toNamed('/SignInScreen');
+    Navigator.pushNamed(context, signIn);
   }
 
   updUI() {

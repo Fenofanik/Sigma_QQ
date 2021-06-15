@@ -44,4 +44,19 @@ class TextStyles {
       fontWeight: FontWeight.bold,
       fontSize: 16,
       decoration: TextDecoration.none);
+  TextStyle style_9 = GoogleFonts.openSans(
+      color: whiteColors,
+      fontWeight: FontWeight.w600,
+      fontSize: 16,
+      decoration: TextDecoration.none);
+  TextStyle style_10 = GoogleFonts.openSans(
+      color: whiteColors,
+      fontWeight: FontWeight.w600,
+      fontSize: 18,
+      decoration: TextDecoration.none);
+  TextStyle style_11 = GoogleFonts.openSans(
+      color: blackColors,
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      decoration: TextDecoration.none);
 }

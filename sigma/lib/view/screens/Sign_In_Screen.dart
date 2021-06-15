@@ -6,6 +6,7 @@ import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
 import 'package:sigma/Resources/App_borders.dart';
+import 'package:sigma/config/constant_routes.dart';
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -63,7 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        Get.toNamed('/Reg');
+                       Navigator.pushNamed(context, reg);
                       },
                       child:
                           Text("Зарегистрироваться", style: TextStyles().style_4),
@@ -76,7 +77,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       left: 16, right: 16, bottom: 20, top: 50),
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.toNamed('/CategorySelection');
+                      Navigator.pushNamed(context, category);
                     },
                     style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
                     child: Text(
