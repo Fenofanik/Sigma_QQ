@@ -2,18 +2,19 @@ import 'package:get/get.dart';
 import 'package:sigma/core/models/category.dart';
 
 class CategoryController extends GetxController {
-  List<Category> categoryNames = [
+
+  var categoryNames = <Category>[
     Category(
-      cafesAndRestaurants: 'Кафе и Рестораны',
-      trips: "Путешествия",
-      car: "Авто",
-      beauty: "Красота и Здоровье",
-      marketplaces: "Маркетплейсы",
-      baby: "Детские товары",
-      clothes: "Одежда и Украшения",
-      electronics: "Техника",
-      services: "Услуги",
-      entertainment: "Досуг и Развлечения"
-    )
-  ];
+        cafesAndRestaurants: "Кафе и Рестораны",
+        baby: "Детские товары",
+        car: "Авто",
+        beauty: "Красота и Здоровье",
+        clothes: "Одежда и Украшения",
+        electronics: "Техника",
+        entertainment: "Досуг и Развлечения",
+        marketplaces: "Маркетплейсы",
+        services: "Услуги",
+        trips: "Путешествия"
+    )].obs;
+
 }

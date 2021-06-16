@@ -1,18 +1,28 @@
+import 'package:get/state_manager.dart';
 
 class Category {
-  final cafesAndRestaurants;
-  final trips;
-  final car;
-  final beauty;
-  final marketplaces;
-  final baby;
-  final clothes;
-  final electronics;
-  final services;
-  final entertainment;
+  final String cafesAndRestaurants;
+  final String trips;
+  final String car;
+  final String beauty;
+  final String marketplaces;
+  final String baby;
+  final String clothes;
+  final String electronics;
+  final String services;
+  final String entertainment;
 
-  Category({
-  this.cafesAndRestaurants,this.baby,this.car,this.beauty,
-  this.clothes,this.electronics,this.entertainment,this.marketplaces,
-  this.services,this.trips});
+  Category(
+      {required this.cafesAndRestaurants,
+      required this.baby,
+      required this.car,
+      required this.beauty,
+      required this.clothes,
+      required this.electronics,
+      required this.entertainment,
+      required this.marketplaces,
+      required this.services,
+      required this.trips});
+
+  final pressed = false.obs;
 }
