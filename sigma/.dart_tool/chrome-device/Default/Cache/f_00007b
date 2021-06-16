@@ -1,579 +1,435 @@
-define(['dart_sdk', 'packages/flutter/src/gestures/binding.dart', 'packages/flutter/src/gestures/events.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/tap.dart', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__multitap_dart(dart_sdk, packages__flutter__src__gestures__binding$46dart, packages__flutter__src__gestures__events$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__tap$46dart, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__recognizer$46dart) {
+define(['dart_sdk', 'packages/get/get_core/src/get_main.dart'], (function load__packages__get__get_utils__src__get_utils__get_utils_dart(dart_sdk, packages__get__get_core__src__get_main$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const async = dart_sdk.async;
-  const ui = dart_sdk.ui;
-  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const binding = packages__flutter__src__gestures__binding$46dart.src__gestures__binding;
-  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
-  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
-  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
-  const constants = packages__flutter__src__gestures__constants$46dart.src__gestures__constants;
-  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
-  var multitap = Object.create(dart.library);
-  var $_set = dartx._set;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  var get_utils = Object.create(dart.library);
+  var $toLowerCase = dartx.toLowerCase;
+  var $endsWith = dartx.endsWith;
+  var $replaceAll = dartx.replaceAll;
   var $_get = dartx._get;
-  var $remove = dartx.remove;
-  var $_equals = dartx._equals;
-  var $isEmpty = dartx.isEmpty;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $values = dartx.values;
+  var $toString = dartx.toString;
+  var $contains = dartx.contains;
+  var $split = dartx.split;
+  var $map = dartx.map;
   var $toList = dartx.toList;
-  var $forEach = dartx.forEach;
-  var $containsKey = dartx.containsKey;
+  var $modulo = dartx['%'];
+  var $join = dartx.join;
+  var $toUpperCase = dartx.toUpperCase;
+  var $substring = dartx.substring;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $isEmpty = dartx.isEmpty;
+  var $trim = dartx.trim;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    IdentityMapOfint$_TapTracker: () => (T.IdentityMapOfint$_TapTracker = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapTracker)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    IdentityMapOfint$_TapGesture: () => (T.IdentityMapOfint$_TapGesture = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapGesture)))(),
-    ListOf_TapGesture: () => (T.ListOf_TapGesture = dart.constFn(core.List$(multitap._TapGesture)))()
+    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
+    StringToNint: () => (T.StringToNint = dart.constFn(dart.nullable(T.StringToint())))(),
+    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
+    String__Toint: () => (T.String__Toint = dart.constFn(dart.fnType(core.int, [core.String], {onError: T.StringToNint(), radix: T.intN()}, {})))(),
+    IterableOfint: () => (T.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
+    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    StringToStringN: () => (T.StringToStringN = dart.constFn(dart.fnType(T.StringN(), [core.String])))(),
+    dynamicToString: () => (T.dynamicToString = dart.constFn(dart.fnType(core.String, [dart.dynamic])))(),
+    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 0
-      });
+      return C[0] = dart.fn(core.int.parse, T.String__Toint());
+    },
+    get C1() {
+      return C[1] = dart.fn(get_utils.GetUtils.capitalizeFirst, T.StringToStringN());
     }
   }, false);
-  var C = [void 0];
-  var I = [
-    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/gestures/multitap.dart",
-    "package:flutter/src/gestures/multitap.dart"
-  ];
-  var _timeout = dart.privateName(multitap, "_timeout");
-  var _onTimeout = dart.privateName(multitap, "_onTimeout");
-  multitap._CountdownZoned = class _CountdownZoned extends core.Object {
-    get timeout() {
-      return this[_timeout];
+  var C = Array(2).fill(void 0);
+  var I = ["package:get/get_utils/src/get_utils/get_utils.dart"];
+  get_utils.GetUtils = class GetUtils extends core.Object {
+    static isNull(value) {
+      return value == null;
     }
-    [_onTimeout]() {
-      this[_timeout] = true;
+    static nil(s) {
+      return s == null ? null : s;
     }
-  };
-  (multitap._CountdownZoned.new = function(opts) {
-    let duration = opts && 'duration' in opts ? opts.duration : null;
-    this[_timeout] = false;
-    if (!(duration !== null)) dart.assertFailed(null, I[0], 43, 17, "duration != null");
-    async.Timer.new(duration, dart.bind(this, _onTimeout));
-  }).prototype = multitap._CountdownZoned.prototype;
-  dart.addTypeTests(multitap._CountdownZoned);
-  dart.addTypeCaches(multitap._CountdownZoned);
-  dart.setMethodSignature(multitap._CountdownZoned, () => ({
-    __proto__: dart.getMethods(multitap._CountdownZoned.__proto__),
-    [_onTimeout]: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(multitap._CountdownZoned, () => ({
-    __proto__: dart.getGetters(multitap._CountdownZoned.__proto__),
-    timeout: core.bool
-  }));
-  dart.setLibraryUri(multitap._CountdownZoned, I[1]);
-  dart.setFieldSignature(multitap._CountdownZoned, () => ({
-    __proto__: dart.getFields(multitap._CountdownZoned.__proto__),
-    [_timeout]: dart.fieldType(core.bool)
-  }));
-  var _isTrackingPointer = dart.privateName(multitap, "_isTrackingPointer");
-  var _initialGlobalPosition = dart.privateName(multitap, "_initialGlobalPosition");
-  var _doubleTapMinTimeCountdown = dart.privateName(multitap, "_doubleTapMinTimeCountdown");
-  multitap._TapTracker = class _TapTracker extends core.Object {
-    startTrackingPointer(route, transform) {
-      if (!this[_isTrackingPointer]) {
-        this[_isTrackingPointer] = true;
-        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.addRoute(this.pointer, route, transform);
+    static isNullOrBlank(value) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return true;
       }
+      return get_utils._isEmpty(value);
     }
-    stopTrackingPointer(route) {
-      if (this[_isTrackingPointer]) {
-        this[_isTrackingPointer] = false;
-        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.removeRoute(this.pointer, route);
+    static isBlank(value) {
+      return get_utils._isEmpty(value);
+    }
+    static isNum(value) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return false;
       }
+      return typeof core.num.tryParse(value) == 'number';
     }
-    isWithinGlobalTolerance(event, tolerance) {
-      let offset = event.position['-'](this[_initialGlobalPosition]);
-      return offset.distance <= tolerance;
+    static isNumericOnly(s) {
+      return get_utils.GetUtils.hasMatch(s, "^\\d+$");
     }
-    hasElapsedMinTime() {
-      return this[_doubleTapMinTimeCountdown].timeout;
+    static isAlphabetOnly(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z]+$");
     }
-    hasSameButton(event) {
-      return event.buttons === this.initialButtons;
+    static hasCapitalletter(s) {
+      return get_utils.GetUtils.hasMatch(s, "[A-Z]");
     }
-  };
-  (multitap._TapTracker.new = function(opts) {
-    let event = opts && 'event' in opts ? opts.event : null;
-    let entry = opts && 'entry' in opts ? opts.entry : null;
-    let doubleTapMinTime = opts && 'doubleTapMinTime' in opts ? opts.doubleTapMinTime : null;
-    this[_isTrackingPointer] = false;
-    this.entry = entry;
-    if (!(doubleTapMinTime !== null)) dart.assertFailed(null, I[0], 63, 15, "doubleTapMinTime != null");
-    if (!(event !== null)) dart.assertFailed(null, I[0], 64, 15, "event != null");
-    if (!(event.buttons !== null)) dart.assertFailed(null, I[0], 65, 15, "event.buttons != null");
-    this.pointer = event.pointer;
-    this[_initialGlobalPosition] = event.position;
-    this.initialButtons = event.buttons;
-    this[_doubleTapMinTimeCountdown] = new multitap._CountdownZoned.new({duration: doubleTapMinTime});
-    ;
-  }).prototype = multitap._TapTracker.prototype;
-  dart.addTypeTests(multitap._TapTracker);
-  dart.addTypeCaches(multitap._TapTracker);
-  dart.setMethodSignature(multitap._TapTracker, () => ({
-    __proto__: dart.getMethods(multitap._TapTracker.__proto__),
-    startTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent]), dart.nullable(vector_math_64.Matrix4)]),
-    stopTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent])]),
-    isWithinGlobalTolerance: dart.fnType(core.bool, [events.PointerEvent, core.double]),
-    hasElapsedMinTime: dart.fnType(core.bool, []),
-    hasSameButton: dart.fnType(core.bool, [events.PointerDownEvent])
-  }));
-  dart.setLibraryUri(multitap._TapTracker, I[1]);
-  dart.setFieldSignature(multitap._TapTracker, () => ({
-    __proto__: dart.getFields(multitap._TapTracker.__proto__),
-    pointer: dart.finalFieldType(core.int),
-    entry: dart.finalFieldType(arena.GestureArenaEntry),
-    [_initialGlobalPosition]: dart.finalFieldType(ui.Offset),
-    initialButtons: dart.finalFieldType(core.int),
-    [_doubleTapMinTimeCountdown]: dart.finalFieldType(multitap._CountdownZoned),
-    [_isTrackingPointer]: dart.fieldType(core.bool)
-  }));
-  var onDoubleTapDown = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapDown");
-  var onDoubleTap = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTap");
-  var onDoubleTapCancel = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapCancel");
-  var _doubleTapTimer = dart.privateName(multitap, "_doubleTapTimer");
-  var _firstTap = dart.privateName(multitap, "_firstTap");
-  var _trackers = dart.privateName(multitap, "_trackers");
-  var _reset = dart.privateName(multitap, "_reset");
-  var _trackTap = dart.privateName(multitap, "_trackTap");
-  var _stopDoubleTapTimer = dart.privateName(multitap, "_stopDoubleTapTimer");
-  var _handleEvent = dart.privateName(multitap, "_handleEvent");
-  var _registerFirstTap = dart.privateName(multitap, "_registerFirstTap");
-  var _registerSecondTap = dart.privateName(multitap, "_registerSecondTap");
-  var _reject = dart.privateName(multitap, "_reject");
-  var _freezeTracker = dart.privateName(multitap, "_freezeTracker");
-  var _checkCancel = dart.privateName(multitap, "_checkCancel");
-  var _clearTrackers = dart.privateName(multitap, "_clearTrackers");
-  var _startDoubleTapTimer = dart.privateName(multitap, "_startDoubleTapTimer");
-  var _checkUp = dart.privateName(multitap, "_checkUp");
-  multitap.DoubleTapGestureRecognizer = class DoubleTapGestureRecognizer extends recognizer.GestureRecognizer {
-    get onDoubleTapDown() {
-      return this[onDoubleTapDown];
+    static isBool(value) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return false;
+      }
+      return value === "true" || value === "false";
     }
-    set onDoubleTapDown(value) {
-      this[onDoubleTapDown] = value;
+    static isVideo(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".mp4") || ext[$endsWith](".avi") || ext[$endsWith](".wmv") || ext[$endsWith](".rmvb") || ext[$endsWith](".mpg") || ext[$endsWith](".mpeg") || ext[$endsWith](".3gp");
     }
-    get onDoubleTap() {
-      return this[onDoubleTap];
+    static isImage(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".jpg") || ext[$endsWith](".jpeg") || ext[$endsWith](".png") || ext[$endsWith](".gif") || ext[$endsWith](".bmp");
     }
-    set onDoubleTap(value) {
-      this[onDoubleTap] = value;
+    static isAudio(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".mp3") || ext[$endsWith](".wav") || ext[$endsWith](".wma") || ext[$endsWith](".amr") || ext[$endsWith](".ogg");
     }
-    get onDoubleTapCancel() {
-      return this[onDoubleTapCancel];
+    static isPPT(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".ppt") || ext[$endsWith](".pptx");
     }
-    set onDoubleTapCancel(value) {
-      this[onDoubleTapCancel] = value;
+    static isWord(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".doc") || ext[$endsWith](".docx");
     }
-    isPointerAllowed(event) {
-      if (this[_firstTap] == null) {
-        switch (event.buttons) {
-          case 1:
-          {
-            if (this.onDoubleTapDown == null && this.onDoubleTap == null && this.onDoubleTapCancel == null) return false;
-            break;
-          }
-          default:
-          {
+    static isExcel(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".xls") || ext[$endsWith](".xlsx");
+    }
+    static isAPK(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".apk");
+    }
+    static isPDF(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".pdf");
+    }
+    static isTxt(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".txt");
+    }
+    static isChm(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".chm");
+    }
+    static isVector(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".svg");
+    }
+    static isHTML(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".html");
+    }
+    static isUsername(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$");
+    }
+    static isURL(s) {
+      return get_utils.GetUtils.hasMatch(s, "^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,6}(\\:[0-9]{1,5})*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$");
+    }
+    static isEmail(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
+    }
+    static isPhoneNumber(s) {
+      if (s.length > 16 || s.length < 9) return false;
+      return get_utils.GetUtils.hasMatch(s, "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$");
+    }
+    static isDateTime(s) {
+      return get_utils.GetUtils.hasMatch(s, "^\\d{4}-\\d{2}-\\d{2}[ T]\\d{2}:\\d{2}:\\d{2}.\\d{3}Z?$");
+    }
+    static isMD5(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[a-f0-9]{32}$");
+    }
+    static isSHA1(s) {
+      return get_utils.GetUtils.hasMatch(s, "(([A-Fa-f0-9]{2}\\:){19}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{40})");
+    }
+    static isSHA256(s) {
+      return get_utils.GetUtils.hasMatch(s, "([A-Fa-f0-9]{2}\\:){31}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{64}");
+    }
+    static isSSN(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(?!0{3}|6{3}|9[0-9]{2})[0-9]{3}-?(?!0{2})[0-9]{2}-?(?!0{4})[0-9]{4}$");
+    }
+    static isBinary(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[0-1]+$");
+    }
+    static isIPv4(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(?:(?:^|\\.)(?:2(?:5[0-5]|[0-4]\\d)|1?\\d?\\d)){4}$");
+    }
+    static isIPv6(s) {
+      return get_utils.GetUtils.hasMatch(s, "^((([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}:([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){4}:([0-9A-Fa-f]{1,4}:){0,2}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){3}:([0-9A-Fa-f]{1,4}:){0,3}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){2}:([0-9A-Fa-f]{1,4}:){0,4}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(([0-9A-Fa-f]{1,4}:){0,5}:((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(::([0-9A-Fa-f]{1,4}:){0,5}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|([0-9A-Fa-f]{1,4}::([0-9A-Fa-f]{1,4}:){0,5}[0-9A-Fa-f]{1,4})|(::([0-9A-Fa-f]{1,4}:){0,6}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,7}:))$");
+    }
+    static isHexadecimal(s) {
+      return get_utils.GetUtils.hasMatch(s, "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$");
+    }
+    static isPalindrom(string) {
+      let cleanString = string[$toLowerCase]()[$replaceAll](core.RegExp.new("\\s+"), "")[$replaceAll](core.RegExp.new("[^0-9a-zA-Z]+"), "");
+      for (let i = 0; i < cleanString.length; i = i + 1) {
+        if (cleanString[$_get](i) !== cleanString[$_get](cleanString.length - i - 1)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    static isOneAKind(value) {
+      if ((typeof value == 'string' || core.List.is(value)) && !dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
+        let first = dart.dsend(value, '_get', [0]);
+        let len = core.num.as(dart.dload(value, 'length'));
+        for (let i = 0; i < len; i = i + 1) {
+          if (!dart.equals(dart.dsend(value, '_get', [i]), first)) {
             return false;
           }
         }
+        return true;
       }
-      return super.isPointerAllowed(event);
+      if (core.int.is(value)) {
+        let stringValue = dart.toString(value);
+        let first = stringValue[$_get](0);
+        for (let i = 0; i < stringValue.length; i = i + 1) {
+          if (stringValue[$_get](i) !== first) {
+            return false;
+          }
+        }
+        return true;
+      }
+      return false;
     }
-    addAllowedPointer(event) {
-      if (this[_firstTap] != null) {
-        if (!dart.nullCheck(this[_firstTap]).isWithinGlobalTolerance(event, 100)) {
-          return;
-        } else if (!dart.nullCheck(this[_firstTap]).hasElapsedMinTime() || !dart.nullCheck(this[_firstTap]).hasSameButton(event)) {
-          this[_reset]();
-          return this[_trackTap](event);
-        } else if (this.onDoubleTapDown != null) {
-          let details = new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: this.getKindForPointer(event.pointer)});
-          this.invokeCallback(dart.void, "onDoubleTapDown", dart.fn(() => dart.nullCheck(this.onDoubleTapDown)(details), T.VoidTovoid()));
+    static isPassport(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(?!^0+$)[a-zA-Z0-9]{6,9}$");
+    }
+    static isCurrency(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(S?\\$|\\₩|Rp|\\¥|\\€|\\₹|\\₽|fr|R\\$|R)?[ ]?[-]?([0-9]{1,3}[,.]([0-9]{3}[,.])*[0-9]{3}|[0-9]+)([,.][0-9]{1,2})?( ?(USD?|AUD|NZD|CAD|CHF|GBP|CNY|EUR|JPY|IDR|MXN|NOK|KRW|TRY|INR|RUB|BRL|ZAR|SGD|MYR))?$");
+    }
+    static isLengthGreaterThan(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) > maxLength;
+    }
+    static isLengthGreaterOrEqual(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) >= maxLength;
+    }
+    static isLengthLowerThan(value, maxLength) {
+      return get_utils.GetUtils.isLengthLessThan(value, maxLength);
+    }
+    static isLengthLessThan(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) < maxLength;
+    }
+    static isLengthLowerOrEqual(value, maxLength) {
+      return get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
+    }
+    static isLengthLessOrEqual(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) <= maxLength;
+    }
+    static isLengthEqualTo(value, otherLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return length === otherLength;
+    }
+    static isLengthBetween(value, minLength, maxLength) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return false;
+      }
+      return get_utils.GetUtils.isLengthGreaterOrEqual(value, minLength) && get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
+    }
+    static isCaseInsensitiveContains(a, b) {
+      return a[$toLowerCase]()[$contains](b[$toLowerCase]());
+    }
+    static isCaseInsensitiveContainsAny(a, b) {
+      let lowA = a[$toLowerCase]();
+      let lowB = b[$toLowerCase]();
+      return lowA[$contains](lowB) || lowB[$contains](lowA);
+    }
+    static isLowerThan(a, b) {
+      return a < b;
+    }
+    static isGreaterThan(a, b) {
+      return a > b;
+    }
+    static isEqual(a, b) {
+      return a === b;
+    }
+    static isCnpj(cnpj) {
+      let t0, t0$;
+      let numbers = cnpj[$replaceAll](core.RegExp.new("[^0-9]"), "");
+      if (numbers.length !== 14) {
+        return false;
+      }
+      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
+        return false;
+      }
+      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
+      let calcDv1 = 0;
+      let j = 0;
+      let iter = T.IterableOfint().generate(12, dart.fn(i => i < 4 ? 5 - i : 13 - i, T.intToint()));
+      for (let i of iter) {
+        calcDv1 = calcDv1 + digits[$_get]((t0 = j, j = t0 + 1, t0)) * i;
+      }
+      calcDv1 = calcDv1[$modulo](11);
+      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
+      if (digits[$_get](12) !== dv1) {
+        return false;
+      }
+      let calcDv2 = 0;
+      j = 0;
+      let iter$ = T.IterableOfint().generate(13, dart.fn(i => i < 5 ? 6 - i : 14 - i, T.intToint()));
+      for (let i of iter$) {
+        calcDv2 = calcDv2 + digits[$_get]((t0$ = j, j = t0$ + 1, t0$)) * i;
+      }
+      calcDv2 = calcDv2[$modulo](11);
+      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
+      if (digits[$_get](13) !== dv2) {
+        return false;
+      }
+      return true;
+    }
+    static isCpf(cpf) {
+      let numbers = cpf[$replaceAll](core.RegExp.new("[^0-9]"), "");
+      if (numbers.length !== 11) {
+        return false;
+      }
+      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
+        return false;
+      }
+      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
+      let calcDv1 = 0;
+      let iter = T.IterableOfint().generate(9, dart.fn(i => 10 - i, T.intToint()));
+      for (let i of iter) {
+        calcDv1 = calcDv1 + digits[$_get](10 - i) * i;
+      }
+      calcDv1 = calcDv1[$modulo](11);
+      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
+      if (digits[$_get](9) !== dv1) {
+        return false;
+      }
+      let calcDv2 = 0;
+      let iter$ = T.IterableOfint().generate(10, dart.fn(i => 11 - i, T.intToint()));
+      for (let i of iter$) {
+        calcDv2 = calcDv2 + digits[$_get](11 - i) * i;
+      }
+      calcDv2 = calcDv2[$modulo](11);
+      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
+      if (digits[$_get](10) !== dv2) {
+        return false;
+      }
+      return true;
+    }
+    static capitalize(value) {
+      if (get_utils.GetUtils.isNull(value)) return null;
+      if (dart.nullCheck(get_utils.GetUtils.isBlank(value))) return value;
+      return value[$split](" ")[$map](T.StringN(), C[1] || CT.C1)[$join](" ");
+    }
+    static capitalizeFirst(s) {
+      if (get_utils.GetUtils.isNull(s)) return null;
+      if (dart.nullCheck(get_utils.GetUtils.isBlank(s))) return s;
+      return s[$_get](0)[$toUpperCase]() + s[$substring](1)[$toLowerCase]();
+    }
+    static removeAllWhitespace(value) {
+      return value[$replaceAll](" ", "");
+    }
+    static camelCase(value) {
+      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
+        return null;
+      }
+      let separatedWords = value[$split](core.RegExp.new("[!@#<>?\":`~;[\\]\\\\|=+)(*&^%-\\s_]+"));
+      let newString = "";
+      for (let word of separatedWords) {
+        newString = newString + (word[$_get](0)[$toUpperCase]() + word[$substring](1)[$toLowerCase]());
+      }
+      return newString[$_get](0)[$toLowerCase]() + newString[$substring](1);
+    }
+    static numericOnly(s, opts) {
+      let firstWordOnly = opts && 'firstWordOnly' in opts ? opts.firstWordOnly : false;
+      let numericOnlyStr = "";
+      for (let i = 0; i < s.length; i = i + 1) {
+        if (get_utils.GetUtils.isNumericOnly(s[$_get](i))) {
+          numericOnlyStr = numericOnlyStr + s[$_get](i);
+        }
+        if (firstWordOnly && numericOnlyStr[$isNotEmpty] && s[$_get](i) === " ") {
+          break;
         }
       }
-      this[_trackTap](event);
+      return numericOnlyStr;
     }
-    [_trackTap](event) {
-      this[_stopDoubleTapTimer]();
-      let tracker = new multitap._TapTracker.new({event: event, entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, this), doubleTapMinTime: constants.kDoubleTapMinTime});
-      this[_trackers][$_set](event.pointer, tracker);
-      tracker.startTrackingPointer(dart.bind(this, _handleEvent), event.transform);
+    static hasMatch(value, pattern) {
+      return value == null ? false : core.RegExp.new(pattern).hasMatch(value);
     }
-    [_handleEvent](event) {
-      let tracker = dart.nullCheck(this[_trackers][$_get](event.pointer));
-      if (events.PointerUpEvent.is(event)) {
-        if (this[_firstTap] == null)
-          this[_registerFirstTap](tracker);
-        else
-          this[_registerSecondTap](tracker);
-      } else if (events.PointerMoveEvent.is(event)) {
-        if (!tracker.isWithinGlobalTolerance(event, 18)) this[_reject](tracker);
-      } else if (events.PointerCancelEvent.is(event)) {
-        this[_reject](tracker);
+    static createPath(path, segments = null) {
+      if (segments == null || segments[$isEmpty]) {
+        return path;
       }
+      let list = segments[$map](core.String, dart.fn(e => "/" + dart.str(e), T.dynamicToString()));
+      return path + list[$join]();
     }
-    acceptGesture(pointer) {
-    }
-    rejectGesture(pointer) {
-      let tracker = this[_trackers][$_get](pointer);
-      if (tracker == null && this[_firstTap] != null && dart.nullCheck(this[_firstTap]).pointer === pointer) tracker = this[_firstTap];
-      if (tracker != null) this[_reject](tracker);
-    }
-    [_reject](tracker) {
-      this[_trackers][$remove](tracker.pointer);
-      tracker.entry.resolve(arena.GestureDisposition.rejected);
-      this[_freezeTracker](tracker);
-      if (this[_firstTap] != null) {
-        if (tracker[$_equals](this[_firstTap])) {
-          this[_reset]();
-        } else {
-          this[_checkCancel]();
-          if (this[_trackers][$isEmpty]) this[_reset]();
-        }
-      }
-    }
-    dispose() {
-      this[_reset]();
-      super.dispose();
-    }
-    [_reset]() {
-      this[_stopDoubleTapTimer]();
-      if (this[_firstTap] != null) {
-        if (this[_trackers][$isNotEmpty]) this[_checkCancel]();
-        let tracker = dart.nullCheck(this[_firstTap]);
-        this[_firstTap] = null;
-        this[_reject](tracker);
-        dart.nullCheck(binding.GestureBinding.instance).gestureArena.release(tracker.pointer);
-      }
-      this[_clearTrackers]();
-    }
-    [_registerFirstTap](tracker) {
-      this[_startDoubleTapTimer]();
-      dart.nullCheck(binding.GestureBinding.instance).gestureArena.hold(tracker.pointer);
-      this[_freezeTracker](tracker);
-      this[_trackers][$remove](tracker.pointer);
-      this[_clearTrackers]();
-      this[_firstTap] = tracker;
-    }
-    [_registerSecondTap](tracker) {
-      dart.nullCheck(this[_firstTap]).entry.resolve(arena.GestureDisposition.accepted);
-      tracker.entry.resolve(arena.GestureDisposition.accepted);
-      this[_freezeTracker](tracker);
-      this[_trackers][$remove](tracker.pointer);
-      this[_checkUp](tracker.initialButtons);
-      this[_reset]();
-    }
-    [_clearTrackers]() {
-      this[_trackers][$values][$toList]()[$forEach](dart.bind(this, _reject));
-      if (!this[_trackers][$isEmpty]) dart.assertFailed(null, I[0], 332, 12, "_trackers.isEmpty");
-    }
-    [_freezeTracker](tracker) {
-      tracker.stopTrackingPointer(dart.bind(this, _handleEvent));
-    }
-    [_startDoubleTapTimer]() {
-      this[_doubleTapTimer] == null ? this[_doubleTapTimer] = async.Timer.new(constants.kDoubleTapTimeout, dart.bind(this, _reset)) : null;
-    }
-    [_stopDoubleTapTimer]() {
-      if (this[_doubleTapTimer] != null) {
-        dart.nullCheck(this[_doubleTapTimer]).cancel();
-        this[_doubleTapTimer] = null;
-      }
-    }
-    [_checkUp](buttons) {
-      if (!(buttons === 1)) dart.assertFailed(null, I[0], 351, 12, "buttons == kPrimaryButton");
-      if (this.onDoubleTap != null) this.invokeCallback(dart.void, "onDoubleTap", dart.nullCheck(this.onDoubleTap));
-    }
-    [_checkCancel]() {
-      if (this.onDoubleTapCancel != null) this.invokeCallback(dart.void, "onDoubleTapCancel", dart.nullCheck(this.onDoubleTapCancel));
-    }
-    get debugDescription() {
-      return "double tap";
+    static printFunction(prefix, value, info, opts) {
+      let t2, t1, t0;
+      let isError = opts && 'isError' in opts ? opts.isError : false;
+      t0 = get_main.Get;
+      t1 = (prefix + " " + dart.str(value) + " " + info)[$trim]();
+      t2 = isError;
+      t0.log(t1, {isError: t2});
     }
   };
-  (multitap.DoubleTapGestureRecognizer.new = function(opts) {
-    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
-    let kind = opts && 'kind' in opts ? opts.kind : null;
-    this[onDoubleTapDown] = null;
-    this[onDoubleTap] = null;
-    this[onDoubleTapCancel] = null;
-    this[_doubleTapTimer] = null;
-    this[_firstTap] = null;
-    this[_trackers] = new (T.IdentityMapOfint$_TapTracker()).new();
-    multitap.DoubleTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+  (get_utils.GetUtils.__ = function() {
     ;
-  }).prototype = multitap.DoubleTapGestureRecognizer.prototype;
-  dart.addTypeTests(multitap.DoubleTapGestureRecognizer);
-  dart.addTypeCaches(multitap.DoubleTapGestureRecognizer);
-  dart.setMethodSignature(multitap.DoubleTapGestureRecognizer, () => ({
-    __proto__: dart.getMethods(multitap.DoubleTapGestureRecognizer.__proto__),
-    [_trackTap]: dart.fnType(dart.void, [events.PointerDownEvent]),
-    [_handleEvent]: dart.fnType(dart.void, [events.PointerEvent]),
-    acceptGesture: dart.fnType(dart.void, [core.int]),
-    rejectGesture: dart.fnType(dart.void, [core.int]),
-    [_reject]: dart.fnType(dart.void, [multitap._TapTracker]),
-    [_reset]: dart.fnType(dart.void, []),
-    [_registerFirstTap]: dart.fnType(dart.void, [multitap._TapTracker]),
-    [_registerSecondTap]: dart.fnType(dart.void, [multitap._TapTracker]),
-    [_clearTrackers]: dart.fnType(dart.void, []),
-    [_freezeTracker]: dart.fnType(dart.void, [multitap._TapTracker]),
-    [_startDoubleTapTimer]: dart.fnType(dart.void, []),
-    [_stopDoubleTapTimer]: dart.fnType(dart.void, []),
-    [_checkUp]: dart.fnType(dart.void, [core.int]),
-    [_checkCancel]: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(multitap.DoubleTapGestureRecognizer, () => ({
-    __proto__: dart.getGetters(multitap.DoubleTapGestureRecognizer.__proto__),
-    debugDescription: core.String
-  }));
-  dart.setLibraryUri(multitap.DoubleTapGestureRecognizer, I[1]);
-  dart.setFieldSignature(multitap.DoubleTapGestureRecognizer, () => ({
-    __proto__: dart.getFields(multitap.DoubleTapGestureRecognizer.__proto__),
-    onDoubleTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapDownDetails]))),
-    onDoubleTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    onDoubleTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    [_doubleTapTimer]: dart.fieldType(dart.nullable(async.Timer)),
-    [_firstTap]: dart.fieldType(dart.nullable(multitap._TapTracker)),
-    [_trackers]: dart.finalFieldType(core.Map$(core.int, multitap._TapTracker))
-  }));
-  var _wonArena = dart.privateName(multitap, "_wonArena");
-  var _timer = dart.privateName(multitap, "_timer");
-  var _finalPosition = dart.privateName(multitap, "_finalPosition");
-  var _lastPosition = dart.privateName(multitap, "_lastPosition");
-  var _dispatchLongTap = dart.privateName(multitap, "_dispatchLongTap");
-  var _check = dart.privateName(multitap, "_check");
-  var _dispatchCancel = dart.privateName(multitap, "_dispatchCancel");
-  var _dispatchTap = dart.privateName(multitap, "_dispatchTap");
-  multitap._TapGesture = class _TapGesture extends multitap._TapTracker {
-    handleEvent(event) {
-      if (!(event.pointer === this.pointer)) dart.assertFailed(null, I[0], 398, 12, "event.pointer == pointer");
-      if (events.PointerMoveEvent.is(event)) {
-        if (!this.isWithinGlobalTolerance(event, events.computeHitSlop(event.kind)))
-          this.cancel();
-        else
-          this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
-      } else if (events.PointerCancelEvent.is(event)) {
-        this.cancel();
-      } else if (events.PointerUpEvent.is(event)) {
-        this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
-        this[_finalPosition] = recognizer.OffsetPair.fromEventPosition(event);
-        this[_check]();
-      }
+  }).prototype = get_utils.GetUtils.prototype;
+  dart.addTypeTests(get_utils.GetUtils);
+  dart.addTypeCaches(get_utils.GetUtils);
+  dart.setLibraryUri(get_utils.GetUtils, I[0]);
+  get_utils._isEmpty = function _isEmpty(value) {
+    if (typeof value == 'string') {
+      return dart.toString(value)[$trim]()[$isEmpty];
     }
-    stopTrackingPointer(route) {
-      let t0;
-      t0 = this[_timer];
-      t0 == null ? null : t0.cancel();
-      this[_timer] = null;
-      super.stopTrackingPointer(route);
+    if (core.Iterable.is(value) || core.Map.is(value)) {
+      return T.boolN().as(dart.dload(value, 'isEmpty'));
     }
-    accept() {
-      this[_wonArena] = true;
-      this[_check]();
-    }
-    reject() {
-      this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
-      this.gestureRecognizer[_dispatchCancel](this.pointer);
-    }
-    cancel() {
-      if (this[_wonArena])
-        this.reject();
-      else
-        this.entry.resolve(arena.GestureDisposition.rejected);
-    }
-    [_check]() {
-      if (this[_wonArena] && this[_finalPosition] != null) this.gestureRecognizer[_dispatchTap](this.pointer, dart.nullCheck(this[_finalPosition]));
-    }
+    return false;
   };
-  (multitap._TapGesture.new = function(opts) {
-    let gestureRecognizer = opts && 'gestureRecognizer' in opts ? opts.gestureRecognizer : null;
-    let event = opts && 'event' in opts ? opts.event : null;
-    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : null;
-    this[_wonArena] = false;
-    this[_timer] = null;
-    this[_finalPosition] = null;
-    this.gestureRecognizer = gestureRecognizer;
-    this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
-    multitap._TapGesture.__proto__.new.call(this, {event: events.PointerDownEvent.as(event), entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, gestureRecognizer), doubleTapMinTime: constants.kDoubleTapMinTime});
-    this.startTrackingPointer(dart.bind(this, 'handleEvent'), event.transform);
-    if (longTapDelay['>'](core.Duration.zero)) {
-      this[_timer] = async.Timer.new(longTapDelay, dart.fn(() => {
-        this[_timer] = null;
-        this.gestureRecognizer[_dispatchLongTap](event.pointer, this[_lastPosition]);
-      }, T.VoidTovoid()));
-    }
-  }).prototype = multitap._TapGesture.prototype;
-  dart.addTypeTests(multitap._TapGesture);
-  dart.addTypeCaches(multitap._TapGesture);
-  dart.setMethodSignature(multitap._TapGesture, () => ({
-    __proto__: dart.getMethods(multitap._TapGesture.__proto__),
-    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
-    accept: dart.fnType(dart.void, []),
-    reject: dart.fnType(dart.void, []),
-    cancel: dart.fnType(dart.void, []),
-    [_check]: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(multitap._TapGesture, I[1]);
-  dart.setFieldSignature(multitap._TapGesture, () => ({
-    __proto__: dart.getFields(multitap._TapGesture.__proto__),
-    gestureRecognizer: dart.finalFieldType(multitap.MultiTapGestureRecognizer),
-    [_wonArena]: dart.fieldType(core.bool),
-    [_timer]: dart.fieldType(dart.nullable(async.Timer)),
-    [_lastPosition]: dart.fieldType(recognizer.OffsetPair),
-    [_finalPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair))
-  }));
-  var onTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapDown");
-  var onTapUp = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapUp");
-  var onTap = dart.privateName(multitap, "MultiTapGestureRecognizer.onTap");
-  var onTapCancel = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapCancel");
-  var longTapDelay$ = dart.privateName(multitap, "MultiTapGestureRecognizer.longTapDelay");
-  var onLongTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onLongTapDown");
-  var Duration__duration = dart.privateName(core, "Duration._duration");
-  var _gestureMap = dart.privateName(multitap, "_gestureMap");
-  multitap.MultiTapGestureRecognizer = class MultiTapGestureRecognizer extends recognizer.GestureRecognizer {
-    get onTapDown() {
-      return this[onTapDown];
-    }
-    set onTapDown(value) {
-      this[onTapDown] = value;
-    }
-    get onTapUp() {
-      return this[onTapUp];
-    }
-    set onTapUp(value) {
-      this[onTapUp] = value;
-    }
-    get onTap() {
-      return this[onTap];
-    }
-    set onTap(value) {
-      this[onTap] = value;
-    }
-    get onTapCancel() {
-      return this[onTapCancel];
-    }
-    set onTapCancel(value) {
-      this[onTapCancel] = value;
-    }
-    get longTapDelay() {
-      return this[longTapDelay$];
-    }
-    set longTapDelay(value) {
-      this[longTapDelay$] = value;
-    }
-    get onLongTapDown() {
-      return this[onLongTapDown];
-    }
-    set onLongTapDown(value) {
-      this[onLongTapDown] = value;
-    }
-    addAllowedPointer(event) {
-      if (!!this[_gestureMap][$containsKey](event.pointer)) dart.assertFailed(null, I[0], 491, 12, "!_gestureMap.containsKey(event.pointer)");
-      this[_gestureMap][$_set](event.pointer, new multitap._TapGesture.new({gestureRecognizer: this, event: event, longTapDelay: this.longTapDelay}));
-      if (this.onTapDown != null) this.invokeCallback(dart.void, "onTapDown", dart.fn(() => {
-        dart.nullCheck(this.onTapDown)(event.pointer, new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: event.kind}));
-      }, T.VoidTovoid()));
-    }
-    acceptGesture(pointer) {
-      if (!this[_gestureMap][$containsKey](pointer)) dart.assertFailed(null, I[0], 509, 12, "_gestureMap.containsKey(pointer)");
-      dart.nullCheck(this[_gestureMap][$_get](pointer)).accept();
-    }
-    rejectGesture(pointer) {
-      if (!this[_gestureMap][$containsKey](pointer)) dart.assertFailed(null, I[0], 515, 12, "_gestureMap.containsKey(pointer)");
-      dart.nullCheck(this[_gestureMap][$_get](pointer)).reject();
-      if (!!this[_gestureMap][$containsKey](pointer)) dart.assertFailed(null, I[0], 517, 12, "!_gestureMap.containsKey(pointer)");
-    }
-    [_dispatchCancel](pointer) {
-      if (!this[_gestureMap][$containsKey](pointer)) dart.assertFailed(null, I[0], 521, 12, "_gestureMap.containsKey(pointer)");
-      this[_gestureMap][$remove](pointer);
-      if (this.onTapCancel != null) this.invokeCallback(dart.void, "onTapCancel", dart.fn(() => dart.nullCheck(this.onTapCancel)(pointer), T.VoidTovoid()));
-    }
-    [_dispatchTap](pointer, position) {
-      if (!this[_gestureMap][$containsKey](pointer)) dart.assertFailed(null, I[0], 528, 12, "_gestureMap.containsKey(pointer)");
-      this[_gestureMap][$remove](pointer);
-      if (this.onTapUp != null) this.invokeCallback(dart.void, "onTapUp", dart.fn(() => {
-        dart.nullCheck(this.onTapUp)(pointer, new tap.TapUpDetails.new({kind: this.getKindForPointer(pointer), localPosition: position.local, globalPosition: position.global}));
-      }, T.VoidTovoid()));
-      if (this.onTap != null) this.invokeCallback(dart.void, "onTap", dart.fn(() => dart.nullCheck(this.onTap)(pointer), T.VoidTovoid()));
-    }
-    [_dispatchLongTap](pointer, lastPosition) {
-      if (!this[_gestureMap][$containsKey](pointer)) dart.assertFailed(null, I[0], 543, 12, "_gestureMap.containsKey(pointer)");
-      if (this.onLongTapDown != null) this.invokeCallback(dart.void, "onLongTapDown", dart.fn(() => {
-        dart.nullCheck(this.onLongTapDown)(pointer, new tap.TapDownDetails.new({globalPosition: lastPosition.global, localPosition: lastPosition.local, kind: this.getKindForPointer(pointer)}));
-      }, T.VoidTovoid()));
-    }
-    dispose() {
-      let localGestures = T.ListOf_TapGesture().from(this[_gestureMap][$values]);
-      for (let gesture of localGestures)
-        gesture.cancel();
-      if (!this[_gestureMap][$isEmpty]) dart.assertFailed(null, I[0], 563, 12, "_gestureMap.isEmpty");
-      super.dispose();
-    }
-    get debugDescription() {
-      return "multitap";
-    }
+  get_utils._hasLength = function _hasLength(value) {
+    return core.Iterable.is(value) || typeof value == 'string' || core.Map.is(value);
   };
-  (multitap.MultiTapGestureRecognizer.new = function(opts) {
-    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : C[0] || CT.C0;
-    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
-    let kind = opts && 'kind' in opts ? opts.kind : null;
-    this[onTapDown] = null;
-    this[onTapUp] = null;
-    this[onTap] = null;
-    this[onTapCancel] = null;
-    this[onLongTapDown] = null;
-    this[_gestureMap] = new (T.IdentityMapOfint$_TapGesture()).new();
-    this[longTapDelay$] = longTapDelay;
-    multitap.MultiTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
-    ;
-  }).prototype = multitap.MultiTapGestureRecognizer.prototype;
-  dart.addTypeTests(multitap.MultiTapGestureRecognizer);
-  dart.addTypeCaches(multitap.MultiTapGestureRecognizer);
-  dart.setMethodSignature(multitap.MultiTapGestureRecognizer, () => ({
-    __proto__: dart.getMethods(multitap.MultiTapGestureRecognizer.__proto__),
-    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
-    acceptGesture: dart.fnType(dart.void, [core.int]),
-    rejectGesture: dart.fnType(dart.void, [core.int]),
-    [_dispatchCancel]: dart.fnType(dart.void, [core.int]),
-    [_dispatchTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair]),
-    [_dispatchLongTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair])
-  }));
-  dart.setGetterSignature(multitap.MultiTapGestureRecognizer, () => ({
-    __proto__: dart.getGetters(multitap.MultiTapGestureRecognizer.__proto__),
-    debugDescription: core.String
-  }));
-  dart.setLibraryUri(multitap.MultiTapGestureRecognizer, I[1]);
-  dart.setFieldSignature(multitap.MultiTapGestureRecognizer, () => ({
-    __proto__: dart.getFields(multitap.MultiTapGestureRecognizer.__proto__),
-    onTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
-    onTapUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapUpDetails]))),
-    onTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
-    onTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
-    longTapDelay: dart.fieldType(core.Duration),
-    onLongTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
-    [_gestureMap]: dart.finalFieldType(core.Map$(core.int, multitap._TapGesture))
-  }));
-  dart.trackLibraries("packages/flutter/src/gestures/multitap.dart", {
-    "package:flutter/src/gestures/multitap.dart": multitap
+  get_utils._obtainDynamicLength = function _obtainDynamicLength(value) {
+    if (value == null) {
+      return null;
+    }
+    if (get_utils._hasLength(value)) {
+      return T.intN().as(dart.dload(value, 'length'));
+    }
+    if (core.int.is(value)) {
+      return dart.toString(value).length;
+    }
+    if (typeof value == 'number') {
+      return dart.toString(value)[$replaceAll](".", "").length;
+    }
+    return null;
+  };
+  dart.trackLibraries("packages/get/get_utils/src/get_utils/get_utils.dart", {
+    "package:get/get_utils/src/get_utils/get_utils.dart": get_utils
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["multitap.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/gestures/multitap.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["get_utils.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/get/get_utils/src/get_utils/get_utils.dart.lib.js"}');
   // Exports:
   return {
-    src__gestures__multitap: multitap
+    get_utils__src__get_utils__get_utils: get_utils
   };
 }));
 
-//# sourceMappingURL=multitap.dart.lib.js.map
+//# sourceMappingURL=get_utils.dart.lib.js.map

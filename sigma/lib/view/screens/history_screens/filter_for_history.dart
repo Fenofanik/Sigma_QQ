@@ -4,10 +4,9 @@ import 'package:get/get.dart';
 import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
+import 'package:sigma/core/ui/widgets/base_stateful_widget.dart';
 
-class HistoryFilter extends StatefulWidget {
-  const HistoryFilter({Key? key}) : super(key: key);
-
+class HistoryFilter extends BaseStatefulWidget {
   @override
   _HistoryFilterState createState() => _HistoryFilterState();
 }

@@ -70,12 +70,15 @@ class _RegScreenState extends State<RegScreen> {
            Padding(
               padding:
                   const EdgeInsets.only(left: 16, right: 16, bottom: 20, top: 40),
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
-                child: Text(
-                  "ДЕЛЕЕ",
-                  style: TextStyles().style_5,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
+                  child: Text(
+                    "ДЕЛЕЕ",
+                    style: TextStyles().style_5,
+                  ),
                 ),
               ),
             ),

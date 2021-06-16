@@ -1,46 +1,18 @@
-define(['dart_sdk', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/stack.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__flutter__src__rendering__debug_overflow_indicator_dart(dart_sdk, packages__flutter__src__painting__placeholder_span$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__stack$46dart, packages__flutter__src__painting__strut_style$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/velocity_tracker.dart', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__long_press_dart(dart_sdk, packages__flutter__src__gestures__velocity_tracker$46dart, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__recognizer$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
-  const _interceptors = dart_sdk._interceptors;
-  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const text_painter = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_painter;
-  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
-  const stack = packages__flutter__src__rendering__stack$46dart.src__rendering__stack;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  var debug_overflow_indicator = Object.create(dart.library);
-  var $length = dartx.length;
-  var $toStringAsFixed = dartx.toStringAsFixed;
-  var $toStringAsPrecision = dartx.toStringAsPrecision;
-  var $add = dartx.add;
-  var $isEmpty = dartx.isEmpty;
-  var $runtimeType = dartx.runtimeType;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $first = dartx.first;
-  var $last = dartx.last;
-  var $_get = dartx._get;
-  var $_set = dartx._set;
-  var $join = dartx.join;
-  var $times = dartx['*'];
-  var $truncate = dartx.truncate;
+  const velocity_tracker = packages__flutter__src__gestures__velocity_tracker$46dart.src__gestures__velocity_tracker;
+  const constants = packages__flutter__src__gestures__constants$46dart.src__gestures__constants;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  var long_press = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    ListOfTextPainter: () => (T.ListOfTextPainter = dart.constFn(core.List$(text_painter.TextPainter)))(),
-    JSArrayOf_OverflowRegionData: () => (T.JSArrayOf_OverflowRegionData = dart.constFn(_interceptors.JSArray$(debug_overflow_indicator._OverflowRegionData)))(),
-    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
-    SyncIterableOfDiagnosticsNode: () => (T.SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))(),
-    IterableOfDiagnosticsNode: () => (T.IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))(),
-    VoidToIterableOfDiagnosticsNode: () => (T.VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(T.IterableOfDiagnosticsNode(), [])))(),
-    TextSpanN: () => (T.TextSpanN = dart.constFn(dart.nullable(text_span.TextSpan)))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    JSArrayOfColor: () => (T.JSArrayOfColor = dart.constFn(_interceptors.JSArray$(ui.Color)))(),
-    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))()
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -48,428 +20,536 @@ define(['dart_sdk', 'packages/flutter/src/painting/placeholder_span.dart', 'pack
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: debug_overflow_indicator._OverflowSide.prototype,
-        [_name$]: "_OverflowSide.left",
-        index: 0
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: debug_overflow_indicator._OverflowSide.prototype,
-        [_name$]: "_OverflowSide.top",
-        index: 1
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: debug_overflow_indicator._OverflowSide.prototype,
-        [_name$]: "_OverflowSide.bottom",
-        index: 2
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: debug_overflow_indicator._OverflowSide.prototype,
-        [_name$]: "_OverflowSide.right",
-        index: 3
-      });
-    },
-    get C4() {
-      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], debug_overflow_indicator._OverflowSide);
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 0
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 8.5
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 1,
-        [OffsetBase__dx]: 0
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 8.5,
-        [OffsetBase__dx]: 0
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 3204448256.0
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 3221225216.0
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: ui.FontWeight.prototype,
-        [FontWeight_index]: 7
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287627264.0
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: text_style.TextStyle.prototype,
-        [TextStyle_fontFeatures]: null,
-        [TextStyle_shadows]: null,
-        [TextStyle_debugLabel]: null,
-        [TextStyle_decorationThickness]: null,
-        [TextStyle_decorationStyle]: null,
-        [TextStyle_decorationColor]: null,
-        [TextStyle_decoration]: null,
-        [TextStyle_background]: null,
-        [TextStyle_foreground]: null,
-        [TextStyle_locale]: null,
-        [TextStyle_leadingDistribution]: null,
-        [TextStyle_height]: null,
-        [TextStyle_textBaseline]: null,
-        [TextStyle_wordSpacing]: null,
-        [TextStyle_letterSpacing]: null,
-        [TextStyle_fontStyle]: null,
-        [TextStyle_fontWeight]: C[12] || CT.C12,
-        [TextStyle_fontSize]: 7.5,
-        [TextStyle__package]: null,
-        [TextStyle__fontFamilyFallback]: null,
-        [TextStyle_fontFamily]: null,
-        [TextStyle_backgroundColor]: null,
-        [TextStyle_color]: C[13] || CT.C13,
-        [TextStyle_inherit]: true
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 10,
-        [OffsetBase__dx]: 10
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294967295.0
+        __proto__: velocity_tracker.Velocity.prototype,
+        [Velocity_pixelsPerSecond]: C[0] || CT.C0
       });
     }
   }, false);
-  var C = Array(16).fill(void 0);
+  var C = Array(2).fill(void 0);
   var I = [
-    "package:flutter/src/rendering/debug_overflow_indicator.dart",
-    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/rendering/debug_overflow_indicator.dart"
+    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/gestures/long_press.dart",
+    "package:flutter/src/gestures/long_press.dart"
   ];
-  var _name$ = dart.privateName(debug_overflow_indicator, "_name");
-  debug_overflow_indicator._OverflowSide = class _OverflowSide extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (debug_overflow_indicator._OverflowSide.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = debug_overflow_indicator._OverflowSide.prototype;
-  dart.addTypeTests(debug_overflow_indicator._OverflowSide);
-  dart.addTypeCaches(debug_overflow_indicator._OverflowSide);
-  dart.setLibraryUri(debug_overflow_indicator._OverflowSide, I[0]);
-  dart.setFieldSignature(debug_overflow_indicator._OverflowSide, () => ({
-    __proto__: dart.getFields(debug_overflow_indicator._OverflowSide.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(debug_overflow_indicator._OverflowSide, ['toString']);
-  debug_overflow_indicator._OverflowSide.left = C[0] || CT.C0;
-  debug_overflow_indicator._OverflowSide.top = C[1] || CT.C1;
-  debug_overflow_indicator._OverflowSide.bottom = C[2] || CT.C2;
-  debug_overflow_indicator._OverflowSide.right = C[3] || CT.C3;
-  debug_overflow_indicator._OverflowSide.values = C[4] || CT.C4;
-  var rect$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.rect");
-  var label$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.label");
-  var labelOffset$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.labelOffset");
-  var rotation$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.rotation");
-  var side$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.side");
+  var globalPosition$ = dart.privateName(long_press, "LongPressStartDetails.globalPosition");
+  var localPosition$ = dart.privateName(long_press, "LongPressStartDetails.localPosition");
   var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
   var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  debug_overflow_indicator._OverflowRegionData = class _OverflowRegionData extends core.Object {
-    get rect() {
-      return this[rect$];
+  long_press.LongPressStartDetails = class LongPressStartDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$];
     }
-    set rect(value) {
-      super.rect = value;
+    set globalPosition(value) {
+      super.globalPosition = value;
     }
-    get label() {
-      return this[label$];
+    get localPosition() {
+      return this[localPosition$];
     }
-    set label(value) {
-      super.label = value;
-    }
-    get labelOffset() {
-      return this[labelOffset$];
-    }
-    set labelOffset(value) {
-      super.labelOffset = value;
-    }
-    get rotation() {
-      return this[rotation$];
-    }
-    set rotation(value) {
-      super.rotation = value;
-    }
-    get side() {
-      return this[side$];
-    }
-    set side(value) {
-      super.side = value;
+    set localPosition(value) {
+      super.localPosition = value;
     }
   };
-  (debug_overflow_indicator._OverflowRegionData.new = function(opts) {
-    let rect = opts && 'rect' in opts ? opts.rect : null;
-    let label = opts && 'label' in opts ? opts.label : "";
-    let labelOffset = opts && 'labelOffset' in opts ? opts.labelOffset : C[5] || CT.C5;
-    let rotation = opts && 'rotation' in opts ? opts.rotation : 0;
-    let side = opts && 'side' in opts ? opts.side : null;
-    this[rect$] = rect;
-    this[label$] = label;
-    this[labelOffset$] = labelOffset;
-    this[rotation$] = rotation;
-    this[side$] = side;
+  (long_press.LongPressStartDetails.new = function(opts) {
+    let t0;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    this[globalPosition$] = globalPosition;
+    if (!(globalPosition !== null)) dart.assertFailed(null, I[0], 59, 15, "globalPosition != null");
+    this[localPosition$] = (t0 = localPosition, t0 == null ? globalPosition : t0);
     ;
-  }).prototype = debug_overflow_indicator._OverflowRegionData.prototype;
-  dart.addTypeTests(debug_overflow_indicator._OverflowRegionData);
-  dart.addTypeCaches(debug_overflow_indicator._OverflowRegionData);
-  dart.setLibraryUri(debug_overflow_indicator._OverflowRegionData, I[0]);
-  dart.setFieldSignature(debug_overflow_indicator._OverflowRegionData, () => ({
-    __proto__: dart.getFields(debug_overflow_indicator._OverflowRegionData.__proto__),
-    rect: dart.finalFieldType(ui.Rect),
-    label: dart.finalFieldType(core.String),
-    labelOffset: dart.finalFieldType(ui.Offset),
-    rotation: dart.finalFieldType(core.double),
-    side: dart.finalFieldType(debug_overflow_indicator._OverflowSide)
+  }).prototype = long_press.LongPressStartDetails.prototype;
+  dart.addTypeTests(long_press.LongPressStartDetails);
+  dart.addTypeCaches(long_press.LongPressStartDetails);
+  dart.setLibraryUri(long_press.LongPressStartDetails, I[1]);
+  dart.setFieldSignature(long_press.LongPressStartDetails, () => ({
+    __proto__: dart.getFields(long_press.LongPressStartDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    localPosition: dart.finalFieldType(ui.Offset)
   }));
-  var _indicatorLabel = dart.privateName(debug_overflow_indicator, "_indicatorLabel");
-  var _overflowReportNeeded = dart.privateName(debug_overflow_indicator, "_overflowReportNeeded");
-  var _formatPixels = dart.privateName(debug_overflow_indicator, "_formatPixels");
-  var _calculateOverflowRegions = dart.privateName(debug_overflow_indicator, "_calculateOverflowRegions");
-  var _reportOverflow = dart.privateName(debug_overflow_indicator, "_reportOverflow");
-  var Color_value = dart.privateName(ui, "Color.value");
-  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
-  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
-  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
-  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
-  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
-  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
-  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
-  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
-  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
-  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
-  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
-  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
-  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
-  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
-  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
-  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
-  var FontWeight_index = dart.privateName(ui, "FontWeight.index");
-  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
-  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
-  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
-  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
-  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
-  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
-  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
-  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
-  debug_overflow_indicator.DebugOverflowIndicatorMixin = class DebugOverflowIndicatorMixin extends object.RenderObject {};
-  debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.mixinOn] = RenderObject => class DebugOverflowIndicatorMixin extends RenderObject {
-    [_formatPixels](value) {
-      if (!(value > 0.0)) dart.assertFailed(null, I[1], 122, 12, "value > 0.0");
-      let pixels = null;
-      if (value > 10.0) {
-        pixels = value[$toStringAsFixed](0);
-      } else if (value > 1.0) {
-        pixels = value[$toStringAsFixed](1);
-      } else {
-        pixels = value[$toStringAsPrecision](3);
-      }
-      return pixels;
+  var globalPosition$0 = dart.privateName(long_press, "LongPressMoveUpdateDetails.globalPosition");
+  var localPosition$0 = dart.privateName(long_press, "LongPressMoveUpdateDetails.localPosition");
+  var offsetFromOrigin$ = dart.privateName(long_press, "LongPressMoveUpdateDetails.offsetFromOrigin");
+  var localOffsetFromOrigin$ = dart.privateName(long_press, "LongPressMoveUpdateDetails.localOffsetFromOrigin");
+  long_press.LongPressMoveUpdateDetails = class LongPressMoveUpdateDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$0];
     }
-    [_calculateOverflowRegions](overflow, containerRect) {
-      let regions = T.JSArrayOf_OverflowRegionData().of([]);
-      if (overflow.left > 0.0) {
-        let markerRect = new ui.Rect.fromLTWH(0.0, 0.0, containerRect.width * 0.1, containerRect.height);
-        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "LEFT OVERFLOWED BY " + this[_formatPixels](overflow.left) + " PIXELS", labelOffset: markerRect.centerLeft['+'](C[6] || CT.C6), rotation: 3.141592653589793 / 2.0, side: debug_overflow_indicator._OverflowSide.left}));
-      }
-      if (overflow.right > 0.0) {
-        let markerRect = new ui.Rect.fromLTWH(containerRect.width * (1.0 - 0.1), 0.0, containerRect.width * 0.1, containerRect.height);
-        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "RIGHT OVERFLOWED BY " + this[_formatPixels](overflow.right) + " PIXELS", labelOffset: markerRect.centerRight['-'](C[6] || CT.C6), rotation: -3.141592653589793 / 2.0, side: debug_overflow_indicator._OverflowSide.right}));
-      }
-      if (overflow.top > 0.0) {
-        let markerRect = new ui.Rect.fromLTWH(0.0, 0.0, containerRect.width, containerRect.height * 0.1);
-        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "TOP OVERFLOWED BY " + this[_formatPixels](overflow.top) + " PIXELS", labelOffset: markerRect.topCenter['+'](C[7] || CT.C7), rotation: 0.0, side: debug_overflow_indicator._OverflowSide.top}));
-      }
-      if (overflow.bottom > 0.0) {
-        let markerRect = new ui.Rect.fromLTWH(0.0, containerRect.height * (1.0 - 0.1), containerRect.width, containerRect.height * 0.1);
-        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "BOTTOM OVERFLOWED BY " + this[_formatPixels](overflow.bottom) + " PIXELS", labelOffset: markerRect.bottomCenter['-'](C[8] || CT.C8), rotation: 0.0, side: debug_overflow_indicator._OverflowSide.bottom}));
-      }
-      return regions;
+    set globalPosition(value) {
+      super.globalPosition = value;
     }
-    [_reportOverflow](overflow, overflowHints) {
-      overflowHints == null ? overflowHints = T.JSArrayOfDiagnosticsNode().of([]) : null;
-      if (overflowHints[$isEmpty]) {
-        overflowHints[$add](new assertions.ErrorDescription.new("The edge of the " + dart.str(this[$runtimeType]) + " that is " + "overflowing has been marked in the rendering with a yellow and black " + "striped pattern. This is usually caused by the contents being too big " + "for the " + dart.str(this[$runtimeType]) + "."));
-        overflowHints[$add](new assertions.ErrorHint.new("This is considered an error condition because it indicates that there " + "is content that cannot be seen. If the content is legitimately bigger " + "than the available space, consider clipping it with a ClipRect widget " + "before putting it in the " + dart.str(this[$runtimeType]) + ", or using a scrollable " + "container, like a ListView."));
-      }
-      let overflows = (() => {
-        let t0 = T.JSArrayOfString().of([]);
-        if (overflow.left > 0.0) t0[$add](this[_formatPixels](overflow.left) + " pixels on the left");
-        if (overflow.top > 0.0) t0[$add](this[_formatPixels](overflow.top) + " pixels on the top");
-        if (overflow.bottom > 0.0) t0[$add](this[_formatPixels](overflow.bottom) + " pixels on the bottom");
-        if (overflow.right > 0.0) t0[$add](this[_formatPixels](overflow.right) + " pixels on the right");
-        return t0;
-      })();
-      let overflowText = "";
-      if (!overflows[$isNotEmpty]) dart.assertFailed("Somehow " + dart.str(this[$runtimeType]) + " didn't actually overflow like it thought it did.", I[1], 227, 12, "overflows.isNotEmpty");
-      switch (overflows[$length]) {
+    get localPosition() {
+      return this[localPosition$0];
+    }
+    set localPosition(value) {
+      super.localPosition = value;
+    }
+    get offsetFromOrigin() {
+      return this[offsetFromOrigin$];
+    }
+    set offsetFromOrigin(value) {
+      super.offsetFromOrigin = value;
+    }
+    get localOffsetFromOrigin() {
+      return this[localOffsetFromOrigin$];
+    }
+    set localOffsetFromOrigin(value) {
+      super.localOffsetFromOrigin = value;
+    }
+  };
+  (long_press.LongPressMoveUpdateDetails.new = function(opts) {
+    let t0, t0$;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let offsetFromOrigin = opts && 'offsetFromOrigin' in opts ? opts.offsetFromOrigin : C[0] || CT.C0;
+    let localOffsetFromOrigin = opts && 'localOffsetFromOrigin' in opts ? opts.localOffsetFromOrigin : null;
+    this[globalPosition$0] = globalPosition;
+    this[offsetFromOrigin$] = offsetFromOrigin;
+    if (!(globalPosition !== null)) dart.assertFailed(null, I[0], 85, 15, "globalPosition != null");
+    if (!(offsetFromOrigin !== null)) dart.assertFailed(null, I[0], 86, 15, "offsetFromOrigin != null");
+    this[localPosition$0] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    this[localOffsetFromOrigin$] = (t0$ = localOffsetFromOrigin, t0$ == null ? offsetFromOrigin : t0$);
+    ;
+  }).prototype = long_press.LongPressMoveUpdateDetails.prototype;
+  dart.addTypeTests(long_press.LongPressMoveUpdateDetails);
+  dart.addTypeCaches(long_press.LongPressMoveUpdateDetails);
+  dart.setLibraryUri(long_press.LongPressMoveUpdateDetails, I[1]);
+  dart.setFieldSignature(long_press.LongPressMoveUpdateDetails, () => ({
+    __proto__: dart.getFields(long_press.LongPressMoveUpdateDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    localPosition: dart.finalFieldType(ui.Offset),
+    offsetFromOrigin: dart.finalFieldType(ui.Offset),
+    localOffsetFromOrigin: dart.finalFieldType(ui.Offset)
+  }));
+  var globalPosition$1 = dart.privateName(long_press, "LongPressEndDetails.globalPosition");
+  var localPosition$1 = dart.privateName(long_press, "LongPressEndDetails.localPosition");
+  var velocity$ = dart.privateName(long_press, "LongPressEndDetails.velocity");
+  var Velocity_pixelsPerSecond = dart.privateName(velocity_tracker, "Velocity.pixelsPerSecond");
+  long_press.LongPressEndDetails = class LongPressEndDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$1];
+    }
+    set globalPosition(value) {
+      super.globalPosition = value;
+    }
+    get localPosition() {
+      return this[localPosition$1];
+    }
+    set localPosition(value) {
+      super.localPosition = value;
+    }
+    get velocity() {
+      return this[velocity$];
+    }
+    set velocity(value) {
+      super.velocity = value;
+    }
+  };
+  (long_press.LongPressEndDetails.new = function(opts) {
+    let t0;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let velocity = opts && 'velocity' in opts ? opts.velocity : C[1] || CT.C1;
+    this[globalPosition$1] = globalPosition;
+    this[velocity$] = velocity;
+    if (!(globalPosition !== null)) dart.assertFailed(null, I[0], 122, 15, "globalPosition != null");
+    this[localPosition$1] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    ;
+  }).prototype = long_press.LongPressEndDetails.prototype;
+  dart.addTypeTests(long_press.LongPressEndDetails);
+  dart.addTypeCaches(long_press.LongPressEndDetails);
+  dart.setLibraryUri(long_press.LongPressEndDetails, I[1]);
+  dart.setFieldSignature(long_press.LongPressEndDetails, () => ({
+    __proto__: dart.getFields(long_press.LongPressEndDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    localPosition: dart.finalFieldType(ui.Offset),
+    velocity: dart.finalFieldType(velocity_tracker.Velocity)
+  }));
+  var onLongPress = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPress");
+  var onLongPressStart = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressStart");
+  var onLongPressMoveUpdate = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressMoveUpdate");
+  var onLongPressUp = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressUp");
+  var onLongPressEnd = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressEnd");
+  var onSecondaryLongPress = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPress");
+  var onSecondaryLongPressStart = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressStart");
+  var onSecondaryLongPressMoveUpdate = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressMoveUpdate");
+  var onSecondaryLongPressUp = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressUp");
+  var onSecondaryLongPressEnd = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressEnd");
+  var onTertiaryLongPress = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPress");
+  var onTertiaryLongPressStart = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressStart");
+  var onTertiaryLongPressMoveUpdate = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressMoveUpdate");
+  var onTertiaryLongPressUp = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressUp");
+  var onTertiaryLongPressEnd = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressEnd");
+  var _longPressAccepted = dart.privateName(long_press, "_longPressAccepted");
+  var _longPressOrigin = dart.privateName(long_press, "_longPressOrigin");
+  var _initialButtons = dart.privateName(long_press, "_initialButtons");
+  var _velocityTracker = dart.privateName(long_press, "_velocityTracker");
+  var _checkLongPressStart = dart.privateName(long_press, "_checkLongPressStart");
+  var _checkLongPressEnd = dart.privateName(long_press, "_checkLongPressEnd");
+  var _reset = dart.privateName(long_press, "_reset");
+  var _checkLongPressMoveUpdate = dart.privateName(long_press, "_checkLongPressMoveUpdate");
+  long_press.LongPressGestureRecognizer = class LongPressGestureRecognizer extends recognizer.PrimaryPointerGestureRecognizer {
+    get onLongPress() {
+      return this[onLongPress];
+    }
+    set onLongPress(value) {
+      this[onLongPress] = value;
+    }
+    get onLongPressStart() {
+      return this[onLongPressStart];
+    }
+    set onLongPressStart(value) {
+      this[onLongPressStart] = value;
+    }
+    get onLongPressMoveUpdate() {
+      return this[onLongPressMoveUpdate];
+    }
+    set onLongPressMoveUpdate(value) {
+      this[onLongPressMoveUpdate] = value;
+    }
+    get onLongPressUp() {
+      return this[onLongPressUp];
+    }
+    set onLongPressUp(value) {
+      this[onLongPressUp] = value;
+    }
+    get onLongPressEnd() {
+      return this[onLongPressEnd];
+    }
+    set onLongPressEnd(value) {
+      this[onLongPressEnd] = value;
+    }
+    get onSecondaryLongPress() {
+      return this[onSecondaryLongPress];
+    }
+    set onSecondaryLongPress(value) {
+      this[onSecondaryLongPress] = value;
+    }
+    get onSecondaryLongPressStart() {
+      return this[onSecondaryLongPressStart];
+    }
+    set onSecondaryLongPressStart(value) {
+      this[onSecondaryLongPressStart] = value;
+    }
+    get onSecondaryLongPressMoveUpdate() {
+      return this[onSecondaryLongPressMoveUpdate];
+    }
+    set onSecondaryLongPressMoveUpdate(value) {
+      this[onSecondaryLongPressMoveUpdate] = value;
+    }
+    get onSecondaryLongPressUp() {
+      return this[onSecondaryLongPressUp];
+    }
+    set onSecondaryLongPressUp(value) {
+      this[onSecondaryLongPressUp] = value;
+    }
+    get onSecondaryLongPressEnd() {
+      return this[onSecondaryLongPressEnd];
+    }
+    set onSecondaryLongPressEnd(value) {
+      this[onSecondaryLongPressEnd] = value;
+    }
+    get onTertiaryLongPress() {
+      return this[onTertiaryLongPress];
+    }
+    set onTertiaryLongPress(value) {
+      this[onTertiaryLongPress] = value;
+    }
+    get onTertiaryLongPressStart() {
+      return this[onTertiaryLongPressStart];
+    }
+    set onTertiaryLongPressStart(value) {
+      this[onTertiaryLongPressStart] = value;
+    }
+    get onTertiaryLongPressMoveUpdate() {
+      return this[onTertiaryLongPressMoveUpdate];
+    }
+    set onTertiaryLongPressMoveUpdate(value) {
+      this[onTertiaryLongPressMoveUpdate] = value;
+    }
+    get onTertiaryLongPressUp() {
+      return this[onTertiaryLongPressUp];
+    }
+    set onTertiaryLongPressUp(value) {
+      this[onTertiaryLongPressUp] = value;
+    }
+    get onTertiaryLongPressEnd() {
+      return this[onTertiaryLongPressEnd];
+    }
+    set onTertiaryLongPressEnd(value) {
+      this[onTertiaryLongPressEnd] = value;
+    }
+    isPointerAllowed(event) {
+      switch (event.buttons) {
         case 1:
         {
-          overflowText = overflows[$first];
+          if (this.onLongPressStart == null && this.onLongPress == null && this.onLongPressMoveUpdate == null && this.onLongPressEnd == null && this.onLongPressUp == null) return false;
           break;
         }
         case 2:
         {
-          overflowText = overflows[$first] + " and " + overflows[$last];
+          if (this.onSecondaryLongPressStart == null && this.onSecondaryLongPress == null && this.onSecondaryLongPressMoveUpdate == null && this.onSecondaryLongPressEnd == null && this.onSecondaryLongPressUp == null) return false;
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryLongPressStart == null && this.onTertiaryLongPress == null && this.onTertiaryLongPressMoveUpdate == null && this.onTertiaryLongPressEnd == null && this.onTertiaryLongPressUp == null) return false;
           break;
         }
         default:
         {
-          overflows[$_set](overflows[$length] - 1, "and " + overflows[$_get](overflows[$length] - 1));
-          overflowText = overflows[$join](", ");
+          return false;
         }
       }
-      assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: assertions.FlutterError.new("A " + dart.str(this[$runtimeType]) + " overflowed by " + overflowText + "."), library: "rendering library", context: new assertions.ErrorDescription.new("during layout"), informationCollector: dart.fn(() => new (T.SyncIterableOfDiagnosticsNode()).new((function*() {
-          if (this.debugCreator != null) yield new object.DiagnosticsDebugCreator.new(dart.nullCheck(this.debugCreator));
-          yield* dart.nullCheck(overflowHints);
-          yield this.describeForError("The specific " + dart.str(this[$runtimeType]) + " in question is");
-          yield diagnostics.DiagnosticsNode.message("◢◤"[$times]((100 / 2)[$truncate]()), {allowWrap: false});
-        }).bind(this)), T.VoidToIterableOfDiagnosticsNode())}));
+      return super.isPointerAllowed(event);
     }
-    paintOverflowIndicator(context, offset, containerRect, childRect, opts) {
-      let t1;
-      let overflowHints = opts && 'overflowHints' in opts ? opts.overflowHints : null;
-      let overflow = stack.RelativeRect.fromRect(containerRect, childRect);
-      if (overflow.left <= 0.0 && overflow.right <= 0.0 && overflow.top <= 0.0 && overflow.bottom <= 0.0) {
-        return;
-      }
-      let overflowRegions = this[_calculateOverflowRegions](overflow, containerRect);
-      for (let region of overflowRegions) {
-        context.canvas.drawRect(region.rect.shift(offset), debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorPaint);
-        let textSpan = T.TextSpanN().as(this[_indicatorLabel][$_get](region.side.index).text);
-        if ((t1 = textSpan, t1 == null ? null : t1.text) !== region.label) {
-          this[_indicatorLabel][$_get](region.side.index).text = new text_span.TextSpan.new({text: region.label, style: debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorTextStyle});
-          this[_indicatorLabel][$_get](region.side.index).layout();
+    didExceedDeadline() {
+      this.resolve(arena.GestureDisposition.accepted);
+      this[_longPressAccepted] = true;
+      super.acceptGesture(dart.nullCheck(this.primaryPointer));
+      this[_checkLongPressStart]();
+    }
+    handlePrimaryPointer(event) {
+      if (!event.synthesized) {
+        if (events.PointerDownEvent.is(event)) {
+          this[_velocityTracker] = new velocity_tracker.VelocityTracker.withKind(event.kind);
+          dart.nullCheck(this[_velocityTracker]).addPosition(event.timeStamp, event.localPosition);
         }
-        let labelOffset = region.labelOffset['+'](offset);
-        let centerOffset = new ui.Offset.new(-this[_indicatorLabel][$_get](region.side.index).width / 2.0, 0.0);
-        let textBackgroundRect = centerOffset['&'](this[_indicatorLabel][$_get](region.side.index).size);
-        context.canvas.save();
-        context.canvas.translate(labelOffset.dx, labelOffset.dy);
-        context.canvas.rotate(region.rotation);
-        context.canvas.drawRect(textBackgroundRect, debug_overflow_indicator.DebugOverflowIndicatorMixin._labelBackgroundPaint);
-        this[_indicatorLabel][$_get](region.side.index).paint(context.canvas, centerOffset);
-        context.canvas.restore();
+        if (events.PointerMoveEvent.is(event)) {
+          if (!(this[_velocityTracker] != null)) dart.assertFailed(null, I[0], 383, 16, "_velocityTracker != null");
+          dart.nullCheck(this[_velocityTracker]).addPosition(event.timeStamp, event.localPosition);
+        }
       }
-      if (this[_overflowReportNeeded]) {
-        this[_overflowReportNeeded] = false;
-        this[_reportOverflow](overflow, overflowHints);
+      if (events.PointerUpEvent.is(event)) {
+        if (this[_longPressAccepted] === true) {
+          this[_checkLongPressEnd](event);
+        } else {
+          this.resolve(arena.GestureDisposition.rejected);
+        }
+        this[_reset]();
+      } else if (events.PointerCancelEvent.is(event)) {
+        this[_reset]();
+      } else if (events.PointerDownEvent.is(event)) {
+        this[_longPressOrigin] = recognizer.OffsetPair.fromEventPosition(event);
+        this[_initialButtons] = event.buttons;
+      } else if (events.PointerMoveEvent.is(event)) {
+        if (event.buttons !== this[_initialButtons]) {
+          this.resolve(arena.GestureDisposition.rejected);
+          this.stopTrackingPointer(dart.nullCheck(this.primaryPointer));
+        } else if (this[_longPressAccepted]) {
+          this[_checkLongPressMoveUpdate](event);
+        }
       }
     }
-    reassemble() {
-      super.reassemble();
-      if (!dart.fn(() => {
-        this[_overflowReportNeeded] = true;
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 315, 12, "() {\r\n      _overflowReportNeeded = true;\r\n      return true;\r\n    }()");
+    [_checkLongPressStart]() {
+      switch (this[_initialButtons]) {
+        case 1:
+        {
+          if (this.onLongPressStart != null) {
+            let details = new long_press.LongPressStartDetails.new({globalPosition: dart.nullCheck(this[_longPressOrigin]).global, localPosition: dart.nullCheck(this[_longPressOrigin]).local});
+            this.invokeCallback(dart.void, "onLongPressStart", dart.fn(() => dart.nullCheck(this.onLongPressStart)(details), T.VoidTovoid()));
+          }
+          if (this.onLongPress != null) {
+            this.invokeCallback(dart.void, "onLongPress", dart.nullCheck(this.onLongPress));
+          }
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryLongPressStart != null) {
+            let details = new long_press.LongPressStartDetails.new({globalPosition: dart.nullCheck(this[_longPressOrigin]).global, localPosition: dart.nullCheck(this[_longPressOrigin]).local});
+            this.invokeCallback(dart.void, "onSecondaryLongPressStart", dart.fn(() => dart.nullCheck(this.onSecondaryLongPressStart)(details), T.VoidTovoid()));
+          }
+          if (this.onSecondaryLongPress != null) {
+            this.invokeCallback(dart.void, "onSecondaryLongPress", dart.nullCheck(this.onSecondaryLongPress));
+          }
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryLongPressStart != null) {
+            let details = new long_press.LongPressStartDetails.new({globalPosition: dart.nullCheck(this[_longPressOrigin]).global, localPosition: dart.nullCheck(this[_longPressOrigin]).local});
+            this.invokeCallback(dart.void, "onTertiaryLongPressStart", dart.fn(() => dart.nullCheck(this.onTertiaryLongPressStart)(details), T.VoidTovoid()));
+          }
+          if (this.onTertiaryLongPress != null) {
+            this.invokeCallback(dart.void, "onTertiaryLongPress", dart.nullCheck(this.onTertiaryLongPress));
+          }
+          break;
+        }
+        default:
+        {
+          if (!false) dart.assertFailed("Unhandled button " + dart.str(this[_initialButtons]), I[0], 451, 16, "false");
+        }
+      }
+    }
+    [_checkLongPressMoveUpdate](event) {
+      let details = new long_press.LongPressMoveUpdateDetails.new({globalPosition: event.position, localPosition: event.localPosition, offsetFromOrigin: event.position['-'](dart.nullCheck(this[_longPressOrigin]).global), localOffsetFromOrigin: event.localPosition['-'](dart.nullCheck(this[_longPressOrigin]).local)});
+      switch (this[_initialButtons]) {
+        case 1:
+        {
+          if (this.onLongPressMoveUpdate != null) {
+            this.invokeCallback(dart.void, "onLongPressMoveUpdate", dart.fn(() => dart.nullCheck(this.onLongPressMoveUpdate)(details), T.VoidTovoid()));
+          }
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryLongPressMoveUpdate != null) {
+            this.invokeCallback(dart.void, "onSecondaryLongPressMoveUpdate", dart.fn(() => dart.nullCheck(this.onSecondaryLongPressMoveUpdate)(details), T.VoidTovoid()));
+          }
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryLongPressMoveUpdate != null) {
+            this.invokeCallback(dart.void, "onTertiaryLongPressMoveUpdate", dart.fn(() => dart.nullCheck(this.onTertiaryLongPressMoveUpdate)(details), T.VoidTovoid()));
+          }
+          break;
+        }
+        default:
+        {
+          if (!false) dart.assertFailed("Unhandled button " + dart.str(this[_initialButtons]), I[0], 479, 16, "false");
+        }
+      }
+    }
+    [_checkLongPressEnd](event) {
+      let estimate = dart.nullCheck(this[_velocityTracker]).getVelocityEstimate();
+      let velocity = estimate == null ? velocity_tracker.Velocity.zero : new velocity_tracker.Velocity.new({pixelsPerSecond: estimate.pixelsPerSecond});
+      let details = new long_press.LongPressEndDetails.new({globalPosition: event.position, localPosition: event.localPosition, velocity: velocity});
+      this[_velocityTracker] = null;
+      switch (this[_initialButtons]) {
+        case 1:
+        {
+          if (this.onLongPressEnd != null) {
+            this.invokeCallback(dart.void, "onLongPressEnd", dart.fn(() => dart.nullCheck(this.onLongPressEnd)(details), T.VoidTovoid()));
+          }
+          if (this.onLongPressUp != null) {
+            this.invokeCallback(dart.void, "onLongPressUp", dart.nullCheck(this.onLongPressUp));
+          }
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryLongPressEnd != null) {
+            this.invokeCallback(dart.void, "onSecondaryLongPressEnd", dart.fn(() => dart.nullCheck(this.onSecondaryLongPressEnd)(details), T.VoidTovoid()));
+          }
+          if (this.onSecondaryLongPressUp != null) {
+            this.invokeCallback(dart.void, "onSecondaryLongPressUp", dart.nullCheck(this.onSecondaryLongPressUp));
+          }
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryLongPressEnd != null) {
+            this.invokeCallback(dart.void, "onTertiaryLongPressEnd", dart.fn(() => dart.nullCheck(this.onTertiaryLongPressEnd)(details), T.VoidTovoid()));
+          }
+          if (this.onTertiaryLongPressUp != null) {
+            this.invokeCallback(dart.void, "onTertiaryLongPressUp", dart.nullCheck(this.onTertiaryLongPressUp));
+          }
+          break;
+        }
+        default:
+        {
+          if (!false) dart.assertFailed("Unhandled button " + dart.str(this[_initialButtons]), I[0], 521, 16, "false");
+        }
+      }
+    }
+    [_reset]() {
+      this[_longPressAccepted] = false;
+      this[_longPressOrigin] = null;
+      this[_initialButtons] = null;
+      this[_velocityTracker] = null;
+    }
+    resolve(disposition) {
+      if (this[_longPressAccepted] && disposition === arena.GestureDisposition.rejected) {
+        this[_reset]();
+      }
+      super.resolve(disposition);
+    }
+    acceptGesture(pointer) {
+    }
+    get debugDescription() {
+      return "long press";
     }
   };
-  (debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.mixinNew] = function() {
-    this[_indicatorLabel] = T.ListOfTextPainter().filled(debug_overflow_indicator._OverflowSide.values[$length], new text_painter.TextPainter.new({textDirection: ui.TextDirection.ltr}));
-    this[_overflowReportNeeded] = true;
-  }).prototype = debug_overflow_indicator.DebugOverflowIndicatorMixin.prototype;
-  dart.addTypeTests(debug_overflow_indicator.DebugOverflowIndicatorMixin);
-  dart.addTypeCaches(debug_overflow_indicator.DebugOverflowIndicatorMixin);
-  debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.implements] = () => [object.RenderObject];
-  dart.setMethodSignature(debug_overflow_indicator.DebugOverflowIndicatorMixin, () => ({
-    __proto__: dart.getMethods(debug_overflow_indicator.DebugOverflowIndicatorMixin.__proto__),
-    [_formatPixels]: dart.fnType(core.String, [core.double]),
-    [_calculateOverflowRegions]: dart.fnType(core.List$(debug_overflow_indicator._OverflowRegionData), [stack.RelativeRect, ui.Rect]),
-    [_reportOverflow]: dart.fnType(dart.void, [stack.RelativeRect, dart.nullable(core.List$(diagnostics.DiagnosticsNode))]),
-    paintOverflowIndicator: dart.fnType(dart.void, [object.PaintingContext, ui.Offset, ui.Rect, ui.Rect], {overflowHints: dart.nullable(core.List$(diagnostics.DiagnosticsNode))}, {})
+  (long_press.LongPressGestureRecognizer.new = function(opts) {
+    let t0;
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    let postAcceptSlopTolerance = opts && 'postAcceptSlopTolerance' in opts ? opts.postAcceptSlopTolerance : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    this[_longPressAccepted] = false;
+    this[_longPressOrigin] = null;
+    this[_initialButtons] = null;
+    this[onLongPress] = null;
+    this[onLongPressStart] = null;
+    this[onLongPressMoveUpdate] = null;
+    this[onLongPressUp] = null;
+    this[onLongPressEnd] = null;
+    this[onSecondaryLongPress] = null;
+    this[onSecondaryLongPressStart] = null;
+    this[onSecondaryLongPressMoveUpdate] = null;
+    this[onSecondaryLongPressUp] = null;
+    this[onSecondaryLongPressEnd] = null;
+    this[onTertiaryLongPress] = null;
+    this[onTertiaryLongPressStart] = null;
+    this[onTertiaryLongPressMoveUpdate] = null;
+    this[onTertiaryLongPressUp] = null;
+    this[onTertiaryLongPressEnd] = null;
+    this[_velocityTracker] = null;
+    long_press.LongPressGestureRecognizer.__proto__.new.call(this, {deadline: (t0 = duration, t0 == null ? constants.kLongPressTimeout : t0), postAcceptSlopTolerance: postAcceptSlopTolerance, kind: kind, debugOwner: debugOwner});
+    ;
+  }).prototype = long_press.LongPressGestureRecognizer.prototype;
+  dart.addTypeTests(long_press.LongPressGestureRecognizer);
+  dart.addTypeCaches(long_press.LongPressGestureRecognizer);
+  dart.setMethodSignature(long_press.LongPressGestureRecognizer, () => ({
+    __proto__: dart.getMethods(long_press.LongPressGestureRecognizer.__proto__),
+    handlePrimaryPointer: dart.fnType(dart.void, [events.PointerEvent]),
+    [_checkLongPressStart]: dart.fnType(dart.void, []),
+    [_checkLongPressMoveUpdate]: dart.fnType(dart.void, [events.PointerEvent]),
+    [_checkLongPressEnd]: dart.fnType(dart.void, [events.PointerEvent]),
+    [_reset]: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(debug_overflow_indicator.DebugOverflowIndicatorMixin, I[0]);
-  dart.setFieldSignature(debug_overflow_indicator.DebugOverflowIndicatorMixin, () => ({
-    __proto__: dart.getFields(debug_overflow_indicator.DebugOverflowIndicatorMixin.__proto__),
-    [_indicatorLabel]: dart.finalFieldType(core.List$(text_painter.TextPainter)),
-    [_overflowReportNeeded]: dart.fieldType(core.bool)
+  dart.setGetterSignature(long_press.LongPressGestureRecognizer, () => ({
+    __proto__: dart.getGetters(long_press.LongPressGestureRecognizer.__proto__),
+    debugDescription: core.String
   }));
-  dart.defineLazy(debug_overflow_indicator.DebugOverflowIndicatorMixin, {
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._black*/get _black() {
-      return C[9] || CT.C9;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._yellow*/get _yellow() {
-      return C[10] || CT.C10;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorFraction*/get _indicatorFraction() {
-      return 0.1;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorFontSizePixels*/get _indicatorFontSizePixels() {
-      return 7.5;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorLabelPaddingPixels*/get _indicatorLabelPaddingPixels() {
-      return 1;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorTextStyle*/get _indicatorTextStyle() {
-      return C[11] || CT.C11;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorPaint*/get _indicatorPaint() {
-      let t1;
-      return t1 = ui.Paint.new(), (() => {
-        t1.shader = ui.Gradient.linear(ui.Offset.zero, C[14] || CT.C14, T.JSArrayOfColor().of([debug_overflow_indicator.DebugOverflowIndicatorMixin._black, debug_overflow_indicator.DebugOverflowIndicatorMixin._yellow, debug_overflow_indicator.DebugOverflowIndicatorMixin._yellow, debug_overflow_indicator.DebugOverflowIndicatorMixin._black]), T.JSArrayOfdouble().of([0.25, 0.25, 0.75, 0.75]), ui.TileMode.repeated);
-        return t1;
-      })();
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._labelBackgroundPaint*/get _labelBackgroundPaint() {
-      let t1;
-      return t1 = ui.Paint.new(), (() => {
-        t1.color = C[15] || CT.C15;
-        return t1;
-      })();
-    }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/rendering/debug_overflow_indicator.dart", {
-    "package:flutter/src/rendering/debug_overflow_indicator.dart": debug_overflow_indicator
+  dart.setLibraryUri(long_press.LongPressGestureRecognizer, I[1]);
+  dart.setFieldSignature(long_press.LongPressGestureRecognizer, () => ({
+    __proto__: dart.getFields(long_press.LongPressGestureRecognizer.__proto__),
+    [_longPressAccepted]: dart.fieldType(core.bool),
+    [_longPressOrigin]: dart.fieldType(dart.nullable(recognizer.OffsetPair)),
+    [_initialButtons]: dart.fieldType(dart.nullable(core.int)),
+    onLongPress: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onLongPressStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressStartDetails]))),
+    onLongPressMoveUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails]))),
+    onLongPressUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onLongPressEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressEndDetails]))),
+    onSecondaryLongPress: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onSecondaryLongPressStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressStartDetails]))),
+    onSecondaryLongPressMoveUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails]))),
+    onSecondaryLongPressUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onSecondaryLongPressEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressEndDetails]))),
+    onTertiaryLongPress: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onTertiaryLongPressStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressStartDetails]))),
+    onTertiaryLongPressMoveUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails]))),
+    onTertiaryLongPressUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onTertiaryLongPressEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressEndDetails]))),
+    [_velocityTracker]: dart.fieldType(dart.nullable(velocity_tracker.VelocityTracker))
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/long_press.dart", {
+    "package:flutter/src/gestures/long_press.dart": long_press
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["debug_overflow_indicator.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAkBA;;gEALK;;;;EAKL;;;;;;;;;;;;;;;;;;;;;;;IAaa;;;;;;IACE;;;;;;IACA;;;;;;IACA;;;;;;IACO;;;;;;;;QAXJ;QACT;QACA;QACA;QACS;IAJA;IACT;IACA;IACA;IACS;;EACd;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;oBA2F0B;AAC1B,YAAO,AAAM,KAAD,GAAG;AACF;AACb,UAAI,AAAM,KAAD,GAAG;AACuB,QAAjC,SAAS,AAAM,KAAD,mBAAiB;YAC1B,KAAI,AAAM,KAAD,GAAG;AACgB,QAAjC,SAAS,AAAM,KAAD,mBAAiB;;AAEM,QAArC,SAAS,AAAM,KAAD,uBAAqB;;AAErC,YAAO,OAAM;IACf;gCAEiE,UAAe;AAC9C,oBAA+B;AAC/D,UAAI,AAAS,AAAK,QAAN,QAAQ;AACP,yBAAkB,qBAC3B,KACA,KACA,AAAc,AAAM,aAAP,cACb,AAAc,aAAD;AASb,QAPF,AAAQ,OAAD,OAAK,4DACJ,UAAU,SACT,AAA2D,wBAArC,oBAAc,AAAS,QAAD,SAAO,wBAC7C,AAAW,AAAW,UAAZ,2CAEL,oBAAE,WACA;;AAGxB,UAAI,AAAS,AAAM,QAAP,SAAS;AACR,yBAAkB,qBAC3B,AAAc,AAAM,aAAP,UAAU,AAAI,YAC3B,KACA,AAAc,AAAM,aAAP,cACb,AAAc,aAAD;AASb,QAPF,AAAQ,OAAD,OAAK,4DACJ,UAAU,SACT,AAA6D,yBAAtC,oBAAc,AAAS,QAAD,UAAQ,wBAC/C,AAAW,AAAY,UAAb,4CAEb,AAAS,qBAAE,WACD;;AAGxB,UAAI,AAAS,AAAI,QAAL,OAAO;AACN,yBAAkB,qBAC3B,KACA,KACA,AAAc,aAAD,QACb,AAAc,AAAO,aAAR;AAQb,QANF,AAAQ,OAAD,OAAK,4DACJ,UAAU,SACT,AAAyD,uBAApC,oBAAc,AAAS,QAAD,QAAM,wBAC3C,AAAW,AAAU,UAAX,0CACb,WACU;;AAGxB,UAAI,AAAS,AAAO,QAAR,UAAU;AACT,yBAAkB,qBAC3B,KACA,AAAc,AAAO,aAAR,WAAW,AAAI,YAC5B,AAAc,aAAD,QACb,AAAc,AAAO,aAAR;AASb,QAPF,AAAQ,OAAD,OAAK,4DACJ,UAAU,SACT,AAA+D,0BAAvC,oBAAc,AAAS,QAAD,WAAS,wBACjD,AAAW,AAAa,UAAd,6CAEb,WACU;;AAGxB,YAAO,QAAO;IAChB;sBAEkC,UAAiC;AAC5B,MAArC,AAAc,aAAD,WAAb,gBAAmC,sCAArB;AACd,UAAI,AAAc,aAAD;AAMb,QALF,AAAc,aAAD,OAAK,oCAAgB,AAChC,8BAAkB,sBAAW,cAC7B,0EACA,2EACA,sBAAU,sBAAW;AAQrB,QANF,AAAc,aAAD,OAAK,6BAAS,AACzB,2EACA,2EACA,2EACA,uCAA2B,sBAAW,6BACtC;;AAIe,sBAAoB;;AACrC,YAAI,AAAS,AAAK,QAAN,QAAQ,KAAyD,SAAjD,oBAAc,AAAS,QAAD,SAAO;AACzD,YAAI,AAAS,AAAI,QAAL,OAAO,KAAuD,SAA/C,oBAAc,AAAS,QAAD,QAAM;AACvD,YAAI,AAAS,AAAO,QAAR,UAAU,KAA6D,SAArD,oBAAc,AAAS,QAAD,WAAS;AAC7D,YAAI,AAAS,AAAM,QAAP,SAAS,KAA2D,SAAnD,oBAAc,AAAS,QAAD,UAAQ;;;AAEtD,yBAAe;AACtB,WAAO,AAAU,SAAD,iCAAa,AAAuE,sBAA7D,sBAAW;AAClD,cAAQ,AAAU,SAAD;;;AAEiB,UAA9B,eAAe,AAAU,SAAD;AACxB;;;;AAEyD,UAAzD,eAAkB,AAAU,AAA6B,SAA9B,WAAO,UAAO,AAAU,SAAD;AAClD;;;;AAE0E,UAA1E,AAAS,SAAA,QAAC,AAAU,AAAO,SAAR,YAAU,GAAK,AAAwC,SAAjC,AAAS,SAAA,QAAC,AAAU,AAAO,SAAR,YAAU;AACnC,UAAnC,eAAe,AAAU,SAAD,QAAM;;;AAoBjC,MAhBY,oCACX,mDACa,4BAAa,AAA6C,gBAAzC,sBAAW,oBAAgB,YAAY,kBAC1D,8BACA,oCAAiB,wCACJ;AACpB,cAAI,2BACF,MAAM,uCAAoC,eAAZ;AAChC,iBAAoB,eAAb,aAAa;AACpB,gBAAM,sBAAiB,AAA0C,2BAA3B,sBAAW;AAIjD,gBAAsB,oCAAQ,AAAK,aAA0B,OAAG,8BAAe;QAChF;IAGP;2BASkB,SACT,QACF,eACA;;UACkB;AAEJ,qBAAwB,4BAAS,aAAa,EAAE,SAAS;AAE5E,UAAI,AAAS,AAAK,QAAN,SAAS,OACjB,AAAS,AAAM,QAAP,UAAU,OAClB,AAAS,AAAI,QAAL,QAAQ,OAChB,AAAS,AAAO,QAAR,WAAW;AACrB;;AAG8B,4BAAkB,gCAA0B,QAAQ,EAAE,aAAa;AACnG,eAA+B,SAAU,gBAAe;AACa,QAAnE,AAAQ,AAAO,OAAR,iBAAiB,AAAO,AAAK,MAAN,YAAY,MAAM,GAAG;AACnC,uBAAmD,iBAAxC,AAAe,AAAoB,6BAAnB,AAAO,AAAK,MAAN;AACjD,kBAAI,QAAQ,eAAR,OAAU,aAAQ,AAAO,MAAD;AAIzB,UAHD,AAAe,AAAoB,6BAAnB,AAAO,AAAK,MAAN,oBAAoB,kCAClC,AAAO,MAAD,eACL;AAEkC,UAA3C,AAAe,AAAoB,6BAAnB,AAAO,AAAK,MAAN;;AAGX,0BAAc,AAAO,AAAY,MAAb,kBAAe,MAAM;AACzC,2BAAe,kBAAO,AAA0C,CAAzC,AAAe,AAAoB,6BAAnB,AAAO,AAAK,MAAN,qBAAqB,KAAK;AACzE,iCAAqB,AAAa,YAAD,MAAG,AAAe,AAAoB,6BAAnB,AAAO,AAAK,MAAN;AAChD,QAArB,AAAQ,AAAO,OAAR;AACiD,QAAxD,AAAQ,AAAO,OAAR,kBAAkB,AAAY,WAAD,KAAK,AAAY,WAAD;AACd,QAAtC,AAAQ,AAAO,OAAR,eAAe,AAAO,MAAD;AACsC,QAAlE,AAAQ,AAAO,OAAR,iBAAiB,kBAAkB,EAAE;AAC0B,QAAtE,AAAe,AAAoB,6BAAnB,AAAO,AAAK,MAAN,mBAAmB,AAAQ,OAAD,SAAS,YAAY;AAC7C,QAAxB,AAAQ,AAAO,OAAR;;AAGT,UAAI;AAC2B,QAA7B,8BAAwB;AACgB,QAAxC,sBAAgB,QAAQ,EAAE,aAAa;;IAE3C;;AAIoB,MAAZ;AAEN,WAAO,AAGN;AAF6B,QAA5B,8BAAwB;AACxB,cAAO;;IAEX;;;IA/MwB,wBAAkB,6BAC1B,AAAO,wDACrB,iDAAyC;IAKtC,8BAAwB;;;;;;;;;;;;;;;;;;;MA5BV,2DAAM;;;MACN,4DAAO;;;MAEN,uEAAkB;;;MAClB,6EAAwB;;;MACxB,iFAA4B;;;MACzB,wEAAmB;;;MAKvB,oEAAe;;kCAAG;AACjC,oBAAqB,mBACd,iCAEA,uBAAC,6DAAQ,8DAAS,8DAAS,+DAC1B,wBAAC,MAAM,MAAM,MAAM,QAClB;;;;MAEM,0EAAqB;;kCAAG;AAAS","file":"../../../../../../../packages/flutter/src/rendering/debug_overflow_indicator.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["long_press.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/gestures/long_press.dart.lib.js"}');
   // Exports:
   return {
-    src__rendering__debug_overflow_indicator: debug_overflow_indicator
+    src__gestures__long_press: long_press
   };
 }));
 
-//# sourceMappingURL=debug_overflow_indicator.dart.lib.js.map
+//# sourceMappingURL=long_press.dart.lib.js.map

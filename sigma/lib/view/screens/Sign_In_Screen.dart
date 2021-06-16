@@ -75,14 +75,17 @@ class _SignInScreenState extends State<SignInScreen> {
             Padding(
                   padding: const EdgeInsets.only(
                       left: 16, right: 16, bottom: 20, top: 50),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, category);
-                    },
-                    style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
-                    child: Text(
-                      "ВОЙТИ",
-                      style: TextStyles().style_5,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, category);
+                      },
+                      style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
+                      child: Text(
+                        "ВОЙТИ",
+                        style: TextStyles().style_5,
+                      ),
                     ),
                   ),
                 ),

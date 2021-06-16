@@ -4,7 +4,6 @@ import 'package:sigma/core/ui/widgets/base_stateless_widget.dart';
 
 
 abstract class BaseStatelessScreen extends BaseStatelessWidget {
-  BaseStatelessScreen({required Key key}) : super(key: key);
 
   @override
   Widget getLayout(BuildContext context) {

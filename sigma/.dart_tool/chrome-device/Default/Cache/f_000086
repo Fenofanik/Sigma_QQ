@@ -1,435 +1,487 @@
-define(['dart_sdk', 'packages/get/get_core/src/get_main.dart'], (function load__packages__get__get_utils__src__get_utils__get_utils_dart(dart_sdk, packages__get__get_core__src__get_main$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__gestures__tap_dart(dart_sdk, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
-  var get_utils = Object.create(dart.library);
-  var $toLowerCase = dartx.toLowerCase;
-  var $endsWith = dartx.endsWith;
-  var $replaceAll = dartx.replaceAll;
-  var $_get = dartx._get;
-  var $toString = dartx.toString;
-  var $contains = dartx.contains;
-  var $split = dartx.split;
-  var $map = dartx.map;
-  var $toList = dartx.toList;
-  var $modulo = dartx['%'];
-  var $join = dartx.join;
-  var $toUpperCase = dartx.toUpperCase;
-  var $substring = dartx.substring;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $isEmpty = dartx.isEmpty;
-  var $trim = dartx.trim;
+  const constants = packages__flutter__src__gestures__constants$46dart.src__gestures__constants;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var tap = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
-    StringToNint: () => (T.StringToNint = dart.constFn(dart.nullable(T.StringToint())))(),
-    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
-    String__Toint: () => (T.String__Toint = dart.constFn(dart.fnType(core.int, [core.String], {onError: T.StringToNint(), radix: T.intN()}, {})))(),
-    IterableOfint: () => (T.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
-    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
-    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
-    StringToStringN: () => (T.StringToStringN = dart.constFn(dart.fnType(T.StringN(), [core.String])))(),
-    dynamicToString: () => (T.dynamicToString = dart.constFn(dart.fnType(core.String, [dart.dynamic])))(),
-    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))()
+    DiagnosticsPropertyOfOffset: () => (T.DiagnosticsPropertyOfOffset = dart.constFn(diagnostics.DiagnosticsProperty$(ui.Offset)))(),
+    DiagnosticsPropertyOfint: () => (T.DiagnosticsPropertyOfint = dart.constFn(diagnostics.DiagnosticsProperty$(core.int)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.fn(core.int.parse, T.String__Toint());
-    },
-    get C1() {
-      return C[1] = dart.fn(get_utils.GetUtils.capitalizeFirst, T.StringToStringN());
+      return C[0] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 0
+      });
     }
   }, false);
-  var C = Array(2).fill(void 0);
-  var I = ["package:get/get_utils/src/get_utils/get_utils.dart"];
-  get_utils.GetUtils = class GetUtils extends core.Object {
-    static isNull(value) {
-      return value == null;
+  var C = [void 0];
+  var I = [
+    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/gestures/tap.dart",
+    "package:flutter/src/gestures/tap.dart"
+  ];
+  var globalPosition$ = dart.privateName(tap, "TapDownDetails.globalPosition");
+  var kind$ = dart.privateName(tap, "TapDownDetails.kind");
+  var localPosition$ = dart.privateName(tap, "TapDownDetails.localPosition");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  tap.TapDownDetails = class TapDownDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$];
     }
-    static nil(s) {
-      return s == null ? null : s;
+    set globalPosition(value) {
+      super.globalPosition = value;
     }
-    static isNullOrBlank(value) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return true;
+    get kind() {
+      return this[kind$];
+    }
+    set kind(value) {
+      super.kind = value;
+    }
+    get localPosition() {
+      return this[localPosition$];
+    }
+    set localPosition(value) {
+      super.localPosition = value;
+    }
+  };
+  (tap.TapDownDetails.new = function(opts) {
+    let t0;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[globalPosition$] = globalPosition;
+    this[kind$] = kind;
+    if (!(globalPosition !== null)) dart.assertFailed(null, I[0], 28, 15, "globalPosition != null");
+    this[localPosition$] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    ;
+  }).prototype = tap.TapDownDetails.prototype;
+  dart.addTypeTests(tap.TapDownDetails);
+  dart.addTypeCaches(tap.TapDownDetails);
+  dart.setLibraryUri(tap.TapDownDetails, I[1]);
+  dart.setFieldSignature(tap.TapDownDetails, () => ({
+    __proto__: dart.getFields(tap.TapDownDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    kind: dart.finalFieldType(dart.nullable(ui.PointerDeviceKind)),
+    localPosition: dart.finalFieldType(ui.Offset)
+  }));
+  var globalPosition$0 = dart.privateName(tap, "TapUpDetails.globalPosition");
+  var localPosition$0 = dart.privateName(tap, "TapUpDetails.localPosition");
+  var kind$0 = dart.privateName(tap, "TapUpDetails.kind");
+  tap.TapUpDetails = class TapUpDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$0];
+    }
+    set globalPosition(value) {
+      super.globalPosition = value;
+    }
+    get localPosition() {
+      return this[localPosition$0];
+    }
+    set localPosition(value) {
+      super.localPosition = value;
+    }
+    get kind() {
+      return this[kind$0];
+    }
+    set kind(value) {
+      super.kind = value;
+    }
+  };
+  (tap.TapUpDetails.new = function(opts) {
+    let t0;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    this[kind$0] = kind;
+    this[globalPosition$0] = globalPosition;
+    if (!(globalPosition !== null)) dart.assertFailed(null, I[0], 65, 15, "globalPosition != null");
+    this[localPosition$0] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    ;
+  }).prototype = tap.TapUpDetails.prototype;
+  dart.addTypeTests(tap.TapUpDetails);
+  dart.addTypeCaches(tap.TapUpDetails);
+  dart.setLibraryUri(tap.TapUpDetails, I[1]);
+  dart.setFieldSignature(tap.TapUpDetails, () => ({
+    __proto__: dart.getFields(tap.TapUpDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    localPosition: dart.finalFieldType(ui.Offset),
+    kind: dart.finalFieldType(ui.PointerDeviceKind)
+  }));
+  var _sentTapDown = dart.privateName(tap, "_sentTapDown");
+  var _wonArenaForPrimaryPointer = dart.privateName(tap, "_wonArenaForPrimaryPointer");
+  var _down = dart.privateName(tap, "_down");
+  var _up = dart.privateName(tap, "_up");
+  var _reset = dart.privateName(tap, "_reset");
+  var _checkUp = dart.privateName(tap, "_checkUp");
+  var _checkCancel = dart.privateName(tap, "_checkCancel");
+  var _checkDown = dart.privateName(tap, "_checkDown");
+  tap.BaseTapGestureRecognizer = class BaseTapGestureRecognizer extends recognizer.PrimaryPointerGestureRecognizer {
+    addAllowedPointer(event) {
+      if (!(event !== null)) dart.assertFailed(null, I[0], 192, 12, "event != null");
+      if (this.state === recognizer.GestureRecognizerState.ready) {
+        if (this[_down] != null && this[_up] != null) {
+          if (!(dart.nullCheck(this[_down]).pointer === dart.nullCheck(this[_up]).pointer)) dart.assertFailed(null, I[0], 197, 16, "_down!.pointer == _up!.pointer");
+          this[_reset]();
+        }
+        if (!(this[_down] == null && this[_up] == null)) dart.assertFailed(null, I[0], 201, 14, "_down == null && _up == null");
+        this[_down] = event;
       }
-      return get_utils._isEmpty(value);
-    }
-    static isBlank(value) {
-      return get_utils._isEmpty(value);
-    }
-    static isNum(value) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return false;
+      if (this[_down] != null) {
+        super.addAllowedPointer(event);
       }
-      return typeof core.num.tryParse(value) == 'number';
     }
-    static isNumericOnly(s) {
-      return get_utils.GetUtils.hasMatch(s, "^\\d+$");
+    startTrackingPointer(pointer, transform = null) {
+      if (!(this[_down] != null)) dart.assertFailed(null, I[0], 222, 12, "_down != null");
+      super.startTrackingPointer(pointer, transform);
     }
-    static isAlphabetOnly(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z]+$");
-    }
-    static hasCapitalletter(s) {
-      return get_utils.GetUtils.hasMatch(s, "[A-Z]");
-    }
-    static isBool(value) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return false;
+    handlePrimaryPointer(event) {
+      if (events.PointerUpEvent.is(event)) {
+        this[_up] = event;
+        this[_checkUp]();
+      } else if (events.PointerCancelEvent.is(event)) {
+        this.resolve(arena.GestureDisposition.rejected);
+        if (this[_sentTapDown]) {
+          this[_checkCancel](event, "");
+        }
+        this[_reset]();
+      } else if (event.buttons !== dart.nullCheck(this[_down]).buttons) {
+        this.resolve(arena.GestureDisposition.rejected);
+        this.stopTrackingPointer(dart.nullCheck(this.primaryPointer));
       }
-      return value === "true" || value === "false";
     }
-    static isVideo(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".mp4") || ext[$endsWith](".avi") || ext[$endsWith](".wmv") || ext[$endsWith](".rmvb") || ext[$endsWith](".mpg") || ext[$endsWith](".mpeg") || ext[$endsWith](".3gp");
+    resolve(disposition) {
+      if (this[_wonArenaForPrimaryPointer] && disposition === arena.GestureDisposition.rejected) {
+        if (!this[_sentTapDown]) dart.assertFailed(null, I[0], 249, 14, "_sentTapDown");
+        this[_checkCancel](null, "spontaneous");
+        this[_reset]();
+      }
+      super.resolve(disposition);
     }
-    static isImage(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".jpg") || ext[$endsWith](".jpeg") || ext[$endsWith](".png") || ext[$endsWith](".gif") || ext[$endsWith](".bmp");
+    didExceedDeadline() {
+      this[_checkDown]();
     }
-    static isAudio(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".mp3") || ext[$endsWith](".wav") || ext[$endsWith](".wma") || ext[$endsWith](".amr") || ext[$endsWith](".ogg");
+    acceptGesture(pointer) {
+      super.acceptGesture(pointer);
+      if (pointer === this.primaryPointer) {
+        this[_checkDown]();
+        this[_wonArenaForPrimaryPointer] = true;
+        this[_checkUp]();
+      }
     }
-    static isPPT(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".ppt") || ext[$endsWith](".pptx");
+    rejectGesture(pointer) {
+      super.rejectGesture(pointer);
+      if (pointer === this.primaryPointer) {
+        if (!(this.state !== recognizer.GestureRecognizerState.possible)) dart.assertFailed(null, I[0], 276, 14, "state != GestureRecognizerState.possible");
+        if (this[_sentTapDown]) this[_checkCancel](null, "forced");
+        this[_reset]();
+      }
     }
-    static isWord(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".doc") || ext[$endsWith](".docx");
+    [_checkDown]() {
+      if (this[_sentTapDown]) {
+        return;
+      }
+      this.handleTapDown({down: dart.nullCheck(this[_down])});
+      this[_sentTapDown] = true;
     }
-    static isExcel(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".xls") || ext[$endsWith](".xlsx");
+    [_checkUp]() {
+      if (!this[_wonArenaForPrimaryPointer] || this[_up] == null) {
+        return;
+      }
+      if (!(dart.nullCheck(this[_up]).pointer === dart.nullCheck(this[_down]).pointer)) dart.assertFailed(null, I[0], 295, 12, "_up!.pointer == _down!.pointer");
+      this.handleTapUp({down: dart.nullCheck(this[_down]), up: dart.nullCheck(this[_up])});
+      this[_reset]();
     }
-    static isAPK(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".apk");
+    [_checkCancel](event, note) {
+      this.handleTapCancel({down: dart.nullCheck(this[_down]), cancel: event, reason: note});
     }
-    static isPDF(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".pdf");
+    [_reset]() {
+      this[_sentTapDown] = false;
+      this[_wonArenaForPrimaryPointer] = false;
+      this[_up] = null;
+      this[_down] = null;
     }
-    static isTxt(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".txt");
+    get debugDescription() {
+      return "base tap";
     }
-    static isChm(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".chm");
+    debugFillProperties(properties) {
+      let t0, t0$, t0$0, t0$1;
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.FlagProperty.new("wonArenaForPrimaryPointer", {value: this[_wonArenaForPrimaryPointer], ifTrue: "won arena"}));
+      properties.add(new (T.DiagnosticsPropertyOfOffset()).new("finalPosition", (t0 = this[_up], t0 == null ? null : t0.position), {defaultValue: null}));
+      properties.add(new (T.DiagnosticsPropertyOfOffset()).new("finalLocalPosition", (t0$ = this[_up], t0$ == null ? null : t0$.localPosition), {defaultValue: (t0$0 = this[_up], t0$0 == null ? null : t0$0.position)}));
+      properties.add(new (T.DiagnosticsPropertyOfint()).new("button", (t0$1 = this[_down], t0$1 == null ? null : t0$1.buttons), {defaultValue: null}));
+      properties.add(new diagnostics.FlagProperty.new("sentTapDown", {value: this[_sentTapDown], ifTrue: "sent tap down"}));
     }
-    static isVector(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".svg");
+  };
+  (tap.BaseTapGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    this[_sentTapDown] = false;
+    this[_wonArenaForPrimaryPointer] = false;
+    this[_down] = null;
+    this[_up] = null;
+    tap.BaseTapGestureRecognizer.__proto__.new.call(this, {deadline: constants.kPressTimeout, debugOwner: debugOwner});
+    ;
+  }).prototype = tap.BaseTapGestureRecognizer.prototype;
+  dart.addTypeTests(tap.BaseTapGestureRecognizer);
+  dart.addTypeCaches(tap.BaseTapGestureRecognizer);
+  dart.setMethodSignature(tap.BaseTapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(tap.BaseTapGestureRecognizer.__proto__),
+    handlePrimaryPointer: dart.fnType(dart.void, [events.PointerEvent]),
+    [_checkDown]: dart.fnType(dart.void, []),
+    [_checkUp]: dart.fnType(dart.void, []),
+    [_checkCancel]: dart.fnType(dart.void, [dart.nullable(events.PointerCancelEvent), core.String]),
+    [_reset]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(tap.BaseTapGestureRecognizer, () => ({
+    __proto__: dart.getGetters(tap.BaseTapGestureRecognizer.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(tap.BaseTapGestureRecognizer, I[1]);
+  dart.setFieldSignature(tap.BaseTapGestureRecognizer, () => ({
+    __proto__: dart.getFields(tap.BaseTapGestureRecognizer.__proto__),
+    [_sentTapDown]: dart.fieldType(core.bool),
+    [_wonArenaForPrimaryPointer]: dart.fieldType(core.bool),
+    [_down]: dart.fieldType(dart.nullable(events.PointerDownEvent)),
+    [_up]: dart.fieldType(dart.nullable(events.PointerUpEvent))
+  }));
+  var onTapDown = dart.privateName(tap, "TapGestureRecognizer.onTapDown");
+  var onTapUp = dart.privateName(tap, "TapGestureRecognizer.onTapUp");
+  var onTap = dart.privateName(tap, "TapGestureRecognizer.onTap");
+  var onTapCancel = dart.privateName(tap, "TapGestureRecognizer.onTapCancel");
+  var onSecondaryTap = dart.privateName(tap, "TapGestureRecognizer.onSecondaryTap");
+  var onSecondaryTapDown = dart.privateName(tap, "TapGestureRecognizer.onSecondaryTapDown");
+  var onSecondaryTapUp = dart.privateName(tap, "TapGestureRecognizer.onSecondaryTapUp");
+  var onSecondaryTapCancel = dart.privateName(tap, "TapGestureRecognizer.onSecondaryTapCancel");
+  var onTertiaryTapDown = dart.privateName(tap, "TapGestureRecognizer.onTertiaryTapDown");
+  var onTertiaryTapUp = dart.privateName(tap, "TapGestureRecognizer.onTertiaryTapUp");
+  var onTertiaryTapCancel = dart.privateName(tap, "TapGestureRecognizer.onTertiaryTapCancel");
+  tap.TapGestureRecognizer = class TapGestureRecognizer extends tap.BaseTapGestureRecognizer {
+    get onTapDown() {
+      return this[onTapDown];
     }
-    static isHTML(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".html");
+    set onTapDown(value) {
+      this[onTapDown] = value;
     }
-    static isUsername(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$");
+    get onTapUp() {
+      return this[onTapUp];
     }
-    static isURL(s) {
-      return get_utils.GetUtils.hasMatch(s, "^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,6}(\\:[0-9]{1,5})*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$");
+    set onTapUp(value) {
+      this[onTapUp] = value;
     }
-    static isEmail(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
+    get onTap() {
+      return this[onTap];
     }
-    static isPhoneNumber(s) {
-      if (s.length > 16 || s.length < 9) return false;
-      return get_utils.GetUtils.hasMatch(s, "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$");
+    set onTap(value) {
+      this[onTap] = value;
     }
-    static isDateTime(s) {
-      return get_utils.GetUtils.hasMatch(s, "^\\d{4}-\\d{2}-\\d{2}[ T]\\d{2}:\\d{2}:\\d{2}.\\d{3}Z?$");
+    get onTapCancel() {
+      return this[onTapCancel];
     }
-    static isMD5(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[a-f0-9]{32}$");
+    set onTapCancel(value) {
+      this[onTapCancel] = value;
     }
-    static isSHA1(s) {
-      return get_utils.GetUtils.hasMatch(s, "(([A-Fa-f0-9]{2}\\:){19}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{40})");
+    get onSecondaryTap() {
+      return this[onSecondaryTap];
     }
-    static isSHA256(s) {
-      return get_utils.GetUtils.hasMatch(s, "([A-Fa-f0-9]{2}\\:){31}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{64}");
+    set onSecondaryTap(value) {
+      this[onSecondaryTap] = value;
     }
-    static isSSN(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(?!0{3}|6{3}|9[0-9]{2})[0-9]{3}-?(?!0{2})[0-9]{2}-?(?!0{4})[0-9]{4}$");
+    get onSecondaryTapDown() {
+      return this[onSecondaryTapDown];
     }
-    static isBinary(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[0-1]+$");
+    set onSecondaryTapDown(value) {
+      this[onSecondaryTapDown] = value;
     }
-    static isIPv4(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(?:(?:^|\\.)(?:2(?:5[0-5]|[0-4]\\d)|1?\\d?\\d)){4}$");
+    get onSecondaryTapUp() {
+      return this[onSecondaryTapUp];
     }
-    static isIPv6(s) {
-      return get_utils.GetUtils.hasMatch(s, "^((([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}:([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){4}:([0-9A-Fa-f]{1,4}:){0,2}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){3}:([0-9A-Fa-f]{1,4}:){0,3}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){2}:([0-9A-Fa-f]{1,4}:){0,4}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(([0-9A-Fa-f]{1,4}:){0,5}:((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(::([0-9A-Fa-f]{1,4}:){0,5}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|([0-9A-Fa-f]{1,4}::([0-9A-Fa-f]{1,4}:){0,5}[0-9A-Fa-f]{1,4})|(::([0-9A-Fa-f]{1,4}:){0,6}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,7}:))$");
+    set onSecondaryTapUp(value) {
+      this[onSecondaryTapUp] = value;
     }
-    static isHexadecimal(s) {
-      return get_utils.GetUtils.hasMatch(s, "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$");
+    get onSecondaryTapCancel() {
+      return this[onSecondaryTapCancel];
     }
-    static isPalindrom(string) {
-      let cleanString = string[$toLowerCase]()[$replaceAll](core.RegExp.new("\\s+"), "")[$replaceAll](core.RegExp.new("[^0-9a-zA-Z]+"), "");
-      for (let i = 0; i < cleanString.length; i = i + 1) {
-        if (cleanString[$_get](i) !== cleanString[$_get](cleanString.length - i - 1)) {
+    set onSecondaryTapCancel(value) {
+      this[onSecondaryTapCancel] = value;
+    }
+    get onTertiaryTapDown() {
+      return this[onTertiaryTapDown];
+    }
+    set onTertiaryTapDown(value) {
+      this[onTertiaryTapDown] = value;
+    }
+    get onTertiaryTapUp() {
+      return this[onTertiaryTapUp];
+    }
+    set onTertiaryTapUp(value) {
+      this[onTertiaryTapUp] = value;
+    }
+    get onTertiaryTapCancel() {
+      return this[onTertiaryTapCancel];
+    }
+    set onTertiaryTapCancel(value) {
+      this[onTertiaryTapCancel] = value;
+    }
+    isPointerAllowed(event) {
+      switch (event.buttons) {
+        case 1:
+        {
+          if (this.onTapDown == null && this.onTap == null && this.onTapUp == null && this.onTapCancel == null) return false;
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryTap == null && this.onSecondaryTapDown == null && this.onSecondaryTapUp == null && this.onSecondaryTapCancel == null) return false;
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryTapDown == null && this.onTertiaryTapUp == null && this.onTertiaryTapCancel == null) return false;
+          break;
+        }
+        default:
+        {
           return false;
         }
       }
-      return true;
+      return super.isPointerAllowed(event);
     }
-    static isOneAKind(value) {
-      if ((typeof value == 'string' || core.List.is(value)) && !dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
-        let first = dart.dsend(value, '_get', [0]);
-        let len = core.num.as(dart.dload(value, 'length'));
-        for (let i = 0; i < len; i = i + 1) {
-          if (!dart.equals(dart.dsend(value, '_get', [i]), first)) {
-            return false;
-          }
-        }
-        return true;
-      }
-      if (core.int.is(value)) {
-        let stringValue = dart.toString(value);
-        let first = stringValue[$_get](0);
-        for (let i = 0; i < stringValue.length; i = i + 1) {
-          if (stringValue[$_get](i) !== first) {
-            return false;
-          }
-        }
-        return true;
-      }
-      return false;
-    }
-    static isPassport(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(?!^0+$)[a-zA-Z0-9]{6,9}$");
-    }
-    static isCurrency(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(S?\\$|\\₩|Rp|\\¥|\\€|\\₹|\\₽|fr|R\\$|R)?[ ]?[-]?([0-9]{1,3}[,.]([0-9]{3}[,.])*[0-9]{3}|[0-9]+)([,.][0-9]{1,2})?( ?(USD?|AUD|NZD|CAD|CHF|GBP|CNY|EUR|JPY|IDR|MXN|NOK|KRW|TRY|INR|RUB|BRL|ZAR|SGD|MYR))?$");
-    }
-    static isLengthGreaterThan(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) > maxLength;
-    }
-    static isLengthGreaterOrEqual(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) >= maxLength;
-    }
-    static isLengthLowerThan(value, maxLength) {
-      return get_utils.GetUtils.isLengthLessThan(value, maxLength);
-    }
-    static isLengthLessThan(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) < maxLength;
-    }
-    static isLengthLowerOrEqual(value, maxLength) {
-      return get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
-    }
-    static isLengthLessOrEqual(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) <= maxLength;
-    }
-    static isLengthEqualTo(value, otherLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return length === otherLength;
-    }
-    static isLengthBetween(value, minLength, maxLength) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return false;
-      }
-      return get_utils.GetUtils.isLengthGreaterOrEqual(value, minLength) && get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
-    }
-    static isCaseInsensitiveContains(a, b) {
-      return a[$toLowerCase]()[$contains](b[$toLowerCase]());
-    }
-    static isCaseInsensitiveContainsAny(a, b) {
-      let lowA = a[$toLowerCase]();
-      let lowB = b[$toLowerCase]();
-      return lowA[$contains](lowB) || lowB[$contains](lowA);
-    }
-    static isLowerThan(a, b) {
-      return a < b;
-    }
-    static isGreaterThan(a, b) {
-      return a > b;
-    }
-    static isEqual(a, b) {
-      return a === b;
-    }
-    static isCnpj(cnpj) {
-      let t0, t0$;
-      let numbers = cnpj[$replaceAll](core.RegExp.new("[^0-9]"), "");
-      if (numbers.length !== 14) {
-        return false;
-      }
-      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
-        return false;
-      }
-      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
-      let calcDv1 = 0;
-      let j = 0;
-      let iter = T.IterableOfint().generate(12, dart.fn(i => i < 4 ? 5 - i : 13 - i, T.intToint()));
-      for (let i of iter) {
-        calcDv1 = calcDv1 + digits[$_get]((t0 = j, j = t0 + 1, t0)) * i;
-      }
-      calcDv1 = calcDv1[$modulo](11);
-      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
-      if (digits[$_get](12) !== dv1) {
-        return false;
-      }
-      let calcDv2 = 0;
-      j = 0;
-      let iter$ = T.IterableOfint().generate(13, dart.fn(i => i < 5 ? 6 - i : 14 - i, T.intToint()));
-      for (let i of iter$) {
-        calcDv2 = calcDv2 + digits[$_get]((t0$ = j, j = t0$ + 1, t0$)) * i;
-      }
-      calcDv2 = calcDv2[$modulo](11);
-      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
-      if (digits[$_get](13) !== dv2) {
-        return false;
-      }
-      return true;
-    }
-    static isCpf(cpf) {
-      let numbers = cpf[$replaceAll](core.RegExp.new("[^0-9]"), "");
-      if (numbers.length !== 11) {
-        return false;
-      }
-      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
-        return false;
-      }
-      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
-      let calcDv1 = 0;
-      let iter = T.IterableOfint().generate(9, dart.fn(i => 10 - i, T.intToint()));
-      for (let i of iter) {
-        calcDv1 = calcDv1 + digits[$_get](10 - i) * i;
-      }
-      calcDv1 = calcDv1[$modulo](11);
-      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
-      if (digits[$_get](9) !== dv1) {
-        return false;
-      }
-      let calcDv2 = 0;
-      let iter$ = T.IterableOfint().generate(10, dart.fn(i => 11 - i, T.intToint()));
-      for (let i of iter$) {
-        calcDv2 = calcDv2 + digits[$_get](11 - i) * i;
-      }
-      calcDv2 = calcDv2[$modulo](11);
-      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
-      if (digits[$_get](10) !== dv2) {
-        return false;
-      }
-      return true;
-    }
-    static capitalize(value) {
-      if (get_utils.GetUtils.isNull(value)) return null;
-      if (dart.nullCheck(get_utils.GetUtils.isBlank(value))) return value;
-      return value[$split](" ")[$map](T.StringN(), C[1] || CT.C1)[$join](" ");
-    }
-    static capitalizeFirst(s) {
-      if (get_utils.GetUtils.isNull(s)) return null;
-      if (dart.nullCheck(get_utils.GetUtils.isBlank(s))) return s;
-      return s[$_get](0)[$toUpperCase]() + s[$substring](1)[$toLowerCase]();
-    }
-    static removeAllWhitespace(value) {
-      return value[$replaceAll](" ", "");
-    }
-    static camelCase(value) {
-      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
-        return null;
-      }
-      let separatedWords = value[$split](core.RegExp.new("[!@#<>?\":`~;[\\]\\\\|=+)(*&^%-\\s_]+"));
-      let newString = "";
-      for (let word of separatedWords) {
-        newString = newString + (word[$_get](0)[$toUpperCase]() + word[$substring](1)[$toLowerCase]());
-      }
-      return newString[$_get](0)[$toLowerCase]() + newString[$substring](1);
-    }
-    static numericOnly(s, opts) {
-      let firstWordOnly = opts && 'firstWordOnly' in opts ? opts.firstWordOnly : false;
-      let numericOnlyStr = "";
-      for (let i = 0; i < s.length; i = i + 1) {
-        if (get_utils.GetUtils.isNumericOnly(s[$_get](i))) {
-          numericOnlyStr = numericOnlyStr + s[$_get](i);
-        }
-        if (firstWordOnly && numericOnlyStr[$isNotEmpty] && s[$_get](i) === " ") {
+    handleTapDown(opts) {
+      let down = opts && 'down' in opts ? opts.down : null;
+      let details = new tap.TapDownDetails.new({globalPosition: down.position, localPosition: down.localPosition, kind: this.getKindForPointer(down.pointer)});
+      switch (down.buttons) {
+        case 1:
+        {
+          if (this.onTapDown != null) this.invokeCallback(dart.void, "onTapDown", dart.fn(() => dart.nullCheck(this.onTapDown)(details), T.VoidTovoid()));
           break;
         }
+        case 2:
+        {
+          if (this.onSecondaryTapDown != null) this.invokeCallback(dart.void, "onSecondaryTapDown", dart.fn(() => dart.nullCheck(this.onSecondaryTapDown)(details), T.VoidTovoid()));
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryTapDown != null) this.invokeCallback(dart.void, "onTertiaryTapDown", dart.fn(() => dart.nullCheck(this.onTertiaryTapDown)(details), T.VoidTovoid()));
+          break;
+        }
+        default:
       }
-      return numericOnlyStr;
     }
-    static hasMatch(value, pattern) {
-      return value == null ? false : core.RegExp.new(pattern).hasMatch(value);
-    }
-    static createPath(path, segments = null) {
-      if (segments == null || segments[$isEmpty]) {
-        return path;
+    handleTapUp(opts) {
+      let down = opts && 'down' in opts ? opts.down : null;
+      let up = opts && 'up' in opts ? opts.up : null;
+      let details = new tap.TapUpDetails.new({kind: up.kind, globalPosition: up.position, localPosition: up.localPosition});
+      switch (down.buttons) {
+        case 1:
+        {
+          if (this.onTapUp != null) this.invokeCallback(dart.void, "onTapUp", dart.fn(() => dart.nullCheck(this.onTapUp)(details), T.VoidTovoid()));
+          if (this.onTap != null) this.invokeCallback(dart.void, "onTap", dart.nullCheck(this.onTap));
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryTapUp != null) this.invokeCallback(dart.void, "onSecondaryTapUp", dart.fn(() => dart.nullCheck(this.onSecondaryTapUp)(details), T.VoidTovoid()));
+          if (this.onSecondaryTap != null) this.invokeCallback(dart.void, "onSecondaryTap", dart.fn(() => dart.nullCheck(this.onSecondaryTap)(), T.VoidTovoid()));
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryTapUp != null) this.invokeCallback(dart.void, "onTertiaryTapUp", dart.fn(() => dart.nullCheck(this.onTertiaryTapUp)(details), T.VoidTovoid()));
+          break;
+        }
+        default:
       }
-      let list = segments[$map](core.String, dart.fn(e => "/" + dart.str(e), T.dynamicToString()));
-      return path + list[$join]();
     }
-    static printFunction(prefix, value, info, opts) {
-      let t2, t1, t0;
-      let isError = opts && 'isError' in opts ? opts.isError : false;
-      t0 = get_main.Get;
-      t1 = (prefix + " " + dart.str(value) + " " + info)[$trim]();
-      t2 = isError;
-      t0.log(t1, {isError: t2});
+    handleTapCancel(opts) {
+      let down = opts && 'down' in opts ? opts.down : null;
+      let cancel = opts && 'cancel' in opts ? opts.cancel : null;
+      let reason = opts && 'reason' in opts ? opts.reason : null;
+      let note = reason === "" ? reason : reason + " ";
+      switch (down.buttons) {
+        case 1:
+        {
+          if (this.onTapCancel != null) this.invokeCallback(dart.void, note + "onTapCancel", dart.nullCheck(this.onTapCancel));
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryTapCancel != null) this.invokeCallback(dart.void, note + "onSecondaryTapCancel", dart.nullCheck(this.onSecondaryTapCancel));
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryTapCancel != null) this.invokeCallback(dart.void, note + "onTertiaryTapCancel", dart.nullCheck(this.onTertiaryTapCancel));
+          break;
+        }
+        default:
+      }
+    }
+    get debugDescription() {
+      return "tap";
     }
   };
-  (get_utils.GetUtils.__ = function() {
+  (tap.TapGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    this[onTapDown] = null;
+    this[onTapUp] = null;
+    this[onTap] = null;
+    this[onTapCancel] = null;
+    this[onSecondaryTap] = null;
+    this[onSecondaryTapDown] = null;
+    this[onSecondaryTapUp] = null;
+    this[onSecondaryTapCancel] = null;
+    this[onTertiaryTapDown] = null;
+    this[onTertiaryTapUp] = null;
+    this[onTertiaryTapCancel] = null;
+    tap.TapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner});
     ;
-  }).prototype = get_utils.GetUtils.prototype;
-  dart.addTypeTests(get_utils.GetUtils);
-  dart.addTypeCaches(get_utils.GetUtils);
-  dart.setLibraryUri(get_utils.GetUtils, I[0]);
-  get_utils._isEmpty = function _isEmpty(value) {
-    if (typeof value == 'string') {
-      return dart.toString(value)[$trim]()[$isEmpty];
-    }
-    if (core.Iterable.is(value) || core.Map.is(value)) {
-      return T.boolN().as(dart.dload(value, 'isEmpty'));
-    }
-    return false;
-  };
-  get_utils._hasLength = function _hasLength(value) {
-    return core.Iterable.is(value) || typeof value == 'string' || core.Map.is(value);
-  };
-  get_utils._obtainDynamicLength = function _obtainDynamicLength(value) {
-    if (value == null) {
-      return null;
-    }
-    if (get_utils._hasLength(value)) {
-      return T.intN().as(dart.dload(value, 'length'));
-    }
-    if (core.int.is(value)) {
-      return dart.toString(value).length;
-    }
-    if (typeof value == 'number') {
-      return dart.toString(value)[$replaceAll](".", "").length;
-    }
-    return null;
-  };
-  dart.trackLibraries("packages/get/get_utils/src/get_utils/get_utils.dart", {
-    "package:get/get_utils/src/get_utils/get_utils.dart": get_utils
+  }).prototype = tap.TapGestureRecognizer.prototype;
+  dart.addTypeTests(tap.TapGestureRecognizer);
+  dart.addTypeCaches(tap.TapGestureRecognizer);
+  dart.setMethodSignature(tap.TapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(tap.TapGestureRecognizer.__proto__),
+    handleTapDown: dart.fnType(dart.void, [], {}, {down: events.PointerDownEvent}),
+    handleTapUp: dart.fnType(dart.void, [], {}, {down: events.PointerDownEvent, up: events.PointerUpEvent}),
+    handleTapCancel: dart.fnType(dart.void, [], {cancel: dart.nullable(events.PointerCancelEvent)}, {down: events.PointerDownEvent, reason: core.String})
+  }));
+  dart.setLibraryUri(tap.TapGestureRecognizer, I[1]);
+  dart.setFieldSignature(tap.TapGestureRecognizer, () => ({
+    __proto__: dart.getFields(tap.TapGestureRecognizer.__proto__),
+    onTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapDownDetails]))),
+    onTapUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapUpDetails]))),
+    onTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onSecondaryTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onSecondaryTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapDownDetails]))),
+    onSecondaryTapUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapUpDetails]))),
+    onSecondaryTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onTertiaryTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapDownDetails]))),
+    onTertiaryTapUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapUpDetails]))),
+    onTertiaryTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, [])))
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/tap.dart", {
+    "package:flutter/src/gestures/tap.dart": tap
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["get_utils.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/get/get_utils/src/get_utils/get_utils.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["tap.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/gestures/tap.dart.lib.js"}');
   // Exports:
   return {
-    get_utils__src__get_utils__get_utils: get_utils
+    src__gestures__tap: tap
   };
 }));
 
-//# sourceMappingURL=get_utils.dart.lib.js.map
+//# sourceMappingURL=tap.dart.lib.js.map

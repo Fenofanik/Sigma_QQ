@@ -1,357 +1,366 @@
-define(['dart_sdk', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__force_press_dart(dart_sdk, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__recognizer$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__flutter__src__cupertino__activity_indicator_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
   const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
-  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
-  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
-  var force_press = Object.create(dart.library);
-  var $isNaN = dartx.isNaN;
-  var $clamp = dartx.clamp;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  var activity_indicator = Object.create(dart.library);
+  var $length = dartx.length;
+  var $floor = dartx.floor;
+  var $modulo = dartx['%'];
+  var $_get = dartx._get;
+  var $_equals = dartx._equals;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    doubleAnddoubleAnddoubleTodouble: () => (T.doubleAnddoubleAnddoubleTodouble = dart.constFn(dart.fnType(core.double, [core.double, core.double, core.double])))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.ready",
-        index: 0
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.possible",
-        index: 1
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.accepted",
-        index: 2
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1000000
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.started",
-        index: 3
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 9,
+        [_Location_line]: 119,
+        [_Location_file]: null
       });
     },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.peaked",
-        index: 4
+    get C2() {
+      return C[2] = dart.constList([C[3] || CT.C3], widget_inspector._Location);
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 118,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 118,
+        [_Location_file]: null
       });
     },
     get C5() {
-      return C[5] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], force_press._ForceState);
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
     },
-    get C6() {
-      return C[6] = dart.fn(force_press.ForcePressGestureRecognizer._inverseLerp, T.doubleAnddoubleAnddoubleTodouble());
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 115,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293651445.0
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282137668.0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_elevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkHighContrastColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_color]: C[11] || CT.C11,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: null,
+        [CupertinoDynamicColor__effectiveColor]: C[11] || CT.C11
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([47, 47, 47, 47, 72, 97, 122, 147], core.int);
     }
   }, false);
-  var C = Array(7).fill(void 0);
+  var C = Array(13).fill(void 0);
   var I = [
-    "package:flutter/src/gestures/force_press.dart",
-    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/gestures/force_press.dart"
+    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart",
+    "package:flutter/src/cupertino/activity_indicator.dart"
   ];
-  var _name$ = dart.privateName(force_press, "_name");
-  force_press._ForceState = class _ForceState extends core.Object {
-    toString() {
-      return this[_name$];
+  var animating$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.animating");
+  var radius$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.radius");
+  var progress$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.progress");
+  activity_indicator.CupertinoActivityIndicator = class CupertinoActivityIndicator extends framework.StatefulWidget {
+    get animating() {
+      return this[animating$];
+    }
+    set animating(value) {
+      super.animating = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      super.radius = value;
+    }
+    get progress() {
+      return this[progress$];
+    }
+    set progress(value) {
+      super.progress = value;
+    }
+    createState() {
+      return new activity_indicator._CupertinoActivityIndicatorState.new();
     }
   };
-  (force_press._ForceState.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
+  (activity_indicator.CupertinoActivityIndicator.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let animating = opts && 'animating' in opts ? opts.animating : true;
+    let radius = opts && 'radius' in opts ? opts.radius : 10;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[animating$] = animating;
+    this[radius$] = radius;
+    if (!(animating !== null)) dart.assertFailed(null, I[0], 32, 16, "animating != null");
+    if (!(radius !== null)) dart.assertFailed(null, I[0], 33, 16, "radius != null");
+    if (!(radius > 0.0)) dart.assertFailed(null, I[0], 34, 16, "radius > 0.0");
+    this[progress$] = 1.0;
+    activity_indicator.CupertinoActivityIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = force_press._ForceState.prototype;
-  dart.addTypeTests(force_press._ForceState);
-  dart.addTypeCaches(force_press._ForceState);
-  dart.setLibraryUri(force_press._ForceState, I[0]);
-  dart.setFieldSignature(force_press._ForceState, () => ({
-    __proto__: dart.getFields(force_press._ForceState.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(force_press._ForceState, ['toString']);
-  force_press._ForceState.ready = C[0] || CT.C0;
-  force_press._ForceState.possible = C[1] || CT.C1;
-  force_press._ForceState.accepted = C[2] || CT.C2;
-  force_press._ForceState.started = C[3] || CT.C3;
-  force_press._ForceState.peaked = C[4] || CT.C4;
-  force_press._ForceState.values = C[5] || CT.C5;
-  var globalPosition$ = dart.privateName(force_press, "ForcePressDetails.globalPosition");
-  var localPosition$ = dart.privateName(force_press, "ForcePressDetails.localPosition");
-  var pressure$ = dart.privateName(force_press, "ForcePressDetails.pressure");
-  force_press.ForcePressDetails = class ForcePressDetails extends core.Object {
-    get globalPosition() {
-      return this[globalPosition$];
-    }
-    set globalPosition(value) {
-      super.globalPosition = value;
-    }
-    get localPosition() {
-      return this[localPosition$];
-    }
-    set localPosition(value) {
-      super.localPosition = value;
-    }
-    get pressure() {
-      return this[pressure$];
-    }
-    set pressure(value) {
-      super.pressure = value;
-    }
-  };
-  (force_press.ForcePressDetails.new = function(opts) {
-    let t0;
-    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : null;
-    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
-    let pressure = opts && 'pressure' in opts ? opts.pressure : null;
-    this[globalPosition$] = globalPosition;
-    this[pressure$] = pressure;
-    if (!(globalPosition !== null)) dart.assertFailed(null, I[1], 50, 15, "globalPosition != null");
-    if (!(pressure !== null)) dart.assertFailed(null, I[1], 51, 15, "pressure != null");
-    this[localPosition$] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+  }).prototype = activity_indicator.CupertinoActivityIndicator.prototype;
+  (activity_indicator.CupertinoActivityIndicator.partiallyRevealed = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let radius = opts && 'radius' in opts ? opts.radius : 10;
+    let progress = opts && 'progress' in opts ? opts.progress : 1;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[radius$] = radius;
+    this[progress$] = progress;
+    if (!(radius !== null)) dart.assertFailed(null, I[0], 48, 16, "radius != null");
+    if (!(radius > 0.0)) dart.assertFailed(null, I[0], 49, 16, "radius > 0.0");
+    if (!(progress !== null)) dart.assertFailed(null, I[0], 50, 16, "progress != null");
+    if (!(progress >= 0.0)) dart.assertFailed(null, I[0], 51, 16, "progress >= 0.0");
+    if (!(progress <= 1.0)) dart.assertFailed(null, I[0], 52, 16, "progress <= 1.0");
+    this[animating$] = false;
+    activity_indicator.CupertinoActivityIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = force_press.ForcePressDetails.prototype;
-  dart.addTypeTests(force_press.ForcePressDetails);
-  dart.addTypeCaches(force_press.ForcePressDetails);
-  dart.setLibraryUri(force_press.ForcePressDetails, I[0]);
-  dart.setFieldSignature(force_press.ForcePressDetails, () => ({
-    __proto__: dart.getFields(force_press.ForcePressDetails.__proto__),
-    globalPosition: dart.finalFieldType(ui.Offset),
-    localPosition: dart.finalFieldType(ui.Offset),
-    pressure: dart.finalFieldType(core.double)
+  }).prototype = activity_indicator.CupertinoActivityIndicator.prototype;
+  dart.addTypeTests(activity_indicator.CupertinoActivityIndicator);
+  dart.addTypeCaches(activity_indicator.CupertinoActivityIndicator);
+  dart.setMethodSignature(activity_indicator.CupertinoActivityIndicator, () => ({
+    __proto__: dart.getMethods(activity_indicator.CupertinoActivityIndicator.__proto__),
+    createState: dart.fnType(activity_indicator._CupertinoActivityIndicatorState, [])
   }));
-  var onStart = dart.privateName(force_press, "ForcePressGestureRecognizer.onStart");
-  var onUpdate = dart.privateName(force_press, "ForcePressGestureRecognizer.onUpdate");
-  var onPeak = dart.privateName(force_press, "ForcePressGestureRecognizer.onPeak");
-  var onEnd = dart.privateName(force_press, "ForcePressGestureRecognizer.onEnd");
-  var startPressure$ = dart.privateName(force_press, "ForcePressGestureRecognizer.startPressure");
-  var peakPressure$ = dart.privateName(force_press, "ForcePressGestureRecognizer.peakPressure");
-  var interpolation$ = dart.privateName(force_press, "ForcePressGestureRecognizer.interpolation");
-  var __ForcePressGestureRecognizer__lastPosition = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPosition");
-  var __ForcePressGestureRecognizer__lastPressure = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPressure");
-  var _state = dart.privateName(force_press, "_state");
-  var _lastPosition = dart.privateName(force_press, "_lastPosition");
-  var _lastPressure = dart.privateName(force_press, "_lastPressure");
-  force_press.ForcePressGestureRecognizer = class ForcePressGestureRecognizer extends recognizer.OneSequenceGestureRecognizer {
-    get onStart() {
-      return this[onStart];
-    }
-    set onStart(value) {
-      this[onStart] = value;
-    }
-    get onUpdate() {
-      return this[onUpdate];
-    }
-    set onUpdate(value) {
-      this[onUpdate] = value;
-    }
-    get onPeak() {
-      return this[onPeak];
-    }
-    set onPeak(value) {
-      this[onPeak] = value;
-    }
-    get onEnd() {
-      return this[onEnd];
-    }
-    set onEnd(value) {
-      this[onEnd] = value;
-    }
-    get startPressure() {
-      return this[startPressure$];
-    }
-    set startPressure(value) {
-      super.startPressure = value;
-    }
-    get peakPressure() {
-      return this[peakPressure$];
-    }
-    set peakPressure(value) {
-      super.peakPressure = value;
-    }
-    get interpolation() {
-      return this[interpolation$];
-    }
-    set interpolation(value) {
-      super.interpolation = value;
-    }
-    get [_lastPosition]() {
+  dart.setLibraryUri(activity_indicator.CupertinoActivityIndicator, I[1]);
+  dart.setFieldSignature(activity_indicator.CupertinoActivityIndicator, () => ({
+    __proto__: dart.getFields(activity_indicator.CupertinoActivityIndicator.__proto__),
+    animating: dart.finalFieldType(core.bool),
+    radius: dart.finalFieldType(core.double),
+    progress: dart.finalFieldType(core.double)
+  }));
+  var ___CupertinoActivityIndicatorState__controller = dart.privateName(activity_indicator, "_#_CupertinoActivityIndicatorState#_controller");
+  var _controller = dart.privateName(activity_indicator, "_controller");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(activity_indicator.CupertinoActivityIndicator) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(activity_indicator.CupertinoActivityIndicator)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(activity_indicator.CupertinoActivityIndicator));
+  activity_indicator._CupertinoActivityIndicatorState = class _CupertinoActivityIndicatorState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
       let t0;
-      t0 = this[__ForcePressGestureRecognizer__lastPosition];
-      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_lastPosition")) : t0;
+      t0 = this[___CupertinoActivityIndicatorState__controller];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
     }
-    set [_lastPosition](t0) {
-      this[__ForcePressGestureRecognizer__lastPosition] = t0;
+    set [_controller](t0) {
+      this[___CupertinoActivityIndicatorState__controller] = t0;
     }
-    get [_lastPressure]() {
-      let t1;
-      t1 = this[__ForcePressGestureRecognizer__lastPressure];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_lastPressure")) : t1;
-    }
-    set [_lastPressure](t1) {
-      this[__ForcePressGestureRecognizer__lastPressure] = t1;
-    }
-    addAllowedPointer(event) {
-      if (!events.PointerUpEvent.is(event) && event.pressureMax <= 1.0) {
-        this.resolve(arena.GestureDisposition.rejected);
-      } else {
-        this.startTrackingPointer(event.pointer, event.transform);
-        if (this[_state] === force_press._ForceState.ready) {
-          this[_state] = force_press._ForceState.possible;
-          this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
-        }
+    initState() {
+      super.initState();
+      this[_controller] = new animation_controller.AnimationController.new({duration: C[0] || CT.C0, vsync: this});
+      if (this.widget.animating) {
+        this[_controller].repeat();
       }
     }
-    handleEvent(event) {
-      let t4, t3, t2;
-      if (!(this[_state] !== force_press._ForceState.ready)) dart.assertFailed(null, I[1], 227, 12, "_state != _ForceState.ready");
-      if (events.PointerMoveEvent.is(event) || events.PointerDownEvent.is(event)) {
-        let pressure = (t2 = event.pressureMin, t3 = event.pressureMax, t4 = event.pressure, this.interpolation(t2, t3, t4));
-        if (!(pressure >= 0.0 && pressure <= 1.0 || pressure[$isNaN])) dart.assertFailed(null, I[1], 232, 9, "(pressure >= 0.0 && pressure <= 1.0) || // Interpolated pressure must be between 1.0 and 0.0...\r\n        pressure.isNaN");
-        this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
-        this[_lastPressure] = pressure;
-        if (this[_state] === force_press._ForceState.possible) {
-          if (pressure > this.startPressure) {
-            this[_state] = force_press._ForceState.started;
-            this.resolve(arena.GestureDisposition.accepted);
-          } else if (event.delta.distanceSquared > events.computeHitSlop(event.kind)) {
-            this.resolve(arena.GestureDisposition.rejected);
-          }
-        }
-        if (pressure > this.startPressure && this[_state] === force_press._ForceState.accepted) {
-          this[_state] = force_press._ForceState.started;
-          if (this.onStart != null) {
-            this.invokeCallback(dart.void, "onStart", dart.fn(() => dart.nullCheck(this.onStart)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), T.VoidTovoid()));
-          }
-        }
-        if (this.onPeak != null && pressure > this.peakPressure && this[_state] === force_press._ForceState.started) {
-          this[_state] = force_press._ForceState.peaked;
-          if (this.onPeak != null) {
-            this.invokeCallback(dart.void, "onPeak", dart.fn(() => dart.nullCheck(this.onPeak)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: event.position, localPosition: event.localPosition})), T.VoidTovoid()));
-          }
-        }
-        if (this.onUpdate != null && !pressure[$isNaN] && (this[_state] === force_press._ForceState.started || this[_state] === force_press._ForceState.peaked)) {
-          if (this.onUpdate != null) {
-            this.invokeCallback(dart.void, "onUpdate", dart.fn(() => dart.nullCheck(this.onUpdate)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: event.position, localPosition: event.localPosition})), T.VoidTovoid()));
-          }
-        }
-      }
-      this.stopTrackingIfPointerNoLongerDown(event);
-    }
-    acceptGesture(pointer) {
-      if (this[_state] === force_press._ForceState.possible) this[_state] = force_press._ForceState.accepted;
-      if (this.onStart != null && this[_state] === force_press._ForceState.started) {
-        this.invokeCallback(dart.void, "onStart", dart.fn(() => dart.nullCheck(this.onStart)(new force_press.ForcePressDetails.new({pressure: this[_lastPressure], globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), T.VoidTovoid()));
+    didUpdateWidget(oldWidget) {
+      activity_indicator.CupertinoActivityIndicator.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (this.widget.animating !== oldWidget.animating) {
+        if (this.widget.animating)
+          this[_controller].repeat();
+        else
+          this[_controller].stop();
       }
     }
-    didStopTrackingLastPointer(pointer) {
-      let wasAccepted = this[_state] === force_press._ForceState.started || this[_state] === force_press._ForceState.peaked;
-      if (this[_state] === force_press._ForceState.possible) {
-        this.resolve(arena.GestureDisposition.rejected);
-        return;
-      }
-      if (wasAccepted && this.onEnd != null) {
-        if (this.onEnd != null) {
-          this.invokeCallback(dart.void, "onEnd", dart.fn(() => dart.nullCheck(this.onEnd)(new force_press.ForcePressDetails.new({pressure: 0.0, globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), T.VoidTovoid()));
-        }
-      }
-      this[_state] = force_press._ForceState.ready;
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
     }
-    rejectGesture(pointer) {
-      this.stopTrackingPointer(pointer);
-      this.didStopTrackingLastPointer(pointer);
-    }
-    static _inverseLerp(min, max, t) {
-      if (!(min <= max)) dart.assertFailed(null, I[1], 324, 12, "min <= max");
-      let value = (t - min) / (max - min);
-      if (!value[$isNaN]) value = value[$clamp](0.0, 1.0);
-      return value;
-    }
-    get debugDescription() {
-      return "force press";
+    build(context) {
+      return new basic.SizedBox.new({height: this.widget.radius * 2, width: this.widget.radius * 2, child: new basic.CustomPaint.new({painter: new activity_indicator._CupertinoActivityIndicatorPainter.new({position: this[_controller], activeColor: colors.CupertinoDynamicColor.resolve(activity_indicator._kActiveTickColor, context), radius: this.widget.radius, progress: this.widget.progress}), $creationLocationd_0dea112b090073317d4: C[1] || CT.C1}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
     }
   };
-  (force_press.ForcePressGestureRecognizer.new = function(opts) {
-    let startPressure = opts && 'startPressure' in opts ? opts.startPressure : 0.4;
-    let peakPressure = opts && 'peakPressure' in opts ? opts.peakPressure : 0.85;
-    let interpolation = opts && 'interpolation' in opts ? opts.interpolation : C[6] || CT.C6;
-    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
-    let kind = opts && 'kind' in opts ? opts.kind : null;
-    this[onStart] = null;
-    this[onUpdate] = null;
-    this[onPeak] = null;
-    this[onEnd] = null;
-    this[__ForcePressGestureRecognizer__lastPosition] = null;
-    this[__ForcePressGestureRecognizer__lastPressure] = null;
-    this[_state] = force_press._ForceState.ready;
-    this[startPressure$] = startPressure;
-    this[peakPressure$] = peakPressure;
-    this[interpolation$] = interpolation;
-    if (!(startPressure !== null)) dart.assertFailed(null, I[1], 126, 15, "startPressure != null");
-    if (!(peakPressure !== null)) dart.assertFailed(null, I[1], 127, 15, "peakPressure != null");
-    if (!(interpolation !== null)) dart.assertFailed(null, I[1], 128, 15, "interpolation != null");
-    if (!(peakPressure > startPressure)) dart.assertFailed(null, I[1], 129, 15, "peakPressure > startPressure");
-    force_press.ForcePressGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+  (activity_indicator._CupertinoActivityIndicatorState.new = function() {
+    this[___CupertinoActivityIndicatorState__controller] = null;
+    activity_indicator._CupertinoActivityIndicatorState.__proto__.new.call(this);
     ;
-  }).prototype = force_press.ForcePressGestureRecognizer.prototype;
-  dart.addTypeTests(force_press.ForcePressGestureRecognizer);
-  dart.addTypeCaches(force_press.ForcePressGestureRecognizer);
-  dart.setMethodSignature(force_press.ForcePressGestureRecognizer, () => ({
-    __proto__: dart.getMethods(force_press.ForcePressGestureRecognizer.__proto__),
-    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
-    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
-    didStopTrackingLastPointer: dart.fnType(dart.void, [core.int])
+  }).prototype = activity_indicator._CupertinoActivityIndicatorState.prototype;
+  dart.addTypeTests(activity_indicator._CupertinoActivityIndicatorState);
+  dart.addTypeCaches(activity_indicator._CupertinoActivityIndicatorState);
+  dart.setMethodSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getMethods(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(force_press.ForcePressGestureRecognizer, () => ({
-    __proto__: dart.getGetters(force_press.ForcePressGestureRecognizer.__proto__),
-    [_lastPosition]: recognizer.OffsetPair,
-    [_lastPressure]: core.double,
-    debugDescription: core.String
+  dart.setGetterSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getGetters(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
   }));
-  dart.setSetterSignature(force_press.ForcePressGestureRecognizer, () => ({
-    __proto__: dart.getSetters(force_press.ForcePressGestureRecognizer.__proto__),
-    [_lastPosition]: recognizer.OffsetPair,
-    [_lastPressure]: core.double
+  dart.setSetterSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getSetters(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
   }));
-  dart.setLibraryUri(force_press.ForcePressGestureRecognizer, I[0]);
-  dart.setFieldSignature(force_press.ForcePressGestureRecognizer, () => ({
-    __proto__: dart.getFields(force_press.ForcePressGestureRecognizer.__proto__),
-    onStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
-    onUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
-    onPeak: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
-    onEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
-    startPressure: dart.finalFieldType(core.double),
-    peakPressure: dart.finalFieldType(core.double),
-    interpolation: dart.finalFieldType(dart.fnType(core.double, [core.double, core.double, core.double])),
-    [__ForcePressGestureRecognizer__lastPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair)),
-    [__ForcePressGestureRecognizer__lastPressure]: dart.fieldType(dart.nullable(core.double)),
-    [_state]: dart.fieldType(force_press._ForceState)
+  dart.setLibraryUri(activity_indicator._CupertinoActivityIndicatorState, I[1]);
+  dart.setFieldSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getFields(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [___CupertinoActivityIndicatorState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController))
   }));
-  dart.trackLibraries("packages/flutter/src/gestures/force_press.dart", {
-    "package:flutter/src/gestures/force_press.dart": force_press
+  activity_indicator._CupertinoActivityIndicatorPainter = class _CupertinoActivityIndicatorPainter extends custom_paint.CustomPainter {
+    paint(canvas, size) {
+      let paint = ui.Paint.new();
+      let tickCount = activity_indicator._kAlphaValues[$length];
+      canvas.save();
+      canvas.translate(size.width / 2.0, size.height / 2.0);
+      let activeTick = (tickCount * this.position.value)[$floor]();
+      for (let i = 0; i < tickCount * this.progress; i = i + 1) {
+        let t = (i - activeTick)[$modulo](tickCount);
+        paint.color = this.activeColor.withAlpha(this.progress < 1 ? 147 : activity_indicator._kAlphaValues[$_get](t));
+        canvas.drawRRect(this.tickFundamentalRRect, paint);
+        canvas.rotate(6.283185307179586 / tickCount);
+      }
+      canvas.restore();
+    }
+    shouldRepaint(oldPainter) {
+      activity_indicator._CupertinoActivityIndicatorPainter.as(oldPainter);
+      return !oldPainter.position[$_equals](this.position) || !oldPainter.activeColor._equals(this.activeColor) || oldPainter.progress !== this.progress;
+    }
+  };
+  (activity_indicator._CupertinoActivityIndicatorPainter.new = function(opts) {
+    let position = opts && 'position' in opts ? opts.position : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let radius = opts && 'radius' in opts ? opts.radius : null;
+    let progress = opts && 'progress' in opts ? opts.progress : null;
+    this.position = position;
+    this.activeColor = activeColor;
+    this.radius = radius;
+    this.progress = progress;
+    this.tickFundamentalRRect = new ui.RRect.fromLTRBXY(-radius / 10, -radius / 3.0, radius / 10, -radius, radius / 10, radius / 10);
+    activity_indicator._CupertinoActivityIndicatorPainter.__proto__.new.call(this, {repaint: position});
+    ;
+  }).prototype = activity_indicator._CupertinoActivityIndicatorPainter.prototype;
+  dart.addTypeTests(activity_indicator._CupertinoActivityIndicatorPainter);
+  dart.addTypeCaches(activity_indicator._CupertinoActivityIndicatorPainter);
+  dart.setMethodSignature(activity_indicator._CupertinoActivityIndicatorPainter, () => ({
+    __proto__: dart.getMethods(activity_indicator._CupertinoActivityIndicatorPainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(activity_indicator._CupertinoActivityIndicatorPainter, I[1]);
+  dart.setFieldSignature(activity_indicator._CupertinoActivityIndicatorPainter, () => ({
+    __proto__: dart.getFields(activity_indicator._CupertinoActivityIndicatorPainter.__proto__),
+    position: dart.finalFieldType(animation.Animation$(core.double)),
+    activeColor: dart.finalFieldType(ui.Color),
+    radius: dart.finalFieldType(core.double),
+    progress: dart.finalFieldType(core.double),
+    tickFundamentalRRect: dart.finalFieldType(ui.RRect)
+  }));
+  var Color_value = dart.privateName(ui, "Color.value");
+  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
+  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
+  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
+  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
+  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
+  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
+  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
+  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
+  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
+  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
+  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
+  dart.defineLazy(activity_indicator, {
+    /*activity_indicator._kDefaultIndicatorRadius*/get _kDefaultIndicatorRadius() {
+      return 10;
+    },
+    /*activity_indicator._kActiveTickColor*/get _kActiveTickColor() {
+      return C[9] || CT.C9;
+    },
+    /*activity_indicator._kTwoPI*/get _kTwoPI() {
+      return 6.283185307179586;
+    },
+    /*activity_indicator._kAlphaValues*/get _kAlphaValues() {
+      return C[12] || CT.C12;
+    },
+    /*activity_indicator._partiallyRevealedAlpha*/get _partiallyRevealedAlpha() {
+      return 147;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/cupertino/activity_indicator.dart", {
+    "package:flutter/src/cupertino/activity_indicator.dart": activity_indicator
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["force_press.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/gestures/force_press.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["activity_indicator.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA0Da;;;;;;IAKE;;;;;;IAQA;;;;;;;AAIT;IAAkC;;;QA/C/B;QACA;QACA;;IADA;IACA;UACM,AAAU,SAAD;UACT,AAAO,MAAD;UACN,AAAO,MAAD,GAAG;IACP,kBAAE;AACX,iFAAW,GAAG;;EAAC;;QASd;QACA;QACA;;IADA;IACA;UACM,AAAO,MAAD;UACN,AAAO,MAAD,GAAG;UACT,AAAS,QAAD;UACR,AAAS,QAAD,IAAI;UACZ,AAAS,QAAD,IAAI;IACT,mBAAE;AACZ,iFAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA2BI;;IAAW;;AAAX;IAAW;;AAIjB,MAAX;AAIL,MAHD,oBAAc,kFAEL;AAGT,UAAI,AAAO;AACW,QAApB,AAAY;;IAEhB;;uDAGgD;AACd,MAA1B,sBAAgB,SAAS;AAC/B,UAAI,AAAO,0BAAa,AAAU,SAAD;AAC/B,YAAI,AAAO;AACW,UAApB,AAAY;;AAEM,UAAlB,AAAY;;IAElB;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;UAG0B;AACxB,YAAO,iCACG,AAAO,AAAO,qBAAE,UACjB,AAAO,AAAO,qBAAE,UAChB,oCACI,yEACG,gCAEgB,qCAAQ,sCAAmB,OAAO,WACpD,AAAO,8BACL,AAAO;IAIzB;;;2DA/CyB;;;EAgD3B;;;;;;;;;;;;;;;;;;;;;UA4CoB,QAAa;AACjB,kBAAQ;AACV,sBAAY,AAAc;AAEvB,MAAb,AAAO,MAAD;AAC+C,MAArD,AAAO,MAAD,WAAW,AAAK,AAAM,IAAP,SAAS,KAAK,AAAK,AAAO,IAAR,UAAU;AAEvC,uBAA0C,CAA5B,AAAU,SAAD,GAAG,AAAS;AAE7C,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,AAAU,SAAD,GAAG,eAAY,IAAF,AAAE,CAAC,GAAH;AAC9B,gBAAqB,CAAhB,AAAE,CAAD,GAAG,UAAU,WAAI,SAAS;AAE+B,QADzE,AAAM,KAAD,SAAS,AACT,2BAAU,AAAS,gBAAE,UAA8B,AAAa,wCAAC,CAAC;AAC1B,QAA7C,AAAO,MAAD,WAAW,2BAAsB,KAAK;AACV,QAAlC,AAAO,MAAD,QAAgB,oBAAE,SAAS;;AAGnB,MAAhB,AAAO,MAAD;IACR;;+DAGsD;AACpD,YAC0C,EADnC,AAAW,UAAD,oBAAa,mBAC1B,AAAW,UAAD,qBAAgB,qBAC1B,AAAW,UAAD,cAAa;IAC7B;;;QA/CgB;QACA;QACA;QACA;IAHA;IACA;IACA;IACA;IACW,4BAAQ,wBAC3B,AAAQ,CAAP,MAAM,OACP,AAAQ,CAAP,MAAM,GAAG,KACV,AAAO,MAAD,OACN,CAAC,MAAM,EACP,AAAO,MAAD,OACN,AAAO,MAAD;AAER,6FAAe,QAAQ;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAxJnB,2CAAwB;;;MAGzB,oCAAiB;;;MAqHhB,0BAAO;;;MAIJ,gCAAa;;;MAYnB,0CAAuB","file":"../../../../../../../packages/flutter/src/cupertino/activity_indicator.dart.lib.js"}');
   // Exports:
   return {
-    src__gestures__force_press: force_press
+    src__cupertino__activity_indicator: activity_indicator
   };
 }));
 
-//# sourceMappingURL=force_press.dart.lib.js.map
+//# sourceMappingURL=activity_indicator.dart.lib.js.map
