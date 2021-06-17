@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Navigator.pushNamed(context, onBoarding);
+    Navigator.pushNamed(context, filterHistory); //onBoarding
   }
 
   @override

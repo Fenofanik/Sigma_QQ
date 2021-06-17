@@ -7,6 +7,7 @@ import 'package:sigma/view/screens/history_screens/filter_for_history.dart';
 import 'package:sigma/view/screens/splash_screen.dart';
 import 'package:sigma/view/screens/Onboarding_screen.dart';
 import 'package:sigma/view/screens/un_defined_screen.dart';
+import 'package:sigma/view/screens/widgets/bottom_navigation_bar.dart';
 
 import 'constant_routes.dart';
 
@@ -25,8 +26,10 @@ class Routers {
         return MaterialPageRoute(builder: (_) => HistoryFilter());
       case category:
         return MaterialPageRoute(builder: (_) => CategorySelection());
-      case splash :
-        return MaterialPageRoute(builder: (_)=>SplashScreen());
+      case splash:
+        return MaterialPageRoute(builder: (_) => SplashScreen());
+      case bottomNavBar:
+        return MaterialPageRoute(builder: (_) => MainBottomNavigationBar());
       default:
         return MaterialPageRoute(
           builder: (_) => UndefinedScreen(),

@@ -1,231 +1,298 @@
-define(['dart_sdk', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/rendering/sliver_multi_box_adaptor.dart'], (function load__packages__flutter__src__rendering__sliver_fixed_extent_list_dart(dart_sdk, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart) {
+define(['dart_sdk'], (function load__packages__collection__src__canonicalized_map_dart(dart_sdk) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
+  const _js_helper = dart_sdk._js_helper;
+  const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
-  const sliver_multi_box_adaptor = packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart.src__rendering__sliver_multi_box_adaptor;
-  var sliver_fixed_extent_list = Object.create(dart.library);
-  var $round = dartx.round;
-  var $abs = dartx.abs;
-  var $floor = dartx.floor;
-  var $ceil = dartx.ceil;
-  var $isFinite = dartx.isFinite;
+  var canonicalized_map = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $_set = dartx._set;
+  var $forEach = dartx.forEach;
+  var $map = dartx.map;
+  var $addEntries = dartx.addEntries;
+  var $cast = dartx.cast;
+  var $clear = dartx.clear;
+  var $containsKey = dartx.containsKey;
+  var $values = dartx.values;
+  var $any = dartx.any;
+  var $entries = dartx.entries;
+  var $isEmpty = dartx.isEmpty;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $length = dartx.length;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $remove = dartx.remove;
+  var $removeWhere = dartx.removeWhere;
+  var $update = dartx.update;
+  var $updateAll = dartx.updateAll;
+  var $addAll = dartx.addAll;
+  var $containsValue = dartx.containsValue;
+  var $keys = dartx.keys;
   dart._checkModuleNullSafetyMode(true);
   const CT = Object.create({
     _: () => (C, CT)
   });
-  var I = [
-    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/rendering/sliver_fixed_extent_list.dart",
-    "package:flutter/src/rendering/sliver_fixed_extent_list.dart"
-  ];
-  var _calculateLeadingGarbage = dart.privateName(sliver_fixed_extent_list, "_calculateLeadingGarbage");
-  var _calculateTrailingGarbage = dart.privateName(sliver_fixed_extent_list, "_calculateTrailingGarbage");
-  sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor = class RenderSliverFixedExtentBoxAdaptor extends sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor {
-    indexToLayoutOffset(itemExtent, index) {
-      return itemExtent * index;
-    }
-    getMinChildIndexForScrollOffset(scrollOffset, itemExtent) {
-      if (itemExtent > 0.0) {
-        let actual = scrollOffset / itemExtent;
-        let round = actual[$round]();
-        if ((actual - round)[$abs]() < 1e-10) {
-          return round;
-        }
-        return actual[$floor]();
+  var I = ["package:collection/src/canonicalized_map.dart"];
+  var _base = dart.privateName(canonicalized_map, "_base");
+  var _canonicalize = dart.privateName(canonicalized_map, "_canonicalize");
+  var _isValidKeyFn = dart.privateName(canonicalized_map, "_isValidKeyFn");
+  var _isValidKey = dart.privateName(canonicalized_map, "_isValidKey");
+  const _is_CanonicalizedMap_default = Symbol('_is_CanonicalizedMap_default');
+  canonicalized_map.CanonicalizedMap$ = dart.generic((C, K, V) => {
+    var LinkedMapOfC$MapEntryOfK$V = () => (LinkedMapOfC$MapEntryOfK$V = dart.constFn(_js_helper.LinkedMap$(C, MapEntryOfK$V())))();
+    var MapEntryOfC$MapEntryOfK$V = () => (MapEntryOfC$MapEntryOfK$V = dart.constFn(core.MapEntry$(C, MapEntryOfK$V())))();
+    var MapEntryOfK$VToMapEntryOfC$MapEntryOfK$V = () => (MapEntryOfK$VToMapEntryOfC$MapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfC$MapEntryOfK$V(), [MapEntryOfK$V()])))();
+    var MapEntryOfC$MapEntryOfK$VToMapEntryOfK$V = () => (MapEntryOfC$MapEntryOfK$VToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [MapEntryOfC$MapEntryOfK$V()])))();
+    var CAndMapEntryOfK$VTovoid = () => (CAndMapEntryOfK$VTovoid = dart.constFn(dart.fnType(dart.void, [C, MapEntryOfK$V()])))();
+    var CAndMapEntryOfK$VTobool = () => (CAndMapEntryOfK$VTobool = dart.constFn(dart.fnType(core.bool, [C, MapEntryOfK$V()])))();
+    var CAndMapEntryOfK$VToMapEntryOfK$V = () => (CAndMapEntryOfK$VToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [C, MapEntryOfK$V()])))();
+    var MapEntryOfK$V = () => (MapEntryOfK$V = dart.constFn(core.MapEntry$(K, V)))();
+    var MapOfK$V = () => (MapOfK$V = dart.constFn(core.Map$(K, V)))();
+    var KAndVTovoid = () => (KAndVTovoid = dart.constFn(dart.fnType(dart.void, [K, V])))();
+    var IterableOfMapEntryOfK$V = () => (IterableOfMapEntryOfK$V = dart.constFn(core.Iterable$(MapEntryOfK$V())))();
+    var MapEntryOfK$VTobool = () => (MapEntryOfK$VTobool = dart.constFn(dart.fnType(core.bool, [MapEntryOfK$V()])))();
+    var MapEntryOfK$VToK = () => (MapEntryOfK$VToK = dart.constFn(dart.fnType(K, [MapEntryOfK$V()])))();
+    var VoidToMapEntryOfK$V = () => (VoidToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [])))();
+    var MapEntryOfK$VToMapEntryOfK$V = () => (MapEntryOfK$VToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [MapEntryOfK$V()])))();
+    var KAndVToV = () => (KAndVToV = dart.constFn(dart.fnType(V, [K, V])))();
+    var MapEntryOfK$VToV = () => (MapEntryOfK$VToV = dart.constFn(dart.fnType(V, [MapEntryOfK$V()])))();
+    var VoidToV = () => (VoidToV = dart.constFn(dart.fnType(V, [])))();
+    var VToV = () => (VToV = dart.constFn(dart.fnType(V, [V])))();
+    var VoidToNV = () => (VoidToNV = dart.constFn(dart.nullable(VoidToV())))();
+    class CanonicalizedMap extends core.Object {
+      _get(key) {
+        let t0;
+        if (!this[_isValidKey](key)) return null;
+        let pair = this[_base][$_get]((t0 = K.as(key), this[_canonicalize](t0)));
+        return pair == null ? null : pair.value;
       }
-      return 0;
-    }
-    getMaxChildIndexForScrollOffset(scrollOffset, itemExtent) {
-      if (itemExtent > 0.0) {
-        let actual = scrollOffset / itemExtent - 1;
-        let round = actual[$round]();
-        if (sliver_fixed_extent_list._isWithinPrecisionErrorTolerance(actual, round)) {
-          return math.max(core.int, 0, round);
-        }
-        return math.max(core.int, 0, actual[$ceil]());
+      _set(key, value$) {
+        let value = value$;
+        let t0;
+        K.as(key);
+        V.as(value);
+        if (!this[_isValidKey](key)) return value$;
+        this[_base][$_set]((t0 = key, this[_canonicalize](t0)), new (MapEntryOfK$V()).__(key, value));
+        return value$;
       }
-      return 0;
-    }
-    estimateMaxScrollOffset(constraints, opts) {
-      let firstIndex = opts && 'firstIndex' in opts ? opts.firstIndex : null;
-      let lastIndex = opts && 'lastIndex' in opts ? opts.lastIndex : null;
-      let leadingScrollOffset = opts && 'leadingScrollOffset' in opts ? opts.leadingScrollOffset : null;
-      let trailingScrollOffset = opts && 'trailingScrollOffset' in opts ? opts.trailingScrollOffset : null;
-      return this.childManager.estimateMaxScrollOffset(constraints, {firstIndex: firstIndex, lastIndex: lastIndex, leadingScrollOffset: leadingScrollOffset, trailingScrollOffset: trailingScrollOffset});
-    }
-    computeMaxScrollOffset(constraints, itemExtent) {
-      return this.childManager.childCount * itemExtent;
-    }
-    [_calculateLeadingGarbage](firstIndex) {
-      let walker = this.firstChild;
-      let leadingGarbage = 0;
-      while (walker != null && this.indexOf(walker) < firstIndex) {
-        leadingGarbage = leadingGarbage + 1;
-        walker = this.childAfter(walker);
+      addAll(other) {
+        MapOfK$V().as(other);
+        other[$forEach](dart.fn((key, value) => {
+          let t1, t0;
+          t0 = key;
+          t1 = value;
+          this._set(t0, t1);
+          return t1;
+        }, KAndVTovoid()));
       }
-      return leadingGarbage;
+      addEntries(entries) {
+        IterableOfMapEntryOfK$V().as(entries);
+        return this[_base][$addEntries](entries[$map](MapEntryOfC$MapEntryOfK$V(), dart.fn(e => {
+          let t0;
+          return new (MapEntryOfC$MapEntryOfK$V()).__((t0 = e.key, this[_canonicalize](t0)), new (MapEntryOfK$V()).__(e.key, e.value));
+        }, MapEntryOfK$VToMapEntryOfC$MapEntryOfK$V())));
+      }
+      cast(K2, V2) {
+        return this[_base][$cast](K2, V2);
+      }
+      clear() {
+        this[_base][$clear]();
+      }
+      containsKey(key) {
+        let t0;
+        if (!this[_isValidKey](key)) return false;
+        return this[_base][$containsKey]((t0 = K.as(key), this[_canonicalize](t0)));
+      }
+      containsValue(value) {
+        return this[_base][$values][$any](dart.fn(pair => dart.equals(pair.value, value), MapEntryOfK$VTobool()));
+      }
+      get entries() {
+        return this[_base][$entries][$map](MapEntryOfK$V(), dart.fn(e => new (MapEntryOfK$V()).__(e.value.key, e.value.value), MapEntryOfC$MapEntryOfK$VToMapEntryOfK$V()));
+      }
+      forEach(f) {
+        this[_base][$forEach](dart.fn((key, pair) => f(pair.key, pair.value), CAndMapEntryOfK$VTovoid()));
+      }
+      get isEmpty() {
+        return this[_base][$isEmpty];
+      }
+      get isNotEmpty() {
+        return this[_base][$isNotEmpty];
+      }
+      get keys() {
+        return this[_base][$values][$map](K, dart.fn(pair => pair.key, MapEntryOfK$VToK()));
+      }
+      get length() {
+        return this[_base][$length];
+      }
+      map(K2, V2, transform) {
+        return this[_base][$map](K2, V2, dart.fn((_, pair) => transform(pair.key, pair.value), dart.fnType(core.MapEntry$(K2, V2), [C, MapEntryOfK$V()])));
+      }
+      putIfAbsent(key, ifAbsent) {
+        let t0;
+        K.as(key);
+        VoidToV().as(ifAbsent);
+        return this[_base][$putIfAbsent]((t0 = key, this[_canonicalize](t0)), dart.fn(() => new (MapEntryOfK$V()).__(key, ifAbsent()), VoidToMapEntryOfK$V())).value;
+      }
+      remove(key) {
+        let t0, t0$;
+        if (!this[_isValidKey](key)) return null;
+        let pair = this[_base][$remove]((t0 = K.as(key), this[_canonicalize](t0)));
+        t0$ = pair;
+        return t0$ == null ? null : t0$.value;
+      }
+      removeWhere(test) {
+        return this[_base][$removeWhere](dart.fn((_, pair) => test(pair.key, pair.value), CAndMapEntryOfK$VTobool()));
+      }
+      retype(K2, V2) {
+        return this.cast(K2, V2);
+      }
+      update(key, update, opts) {
+        let t0;
+        K.as(key);
+        VToV().as(update);
+        let ifAbsent = opts && 'ifAbsent' in opts ? opts.ifAbsent : null;
+        VoidToNV().as(ifAbsent);
+        return this[_base][$update]((t0 = key, this[_canonicalize](t0)), dart.fn(pair => {
+          let value = pair.value;
+          let newValue = update(value);
+          if (core.identical(newValue, value)) return pair;
+          return new (MapEntryOfK$V()).__(key, newValue);
+        }, MapEntryOfK$VToMapEntryOfK$V()), {ifAbsent: ifAbsent == null ? null : dart.fn(() => new (MapEntryOfK$V()).__(key, ifAbsent()), VoidToMapEntryOfK$V())}).value;
+      }
+      updateAll(update) {
+        KAndVToV().as(update);
+        return this[_base][$updateAll](dart.fn((_, pair) => {
+          let value = pair.value;
+          let key = pair.key;
+          let newValue = update(key, value);
+          if (core.identical(value, newValue)) return pair;
+          return new (MapEntryOfK$V()).__(key, newValue);
+        }, CAndMapEntryOfK$VToMapEntryOfK$V()));
+      }
+      get values() {
+        return this[_base][$values][$map](V, dart.fn(pair => pair.value, MapEntryOfK$VToV()));
+      }
+      toString() {
+        return collection.MapBase.mapToString(this);
+      }
+      [_isValidKey](key) {
+        return K.is(key) && (this[_isValidKeyFn] == null || dart.nullCheck(this[_isValidKeyFn])(key));
+      }
     }
-    [_calculateTrailingGarbage](targetLastIndex) {
-      let walker = this.lastChild;
-      let trailingGarbage = 0;
-      while (walker != null && this.indexOf(walker) > targetLastIndex) {
-        trailingGarbage = trailingGarbage + 1;
-        walker = this.childBefore(walker);
-      }
-      return trailingGarbage;
-    }
-    performLayout() {
-      let constraints = this.constraints;
-      this.childManager.didStartLayout();
-      this.childManager.setDidUnderflow(false);
-      let itemExtent = this.itemExtent;
-      let scrollOffset = constraints.scrollOffset + constraints.cacheOrigin;
-      if (!(scrollOffset >= 0.0)) dart.assertFailed(null, I[0], 182, 12, "scrollOffset >= 0.0");
-      let remainingExtent = constraints.remainingCacheExtent;
-      if (!(remainingExtent >= 0.0)) dart.assertFailed(null, I[0], 184, 12, "remainingExtent >= 0.0");
-      let targetEndScrollOffset = scrollOffset + remainingExtent;
-      let childConstraints = constraints.asBoxConstraints({minExtent: itemExtent, maxExtent: itemExtent});
-      let firstIndex = this.getMinChildIndexForScrollOffset(scrollOffset, itemExtent);
-      let targetLastIndex = targetEndScrollOffset[$isFinite] ? this.getMaxChildIndexForScrollOffset(targetEndScrollOffset, itemExtent) : null;
-      if (this.firstChild != null) {
-        let leadingGarbage = this[_calculateLeadingGarbage](firstIndex);
-        let trailingGarbage = targetLastIndex != null ? this[_calculateTrailingGarbage](targetLastIndex) : 0;
-        this.collectGarbage(leadingGarbage, trailingGarbage);
-      } else {
-        this.collectGarbage(0, 0);
-      }
-      if (this.firstChild == null) {
-        if (!this.addInitialChild({index: firstIndex, layoutOffset: this.indexToLayoutOffset(itemExtent, firstIndex)})) {
-          let max = null;
-          if (firstIndex <= 0) {
-            max = 0.0;
-          } else {
-            max = this.computeMaxScrollOffset(constraints, itemExtent);
-          }
-          this.geometry = new sliver.SliverGeometry.new({scrollExtent: max, maxPaintExtent: max});
-          this.childManager.didFinishLayout();
-          return;
-        }
-      }
-      let trailingChildWithLayout = null;
-      for (let index = this.indexOf(dart.nullCheck(this.firstChild)) - 1; index >= firstIndex; index = index - 1) {
-        let child = this.insertAndLayoutLeadingChild(childConstraints);
-        if (child == null) {
-          this.geometry = new sliver.SliverGeometry.new({scrollOffsetCorrection: index * itemExtent});
-          return;
-        }
-        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
-        childParentData.layoutOffset = this.indexToLayoutOffset(itemExtent, index);
-        if (!(childParentData.index === index)) dart.assertFailed(null, I[0], 235, 14, "childParentData.index == index");
-        trailingChildWithLayout == null ? trailingChildWithLayout = child : null;
-      }
-      if (trailingChildWithLayout == null) {
-        dart.nullCheck(this.firstChild).layout(childConstraints);
-        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(this.firstChild).parentData));
-        childParentData.layoutOffset = this.indexToLayoutOffset(itemExtent, firstIndex);
-        trailingChildWithLayout = this.firstChild;
-      }
-      let estimatedMaxScrollOffset = 1 / 0;
-      for (let index = this.indexOf(dart.nullCheck(trailingChildWithLayout)) + 1; targetLastIndex == null || index <= dart.notNull(targetLastIndex); index = index + 1) {
-        let child = this.childAfter(dart.nullCheck(trailingChildWithLayout));
-        if (child == null || this.indexOf(child) !== index) {
-          child = this.insertAndLayoutChild(childConstraints, {after: trailingChildWithLayout});
-          if (child == null) {
-            estimatedMaxScrollOffset = index * itemExtent;
-            break;
-          }
-        } else {
-          child.layout(childConstraints);
-        }
-        trailingChildWithLayout = child;
-        if (!(child != null)) dart.assertFailed(null, I[0], 260, 14, "child != null");
-        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
-        if (!(childParentData.index === index)) dart.assertFailed(null, I[0], 262, 14, "childParentData.index == index");
-        childParentData.layoutOffset = this.indexToLayoutOffset(itemExtent, dart.nullCheck(childParentData.index));
-      }
-      let lastIndex = this.indexOf(dart.nullCheck(this.lastChild));
-      let leadingScrollOffset = this.indexToLayoutOffset(itemExtent, firstIndex);
-      let trailingScrollOffset = this.indexToLayoutOffset(itemExtent, lastIndex + 1);
-      if (!(firstIndex === 0 || dart.nullCheck(this.childScrollOffset(dart.nullCheck(this.firstChild))) - scrollOffset <= 1e-10)) dart.assertFailed(null, I[0], 270, 12, "firstIndex == 0 || childScrollOffset(firstChild!)! - scrollOffset <= precisionErrorTolerance");
-      if (!this.debugAssertChildListIsNonEmptyAndContiguous()) dart.assertFailed(null, I[0], 271, 12, "debugAssertChildListIsNonEmptyAndContiguous()");
-      if (!(this.indexOf(dart.nullCheck(this.firstChild)) === firstIndex)) dart.assertFailed(null, I[0], 272, 12, "indexOf(firstChild!) == firstIndex");
-      if (!(targetLastIndex == null || lastIndex <= dart.notNull(targetLastIndex))) dart.assertFailed(null, I[0], 273, 12, "targetLastIndex == null || lastIndex <= targetLastIndex");
-      estimatedMaxScrollOffset = math.min(core.double, estimatedMaxScrollOffset, this.estimateMaxScrollOffset(constraints, {firstIndex: firstIndex, lastIndex: lastIndex, leadingScrollOffset: leadingScrollOffset, trailingScrollOffset: trailingScrollOffset}));
-      let paintExtent = this.calculatePaintOffset(constraints, {from: leadingScrollOffset, to: trailingScrollOffset});
-      let cacheExtent = this.calculateCacheOffset(constraints, {from: leadingScrollOffset, to: trailingScrollOffset});
-      let targetEndScrollOffsetForPaint = constraints.scrollOffset + constraints.remainingPaintExtent;
-      let targetLastIndexForPaint = targetEndScrollOffsetForPaint[$isFinite] ? this.getMaxChildIndexForScrollOffset(targetEndScrollOffsetForPaint, itemExtent) : null;
-      this.geometry = new sliver.SliverGeometry.new({scrollExtent: estimatedMaxScrollOffset, paintExtent: paintExtent, cacheExtent: cacheExtent, maxPaintExtent: estimatedMaxScrollOffset, hasVisualOverflow: targetLastIndexForPaint != null && lastIndex >= dart.notNull(targetLastIndexForPaint) || constraints.scrollOffset > 0.0});
-      if (estimatedMaxScrollOffset === trailingScrollOffset) this.childManager.setDidUnderflow(true);
-      this.childManager.didFinishLayout();
-    }
-  };
-  (sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.new = function(opts) {
-    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
-    sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.__proto__.new.call(this, {childManager: childManager});
-    ;
-  }).prototype = sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.prototype;
-  dart.addTypeTests(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor);
-  dart.addTypeCaches(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor);
-  dart.setMethodSignature(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor, () => ({
-    __proto__: dart.getMethods(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.__proto__),
-    indexToLayoutOffset: dart.fnType(core.double, [core.double, core.int]),
-    getMinChildIndexForScrollOffset: dart.fnType(core.int, [core.double, core.double]),
-    getMaxChildIndexForScrollOffset: dart.fnType(core.int, [core.double, core.double]),
-    estimateMaxScrollOffset: dart.fnType(core.double, [sliver.SliverConstraints], {firstIndex: dart.nullable(core.int), lastIndex: dart.nullable(core.int), leadingScrollOffset: dart.nullable(core.double), trailingScrollOffset: dart.nullable(core.double)}, {}),
-    computeMaxScrollOffset: dart.fnType(core.double, [sliver.SliverConstraints, core.double]),
-    [_calculateLeadingGarbage]: dart.fnType(core.int, [core.int]),
-    [_calculateTrailingGarbage]: dart.fnType(core.int, [core.int]),
-    performLayout: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor, I[1]);
-  var _itemExtent = dart.privateName(sliver_fixed_extent_list, "_itemExtent");
-  sliver_fixed_extent_list.RenderSliverFixedExtentList = class RenderSliverFixedExtentList extends sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor {
-    get itemExtent() {
-      return this[_itemExtent];
-    }
-    set itemExtent(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[0], 354, 12, "value != null");
-      if (this[_itemExtent] === value) return;
-      this[_itemExtent] = value;
-      this.markNeedsLayout();
-    }
-  };
-  (sliver_fixed_extent_list.RenderSliverFixedExtentList.new = function(opts) {
-    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
-    let itemExtent = opts && 'itemExtent' in opts ? opts.itemExtent : null;
-    this[_itemExtent] = itemExtent;
-    sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__.new.call(this, {childManager: childManager});
-    ;
-  }).prototype = sliver_fixed_extent_list.RenderSliverFixedExtentList.prototype;
-  dart.addTypeTests(sliver_fixed_extent_list.RenderSliverFixedExtentList);
-  dart.addTypeCaches(sliver_fixed_extent_list.RenderSliverFixedExtentList);
-  dart.setGetterSignature(sliver_fixed_extent_list.RenderSliverFixedExtentList, () => ({
-    __proto__: dart.getGetters(sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__),
-    itemExtent: core.double
-  }));
-  dart.setSetterSignature(sliver_fixed_extent_list.RenderSliverFixedExtentList, () => ({
-    __proto__: dart.getSetters(sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__),
-    itemExtent: core.double
-  }));
-  dart.setLibraryUri(sliver_fixed_extent_list.RenderSliverFixedExtentList, I[1]);
-  dart.setFieldSignature(sliver_fixed_extent_list.RenderSliverFixedExtentList, () => ({
-    __proto__: dart.getFields(sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__),
-    [_itemExtent]: dart.fieldType(core.double)
-  }));
-  sliver_fixed_extent_list._isWithinPrecisionErrorTolerance = function _isWithinPrecisionErrorTolerance(actual, round) {
-    return (actual - round)[$abs]() < 1e-10;
-  };
-  dart.trackLibraries("packages/flutter/src/rendering/sliver_fixed_extent_list.dart", {
-    "package:flutter/src/rendering/sliver_fixed_extent_list.dart": sliver_fixed_extent_list
+    (CanonicalizedMap.new = function(canonicalize, opts) {
+      let isValidKey = opts && 'isValidKey' in opts ? opts.isValidKey : null;
+      this[_base] = new (LinkedMapOfC$MapEntryOfK$V()).new();
+      this[_canonicalize] = canonicalize;
+      this[_isValidKeyFn] = isValidKey;
+      ;
+    }).prototype = CanonicalizedMap.prototype;
+    (CanonicalizedMap.from = function(other, canonicalize, opts) {
+      let isValidKey = opts && 'isValidKey' in opts ? opts.isValidKey : null;
+      this[_base] = new (LinkedMapOfC$MapEntryOfK$V()).new();
+      this[_canonicalize] = canonicalize;
+      this[_isValidKeyFn] = isValidKey;
+      this.addAll(other);
+    }).prototype = CanonicalizedMap.prototype;
+    CanonicalizedMap.prototype[dart.isMap] = true;
+    dart.addTypeTests(CanonicalizedMap);
+    CanonicalizedMap.prototype[_is_CanonicalizedMap_default] = true;
+    dart.addTypeCaches(CanonicalizedMap);
+    CanonicalizedMap[dart.implements] = () => [core.Map$(K, V)];
+    dart.setMethodSignature(CanonicalizedMap, () => ({
+      __proto__: dart.getMethods(CanonicalizedMap.__proto__),
+      _get: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
+      [$_get]: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
+      _set: dart.fnType(dart.void, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      [$_set]: dart.fnType(dart.void, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      addAll: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      [$addAll]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      addEntries: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      [$addEntries]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      cast: dart.gFnType((K2, V2) => [core.Map$(K2, V2), []], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      [$cast]: dart.gFnType((K2, V2) => [core.Map$(K2, V2), []], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      clear: dart.fnType(dart.void, []),
+      [$clear]: dart.fnType(dart.void, []),
+      containsKey: dart.fnType(core.bool, [dart.nullable(core.Object)]),
+      [$containsKey]: dart.fnType(core.bool, [dart.nullable(core.Object)]),
+      containsValue: dart.fnType(core.bool, [dart.nullable(core.Object)]),
+      [$containsValue]: dart.fnType(core.bool, [dart.nullable(core.Object)]),
+      forEach: dart.fnType(dart.void, [dart.fnType(dart.void, [K, V])]),
+      [$forEach]: dart.fnType(dart.void, [dart.fnType(dart.void, [K, V])]),
+      map: dart.gFnType((K2, V2) => [core.Map$(K2, V2), [dart.fnType(core.MapEntry$(K2, V2), [K, V])]], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      [$map]: dart.gFnType((K2, V2) => [core.Map$(K2, V2), [dart.fnType(core.MapEntry$(K2, V2), [K, V])]], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      putIfAbsent: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      [$putIfAbsent]: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      remove: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
+      [$remove]: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
+      removeWhere: dart.fnType(dart.void, [dart.fnType(core.bool, [K, V])]),
+      [$removeWhere]: dart.fnType(dart.void, [dart.fnType(core.bool, [K, V])]),
+      retype: dart.gFnType((K2, V2) => [core.Map$(K2, V2), []], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      update: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)], {ifAbsent: dart.nullable(core.Object)}, {}),
+      [$update]: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)], {ifAbsent: dart.nullable(core.Object)}, {}),
+      updateAll: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      [$updateAll]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      [_isValidKey]: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setGetterSignature(CanonicalizedMap, () => ({
+      __proto__: dart.getGetters(CanonicalizedMap.__proto__),
+      entries: core.Iterable$(core.MapEntry$(K, V)),
+      [$entries]: core.Iterable$(core.MapEntry$(K, V)),
+      isEmpty: core.bool,
+      [$isEmpty]: core.bool,
+      isNotEmpty: core.bool,
+      [$isNotEmpty]: core.bool,
+      keys: core.Iterable$(K),
+      [$keys]: core.Iterable$(K),
+      length: core.int,
+      [$length]: core.int,
+      values: core.Iterable$(V),
+      [$values]: core.Iterable$(V)
+    }));
+    dart.setLibraryUri(CanonicalizedMap, I[0]);
+    dart.setFieldSignature(CanonicalizedMap, () => ({
+      __proto__: dart.getFields(CanonicalizedMap.__proto__),
+      [_canonicalize]: dart.finalFieldType(dart.fnType(C, [K])),
+      [_isValidKeyFn]: dart.finalFieldType(dart.nullable(dart.fnType(core.bool, [K]))),
+      [_base]: dart.finalFieldType(core.Map$(C, core.MapEntry$(K, V)))
+    }));
+    dart.defineExtensionMethods(CanonicalizedMap, [
+      '_get',
+      '_set',
+      'addAll',
+      'addEntries',
+      'cast',
+      'clear',
+      'containsKey',
+      'containsValue',
+      'forEach',
+      'map',
+      'putIfAbsent',
+      'remove',
+      'removeWhere',
+      'update',
+      'updateAll',
+      'toString'
+    ]);
+    dart.defineExtensionAccessors(CanonicalizedMap, [
+      'entries',
+      'isEmpty',
+      'isNotEmpty',
+      'keys',
+      'length',
+      'values'
+    ]);
+    return CanonicalizedMap;
+  });
+  canonicalized_map.CanonicalizedMap = canonicalized_map.CanonicalizedMap$();
+  dart.addTypeTests(canonicalized_map.CanonicalizedMap, _is_CanonicalizedMap_default);
+  dart.trackLibraries("packages/collection/src/canonicalized_map.dart", {
+    "package:collection/src/canonicalized_map.dart": canonicalized_map
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["sliver_fixed_extent_list.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/rendering/sliver_fixed_extent_list.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["canonicalized_map.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/collection/src/canonicalized_map.dart.lib.js"}');
   // Exports:
   return {
-    src__rendering__sliver_fixed_extent_list: sliver_fixed_extent_list
+    src__canonicalized_map: canonicalized_map
   };
 }));
 
-//# sourceMappingURL=sliver_fixed_extent_list.dart.lib.js.map
+//# sourceMappingURL=canonicalized_map.dart.lib.js.map

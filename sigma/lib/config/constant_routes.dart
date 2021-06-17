@@ -6,4 +6,5 @@ const String filterHistory = '/FilterHistory';
 const String category = '/CategorySelection';
 const String myHistoryMain = '/MyHistoryMain';
 const String splash = '/';
+const String bottomNavBar = '/BottomBar';
 

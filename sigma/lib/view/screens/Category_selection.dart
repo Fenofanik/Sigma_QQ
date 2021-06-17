@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
+import 'package:sigma/config/constant_routes.dart';
 import 'package:sigma/core/controlles/category_controller.dart';
 import 'package:sigma/core/ui/widgets/base_stateless_widget.dart';
 
@@ -12,6 +13,7 @@ class CategorySelection extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -332,12 +334,14 @@ class CategorySelection extends BaseStatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, bottomNavBar);
+                    },
                     style: controller.categoryNames.first.pressed.value || controller.categoryNames.first.pressedCafe.value ||
-                            controller.categoryNames.first.pressedClothes.value || controller.categoryNames.first.pressedElectronics.value ||
-                            controller.categoryNames.first.pressedEntertainment.value || controller.categoryNames.first.pressedServices.value ||
-                            controller.categoryNames.first.pressedBaby.value || controller.categoryNames.first.pressedBeauty.value ||
-                            controller.categoryNames.first.pressedCar.value || controller.categoryNames.first.pressedTrips.value||
+                        controller.categoryNames.first.pressedClothes.value || controller.categoryNames.first.pressedElectronics.value ||
+                        controller.categoryNames.first.pressedEntertainment.value || controller.categoryNames.first.pressedServices.value ||
+                        controller.categoryNames.first.pressedBaby.value || controller.categoryNames.first.pressedBeauty.value ||
+                        controller.categoryNames.first.pressedCar.value || controller.categoryNames.first.pressedTrips.value||
                         controller.categoryNames.first.pressedMarket.value
                         ? ElevatedButtonStyleManager().elevatedButtonStyleStart
                         : ElevatedButtonStyleManager()
@@ -363,4 +367,5 @@ class CategorySelection extends BaseStatelessWidget {
     // TODO: implement getLayout
     throw UnimplementedError();
   }
+
 }

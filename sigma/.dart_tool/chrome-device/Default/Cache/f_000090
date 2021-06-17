@@ -1,435 +1,1220 @@
-define(['dart_sdk', 'packages/flutter/src/physics/tolerance.dart', 'packages/flutter/src/physics/friction_simulation.dart', 'packages/flutter/src/physics/spring_simulation.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/physics/simulation.dart'], (function load__packages__flutter__src__widgets__scroll_simulation_dart(dart_sdk, packages__flutter__src__physics__tolerance$46dart, packages__flutter__src__physics__friction_simulation$46dart, packages__flutter__src__physics__spring_simulation$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__physics__simulation$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/editable.dart', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/desktop_text_selection_toolbar_layout_delegate.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/rendering/paragraph.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__flutter__src__material__desktop_text_selection_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__editable$46dart, packages__flutter__src__services__text_input$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__desktop_text_selection_toolbar_layout_delegate$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__rendering__paragraph$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__strut_style$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
-  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const tolerance = packages__flutter__src__physics__tolerance$46dart.src__physics__tolerance;
-  const friction_simulation = packages__flutter__src__physics__friction_simulation$46dart.src__physics__friction_simulation;
-  const spring_simulation = packages__flutter__src__physics__spring_simulation$46dart.src__physics__spring_simulation;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const simulation = packages__flutter__src__physics__simulation$46dart.src__physics__simulation;
-  var scroll_simulation = Object.create(dart.library);
-  var $isFinite = dartx.isFinite;
-  var $abs = dartx.abs;
-  var $round = dartx.round;
-  var $sign = dartx.sign;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text_selection = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text_selection;
+  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const text$ = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const editable = packages__flutter__src__rendering__editable$46dart.src__rendering__editable;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  const debug$ = packages__flutter__src__material__icon_button$46dart.src__material__debug;
+  const material_localizations = packages__flutter__src__material__icon_button$46dart.src__material__material_localizations;
+  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const text_button = packages__flutter__src__material__icon_button$46dart.src__material__text_button;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const desktop_text_selection_toolbar_layout_delegate = packages__flutter__src__widgets__desktop_text_selection_toolbar_layout_delegate$46dart.src__widgets__desktop_text_selection_toolbar_layout_delegate;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const paragraph = packages__flutter__src__rendering__paragraph$46dart.src__rendering__paragraph;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  var desktop_text_selection = Object.create(dart.library);
+  var $isNotEmpty = dartx.isNotEmpty;
   var $clamp = dartx.clamp;
-  var $_get = dartx._get;
+  var $add = dartx.add;
+  var $isEmpty = dartx.isEmpty;
+  var $length = dartx.length;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))()
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    StringAndFnTovoid: () => (T.StringAndFnTovoid = dart.constFn(dart.fnType(dart.void, [core.String, T.VoidTovoid()])))(),
+    BuildContextAndWidgetToWidget: () => (T.BuildContextAndWidgetToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipboardStatus",
+        [_Location_column]: 7,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "endpoints",
+        [_Location_column]: 7,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "globalEditableRegion",
+        [_Location_column]: 7,
+        [_Location_line]: 43,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handleCut",
+        [_Location_column]: 7,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handleCopy",
+        [_Location_column]: 7,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handlePaste",
+        [_Location_column]: 7,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "handleSelectAll",
+        [_Location_column]: 7,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "selectionMidpoint",
+        [_Location_column]: 7,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "lastSecondaryTapDownPosition",
+        [_Location_column]: 7,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textLineHeight",
+        [_Location_column]: 7,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
+    },
     get C0() {
       return C[0] = dart.const({
-        __proto__: tolerance.Tolerance.prototype,
-        [Tolerance_velocity]: 0.001,
-        [Tolerance_time]: 0.001,
-        [Tolerance_distance]: 0.001
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([], widget_inspector._Location);
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: basic.SizedBox.prototype,
+        [Widget__location]: C[13] || CT.C13,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: null,
+        [SizedBox_height]: 0,
+        [SizedBox_width]: 0
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 29,
+        [_Location_line]: 164,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 41,
+        [_Location_line]: 164,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], widget_inspector._Location);
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 164,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: basic.SizedBox.prototype,
+        [Widget__location]: C[16] || CT.C16,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: null,
+        [SizedBox_height]: 0,
+        [SizedBox_width]: 0
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "context",
+        [_Location_column]: 9,
+        [_Location_line]: 187,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 9,
+        [_Location_line]: 188,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "text",
+        [_Location_column]: 9,
+        [_Location_line]: 189,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24], widget_inspector._Location);
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 52,
+        [_Location_line]: 186,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 29,
+        [_Location_line]: 209,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 41,
+        [_Location_line]: 209,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 209,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: basic.SizedBox.prototype,
+        [Widget__location]: C[26] || CT.C26,
+        [Widget_key]: null,
+        [SingleChildRenderObjectWidget_child]: null,
+        [SizedBox_height]: 0,
+        [SizedBox_width]: 0
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "anchor",
+        [_Location_column]: 7,
+        [_Location_line]: 213,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 7,
+        [_Location_line]: 214,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 212,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C34() {
+      return C[34] = dart.fn(desktop_text_selection._DesktopTextSelectionToolbar._defaultToolbarBuilder, T.BuildContextAndWidgetToWidget());
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 7,
+        [Radius_x]: 7
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: border_radius.BorderRadius.prototype,
+        [BorderRadius_bottomRight]: C[36] || CT.C36,
+        [BorderRadius_bottomLeft]: C[36] || CT.C36,
+        [BorderRadius_topRight]: C[36] || CT.C36,
+        [BorderRadius_topLeft]: C[36] || CT.C36
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderRadius",
+        [_Location_column]: 9,
+        [_Location_line]: 265,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipBehavior",
+        [_Location_column]: 9,
+        [_Location_line]: 266,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 9,
+        [_Location_line]: 267,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "type",
+        [_Location_column]: 9,
+        [_Location_line]: 268,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 269,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43], widget_inspector._Location);
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 264,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 263,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 264,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[45] || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 262,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 11,
+        [_Location_line]: 294,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 295,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51], widget_inspector._Location);
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 293,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "delegate",
+        [_Location_column]: 9,
+        [_Location_line]: 290,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 293,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55], widget_inspector._Location);
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 289,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 283,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 289,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59], widget_inspector._Location);
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[57] || CT.C57,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 282,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 10,
+        [_Location_line]: 333,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "overflow",
+        [_Location_column]: 10,
+        [_Location_line]: 334,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 10,
+        [_Location_line]: 335,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.constList([C[62] || CT.C62, C[63] || CT.C63, C[64] || CT.C64], widget_inspector._Location);
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[61] || CT.C61,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 332,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: borders.BorderStyle.prototype,
+        [_name]: "BorderStyle.none",
+        index: 0
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: borders.BorderSide.prototype,
+        [BorderSide_style]: C[67] || CT.C67,
+        [BorderSide_width]: 0,
+        [BorderSide_color]: C[68] || CT.C68
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 0,
+        [Radius_x]: 0
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: border_radius.BorderRadius.prototype,
+        [BorderRadius_bottomRight]: C[70] || CT.C70,
+        [BorderRadius_bottomLeft]: C[70] || CT.C70,
+        [BorderRadius_topRight]: C[70] || CT.C70,
+        [BorderRadius_topLeft]: C[70] || CT.C70
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: rounded_rectangle_border.RoundedRectangleBorder.prototype,
+        [OutlinedBorder_side]: C[66] || CT.C66,
+        [RoundedRectangleBorder_borderRadius]: C[69] || CT.C69
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 36,
+        [OffsetBase__dx]: 48
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 9,
+        [_Location_line]: 359,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 9,
+        [_Location_line]: 366,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 367,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.constList([C[74] || CT.C74, C[75] || CT.C75, C[76] || CT.C76], widget_inspector._Location);
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[73] || CT.C73,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 358,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 357,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 358,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.constList([C[79] || CT.C79, C[80] || CT.C80], widget_inspector._Location);
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[78] || CT.C78,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 356,
+        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
+      });
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: ui.FontWeight.prototype,
+        [FontWeight_index]: 3
+      });
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: text_style.TextStyle.prototype,
+        [TextStyle_fontFeatures]: null,
+        [TextStyle_shadows]: null,
+        [TextStyle_debugLabel]: null,
+        [TextStyle_decorationThickness]: null,
+        [TextStyle_decorationStyle]: null,
+        [TextStyle_decorationColor]: null,
+        [TextStyle_decoration]: null,
+        [TextStyle_background]: null,
+        [TextStyle_foreground]: null,
+        [TextStyle_locale]: null,
+        [TextStyle_leadingDistribution]: null,
+        [TextStyle_height]: null,
+        [TextStyle_textBaseline]: null,
+        [TextStyle_wordSpacing]: null,
+        [TextStyle_letterSpacing]: -0.15,
+        [TextStyle_fontStyle]: null,
+        [TextStyle_fontWeight]: C[82] || CT.C82,
+        [TextStyle_fontSize]: 14,
+        [TextStyle__package]: null,
+        [TextStyle__fontFamilyFallback]: null,
+        [TextStyle_fontFamily]: null,
+        [TextStyle_backgroundColor]: null,
+        [TextStyle_color]: null,
+        [TextStyle_inherit]: false
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 3,
+        [EdgeInsets_right]: 20,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 20
       });
     }
   }, false);
-  var C = [void 0];
+  var C = Array(84).fill(void 0);
   var I = [
-    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/widgets/scroll_simulation.dart",
-    "package:flutter/src/widgets/scroll_simulation.dart"
+    "package:flutter/src/material/desktop_text_selection.dart",
+    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/material/desktop_text_selection.dart"
   ];
-  var leadingExtent$ = dart.privateName(scroll_simulation, "BouncingScrollSimulation.leadingExtent");
-  var trailingExtent$ = dart.privateName(scroll_simulation, "BouncingScrollSimulation.trailingExtent");
-  var spring$ = dart.privateName(scroll_simulation, "BouncingScrollSimulation.spring");
-  var Tolerance_velocity = dart.privateName(tolerance, "Tolerance.velocity");
-  var Tolerance_time = dart.privateName(tolerance, "Tolerance.time");
-  var Tolerance_distance = dart.privateName(tolerance, "Tolerance.distance");
-  var __BouncingScrollSimulation__frictionSimulation = dart.privateName(scroll_simulation, "_#BouncingScrollSimulation#_frictionSimulation");
-  var __BouncingScrollSimulation__springSimulation = dart.privateName(scroll_simulation, "_#BouncingScrollSimulation#_springSimulation");
-  var __BouncingScrollSimulation__springTime = dart.privateName(scroll_simulation, "_#BouncingScrollSimulation#_springTime");
-  var _timeOffset = dart.privateName(scroll_simulation, "_timeOffset");
-  var _springSimulation = dart.privateName(scroll_simulation, "_springSimulation");
-  var _underscrollSimulation = dart.privateName(scroll_simulation, "_underscrollSimulation");
-  var _springTime = dart.privateName(scroll_simulation, "_springTime");
-  var _overscrollSimulation = dart.privateName(scroll_simulation, "_overscrollSimulation");
-  var _frictionSimulation = dart.privateName(scroll_simulation, "_frictionSimulation");
-  var _simulation = dart.privateName(scroll_simulation, "_simulation");
-  scroll_simulation.BouncingScrollSimulation = class BouncingScrollSimulation extends simulation.Simulation {
-    get leadingExtent() {
-      return this[leadingExtent$];
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var SingleChildRenderObjectWidget_child = dart.privateName(framework, "SingleChildRenderObjectWidget.child");
+  var SizedBox_height = dart.privateName(basic, "SizedBox.height");
+  var SizedBox_width = dart.privateName(basic, "SizedBox.width");
+  desktop_text_selection._DesktopTextSelectionControls = class _DesktopTextSelectionControls extends text_selection.TextSelectionControls {
+    getHandleSize(textLineHeight) {
+      return ui.Size.zero;
     }
-    set leadingExtent(value) {
-      super.leadingExtent = value;
+    buildToolbar(context, globalEditableRegion, textLineHeight, selectionMidpoint, endpoints, delegate, clipboardStatus, lastSecondaryTapDownPosition) {
+      return new desktop_text_selection._DesktopTextSelectionControlsToolbar.new({clipboardStatus: clipboardStatus, endpoints: endpoints, globalEditableRegion: globalEditableRegion, handleCut: this.canCut(delegate) ? dart.fn(() => this.handleCut(delegate), T.VoidTovoid()) : null, handleCopy: this.canCopy(delegate) ? dart.fn(() => this.handleCopy(delegate, clipboardStatus), T.VoidTovoid()) : null, handlePaste: this.canPaste(delegate) ? dart.fn(() => this.handlePaste(delegate), T.VoidTovoid()) : null, handleSelectAll: this.canSelectAll(delegate) ? dart.fn(() => this.handleSelectAll(delegate), T.VoidTovoid()) : null, selectionMidpoint: selectionMidpoint, lastSecondaryTapDownPosition: lastSecondaryTapDownPosition, textLineHeight: textLineHeight, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
     }
-    get trailingExtent() {
-      return this[trailingExtent$];
+    buildHandle(context, type, textLineHeight) {
+      return C[12] || CT.C12;
     }
-    set trailingExtent(value) {
-      super.trailingExtent = value;
+    getHandleAnchor(type, textLineHeight) {
+      return ui.Offset.zero;
     }
-    get spring() {
-      return this[spring$];
+    canSelectAll(delegate) {
+      let value = delegate.textEditingValue;
+      return delegate.selectAllEnabled && value.text[$isNotEmpty] && !(value.selection.start === 0 && value.selection.end === value.text.length);
     }
-    set spring(value) {
-      super.spring = value;
+  };
+  (desktop_text_selection._DesktopTextSelectionControls.new = function() {
+    ;
+  }).prototype = desktop_text_selection._DesktopTextSelectionControls.prototype;
+  dart.addTypeTests(desktop_text_selection._DesktopTextSelectionControls);
+  dart.addTypeCaches(desktop_text_selection._DesktopTextSelectionControls);
+  dart.setMethodSignature(desktop_text_selection._DesktopTextSelectionControls, () => ({
+    __proto__: dart.getMethods(desktop_text_selection._DesktopTextSelectionControls.__proto__),
+    getHandleSize: dart.fnType(ui.Size, [core.double]),
+    buildToolbar: dart.fnType(framework.Widget, [framework.BuildContext, ui.Rect, core.double, ui.Offset, core.List$(editable.TextSelectionPoint), text_input.TextSelectionDelegate, text_selection.ClipboardStatusNotifier, dart.nullable(ui.Offset)]),
+    buildHandle: dart.fnType(framework.Widget, [framework.BuildContext, text_selection.TextSelectionHandleType, core.double]),
+    getHandleAnchor: dart.fnType(ui.Offset, [text_selection.TextSelectionHandleType, core.double])
+  }));
+  dart.setLibraryUri(desktop_text_selection._DesktopTextSelectionControls, I[0]);
+  var clipboardStatus$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.clipboardStatus");
+  var endpoints$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.endpoints");
+  var globalEditableRegion$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.globalEditableRegion");
+  var handleCopy$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.handleCopy");
+  var handleCut$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.handleCut");
+  var handlePaste$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.handlePaste");
+  var handleSelectAll$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.handleSelectAll");
+  var lastSecondaryTapDownPosition$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.lastSecondaryTapDownPosition");
+  var selectionMidpoint$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.selectionMidpoint");
+  var textLineHeight$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionControlsToolbar.textLineHeight");
+  desktop_text_selection._DesktopTextSelectionControlsToolbar = class _DesktopTextSelectionControlsToolbar extends framework.StatefulWidget {
+    get clipboardStatus() {
+      return this[clipboardStatus$];
     }
-    get [_frictionSimulation]() {
+    set clipboardStatus(value) {
+      super.clipboardStatus = value;
+    }
+    get endpoints() {
+      return this[endpoints$];
+    }
+    set endpoints(value) {
+      super.endpoints = value;
+    }
+    get globalEditableRegion() {
+      return this[globalEditableRegion$];
+    }
+    set globalEditableRegion(value) {
+      super.globalEditableRegion = value;
+    }
+    get handleCopy() {
+      return this[handleCopy$];
+    }
+    set handleCopy(value) {
+      super.handleCopy = value;
+    }
+    get handleCut() {
+      return this[handleCut$];
+    }
+    set handleCut(value) {
+      super.handleCut = value;
+    }
+    get handlePaste() {
+      return this[handlePaste$];
+    }
+    set handlePaste(value) {
+      super.handlePaste = value;
+    }
+    get handleSelectAll() {
+      return this[handleSelectAll$];
+    }
+    set handleSelectAll(value) {
+      super.handleSelectAll = value;
+    }
+    get lastSecondaryTapDownPosition() {
+      return this[lastSecondaryTapDownPosition$];
+    }
+    set lastSecondaryTapDownPosition(value) {
+      super.lastSecondaryTapDownPosition = value;
+    }
+    get selectionMidpoint() {
+      return this[selectionMidpoint$];
+    }
+    set selectionMidpoint(value) {
+      super.selectionMidpoint = value;
+    }
+    get textLineHeight() {
+      return this[textLineHeight$];
+    }
+    set textLineHeight(value) {
+      super.textLineHeight = value;
+    }
+    createState() {
+      return new desktop_text_selection._DesktopTextSelectionControlsToolbarState.new();
+    }
+  };
+  (desktop_text_selection._DesktopTextSelectionControlsToolbar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let clipboardStatus = opts && 'clipboardStatus' in opts ? opts.clipboardStatus : null;
+    let endpoints = opts && 'endpoints' in opts ? opts.endpoints : null;
+    let globalEditableRegion = opts && 'globalEditableRegion' in opts ? opts.globalEditableRegion : null;
+    let handleCopy = opts && 'handleCopy' in opts ? opts.handleCopy : null;
+    let handleCut = opts && 'handleCut' in opts ? opts.handleCut : null;
+    let handlePaste = opts && 'handlePaste' in opts ? opts.handlePaste : null;
+    let handleSelectAll = opts && 'handleSelectAll' in opts ? opts.handleSelectAll : null;
+    let selectionMidpoint = opts && 'selectionMidpoint' in opts ? opts.selectionMidpoint : null;
+    let textLineHeight = opts && 'textLineHeight' in opts ? opts.textLineHeight : null;
+    let lastSecondaryTapDownPosition = opts && 'lastSecondaryTapDownPosition' in opts ? opts.lastSecondaryTapDownPosition : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[clipboardStatus$] = clipboardStatus;
+    this[endpoints$] = endpoints;
+    this[globalEditableRegion$] = globalEditableRegion;
+    this[handleCopy$] = handleCopy;
+    this[handleCut$] = handleCut;
+    this[handlePaste$] = handlePaste;
+    this[handleSelectAll$] = handleSelectAll;
+    this[selectionMidpoint$] = selectionMidpoint;
+    this[textLineHeight$] = textLineHeight;
+    this[lastSecondaryTapDownPosition$] = lastSecondaryTapDownPosition;
+    desktop_text_selection._DesktopTextSelectionControlsToolbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = desktop_text_selection._DesktopTextSelectionControlsToolbar.prototype;
+  dart.addTypeTests(desktop_text_selection._DesktopTextSelectionControlsToolbar);
+  dart.addTypeCaches(desktop_text_selection._DesktopTextSelectionControlsToolbar);
+  dart.setMethodSignature(desktop_text_selection._DesktopTextSelectionControlsToolbar, () => ({
+    __proto__: dart.getMethods(desktop_text_selection._DesktopTextSelectionControlsToolbar.__proto__),
+    createState: dart.fnType(desktop_text_selection._DesktopTextSelectionControlsToolbarState, [])
+  }));
+  dart.setLibraryUri(desktop_text_selection._DesktopTextSelectionControlsToolbar, I[0]);
+  dart.setFieldSignature(desktop_text_selection._DesktopTextSelectionControlsToolbar, () => ({
+    __proto__: dart.getFields(desktop_text_selection._DesktopTextSelectionControlsToolbar.__proto__),
+    clipboardStatus: dart.finalFieldType(dart.nullable(text_selection.ClipboardStatusNotifier)),
+    endpoints: dart.finalFieldType(core.List$(editable.TextSelectionPoint)),
+    globalEditableRegion: dart.finalFieldType(ui.Rect),
+    handleCopy: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    handleCut: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    handlePaste: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    handleSelectAll: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    lastSecondaryTapDownPosition: dart.finalFieldType(dart.nullable(ui.Offset)),
+    selectionMidpoint: dart.finalFieldType(ui.Offset),
+    textLineHeight: dart.finalFieldType(core.double)
+  }));
+  var _clipboardStatus = dart.privateName(desktop_text_selection, "_clipboardStatus");
+  var _onChangedClipboardStatus = dart.privateName(desktop_text_selection, "_onChangedClipboardStatus");
+  desktop_text_selection._DesktopTextSelectionControlsToolbarState = class _DesktopTextSelectionControlsToolbarState extends framework.State$(desktop_text_selection._DesktopTextSelectionControlsToolbar) {
+    [_onChangedClipboardStatus]() {
+      this.setState(dart.fn(() => {
+      }, T.VoidTovoid()));
+    }
+    initState() {
       let t0;
-      t0 = this[__BouncingScrollSimulation__frictionSimulation];
-      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_frictionSimulation")) : t0;
-    }
-    set [_frictionSimulation](t0) {
-      this[__BouncingScrollSimulation__frictionSimulation] = t0;
-    }
-    get [_springSimulation]() {
-      let t1;
-      t1 = this[__BouncingScrollSimulation__springSimulation];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_springSimulation")) : t1;
-    }
-    set [_springSimulation](t1) {
-      this[__BouncingScrollSimulation__springSimulation] = t1;
-    }
-    get [_springTime]() {
-      let t2;
-      t2 = this[__BouncingScrollSimulation__springTime];
-      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_springTime")) : t2;
-    }
-    set [_springTime](t2) {
-      this[__BouncingScrollSimulation__springTime] = t2;
-    }
-    [_underscrollSimulation](x, dx) {
-      return new spring_simulation.ScrollSpringSimulation.new(this.spring, x, this.leadingExtent, dx);
-    }
-    [_overscrollSimulation](x, dx) {
-      return new spring_simulation.ScrollSpringSimulation.new(this.spring, x, this.trailingExtent, dx);
-    }
-    [_simulation](time) {
-      let t3;
-      let simulation = null;
-      if (time > this[_springTime]) {
-        this[_timeOffset] = this[_springTime][$isFinite] ? this[_springTime] : 0.0;
-        simulation = this[_springSimulation];
-      } else {
-        this[_timeOffset] = 0.0;
-        simulation = this[_frictionSimulation];
+      super.initState();
+      if (this.widget.handlePaste != null) {
+        this[_clipboardStatus] = (t0 = this.widget.clipboardStatus, t0 == null ? new text_selection.ClipboardStatusNotifier.new() : t0);
+        dart.nullCheck(this[_clipboardStatus]).addListener(dart.bind(this, _onChangedClipboardStatus));
+        dart.nullCheck(this[_clipboardStatus]).update();
       }
-      t3 = simulation;
-      return (() => {
-        t3.tolerance = this.tolerance;
-        return t3;
-      })();
     }
-    x(time) {
-      return this[_simulation](time).x(time - this[_timeOffset]);
+    didUpdateWidget(oldWidget) {
+      let t0;
+      desktop_text_selection._DesktopTextSelectionControlsToolbar.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (!dart.equals(oldWidget.clipboardStatus, this.widget.clipboardStatus)) {
+        if (this[_clipboardStatus] != null) {
+          dart.nullCheck(this[_clipboardStatus]).removeListener(dart.bind(this, _onChangedClipboardStatus));
+          dart.nullCheck(this[_clipboardStatus]).dispose();
+        }
+        this[_clipboardStatus] = (t0 = this.widget.clipboardStatus, t0 == null ? new text_selection.ClipboardStatusNotifier.new() : t0);
+        dart.nullCheck(this[_clipboardStatus]).addListener(dart.bind(this, _onChangedClipboardStatus));
+        if (this.widget.handlePaste != null) {
+          dart.nullCheck(this[_clipboardStatus]).update();
+        }
+      }
     }
-    dx(time) {
-      return this[_simulation](time).dx(time - this[_timeOffset]);
+    dispose() {
+      super.dispose();
+      if (this[_clipboardStatus] != null && !dart.nullCheck(this[_clipboardStatus]).disposed) {
+        dart.nullCheck(this[_clipboardStatus]).removeListener(dart.bind(this, _onChangedClipboardStatus));
+        if (this.widget.clipboardStatus == null) {
+          dart.nullCheck(this[_clipboardStatus]).dispose();
+        }
+      }
     }
-    isDone(time) {
-      return this[_simulation](time).isDone(time - this[_timeOffset]);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "BouncingScrollSimulation") + "(leadingExtent: " + dart.str(this.leadingExtent) + ", trailingExtent: " + dart.str(this.trailingExtent) + ")";
+    build(context) {
+      let t0;
+      if (this.widget.handlePaste != null && dart.nullCheck(this[_clipboardStatus]).value === text_selection.ClipboardStatus.unknown) {
+        return C[15] || CT.C15;
+      }
+      if (!debug.debugCheckHasMediaQuery(context)) dart.assertFailed(null, I[1], 167, 12, "debugCheckHasMediaQuery(context)");
+      let mediaQuery = media_query.MediaQuery.of(context);
+      let midpointAnchor = new ui.Offset.new((this.widget.selectionMidpoint.dx - this.widget.globalEditableRegion.left)[$clamp](mediaQuery.padding.left, mediaQuery.size.width - mediaQuery.padding.right), this.widget.selectionMidpoint.dy - this.widget.globalEditableRegion.top);
+      if (!debug$.debugCheckHasMaterialLocalizations(context)) dart.assertFailed(null, I[1], 178, 12, "debugCheckHasMaterialLocalizations(context)");
+      let localizations = material_localizations.MaterialLocalizations.of(context);
+      let items = T.JSArrayOfWidget().of([]);
+      function addToolbarButton(text, onPressed) {
+        items[$add](new desktop_text_selection._DesktopTextSelectionToolbarButton.text({context: context, onPressed: onPressed, text: text, $creationLocationd_0dea112b090073317d4: C[20] || CT.C20}));
+      }
+      dart.fn(addToolbarButton, T.StringAndFnTovoid());
+      if (this.widget.handleCut != null) {
+        addToolbarButton(localizations.cutButtonLabel, dart.nullCheck(this.widget.handleCut));
+      }
+      if (this.widget.handleCopy != null) {
+        addToolbarButton(localizations.copyButtonLabel, dart.nullCheck(this.widget.handleCopy));
+      }
+      if (this.widget.handlePaste != null && dart.nullCheck(this[_clipboardStatus]).value === text_selection.ClipboardStatus.pasteable) {
+        addToolbarButton(localizations.pasteButtonLabel, dart.nullCheck(this.widget.handlePaste));
+      }
+      if (this.widget.handleSelectAll != null) {
+        addToolbarButton(localizations.selectAllButtonLabel, dart.nullCheck(this.widget.handleSelectAll));
+      }
+      if (items[$isEmpty]) {
+        return C[25] || CT.C25;
+      }
+      return new desktop_text_selection._DesktopTextSelectionToolbar.new({anchor: (t0 = this.widget.lastSecondaryTapDownPosition, t0 == null ? midpointAnchor : t0), children: items, $creationLocationd_0dea112b090073317d4: C[30] || CT.C30});
     }
   };
-  (scroll_simulation.BouncingScrollSimulation.new = function(opts) {
-    let position = opts && 'position' in opts ? opts.position : null;
-    let velocity = opts && 'velocity' in opts ? opts.velocity : null;
-    let leadingExtent = opts && 'leadingExtent' in opts ? opts.leadingExtent : null;
-    let trailingExtent = opts && 'trailingExtent' in opts ? opts.trailingExtent : null;
-    let spring = opts && 'spring' in opts ? opts.spring : null;
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[0] || CT.C0;
-    this[__BouncingScrollSimulation__frictionSimulation] = null;
-    this[__BouncingScrollSimulation__springSimulation] = null;
-    this[__BouncingScrollSimulation__springTime] = null;
-    this[_timeOffset] = 0.0;
-    this[leadingExtent$] = leadingExtent;
-    this[trailingExtent$] = trailingExtent;
-    this[spring$] = spring;
-    if (!(position !== null)) dart.assertFailed(null, I[0], 38, 15, "position != null");
-    if (!(velocity !== null)) dart.assertFailed(null, I[0], 39, 15, "velocity != null");
-    if (!(leadingExtent !== null)) dart.assertFailed(null, I[0], 40, 15, "leadingExtent != null");
-    if (!(trailingExtent !== null)) dart.assertFailed(null, I[0], 41, 15, "trailingExtent != null");
-    if (!(leadingExtent <= trailingExtent)) dart.assertFailed(null, I[0], 42, 15, "leadingExtent <= trailingExtent");
-    if (!(spring !== null)) dart.assertFailed(null, I[0], 43, 15, "spring != null");
-    scroll_simulation.BouncingScrollSimulation.__proto__.new.call(this, {tolerance: tolerance});
-    if (position < this.leadingExtent) {
-      this[_springSimulation] = this[_underscrollSimulation](position, velocity);
-      this[_springTime] = -1 / 0;
-    } else if (position > this.trailingExtent) {
-      this[_springSimulation] = this[_overscrollSimulation](position, velocity);
-      this[_springTime] = -1 / 0;
-    } else {
-      this[_frictionSimulation] = new friction_simulation.FrictionSimulation.new(0.135, position, velocity);
-      let finalX = this[_frictionSimulation].finalX;
-      if (velocity > 0.0 && finalX > this.trailingExtent) {
-        this[_springTime] = this[_frictionSimulation].timeAtX(this.trailingExtent);
-        this[_springSimulation] = this[_overscrollSimulation](this.trailingExtent, math.min(core.double, this[_frictionSimulation].dx(this[_springTime]), 5000));
-        if (!this[_springTime][$isFinite]) dart.assertFailed(null, I[0], 62, 16, "_springTime.isFinite");
-      } else if (velocity < 0.0 && finalX < this.leadingExtent) {
-        this[_springTime] = this[_frictionSimulation].timeAtX(this.leadingExtent);
-        this[_springSimulation] = this[_underscrollSimulation](this.leadingExtent, math.min(core.double, this[_frictionSimulation].dx(this[_springTime]), 5000));
-        if (!this[_springTime][$isFinite]) dart.assertFailed(null, I[0], 69, 16, "_springTime.isFinite");
-      } else {
-        this[_springTime] = 1 / 0;
-      }
-    }
-    if (!(this[_springTime] !== null)) dart.assertFailed(null, I[0], 74, 12, "_springTime != null");
-  }).prototype = scroll_simulation.BouncingScrollSimulation.prototype;
-  dart.addTypeTests(scroll_simulation.BouncingScrollSimulation);
-  dart.addTypeCaches(scroll_simulation.BouncingScrollSimulation);
-  dart.setMethodSignature(scroll_simulation.BouncingScrollSimulation, () => ({
-    __proto__: dart.getMethods(scroll_simulation.BouncingScrollSimulation.__proto__),
-    [_underscrollSimulation]: dart.fnType(simulation.Simulation, [core.double, core.double]),
-    [_overscrollSimulation]: dart.fnType(simulation.Simulation, [core.double, core.double]),
-    [_simulation]: dart.fnType(simulation.Simulation, [core.double]),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double]),
-    isDone: dart.fnType(core.bool, [core.double])
+  (desktop_text_selection._DesktopTextSelectionControlsToolbarState.new = function() {
+    this[_clipboardStatus] = null;
+    desktop_text_selection._DesktopTextSelectionControlsToolbarState.__proto__.new.call(this);
+    ;
+  }).prototype = desktop_text_selection._DesktopTextSelectionControlsToolbarState.prototype;
+  dart.addTypeTests(desktop_text_selection._DesktopTextSelectionControlsToolbarState);
+  dart.addTypeCaches(desktop_text_selection._DesktopTextSelectionControlsToolbarState);
+  dart.setMethodSignature(desktop_text_selection._DesktopTextSelectionControlsToolbarState, () => ({
+    __proto__: dart.getMethods(desktop_text_selection._DesktopTextSelectionControlsToolbarState.__proto__),
+    [_onChangedClipboardStatus]: dart.fnType(dart.void, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(scroll_simulation.BouncingScrollSimulation, () => ({
-    __proto__: dart.getGetters(scroll_simulation.BouncingScrollSimulation.__proto__),
-    [_frictionSimulation]: friction_simulation.FrictionSimulation,
-    [_springSimulation]: simulation.Simulation,
-    [_springTime]: core.double
+  dart.setLibraryUri(desktop_text_selection._DesktopTextSelectionControlsToolbarState, I[0]);
+  dart.setFieldSignature(desktop_text_selection._DesktopTextSelectionControlsToolbarState, () => ({
+    __proto__: dart.getFields(desktop_text_selection._DesktopTextSelectionControlsToolbarState.__proto__),
+    [_clipboardStatus]: dart.fieldType(dart.nullable(text_selection.ClipboardStatusNotifier))
   }));
-  dart.setSetterSignature(scroll_simulation.BouncingScrollSimulation, () => ({
-    __proto__: dart.getSetters(scroll_simulation.BouncingScrollSimulation.__proto__),
-    [_frictionSimulation]: friction_simulation.FrictionSimulation,
-    [_springSimulation]: simulation.Simulation,
-    [_springTime]: core.double
-  }));
-  dart.setLibraryUri(scroll_simulation.BouncingScrollSimulation, I[1]);
-  dart.setFieldSignature(scroll_simulation.BouncingScrollSimulation, () => ({
-    __proto__: dart.getFields(scroll_simulation.BouncingScrollSimulation.__proto__),
-    leadingExtent: dart.finalFieldType(core.double),
-    trailingExtent: dart.finalFieldType(core.double),
-    spring: dart.finalFieldType(spring_simulation.SpringDescription),
-    [__BouncingScrollSimulation__frictionSimulation]: dart.fieldType(dart.nullable(friction_simulation.FrictionSimulation)),
-    [__BouncingScrollSimulation__springSimulation]: dart.fieldType(dart.nullable(simulation.Simulation)),
-    [__BouncingScrollSimulation__springTime]: dart.fieldType(dart.nullable(core.double)),
-    [_timeOffset]: dart.fieldType(core.double)
-  }));
-  dart.defineExtensionMethods(scroll_simulation.BouncingScrollSimulation, ['toString']);
-  dart.defineLazy(scroll_simulation.BouncingScrollSimulation, {
-    /*scroll_simulation.BouncingScrollSimulation.maxSpringTransferVelocity*/get maxSpringTransferVelocity() {
-      return 5000;
+  var anchor$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionToolbar.anchor");
+  var children$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionToolbar.children");
+  var toolbarBuilder$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionToolbar.toolbarBuilder");
+  var Radius_y = dart.privateName(ui, "Radius.y");
+  var Radius_x = dart.privateName(ui, "Radius.x");
+  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
+  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
+  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
+  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
+  desktop_text_selection._DesktopTextSelectionToolbar = class _DesktopTextSelectionToolbar extends framework.StatelessWidget {
+    get anchor() {
+      return this[anchor$];
     }
-  }, false);
-  var position$ = dart.privateName(scroll_simulation, "ClampingScrollSimulation.position");
-  var velocity$ = dart.privateName(scroll_simulation, "ClampingScrollSimulation.velocity");
-  var friction$ = dart.privateName(scroll_simulation, "ClampingScrollSimulation.friction");
-  var __ClampingScrollSimulation__duration = dart.privateName(scroll_simulation, "_#ClampingScrollSimulation#_duration");
-  var __ClampingScrollSimulation__distance = dart.privateName(scroll_simulation, "_#ClampingScrollSimulation#_distance");
-  var _duration = dart.privateName(scroll_simulation, "_duration");
-  var _splineFlingDuration = dart.privateName(scroll_simulation, "_splineFlingDuration");
-  var _distance = dart.privateName(scroll_simulation, "_distance");
-  var _splineFlingDistance = dart.privateName(scroll_simulation, "_splineFlingDistance");
-  var _splineDeceleration = dart.privateName(scroll_simulation, "_splineDeceleration");
-  scroll_simulation.ClampingScrollSimulation = class ClampingScrollSimulation extends simulation.Simulation {
-    get position() {
-      return this[position$];
+    set anchor(value) {
+      super.anchor = value;
     }
-    set position(value) {
-      super.position = value;
+    get children() {
+      return this[children$];
     }
-    get velocity() {
-      return this[velocity$];
+    set children(value) {
+      super.children = value;
     }
-    set velocity(value) {
-      super.velocity = value;
+    get toolbarBuilder() {
+      return this[toolbarBuilder$];
     }
-    get friction() {
-      return this[friction$];
+    set toolbarBuilder(value) {
+      super.toolbarBuilder = value;
     }
-    set friction(value) {
-      super.friction = value;
+    static _defaultToolbarBuilder(context, child) {
+      return new basic.SizedBox.new({width: 222, child: new material.Material.new({borderRadius: C[35] || CT.C35, clipBehavior: ui.Clip.antiAlias, elevation: 1.0, type: material.MaterialType.card, child: child, $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44});
     }
-    get [_duration]() {
-      let t3;
-      t3 = this[__ClampingScrollSimulation__duration];
-      return t3 == null ? dart.throw(new _internal.LateError.fieldNI("_duration")) : t3;
-    }
-    set [_duration](t3) {
-      this[__ClampingScrollSimulation__duration] = t3;
-    }
-    get [_distance]() {
-      let t4;
-      t4 = this[__ClampingScrollSimulation__distance];
-      return t4 == null ? dart.throw(new _internal.LateError.fieldNI("_distance")) : t4;
-    }
-    set [_distance](t4) {
-      this[__ClampingScrollSimulation__distance] = t4;
-    }
-    static _decelerationForFriction(friction) {
-      return 9.80665 * 39.37 * friction * 1.0 * 160.0;
-    }
-    [_splineDeceleration](velocity) {
-      return math.log(0.35 * velocity[$abs]() / (this.friction * scroll_simulation.ClampingScrollSimulation._decelerationForFriction(0.84)));
-    }
-    [_splineFlingDuration](velocity) {
-      let deceleration = this[_splineDeceleration](velocity);
-      return (1000 * math.exp(deceleration / (scroll_simulation.ClampingScrollSimulation._kDecelerationRate - 1.0)))[$round]();
-    }
-    [_splineFlingDistance](velocity) {
-      let l = this[_splineDeceleration](velocity);
-      let decelMinusOne = scroll_simulation.ClampingScrollSimulation._kDecelerationRate - 1.0;
-      return this.friction * scroll_simulation.ClampingScrollSimulation._decelerationForFriction(0.84) * math.exp(scroll_simulation.ClampingScrollSimulation._kDecelerationRate / decelMinusOne * l);
-    }
-    x(time) {
-      if (time === 0) {
-        return this.position;
-      }
-      let sample = new scroll_simulation._NBSample.new(time, this[_duration]);
-      return this.position + sample.distanceCoef * this[_distance] * this.velocity[$sign];
-    }
-    dx(time) {
-      if (time === 0) {
-        return this.velocity;
-      }
-      let sample = new scroll_simulation._NBSample.new(time, this[_duration]);
-      return sample.velocityCoef * this[_distance] / this[_duration] * this.velocity[$sign] * 1000.0;
-    }
-    isDone(time) {
-      return time * 1000.0 >= this[_duration];
+    build(context) {
+      let t1, t0;
+      if (!debug.debugCheckHasMediaQuery(context)) dart.assertFailed(null, I[1], 276, 12, "debugCheckHasMediaQuery(context)");
+      let mediaQuery = media_query.MediaQuery.of(context);
+      let paddingAbove = mediaQuery.padding.top + 8;
+      let localAdjustment = new ui.Offset.new(8, paddingAbove);
+      return new basic.Padding.new({padding: new edge_insets.EdgeInsets.fromLTRB(8, paddingAbove, 8, 8), child: new basic.CustomSingleChildLayout.new({delegate: new desktop_text_selection_toolbar_layout_delegate.DesktopTextSelectionToolbarLayoutDelegate.new({anchor: this.anchor['-'](localAdjustment)}), child: (t0 = context, t1 = new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: this.children, $creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), this.toolbarBuilder(t0, t1)), $creationLocationd_0dea112b090073317d4: C[52] || CT.C52}), $creationLocationd_0dea112b090073317d4: C[56] || CT.C56});
     }
   };
-  (scroll_simulation.ClampingScrollSimulation.new = function(opts) {
-    let position = opts && 'position' in opts ? opts.position : null;
-    let velocity = opts && 'velocity' in opts ? opts.velocity : null;
-    let friction = opts && 'friction' in opts ? opts.friction : 0.015;
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[0] || CT.C0;
-    this[__ClampingScrollSimulation__duration] = null;
-    this[__ClampingScrollSimulation__distance] = null;
-    this[position$] = position;
-    this[velocity$] = velocity;
-    this[friction$] = friction;
-    scroll_simulation.ClampingScrollSimulation.__proto__.new.call(this, {tolerance: tolerance});
-    this[_duration] = this[_splineFlingDuration](this.velocity);
-    this[_distance] = this[_splineFlingDistance](this.velocity);
-  }).prototype = scroll_simulation.ClampingScrollSimulation.prototype;
-  dart.addTypeTests(scroll_simulation.ClampingScrollSimulation);
-  dart.addTypeCaches(scroll_simulation.ClampingScrollSimulation);
-  dart.setMethodSignature(scroll_simulation.ClampingScrollSimulation, () => ({
-    __proto__: dart.getMethods(scroll_simulation.ClampingScrollSimulation.__proto__),
-    [_splineDeceleration]: dart.fnType(core.double, [core.double]),
-    [_splineFlingDuration]: dart.fnType(core.int, [core.double]),
-    [_splineFlingDistance]: dart.fnType(core.double, [core.double]),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double]),
-    isDone: dart.fnType(core.bool, [core.double])
+  (desktop_text_selection._DesktopTextSelectionToolbar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let anchor = opts && 'anchor' in opts ? opts.anchor : null;
+    let children = opts && 'children' in opts ? opts.children : null;
+    let toolbarBuilder = opts && 'toolbarBuilder' in opts ? opts.toolbarBuilder : C[34] || CT.C34;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[anchor$] = anchor;
+    this[children$] = children;
+    this[toolbarBuilder$] = toolbarBuilder;
+    if (!(children[$length] > 0)) dart.assertFailed(null, I[1], 240, 15, "children.length > 0");
+    desktop_text_selection._DesktopTextSelectionToolbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = desktop_text_selection._DesktopTextSelectionToolbar.prototype;
+  dart.addTypeTests(desktop_text_selection._DesktopTextSelectionToolbar);
+  dart.addTypeCaches(desktop_text_selection._DesktopTextSelectionToolbar);
+  dart.setMethodSignature(desktop_text_selection._DesktopTextSelectionToolbar, () => ({
+    __proto__: dart.getMethods(desktop_text_selection._DesktopTextSelectionToolbar.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(scroll_simulation.ClampingScrollSimulation, () => ({
-    __proto__: dart.getGetters(scroll_simulation.ClampingScrollSimulation.__proto__),
-    [_duration]: core.int,
-    [_distance]: core.double
+  dart.setLibraryUri(desktop_text_selection._DesktopTextSelectionToolbar, I[0]);
+  dart.setFieldSignature(desktop_text_selection._DesktopTextSelectionToolbar, () => ({
+    __proto__: dart.getFields(desktop_text_selection._DesktopTextSelectionToolbar.__proto__),
+    anchor: dart.finalFieldType(ui.Offset),
+    children: dart.finalFieldType(core.List$(framework.Widget)),
+    toolbarBuilder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget]))
   }));
-  dart.setSetterSignature(scroll_simulation.ClampingScrollSimulation, () => ({
-    __proto__: dart.getSetters(scroll_simulation.ClampingScrollSimulation.__proto__),
-    [_duration]: core.int,
-    [_distance]: core.double
-  }));
-  dart.setLibraryUri(scroll_simulation.ClampingScrollSimulation, I[1]);
-  dart.setFieldSignature(scroll_simulation.ClampingScrollSimulation, () => ({
-    __proto__: dart.getFields(scroll_simulation.ClampingScrollSimulation.__proto__),
-    position: dart.finalFieldType(core.double),
-    velocity: dart.finalFieldType(core.double),
-    friction: dart.finalFieldType(core.double),
-    [__ClampingScrollSimulation__duration]: dart.fieldType(dart.nullable(core.int)),
-    [__ClampingScrollSimulation__distance]: dart.fieldType(dart.nullable(core.double))
-  }));
-  dart.defineLazy(scroll_simulation.ClampingScrollSimulation, {
-    /*scroll_simulation.ClampingScrollSimulation._kDecelerationRate*/get _kDecelerationRate() {
-      return math.log(0.78) / math.log(0.9);
+  var onPressed$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionToolbarButton.onPressed");
+  var child$ = dart.privateName(desktop_text_selection, "_DesktopTextSelectionToolbarButton.child");
+  var _name = dart.privateName(borders, "_name");
+  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
+  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
+  var OutlinedBorder_side = dart.privateName(borders, "OutlinedBorder.side");
+  var RoundedRectangleBorder_borderRadius = dart.privateName(rounded_rectangle_border, "RoundedRectangleBorder.borderRadius");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  desktop_text_selection._DesktopTextSelectionToolbarButton = class _DesktopTextSelectionToolbarButton extends framework.StatelessWidget {
+    get onPressed() {
+      return this[onPressed$];
     }
-  }, false);
-  var ___NBSample__velocityCoef = dart.privateName(scroll_simulation, "_#_NBSample#_velocityCoef");
-  var ___NBSample__distanceCoef = dart.privateName(scroll_simulation, "_#_NBSample#_distanceCoef");
-  var _distanceCoef = dart.privateName(scroll_simulation, "_distanceCoef");
-  var _velocityCoef = dart.privateName(scroll_simulation, "_velocityCoef");
-  scroll_simulation._NBSample = class _NBSample extends core.Object {
-    get [_velocityCoef]() {
-      let t5;
-      t5 = this[___NBSample__velocityCoef];
-      return t5 == null ? dart.throw(new _internal.LateError.fieldNI("_velocityCoef")) : t5;
+    set onPressed(value) {
+      super.onPressed = value;
     }
-    set [_velocityCoef](t5) {
-      this[___NBSample__velocityCoef] = t5;
+    get child() {
+      return this[child$];
     }
-    get velocityCoef() {
-      return this[_velocityCoef];
+    set child(value) {
+      super.child = value;
     }
-    get [_distanceCoef]() {
-      let t6;
-      t6 = this[___NBSample__distanceCoef];
-      return t6 == null ? dart.throw(new _internal.LateError.fieldNI("_distanceCoef")) : t6;
-    }
-    set [_distanceCoef](t6) {
-      this[___NBSample__distanceCoef] = t6;
-    }
-    get distanceCoef() {
-      return this[_distanceCoef];
+    build(context) {
+      let theme = theme$.Theme.of(context);
+      let isDark = theme.colorScheme.brightness === ui.Brightness.dark;
+      let primary = isDark ? colors.Colors.white : colors.Colors.black87;
+      return new basic.SizedBox.new({width: 1 / 0, child: new text_button.TextButton.new({style: text_button.TextButton.styleFrom({alignment: alignment.Alignment.centerLeft, primary: primary, shape: C[65] || CT.C65, minimumSize: C[71] || CT.C71, padding: desktop_text_selection._kToolbarButtonPadding}), onPressed: this.onPressed, child: this.child, $creationLocationd_0dea112b090073317d4: C[72] || CT.C72}), $creationLocationd_0dea112b090073317d4: C[77] || CT.C77});
     }
   };
-  (scroll_simulation._NBSample.new = function(time, duration) {
-    this[___NBSample__velocityCoef] = null;
-    this[___NBSample__distanceCoef] = null;
-    let t = time * 1000.0 / duration;
-    let index = (100 * t)[$clamp](0, 100)[$round]();
-    this[_distanceCoef] = 1.0;
-    this[_velocityCoef] = 0.0;
-    if (index < 100) {
-      let tInf = index / 100;
-      let tSup = (index + 1) / 100;
-      let dInf = scroll_simulation._NBSample._splinePosition[$_get](index);
-      let dSup = scroll_simulation._NBSample._splinePosition[$_get](index + 1);
-      this[_velocityCoef] = (dSup - dInf) / (tSup - tInf);
-      this[_distanceCoef] = dInf + (t - tInf) * this[_velocityCoef];
-    }
-  }).prototype = scroll_simulation._NBSample.prototype;
-  dart.addTypeTests(scroll_simulation._NBSample);
-  dart.addTypeCaches(scroll_simulation._NBSample);
-  dart.setGetterSignature(scroll_simulation._NBSample, () => ({
-    __proto__: dart.getGetters(scroll_simulation._NBSample.__proto__),
-    [_velocityCoef]: core.double,
-    velocityCoef: core.double,
-    [_distanceCoef]: core.double,
-    distanceCoef: core.double
+  (desktop_text_selection._DesktopTextSelectionToolbarButton.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[onPressed$] = onPressed;
+    this[child$] = child;
+    desktop_text_selection._DesktopTextSelectionToolbarButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = desktop_text_selection._DesktopTextSelectionToolbarButton.prototype;
+  (desktop_text_selection._DesktopTextSelectionToolbarButton.text = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let context = opts && 'context' in opts ? opts.context : null;
+    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
+    let text = opts && 'text' in opts ? opts.text : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[onPressed$] = onPressed;
+    this[child$] = new text$.Text.new(text, {overflow: paragraph.TextOverflow.ellipsis, style: desktop_text_selection._kToolbarButtonFontStyle.copyWith({color: theme$.Theme.of(context).colorScheme.brightness === ui.Brightness.dark ? colors.Colors.white : colors.Colors.black87}), $creationLocationd_0dea112b090073317d4: C[60] || CT.C60});
+    desktop_text_selection._DesktopTextSelectionToolbarButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = desktop_text_selection._DesktopTextSelectionToolbarButton.prototype;
+  dart.addTypeTests(desktop_text_selection._DesktopTextSelectionToolbarButton);
+  dart.addTypeCaches(desktop_text_selection._DesktopTextSelectionToolbarButton);
+  dart.setMethodSignature(desktop_text_selection._DesktopTextSelectionToolbarButton, () => ({
+    __proto__: dart.getMethods(desktop_text_selection._DesktopTextSelectionToolbarButton.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setSetterSignature(scroll_simulation._NBSample, () => ({
-    __proto__: dart.getSetters(scroll_simulation._NBSample.__proto__),
-    [_velocityCoef]: core.double,
-    [_distanceCoef]: core.double
+  dart.setLibraryUri(desktop_text_selection._DesktopTextSelectionToolbarButton, I[0]);
+  dart.setFieldSignature(desktop_text_selection._DesktopTextSelectionToolbarButton, () => ({
+    __proto__: dart.getFields(desktop_text_selection._DesktopTextSelectionToolbarButton.__proto__),
+    onPressed: dart.finalFieldType(dart.fnType(dart.void, [])),
+    child: dart.finalFieldType(framework.Widget)
   }));
-  dart.setLibraryUri(scroll_simulation._NBSample, I[1]);
-  dart.setFieldSignature(scroll_simulation._NBSample, () => ({
-    __proto__: dart.getFields(scroll_simulation._NBSample.__proto__),
-    [___NBSample__velocityCoef]: dart.fieldType(dart.nullable(core.double)),
-    [___NBSample__distanceCoef]: dart.fieldType(dart.nullable(core.double))
-  }));
-  dart.defineLazy(scroll_simulation._NBSample, {
-    /*scroll_simulation._NBSample._nbSamples*/get _nbSamples() {
-      return 100;
+  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
+  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
+  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
+  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
+  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
+  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
+  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
+  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
+  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
+  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
+  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
+  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
+  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
+  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
+  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
+  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
+  var FontWeight_index = dart.privateName(ui, "FontWeight.index");
+  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
+  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
+  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
+  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
+  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
+  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
+  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
+  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  dart.defineLazy(desktop_text_selection, {
+    /*desktop_text_selection._kToolbarScreenPadding*/get _kToolbarScreenPadding() {
+      return 8;
     },
-    /*scroll_simulation._NBSample._splinePosition*/get _splinePosition() {
-      return T.JSArrayOfdouble().of([0.000022888183591973643, 0.028561000304762274, 0.05705195792956655, 0.08538917797618413, 0.11349556286812107, 0.14129881694635613, 0.16877157254923383, 0.19581093511175632, 0.22239649722992452, 0.24843841866631658, 0.2740024733220569, 0.298967680744136, 0.32333234658228116, 0.34709556909569184, 0.3702249257894571, 0.39272483400399893, 0.41456988647721615, 0.43582889025419114, 0.4564192786416, 0.476410299013587, 0.4957560715637827, 0.5145493169954743, 0.5327205670880077, 0.5502846891191615, 0.5673274324802855, 0.583810881323224, 0.5997478744397482, 0.615194045299478, 0.6301165005270208, 0.6445484042257972, 0.6585198219185201, 0.6720397744233084, 0.6850997688076114, 0.6977281404741683, 0.7099506591298411, 0.7217749311525871, 0.7331784038850426, 0.7442308394229518, 0.7549087205105974, 0.7652471277371271, 0.7752251637549381, 0.7848768260203478, 0.7942056937103814, 0.8032299679689082, 0.8119428702388629, 0.8203713516576219, 0.8285187880808974, 0.8363794492831295, 0.8439768562813565, 0.851322799855549, 0.8584111051351724, 0.8652534074722162, 0.8718525580962131, 0.8782333271742155, 0.8843892099362031, 0.8903155590440985, 0.8960465359221951, 0.9015574505919048, 0.9068736766459904, 0.9119951682409297, 0.9169321898723632, 0.9216747065581234, 0.9262420604674766, 0.9306331858366086, 0.9348476990715433, 0.9389007110754832, 0.9427903495057521, 0.9465220679845756, 0.9500943036519721, 0.9535176728088761, 0.9567898524767604, 0.959924306623116, 0.9629127700159108, 0.9657622101750765, 0.9684818726275105, 0.9710676079044347, 0.9735231939498, 0.9758514437576309, 0.9780599066560445, 0.9801485715370128, 0.9821149805689633, 0.9839677526782791, 0.9857085499421516, 0.9873347811966005, 0.9888547171706613, 0.9902689443512227, 0.9915771042095881, 0.9927840651641069, 0.9938913963715834, 0.9948987305580712, 0.9958114963810524, 0.9966274782266875, 0.997352148697352, 0.9979848677523623, 0.9985285021374979, 0.9989844084453229, 0.9993537595844986, 0.999638729860106, 0.9998403888004533, 0.9999602810470701, 1.0]);
+    /*desktop_text_selection._kToolbarWidth*/get _kToolbarWidth() {
+      return 222;
+    },
+    /*desktop_text_selection.desktopTextSelectionControls*/get desktopTextSelectionControls() {
+      return new desktop_text_selection._DesktopTextSelectionControls.new();
+    },
+    /*desktop_text_selection._kToolbarButtonFontStyle*/get _kToolbarButtonFontStyle() {
+      return C[81] || CT.C81;
+    },
+    /*desktop_text_selection._kToolbarButtonPadding*/get _kToolbarButtonPadding() {
+      return C[83] || CT.C83;
     }
   }, false);
-  dart.defineLazy(scroll_simulation, {
-    /*scroll_simulation._inflexion*/get _inflexion() {
-      return 0.35;
-    }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/widgets/scroll_simulation.dart", {
-    "package:flutter/src/widgets/scroll_simulation.dart": scroll_simulation
+  dart.trackLibraries("packages/flutter/src/material/desktop_text_selection.dart", {
+    "package:flutter/src/material/desktop_text_selection.dart": desktop_text_selection
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["scroll_simulation.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/widgets/scroll_simulation.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["desktop_text_selection.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/material/desktop_text_selection.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__scroll_simulation: scroll_simulation
+    src__material__desktop_text_selection: desktop_text_selection
   };
 }));
 
-//# sourceMappingURL=scroll_simulation.dart.lib.js.map
+//# sourceMappingURL=desktop_text_selection.dart.lib.js.map

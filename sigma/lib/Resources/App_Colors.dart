@@ -24,6 +24,10 @@ const Color CategoryServices = const Color(0xff8B00D0);
 const Color CategoryEntertainment = const Color(0xff6600CC);
 const Color SearchIcon = const Color(0xffEBEBF4);
 const Color ForSearchField = const Color(0xff164AC5);
+const Color bottomBar = const Color(0xff002D97);
+const Color selectedBottomIcon = const Color(0xff24CFFF);
+const Color unselectedBottomIcon = const Color(0xffFFFFFF);
+const Color FloatAcButton = const Color(0xff164AC5);
 const LinearGradient gradientForStart = const LinearGradient(
   colors: [const Color(0xff002D97), const Color(0xff1D59F3)],
   begin: Alignment.topCenter,

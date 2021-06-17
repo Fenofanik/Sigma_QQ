@@ -1,698 +1,231 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/sigma/Resources/App_Colors.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/sigma/Resources/App_TextStyle.dart', 'packages/flutter/src/material/text_form_field.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/sigma/Resources/App_borders.dart', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/material/elevated_button.dart', 'packages/sigma/Resources/App_ElevatedButton_style.dart'], (function load__packages__sigma__view__screens__Sign_In_Screen_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__sigma__Resources__App_Colors$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__sigma__Resources__App_TextStyle$46dart, packages__flutter__src__material__text_form_field$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__sigma__Resources__App_borders$46dart, packages__flutter__src__services__text_input$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__material__elevated_button$46dart, packages__sigma__Resources__App_ElevatedButton_style$46dart) {
+define(['dart_sdk', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/rendering/sliver_multi_box_adaptor.dart'], (function load__packages__flutter__src__rendering__sliver_fixed_extent_list_dart(dart_sdk, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
+  const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
-  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
-  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
-  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
-  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
-  const App_Colors = packages__sigma__Resources__App_Colors$46dart.Resources__App_Colors;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const App_TextStyle = packages__sigma__Resources__App_TextStyle$46dart.Resources__App_TextStyle;
-  const text_form_field = packages__flutter__src__material__text_form_field$46dart.src__material__text_form_field;
-  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
-  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
-  const App_borders = packages__sigma__Resources__App_borders$46dart.Resources__App_borders;
-  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const elevated_button = packages__flutter__src__material__elevated_button$46dart.src__material__elevated_button;
-  const App_ElevatedButton_style = packages__sigma__Resources__App_ElevatedButton_style$46dart.Resources__App_ElevatedButton_style;
-  var Sign_In_Screen = Object.create(dart.library);
+  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
+  const sliver_multi_box_adaptor = packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart.src__rendering__sliver_multi_box_adaptor;
+  var sliver_fixed_extent_list = Object.create(dart.library);
+  var $round = dartx.round;
+  var $abs = dartx.abs;
+  var $floor = dartx.floor;
+  var $ceil = dartx.ceil;
+  var $isFinite = dartx.isFinite;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
-    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 150,
-        [EdgeInsets_top]: 70,
-        [EdgeInsets_left]: 16
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 26,
-        [_Location_line]: 32,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 46,
-        [_Location_line]: 32,
-        [_Location_file]: null
-      });
-    },
-    get C2() {
-      return C[2] = dart.constList([C[3] || CT.C3, C[4] || CT.C4], widget_inspector._Location);
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[2] || CT.C2,
-        [_Location_name]: null,
-        [_Location_column]: 21,
-        [_Location_line]: 32,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 19,
-        [_Location_line]: 31,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.constList([C[7] || CT.C7], widget_inspector._Location);
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[6] || CT.C6,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 30,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 17,
-        [_Location_line]: 29,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 30,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 28,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 16,
-        [EdgeInsets_top]: 61,
-        [EdgeInsets_left]: 16
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 29,
-        [_Location_line]: 41,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "size",
-        [_Location_column]: 23,
-        [_Location_line]: 42,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 23,
-        [_Location_line]: 43,
-        [_Location_file]: null
-      });
-    },
-    get C14() {
-      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[14] || CT.C14,
-        [_Location_name]: null,
-        [_Location_column]: 33,
-        [_Location_line]: 40,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 0,
-        [EdgeInsets_top]: 0,
-        [EdgeInsets_left]: 10
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "decoration",
-        [_Location_column]: 19,
-        [_Location_line]: 39,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "keyboardType",
-        [_Location_column]: 19,
-        [_Location_line]: 53,
-        [_Location_file]: null
-      });
-    },
-    get C20() {
-      return C[20] = dart.constList([C[21] || CT.C21, C[22] || CT.C22], widget_inspector._Location);
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[20] || CT.C20,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 38,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 17,
-        [_Location_line]: 37,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 38,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26], widget_inspector._Location);
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[24] || CT.C24,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 36,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 0,
-        [EdgeInsets_top]: 225,
-        [EdgeInsets_left]: 0
-      });
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 23,
-        [_Location_line]: 62,
-        [_Location_file]: null
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 23,
-        [_Location_line]: 63,
-        [_Location_file]: null
-      });
-    },
-    get C29() {
-      return C[29] = dart.constList([C[30] || CT.C30, C[31] || CT.C31], widget_inspector._Location);
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[29] || CT.C29,
-        [_Location_name]: null,
-        [_Location_column]: 21,
-        [_Location_line]: 61,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 32,
-        [_Location_line]: 70,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 54,
-        [_Location_line]: 70,
-        [_Location_file]: null
-      });
-    },
-    get C33() {
-      return C[33] = dart.constList([C[34] || CT.C34, C[35] || CT.C35], widget_inspector._Location);
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[33] || CT.C33,
-        [_Location_name]: null,
-        [_Location_column]: 27,
-        [_Location_line]: 70,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onTap",
-        [_Location_column]: 23,
-        [_Location_line]: 66,
-        [_Location_file]: null
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 23,
-        [_Location_line]: 69,
-        [_Location_file]: null
-      });
-    },
-    get C37() {
-      return C[37] = dart.constList([C[38] || CT.C38, C[39] || CT.C39], widget_inspector._Location);
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[37] || CT.C37,
-        [_Location_name]: null,
-        [_Location_column]: 21,
-        [_Location_line]: 65,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 19,
-        [_Location_line]: 59,
-        [_Location_file]: null
-      });
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 19,
-        [_Location_line]: 60,
-        [_Location_file]: null
-      });
-    },
-    get C41() {
-      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], widget_inspector._Location);
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[41] || CT.C41,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 58,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 17,
-        [_Location_line]: 57,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 58,
-        [_Location_file]: null
-      });
-    },
-    get C45() {
-      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[45] || CT.C45,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 56,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 20,
-        [EdgeInsets_right]: 16,
-        [EdgeInsets_top]: 50,
-        [EdgeInsets_left]: 16
-      });
-    },
-    get C51() {
-      return C[51] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 23,
-        [_Location_line]: 84,
-        [_Location_file]: null
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 23,
-        [_Location_line]: 85,
-        [_Location_file]: null
-      });
-    },
-    get C50() {
-      return C[50] = dart.constList([C[51] || CT.C51, C[52] || CT.C52], widget_inspector._Location);
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[50] || CT.C50,
-        [_Location_name]: null,
-        [_Location_column]: 28,
-        [_Location_line]: 83,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C55() {
-      return C[55] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 21,
-        [_Location_line]: 79,
-        [_Location_file]: null
-      });
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 21,
-        [_Location_line]: 82,
-        [_Location_file]: null
-      });
-    },
-    get C57() {
-      return C[57] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 21,
-        [_Location_line]: 83,
-        [_Location_file]: null
-      });
-    },
-    get C54() {
-      return C[54] = dart.constList([C[55] || CT.C55, C[56] || CT.C56, C[57] || CT.C57], widget_inspector._Location);
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[54] || CT.C54,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 78,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 19,
-        [_Location_line]: 76,
-        [_Location_file]: null
-      });
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 19,
-        [_Location_line]: 78,
-        [_Location_file]: null
-      });
-    },
-    get C59() {
-      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61], widget_inspector._Location);
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[59] || CT.C59,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 75,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 18,
-        [_Location_line]: 27,
-        [_Location_file]: null
-      });
-    },
-    get C63() {
-      return C[63] = dart.constList([C[64] || CT.C64], widget_inspector._Location);
-    },
-    get C62() {
-      return C[62] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[63] || CT.C63,
-        [_Location_name]: null,
-        [_Location_column]: 11,
-        [_Location_line]: 27,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "decoration",
-        [_Location_column]: 9,
-        [_Location_line]: 25,
-        [_Location_file]: null
-      });
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 26,
-        [_Location_file]: null
-      });
-    },
-    get C66() {
-      return C[66] = dart.constList([C[67] || CT.C67, C[68] || CT.C68], widget_inspector._Location);
-    },
-    get C65() {
-      return C[65] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[66] || CT.C66,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 24,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "body",
-        [_Location_column]: 7,
-        [_Location_line]: 24,
-        [_Location_file]: null
-      });
-    },
-    get C70() {
-      return C[70] = dart.constList([C[71] || CT.C71], widget_inspector._Location);
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[70] || CT.C70,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 23,
-        [_Location_file]: "file:///D:/SIgmaProject/sigma/lib/view/screens/Sign_In_Screen.dart"
-      });
+  var I = [
+    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/rendering/sliver_fixed_extent_list.dart",
+    "package:flutter/src/rendering/sliver_fixed_extent_list.dart"
+  ];
+  var _calculateLeadingGarbage = dart.privateName(sliver_fixed_extent_list, "_calculateLeadingGarbage");
+  var _calculateTrailingGarbage = dart.privateName(sliver_fixed_extent_list, "_calculateTrailingGarbage");
+  sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor = class RenderSliverFixedExtentBoxAdaptor extends sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor {
+    indexToLayoutOffset(itemExtent, index) {
+      return itemExtent * index;
     }
-  }, false);
-  var C = Array(72).fill(void 0);
-  var I = ["package:sigma/view/screens/Sign_In_Screen.dart"];
-  Sign_In_Screen.SignInScreen = class SignInScreen extends framework.StatefulWidget {
-    createState() {
-      return new Sign_In_Screen._SignInScreenState.new();
+    getMinChildIndexForScrollOffset(scrollOffset, itemExtent) {
+      if (itemExtent > 0.0) {
+        let actual = scrollOffset / itemExtent;
+        let round = actual[$round]();
+        if ((actual - round)[$abs]() < 1e-10) {
+          return round;
+        }
+        return actual[$floor]();
+      }
+      return 0;
+    }
+    getMaxChildIndexForScrollOffset(scrollOffset, itemExtent) {
+      if (itemExtent > 0.0) {
+        let actual = scrollOffset / itemExtent - 1;
+        let round = actual[$round]();
+        if (sliver_fixed_extent_list._isWithinPrecisionErrorTolerance(actual, round)) {
+          return math.max(core.int, 0, round);
+        }
+        return math.max(core.int, 0, actual[$ceil]());
+      }
+      return 0;
+    }
+    estimateMaxScrollOffset(constraints, opts) {
+      let firstIndex = opts && 'firstIndex' in opts ? opts.firstIndex : null;
+      let lastIndex = opts && 'lastIndex' in opts ? opts.lastIndex : null;
+      let leadingScrollOffset = opts && 'leadingScrollOffset' in opts ? opts.leadingScrollOffset : null;
+      let trailingScrollOffset = opts && 'trailingScrollOffset' in opts ? opts.trailingScrollOffset : null;
+      return this.childManager.estimateMaxScrollOffset(constraints, {firstIndex: firstIndex, lastIndex: lastIndex, leadingScrollOffset: leadingScrollOffset, trailingScrollOffset: trailingScrollOffset});
+    }
+    computeMaxScrollOffset(constraints, itemExtent) {
+      return this.childManager.childCount * itemExtent;
+    }
+    [_calculateLeadingGarbage](firstIndex) {
+      let walker = this.firstChild;
+      let leadingGarbage = 0;
+      while (walker != null && this.indexOf(walker) < firstIndex) {
+        leadingGarbage = leadingGarbage + 1;
+        walker = this.childAfter(walker);
+      }
+      return leadingGarbage;
+    }
+    [_calculateTrailingGarbage](targetLastIndex) {
+      let walker = this.lastChild;
+      let trailingGarbage = 0;
+      while (walker != null && this.indexOf(walker) > targetLastIndex) {
+        trailingGarbage = trailingGarbage + 1;
+        walker = this.childBefore(walker);
+      }
+      return trailingGarbage;
+    }
+    performLayout() {
+      let constraints = this.constraints;
+      this.childManager.didStartLayout();
+      this.childManager.setDidUnderflow(false);
+      let itemExtent = this.itemExtent;
+      let scrollOffset = constraints.scrollOffset + constraints.cacheOrigin;
+      if (!(scrollOffset >= 0.0)) dart.assertFailed(null, I[0], 182, 12, "scrollOffset >= 0.0");
+      let remainingExtent = constraints.remainingCacheExtent;
+      if (!(remainingExtent >= 0.0)) dart.assertFailed(null, I[0], 184, 12, "remainingExtent >= 0.0");
+      let targetEndScrollOffset = scrollOffset + remainingExtent;
+      let childConstraints = constraints.asBoxConstraints({minExtent: itemExtent, maxExtent: itemExtent});
+      let firstIndex = this.getMinChildIndexForScrollOffset(scrollOffset, itemExtent);
+      let targetLastIndex = targetEndScrollOffset[$isFinite] ? this.getMaxChildIndexForScrollOffset(targetEndScrollOffset, itemExtent) : null;
+      if (this.firstChild != null) {
+        let leadingGarbage = this[_calculateLeadingGarbage](firstIndex);
+        let trailingGarbage = targetLastIndex != null ? this[_calculateTrailingGarbage](targetLastIndex) : 0;
+        this.collectGarbage(leadingGarbage, trailingGarbage);
+      } else {
+        this.collectGarbage(0, 0);
+      }
+      if (this.firstChild == null) {
+        if (!this.addInitialChild({index: firstIndex, layoutOffset: this.indexToLayoutOffset(itemExtent, firstIndex)})) {
+          let max = null;
+          if (firstIndex <= 0) {
+            max = 0.0;
+          } else {
+            max = this.computeMaxScrollOffset(constraints, itemExtent);
+          }
+          this.geometry = new sliver.SliverGeometry.new({scrollExtent: max, maxPaintExtent: max});
+          this.childManager.didFinishLayout();
+          return;
+        }
+      }
+      let trailingChildWithLayout = null;
+      for (let index = this.indexOf(dart.nullCheck(this.firstChild)) - 1; index >= firstIndex; index = index - 1) {
+        let child = this.insertAndLayoutLeadingChild(childConstraints);
+        if (child == null) {
+          this.geometry = new sliver.SliverGeometry.new({scrollOffsetCorrection: index * itemExtent});
+          return;
+        }
+        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+        childParentData.layoutOffset = this.indexToLayoutOffset(itemExtent, index);
+        if (!(childParentData.index === index)) dart.assertFailed(null, I[0], 235, 14, "childParentData.index == index");
+        trailingChildWithLayout == null ? trailingChildWithLayout = child : null;
+      }
+      if (trailingChildWithLayout == null) {
+        dart.nullCheck(this.firstChild).layout(childConstraints);
+        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(this.firstChild).parentData));
+        childParentData.layoutOffset = this.indexToLayoutOffset(itemExtent, firstIndex);
+        trailingChildWithLayout = this.firstChild;
+      }
+      let estimatedMaxScrollOffset = 1 / 0;
+      for (let index = this.indexOf(dart.nullCheck(trailingChildWithLayout)) + 1; targetLastIndex == null || index <= dart.notNull(targetLastIndex); index = index + 1) {
+        let child = this.childAfter(dart.nullCheck(trailingChildWithLayout));
+        if (child == null || this.indexOf(child) !== index) {
+          child = this.insertAndLayoutChild(childConstraints, {after: trailingChildWithLayout});
+          if (child == null) {
+            estimatedMaxScrollOffset = index * itemExtent;
+            break;
+          }
+        } else {
+          child.layout(childConstraints);
+        }
+        trailingChildWithLayout = child;
+        if (!(child != null)) dart.assertFailed(null, I[0], 260, 14, "child != null");
+        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+        if (!(childParentData.index === index)) dart.assertFailed(null, I[0], 262, 14, "childParentData.index == index");
+        childParentData.layoutOffset = this.indexToLayoutOffset(itemExtent, dart.nullCheck(childParentData.index));
+      }
+      let lastIndex = this.indexOf(dart.nullCheck(this.lastChild));
+      let leadingScrollOffset = this.indexToLayoutOffset(itemExtent, firstIndex);
+      let trailingScrollOffset = this.indexToLayoutOffset(itemExtent, lastIndex + 1);
+      if (!(firstIndex === 0 || dart.nullCheck(this.childScrollOffset(dart.nullCheck(this.firstChild))) - scrollOffset <= 1e-10)) dart.assertFailed(null, I[0], 270, 12, "firstIndex == 0 || childScrollOffset(firstChild!)! - scrollOffset <= precisionErrorTolerance");
+      if (!this.debugAssertChildListIsNonEmptyAndContiguous()) dart.assertFailed(null, I[0], 271, 12, "debugAssertChildListIsNonEmptyAndContiguous()");
+      if (!(this.indexOf(dart.nullCheck(this.firstChild)) === firstIndex)) dart.assertFailed(null, I[0], 272, 12, "indexOf(firstChild!) == firstIndex");
+      if (!(targetLastIndex == null || lastIndex <= dart.notNull(targetLastIndex))) dart.assertFailed(null, I[0], 273, 12, "targetLastIndex == null || lastIndex <= targetLastIndex");
+      estimatedMaxScrollOffset = math.min(core.double, estimatedMaxScrollOffset, this.estimateMaxScrollOffset(constraints, {firstIndex: firstIndex, lastIndex: lastIndex, leadingScrollOffset: leadingScrollOffset, trailingScrollOffset: trailingScrollOffset}));
+      let paintExtent = this.calculatePaintOffset(constraints, {from: leadingScrollOffset, to: trailingScrollOffset});
+      let cacheExtent = this.calculateCacheOffset(constraints, {from: leadingScrollOffset, to: trailingScrollOffset});
+      let targetEndScrollOffsetForPaint = constraints.scrollOffset + constraints.remainingPaintExtent;
+      let targetLastIndexForPaint = targetEndScrollOffsetForPaint[$isFinite] ? this.getMaxChildIndexForScrollOffset(targetEndScrollOffsetForPaint, itemExtent) : null;
+      this.geometry = new sliver.SliverGeometry.new({scrollExtent: estimatedMaxScrollOffset, paintExtent: paintExtent, cacheExtent: cacheExtent, maxPaintExtent: estimatedMaxScrollOffset, hasVisualOverflow: targetLastIndexForPaint != null && lastIndex >= dart.notNull(targetLastIndexForPaint) || constraints.scrollOffset > 0.0});
+      if (estimatedMaxScrollOffset === trailingScrollOffset) this.childManager.setDidUnderflow(true);
+      this.childManager.didFinishLayout();
     }
   };
-  (Sign_In_Screen.SignInScreen.new = function(opts) {
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    Sign_In_Screen.SignInScreen.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.new = function(opts) {
+    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
+    sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.__proto__.new.call(this, {childManager: childManager});
     ;
-  }).prototype = Sign_In_Screen.SignInScreen.prototype;
-  dart.addTypeTests(Sign_In_Screen.SignInScreen);
-  dart.addTypeCaches(Sign_In_Screen.SignInScreen);
-  dart.setMethodSignature(Sign_In_Screen.SignInScreen, () => ({
-    __proto__: dart.getMethods(Sign_In_Screen.SignInScreen.__proto__),
-    createState: dart.fnType(Sign_In_Screen._SignInScreenState, [])
+  }).prototype = sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.prototype;
+  dart.addTypeTests(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor);
+  dart.addTypeCaches(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor);
+  dart.setMethodSignature(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor, () => ({
+    __proto__: dart.getMethods(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.__proto__),
+    indexToLayoutOffset: dart.fnType(core.double, [core.double, core.int]),
+    getMinChildIndexForScrollOffset: dart.fnType(core.int, [core.double, core.double]),
+    getMaxChildIndexForScrollOffset: dart.fnType(core.int, [core.double, core.double]),
+    estimateMaxScrollOffset: dart.fnType(core.double, [sliver.SliverConstraints], {firstIndex: dart.nullable(core.int), lastIndex: dart.nullable(core.int), leadingScrollOffset: dart.nullable(core.double), trailingScrollOffset: dart.nullable(core.double)}, {}),
+    computeMaxScrollOffset: dart.fnType(core.double, [sliver.SliverConstraints, core.double]),
+    [_calculateLeadingGarbage]: dart.fnType(core.int, [core.int]),
+    [_calculateTrailingGarbage]: dart.fnType(core.int, [core.int]),
+    performLayout: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(Sign_In_Screen.SignInScreen, I[0]);
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  Sign_In_Screen._SignInScreenState = class _SignInScreenState extends framework.State$(Sign_In_Screen.SignInScreen) {
-    build(context) {
-      return framework.Widget.as(this.signInUI(context));
+  dart.setLibraryUri(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor, I[1]);
+  var _itemExtent = dart.privateName(sliver_fixed_extent_list, "_itemExtent");
+  sliver_fixed_extent_list.RenderSliverFixedExtentList = class RenderSliverFixedExtentList extends sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor {
+    get itemExtent() {
+      return this[_itemExtent];
     }
-    signInUI(context) {
-      return new scaffold.Scaffold.new({body: new container.Container.new({decoration: new box_decoration.BoxDecoration.new({gradient: App_Colors.gradientForStart}), child: new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: C[0] || CT.C0, child: new basic.Column.new({children: T.JSArrayOfWidget().of([new text.Text.new("Войти\nв аккаунт", {style: new App_TextStyle.TextStyles.new().style_1, $creationLocationd_0dea112b090073317d4: C[1] || CT.C1})]), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), new basic.Padding.new({padding: C[12] || CT.C12, child: new text_form_field.TextFormField.new({decoration: new input_decorator.InputDecoration.new({prefixIcon: new icon.Icon.new(icons.Icons.phone_outlined, {size: 18.0, color: App_Colors.borderColor, $creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), hintText: "Номер телефона", hintStyle: new App_TextStyle.TextStyles.new().style_2, contentPadding: C[18] || CT.C18, enabledBorder: new App_borders.OutlineInputBorders.new().styleForBorder, focusedBorder: new App_borders.OutlineInputBorders.new().styleForBorder, errorBorder: new App_borders.OutlineInputBorders.new().styleForBorder, focusedErrorBorder: new App_borders.OutlineInputBorders.new().styleForBorder}), keyboardType: text_input.TextInputType.phone, $creationLocationd_0dea112b090073317d4: C[19] || CT.C19}), $creationLocationd_0dea112b090073317d4: C[23] || CT.C23}), new basic.Padding.new({padding: C[27] || CT.C27, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([new text.Text.new("Нет аккаунта? ", {style: new App_TextStyle.TextStyles.new().style_3, $creationLocationd_0dea112b090073317d4: C[28] || CT.C28}), new ink_well.InkWell.new({onTap: dart.fn(() => {
-                        navigator.Navigator.pushNamed(T.ObjectN(), framework.BuildContext.as(context), "/Reg");
-                      }, T.VoidTovoid()), child: new text.Text.new("Зарегистрироваться", {style: new App_TextStyle.TextStyles.new().style_4, $creationLocationd_0dea112b090073317d4: C[32] || CT.C32}), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36})]), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44}), new basic.Padding.new({padding: C[48] || CT.C48, child: new elevated_button.ElevatedButton.new({onPressed: dart.fn(() => {
-                    navigator.Navigator.pushNamed(T.ObjectN(), framework.BuildContext.as(context), "/CategorySelection");
-                  }, T.VoidTovoid()), style: new App_ElevatedButton_style.ElevatedButtonStyleManager.new().elevatedButtonStyleStart, child: new text.Text.new("ВОЙТИ", {style: new App_TextStyle.TextStyles.new().style_5, $creationLocationd_0dea112b090073317d4: C[49] || CT.C49}), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58})]), $creationLocationd_0dea112b090073317d4: C[62] || CT.C62}), $creationLocationd_0dea112b090073317d4: C[65] || CT.C65}), $creationLocationd_0dea112b090073317d4: C[69] || CT.C69});
+    set itemExtent(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[0], 354, 12, "value != null");
+      if (this[_itemExtent] === value) return;
+      this[_itemExtent] = value;
+      this.markNeedsLayout();
     }
   };
-  (Sign_In_Screen._SignInScreenState.new = function() {
-    Sign_In_Screen._SignInScreenState.__proto__.new.call(this);
+  (sliver_fixed_extent_list.RenderSliverFixedExtentList.new = function(opts) {
+    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
+    let itemExtent = opts && 'itemExtent' in opts ? opts.itemExtent : null;
+    this[_itemExtent] = itemExtent;
+    sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__.new.call(this, {childManager: childManager});
     ;
-  }).prototype = Sign_In_Screen._SignInScreenState.prototype;
-  dart.addTypeTests(Sign_In_Screen._SignInScreenState);
-  dart.addTypeCaches(Sign_In_Screen._SignInScreenState);
-  dart.setMethodSignature(Sign_In_Screen._SignInScreenState, () => ({
-    __proto__: dart.getMethods(Sign_In_Screen._SignInScreenState.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext]),
-    signInUI: dart.fnType(dart.dynamic, [dart.dynamic])
+  }).prototype = sliver_fixed_extent_list.RenderSliverFixedExtentList.prototype;
+  dart.addTypeTests(sliver_fixed_extent_list.RenderSliverFixedExtentList);
+  dart.addTypeCaches(sliver_fixed_extent_list.RenderSliverFixedExtentList);
+  dart.setGetterSignature(sliver_fixed_extent_list.RenderSliverFixedExtentList, () => ({
+    __proto__: dart.getGetters(sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__),
+    itemExtent: core.double
   }));
-  dart.setLibraryUri(Sign_In_Screen._SignInScreenState, I[0]);
-  dart.trackLibraries("packages/sigma/view/screens/Sign_In_Screen.dart", {
-    "package:sigma/view/screens/Sign_In_Screen.dart": Sign_In_Screen
+  dart.setSetterSignature(sliver_fixed_extent_list.RenderSliverFixedExtentList, () => ({
+    __proto__: dart.getSetters(sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__),
+    itemExtent: core.double
+  }));
+  dart.setLibraryUri(sliver_fixed_extent_list.RenderSliverFixedExtentList, I[1]);
+  dart.setFieldSignature(sliver_fixed_extent_list.RenderSliverFixedExtentList, () => ({
+    __proto__: dart.getFields(sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__),
+    [_itemExtent]: dart.fieldType(core.double)
+  }));
+  sliver_fixed_extent_list._isWithinPrecisionErrorTolerance = function _isWithinPrecisionErrorTolerance(actual, round) {
+    return (actual - round)[$abs]() < 1e-10;
+  };
+  dart.trackLibraries("packages/flutter/src/rendering/sliver_fixed_extent_list.dart", {
+    "package:flutter/src/rendering/sliver_fixed_extent_list.dart": sliver_fixed_extent_list
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["Sign_In_Screen.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAYsC;IAAoB;;;;;;EAC1D;;;;;;;;;;;;;;;;;;UAI4B;AACxB,iCAAO,cAAS,OAAO;IACzB;aAES;AACP,YAAO,kCACC,yCACQ,gDAAwB,sCAElC,gCAAyB,wBACvB,sDAEW,gCACK,wBACR,kBAAK,4BAA2B,AAAa,yNAIrD,wDAEW,mDACO,qDACE,kBACJ,mCACA,aACC,6FAEC,6BACC,AAAa,4FAET,AAAsB,yEACtB,AAAsB,uEACxB,AAAsB,8EACf,AAAsB,0EAEhB,sJAGlC,wDAEW,sCACgC,yCAC3B,wBACR,kBACE,0BACO,AAAa,uGAEtB,iCACS;AAC2B,wBAAvB,qEAAU,OAAO;iDAGxB,kBAAK,8BAA6B,AAAa,0RAK7D,wDAGa,mDACM;AAC6B,oBAA5B,qEAAU,OAAO;6CAEtB,AAA6B,+FAC7B,kBACL,iBACO,AAAa;IAQxC;;;;;EACF","file":"../../../../../packages/sigma/view/screens/Sign_In_Screen.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["sliver_fixed_extent_list.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/rendering/sliver_fixed_extent_list.dart.lib.js"}');
   // Exports:
   return {
-    view__screens__Sign_In_Screen: Sign_In_Screen
+    src__rendering__sliver_fixed_extent_list: sliver_fixed_extent_list
   };
 }));
 
-//# sourceMappingURL=Sign_In_Screen.dart.lib.js.map
+//# sourceMappingURL=sliver_fixed_extent_list.dart.lib.js.map

@@ -1,21 +1,27 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/will_pop_scope.dart'], (function load__packages__flutter__src__widgets__form_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__will_pop_scope$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__services__mouse_cursor_dart(dart_sdk, packages__flutter__src__gestures__events$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__services__system_channels$46dart, packages__flutter__src__foundation__object$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
   const async = dart_sdk.async;
-  const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const will_pop_scope = packages__flutter__src__widgets__will_pop_scope$46dart.src__widgets__will_pop_scope;
-  var form = Object.create(dart.library);
-  var $any = dartx.any;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const system_channels = packages__flutter__src__services__system_channels$46dart.src__services__system_channels;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  var mouse_cursor = Object.create(dart.library);
+  var $_equals = dartx._equals;
+  var $_get = dartx._get;
+  var $remove = dartx.remove;
+  var $_set = dartx._set;
+  var $runtimeType = dartx.runtimeType;
+  var $hashCode = dartx.hashCode;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    LinkedHashSetOfFormFieldState: () => (T$.LinkedHashSetOfFormFieldState = dart.constFn(collection.LinkedHashSet$(form.FormFieldState)))(),
-    FormFieldStateTobool: () => (T$.FormFieldStateTobool = dart.constFn(dart.fnType(core.bool, [form.FormFieldState])))(),
-    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    StringN: () => (T$.StringN = dart.constFn(dart.nullable(core.String)))()
+  var T = {
+    IdentityMapOfint$MouseCursorSession: () => (T.IdentityMapOfint$MouseCursorSession = dart.constFn(_js_helper.IdentityMap$(core.int, mouse_cursor.MouseCursorSession)))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    DiagnosticsPropertyOfString: () => (T.DiagnosticsPropertyOfString = dart.constFn(diagnostics.DiagnosticsProperty$(core.String)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -23,618 +29,635 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.always",
-        index: 1
+        __proto__: diagnostics.DiagnosticLevel.prototype,
+        [_name]: "DiagnosticLevel.info",
+        index: 3
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.onUserInteraction",
-        index: 2
+        __proto__: mouse_cursor._DeferringMouseCursor.prototype
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.disabled",
-        index: 0
+        __proto__: mouse_cursor._NoopMouseCursor.prototype
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "none"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "basic"
       });
     },
     get C5() {
       return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "formState",
-        [_Location_column]: 9,
-        [_Location_line]: 209,
-        [_Location_file]: null
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "click"
       });
     },
     get C6() {
       return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "generation",
-        [_Location_column]: 9,
-        [_Location_line]: 210,
-        [_Location_file]: null
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "forbidden"
       });
     },
     get C7() {
       return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 211,
-        [_Location_file]: null
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "wait"
       });
     },
-    get C4() {
-      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "progress"
+      });
     },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[4] || CT.C4,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 208,
-        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/widgets/form.dart"
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "contextMenu"
       });
     },
     get C10() {
       return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onWillPop",
-        [_Location_column]: 7,
-        [_Location_line]: 207,
-        [_Location_file]: null
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "help"
       });
     },
     get C11() {
       return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 208,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 206,
-        [_Location_file]: "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/widgets/form.dart"
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "text"
       });
     },
     get C12() {
-      return C[12] = dart.constList([C[2] || CT.C2, C[0] || CT.C0, C[1] || CT.C1], form.AutovalidateMode);
+      return C[12] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "verticalText"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "cell"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "precise"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "move"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "grab"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "grabbing"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "noDrop"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "alias"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "copy"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "disappearing"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "allScroll"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeLeftRight"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpDown"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpLeftDownRight"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpRightDownLeft"
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUp"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeDown"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeLeft"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeRight"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpLeft"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpRight"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeDownLeft"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeDownRight"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeColumn"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeRow"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "zoomIn"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "zoomOut"
+      });
     }
   }, false);
-  var C = Array(13).fill(void 0);
+  var C = Array(39).fill(void 0);
   var I = [
-    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/widgets/form.dart",
-    "package:flutter/src/widgets/form.dart"
+    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/services/mouse_cursor.dart",
+    "package:flutter/src/services/mouse_cursor.dart"
   ];
-  var child$ = dart.privateName(form, "Form.child");
-  var onWillPop$ = dart.privateName(form, "Form.onWillPop");
-  var onChanged$ = dart.privateName(form, "Form.onChanged");
-  var autovalidateMode$ = dart.privateName(form, "Form.autovalidateMode");
-  var autovalidate$ = dart.privateName(form, "Form.autovalidate");
-  var _formState = dart.privateName(form, "_formState");
-  form.Form = class Form extends framework.StatefulWidget {
-    get child() {
-      return this[child$];
+  var fallbackMouseCursor$ = dart.privateName(mouse_cursor, "MouseCursorManager.fallbackMouseCursor");
+  var _lastSession = dart.privateName(mouse_cursor, "_lastSession");
+  mouse_cursor.MouseCursorManager = class MouseCursorManager extends core.Object {
+    get fallbackMouseCursor() {
+      return this[fallbackMouseCursor$];
     }
-    set child(value) {
-      super.child = value;
+    set fallbackMouseCursor(value) {
+      super.fallbackMouseCursor = value;
     }
-    get onWillPop() {
-      return this[onWillPop$];
+    debugDeviceActiveCursor(device) {
+      let result = null;
+      if (!dart.fn(() => {
+        let t0;
+        result = (t0 = this[_lastSession][$_get](device), t0 == null ? null : t0.cursor);
+        return true;
+      }, T.VoidTobool())()) dart.assertFailed(null, I[0], 38, 12, "() {\r\n      result = _lastSession[device]?.cursor;\r\n      return true;\r\n    }()");
+      return result;
     }
-    set onWillPop(value) {
-      super.onWillPop = value;
-    }
-    get onChanged() {
-      return this[onChanged$];
-    }
-    set onChanged(value) {
-      super.onChanged = value;
-    }
-    get autovalidateMode() {
-      return this[autovalidateMode$];
-    }
-    set autovalidateMode(value) {
-      super.autovalidateMode = value;
-    }
-    get autovalidate() {
-      return this[autovalidate$];
-    }
-    set autovalidate(value) {
-      super.autovalidate = value;
-    }
-    static of(context) {
-      let t0;
-      let scope = context.dependOnInheritedWidgetOfExactType(form._FormScope);
-      t0 = scope;
-      return t0 == null ? null : t0[_formState];
-    }
-    createState() {
-      return new form.FormState.new();
+    handleDeviceCursorUpdate(device, triggeringEvent, cursorCandidates) {
+      let t0, t0$, t0$0;
+      if (events.PointerRemovedEvent.is(triggeringEvent)) {
+        this[_lastSession][$remove](device);
+        return;
+      }
+      let lastSession = this[_lastSession][$_get](device);
+      let nextCursor = (t0 = mouse_cursor._DeferringMouseCursor.firstNonDeferred(cursorCandidates), t0 == null ? this.fallbackMouseCursor : t0);
+      if (!!mouse_cursor._DeferringMouseCursor.is(nextCursor)) dart.assertFailed(null, I[0], 68, 12, "nextCursor is! _DeferringMouseCursor");
+      if (dart.equals((t0$ = lastSession, t0$ == null ? null : t0$.cursor), nextCursor)) return;
+      let nextSession = nextCursor.createSession(device);
+      this[_lastSession][$_set](device, nextSession);
+      t0$0 = lastSession;
+      t0$0 == null ? null : t0$0.dispose();
+      nextSession.activate();
     }
   };
-  (form.Form.new = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
-    let onWillPop = opts && 'onWillPop' in opts ? opts.onWillPop : null;
-    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
-    let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[child$] = child;
-    this[autovalidate$] = autovalidate;
-    this[onWillPop$] = onWillPop;
-    this[onChanged$] = onChanged;
-    if (!(child !== null)) dart.assertFailed(null, I[0], 88, 15, "child != null");
-    if (!(autovalidate !== null)) dart.assertFailed(null, I[0], 89, 15, "autovalidate != null");
-    if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 91, 10, "autovalidate == false ||\r\n         autovalidate == true && autovalidateMode == null");
-    this[autovalidateMode$] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
-    form.Form.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (mouse_cursor.MouseCursorManager.new = function(fallbackMouseCursor) {
+    this[_lastSession] = new (T.IdentityMapOfint$MouseCursorSession()).new();
+    this[fallbackMouseCursor$] = fallbackMouseCursor;
+    if (!!fallbackMouseCursor[$_equals](mouse_cursor.MouseCursor.defer)) dart.assertFailed(null, I[0], 20, 14, "fallbackMouseCursor != MouseCursor.defer");
     ;
-  }).prototype = form.Form.prototype;
-  dart.addTypeTests(form.Form);
-  dart.addTypeCaches(form.Form);
-  dart.setMethodSignature(form.Form, () => ({
-    __proto__: dart.getMethods(form.Form.__proto__),
-    createState: dart.fnType(form.FormState, [])
+  }).prototype = mouse_cursor.MouseCursorManager.prototype;
+  dart.addTypeTests(mouse_cursor.MouseCursorManager);
+  dart.addTypeCaches(mouse_cursor.MouseCursorManager);
+  dart.setMethodSignature(mouse_cursor.MouseCursorManager, () => ({
+    __proto__: dart.getMethods(mouse_cursor.MouseCursorManager.__proto__),
+    debugDeviceActiveCursor: dart.fnType(dart.nullable(mouse_cursor.MouseCursor), [core.int]),
+    handleDeviceCursorUpdate: dart.fnType(dart.void, [core.int, dart.nullable(events.PointerEvent), core.Iterable$(mouse_cursor.MouseCursor)])
   }));
-  dart.setLibraryUri(form.Form, I[1]);
-  dart.setFieldSignature(form.Form, () => ({
-    __proto__: dart.getFields(form.Form.__proto__),
-    child: dart.finalFieldType(framework.Widget),
-    onWillPop: dart.finalFieldType(dart.nullable(dart.fnType(async.Future$(core.bool), []))),
-    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-    autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
-    autovalidate: dart.finalFieldType(core.bool)
+  dart.setLibraryUri(mouse_cursor.MouseCursorManager, I[1]);
+  dart.setFieldSignature(mouse_cursor.MouseCursorManager, () => ({
+    __proto__: dart.getFields(mouse_cursor.MouseCursorManager.__proto__),
+    fallbackMouseCursor: dart.finalFieldType(mouse_cursor.MouseCursor),
+    [_lastSession]: dart.finalFieldType(core.Map$(core.int, mouse_cursor.MouseCursorSession))
   }));
-  var _generation = dart.privateName(form, "_generation");
-  var _hasInteractedByUser = dart.privateName(form, "_hasInteractedByUser");
-  var _fields = dart.privateName(form, "_fields");
-  var _forceRebuild = dart.privateName(form, "_forceRebuild");
-  var _fieldDidChange = dart.privateName(form, "_fieldDidChange");
-  var _register = dart.privateName(form, "_register");
-  var _unregister = dart.privateName(form, "_unregister");
-  var _validate = dart.privateName(form, "_validate");
-  var _name$ = dart.privateName(form, "_name");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  form.FormState = class FormState extends framework.State$(form.Form) {
-    [_fieldDidChange]() {
-      let t0;
-      t0 = this.widget.onChanged;
-      t0 == null ? null : t0();
-      this[_hasInteractedByUser] = this[_fields][$any](dart.fn(field => field[_hasInteractedByUser], T$.FormFieldStateTobool()));
-      this[_forceRebuild]();
+  var cursor$ = dart.privateName(mouse_cursor, "MouseCursorSession.cursor");
+  var device$ = dart.privateName(mouse_cursor, "MouseCursorSession.device");
+  mouse_cursor.MouseCursorSession = class MouseCursorSession extends core.Object {
+    get cursor() {
+      return this[cursor$];
     }
-    [_forceRebuild]() {
-      this.setState(dart.fn(() => {
-        this[_generation] = this[_generation] + 1;
-      }, T$.VoidTovoid()));
+    set cursor(value) {
+      super.cursor = value;
     }
-    [_register](field) {
-      this[_fields].add(field);
+    get device() {
+      return this[device$];
     }
-    [_unregister](field) {
-      this[_fields].remove(field);
-    }
-    build(context) {
-      switch (this.widget.autovalidateMode) {
-        case C[0] || CT.C0:
-        {
-          this[_validate]();
-          break;
-        }
-        case C[1] || CT.C1:
-        {
-          if (this[_hasInteractedByUser]) {
-            this[_validate]();
-          }
-          break;
-        }
-        case C[2] || CT.C2:
-        {
-          break;
-        }
-      }
-      return new will_pop_scope.WillPopScope.new({onWillPop: this.widget.onWillPop, child: new form._FormScope.new({formState: this, generation: this[_generation], child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8});
-    }
-    save() {
-      for (let field of this[_fields])
-        field.save();
-    }
-    reset() {
-      for (let field of this[_fields])
-        field.reset();
-      this[_hasInteractedByUser] = false;
-      this[_fieldDidChange]();
-    }
-    validate() {
-      this[_hasInteractedByUser] = true;
-      this[_forceRebuild]();
-      return this[_validate]();
-    }
-    [_validate]() {
-      let hasError = false;
-      for (let field of this[_fields])
-        hasError = !field.validate() || hasError;
-      return !hasError;
+    set device(value) {
+      super.device = value;
     }
   };
-  (form.FormState.new = function() {
-    this[_generation] = 0;
-    this[_hasInteractedByUser] = false;
-    this[_fields] = T$.LinkedHashSetOfFormFieldState().new();
-    form.FormState.__proto__.new.call(this);
+  (mouse_cursor.MouseCursorSession.new = function(cursor, device) {
+    this[cursor$] = cursor;
+    this[device$] = device;
+    if (!(cursor !== null)) dart.assertFailed(null, I[0], 104, 14, "cursor != null");
+    if (!(device !== null)) dart.assertFailed(null, I[0], 105, 14, "device != null");
     ;
-  }).prototype = form.FormState.prototype;
-  dart.addTypeTests(form.FormState);
-  dart.addTypeCaches(form.FormState);
-  dart.setMethodSignature(form.FormState, () => ({
-    __proto__: dart.getMethods(form.FormState.__proto__),
-    [_fieldDidChange]: dart.fnType(dart.void, []),
-    [_forceRebuild]: dart.fnType(dart.void, []),
-    [_register]: dart.fnType(dart.void, [form.FormFieldState]),
-    [_unregister]: dart.fnType(dart.void, [form.FormFieldState]),
-    build: dart.fnType(framework.Widget, [framework.BuildContext]),
-    save: dart.fnType(dart.void, []),
-    reset: dart.fnType(dart.void, []),
-    validate: dart.fnType(core.bool, []),
-    [_validate]: dart.fnType(core.bool, [])
+  }).prototype = mouse_cursor.MouseCursorSession.prototype;
+  dart.addTypeTests(mouse_cursor.MouseCursorSession);
+  dart.addTypeCaches(mouse_cursor.MouseCursorSession);
+  dart.setLibraryUri(mouse_cursor.MouseCursorSession, I[1]);
+  dart.setFieldSignature(mouse_cursor.MouseCursorSession, () => ({
+    __proto__: dart.getFields(mouse_cursor.MouseCursorSession.__proto__),
+    cursor: dart.finalFieldType(mouse_cursor.MouseCursor),
+    device: dart.finalFieldType(core.int)
   }));
-  dart.setLibraryUri(form.FormState, I[1]);
-  dart.setFieldSignature(form.FormState, () => ({
-    __proto__: dart.getFields(form.FormState.__proto__),
-    [_generation]: dart.fieldType(core.int),
-    [_hasInteractedByUser]: dart.fieldType(core.bool),
-    [_fields]: dart.finalFieldType(core.Set$(form.FormFieldState))
-  }));
-  var _formState$ = dart.privateName(form, "_FormScope._formState");
-  var _generation$ = dart.privateName(form, "_FormScope._generation");
-  form._FormScope = class _FormScope extends framework.InheritedWidget {
-    get [_formState]() {
-      return this[_formState$];
-    }
-    set [_formState](value) {
-      super[_formState] = value;
-    }
-    get [_generation]() {
-      return this[_generation$];
-    }
-    set [_generation](value) {
-      super[_generation] = value;
-    }
-    get form() {
-      return this[_formState].widget;
-    }
-    updateShouldNotify(old) {
-      form._FormScope.as(old);
-      return this[_generation] !== old[_generation];
+  var _name = dart.privateName(diagnostics, "_name");
+  const Object_Diagnosticable$36 = class Object_Diagnosticable extends core.Object {};
+  (Object_Diagnosticable$36.new = function() {
+  }).prototype = Object_Diagnosticable$36.prototype;
+  dart.applyMixin(Object_Diagnosticable$36, diagnostics.Diagnosticable);
+  mouse_cursor.MouseCursor = class MouseCursor extends Object_Diagnosticable$36 {
+    toString(opts) {
+      let minLevel = opts && 'minLevel' in opts ? opts.minLevel : C[0] || CT.C0;
+      let debugDescription = this.debugDescription;
+      if (minLevel.index >= diagnostics.DiagnosticLevel.info.index && debugDescription !== null) return debugDescription;
+      return super.toString({minLevel: minLevel});
     }
   };
-  (form._FormScope.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let formState = opts && 'formState' in opts ? opts.formState : null;
-    let generation = opts && 'generation' in opts ? opts.generation : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[_formState$] = formState;
-    this[_generation$] = generation;
-    form._FormScope.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (mouse_cursor.MouseCursor.new = function() {
     ;
-  }).prototype = form._FormScope.prototype;
-  dart.addTypeTests(form._FormScope);
-  dart.addTypeCaches(form._FormScope);
-  dart.setMethodSignature(form._FormScope, () => ({
-    __proto__: dart.getMethods(form._FormScope.__proto__),
-    updateShouldNotify: dart.fnType(core.bool, [dart.nullable(core.Object)])
-  }));
-  dart.setGetterSignature(form._FormScope, () => ({
-    __proto__: dart.getGetters(form._FormScope.__proto__),
-    form: form.Form
-  }));
-  dart.setLibraryUri(form._FormScope, I[1]);
-  dart.setFieldSignature(form._FormScope, () => ({
-    __proto__: dart.getFields(form._FormScope.__proto__),
-    [_formState]: dart.finalFieldType(form.FormState),
-    [_generation]: dart.finalFieldType(core.int)
-  }));
-  var onSaved$ = dart.privateName(form, "FormField.onSaved");
-  var validator$ = dart.privateName(form, "FormField.validator");
-  var builder$ = dart.privateName(form, "FormField.builder");
-  var initialValue$ = dart.privateName(form, "FormField.initialValue");
-  var enabled$ = dart.privateName(form, "FormField.enabled");
-  var autovalidateMode$0 = dart.privateName(form, "FormField.autovalidateMode");
-  var autovalidate$0 = dart.privateName(form, "FormField.autovalidate");
-  const _is_FormField_default = Symbol('_is_FormField_default');
-  form.FormField$ = dart.generic(T => {
-    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
-    class FormField extends framework.StatefulWidget {
-      get onSaved() {
-        return this[onSaved$];
-      }
-      set onSaved(value) {
-        super.onSaved = value;
-      }
-      get validator() {
-        return this[validator$];
-      }
-      set validator(value) {
-        super.validator = value;
-      }
-      get builder() {
-        return this[builder$];
-      }
-      set builder(value) {
-        super.builder = value;
-      }
-      get initialValue() {
-        return this[initialValue$];
-      }
-      set initialValue(value) {
-        super.initialValue = value;
-      }
-      get enabled() {
-        return this[enabled$];
-      }
-      set enabled(value) {
-        super.enabled = value;
-      }
-      get autovalidateMode() {
-        return this[autovalidateMode$0];
-      }
-      set autovalidateMode(value) {
-        super.autovalidateMode = value;
-      }
-      get autovalidate() {
-        return this[autovalidate$0];
-      }
-      set autovalidate(value) {
-        super.autovalidate = value;
-      }
-      createState() {
-        return new (FormFieldStateOfT()).new();
-      }
+  }).prototype = mouse_cursor.MouseCursor.prototype;
+  dart.addTypeTests(mouse_cursor.MouseCursor);
+  dart.addTypeCaches(mouse_cursor.MouseCursor);
+  dart.setLibraryUri(mouse_cursor.MouseCursor, I[1]);
+  dart.defineExtensionMethods(mouse_cursor.MouseCursor, ['toString']);
+  dart.defineLazy(mouse_cursor.MouseCursor, {
+    /*mouse_cursor.MouseCursor.defer*/get defer() {
+      return C[1] || CT.C1;
+    },
+    /*mouse_cursor.MouseCursor.uncontrolled*/get uncontrolled() {
+      return C[2] || CT.C2;
     }
-    (FormField.new = function(opts) {
-      let t0;
-      let key = opts && 'key' in opts ? opts.key : null;
-      let builder = opts && 'builder' in opts ? opts.builder : null;
-      let onSaved = opts && 'onSaved' in opts ? opts.onSaved : null;
-      let validator = opts && 'validator' in opts ? opts.validator : null;
-      let initialValue = opts && 'initialValue' in opts ? opts.initialValue : null;
-      let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
-      let enabled = opts && 'enabled' in opts ? opts.enabled : true;
-      let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
-      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-      this[builder$] = builder;
-      this[onSaved$] = onSaved;
-      this[validator$] = validator;
-      this[initialValue$] = initialValue;
-      this[autovalidate$0] = autovalidate;
-      this[enabled$] = enabled;
-      if (!(builder !== null)) dart.assertFailed(null, I[0], 334, 15, "builder != null");
-      if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 336, 10, "autovalidate == false ||\r\n         autovalidate == true && autovalidateMode == null");
-      this[autovalidateMode$0] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
-      FormField.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-      ;
-    }).prototype = FormField.prototype;
-    dart.addTypeTests(FormField);
-    FormField.prototype[_is_FormField_default] = true;
-    dart.addTypeCaches(FormField);
-    dart.setMethodSignature(FormField, () => ({
-      __proto__: dart.getMethods(FormField.__proto__),
-      createState: dart.fnType(form.FormFieldState$(T), [])
-    }));
-    dart.setLibraryUri(FormField, I[1]);
-    dart.setFieldSignature(FormField, () => ({
-      __proto__: dart.getFields(FormField.__proto__),
-      onSaved: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(T)]))),
-      validator: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(core.String), [dart.nullable(T)]))),
-      builder: dart.finalFieldType(dart.fnType(framework.Widget, [form.FormFieldState$(T)])),
-      initialValue: dart.finalFieldType(dart.nullable(T)),
-      enabled: dart.finalFieldType(core.bool),
-      autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
-      autovalidate: dart.finalFieldType(core.bool)
-    }));
-    return FormField;
-  });
-  form.FormField = form.FormField$();
-  dart.addTypeTests(form.FormField, _is_FormField_default);
-  var _value = dart.privateName(form, "_value");
-  var _errorText = dart.privateName(form, "_errorText");
-  const _is_FormFieldState_default = Symbol('_is_FormFieldState_default');
-  form.FormFieldState$ = dart.generic(T => {
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    var TNToStringN = () => (TNToStringN = dart.constFn(dart.fnType(T$.StringN(), [TN()])))();
-    var TNToNStringN = () => (TNToNStringN = dart.constFn(dart.nullable(TNToStringN())))();
-    var TNTovoid = () => (TNTovoid = dart.constFn(dart.fnType(dart.void, [TN()])))();
-    var TNToNvoid = () => (TNToNvoid = dart.constFn(dart.nullable(TNTovoid())))();
-    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
-    var FormFieldStateOfTToWidget = () => (FormFieldStateOfTToWidget = dart.constFn(dart.fnType(framework.Widget, [FormFieldStateOfT()])))();
-    class FormFieldState extends framework.State$(form.FormField$(T)) {
-      get value() {
-        return this[_value];
-      }
-      get errorText() {
-        return this[_errorText];
-      }
-      get hasError() {
-        return this[_errorText] != null;
-      }
-      get isValid() {
-        let t0;
-        return (t0 = TNToNStringN().as(this.widget.validator), t0 == null ? null : t0(this[_value])) == null;
-      }
-      save() {
-        let t0;
-        t0 = TNToNvoid().as(this.widget.onSaved);
-        t0 == null ? null : t0(this.value);
-      }
-      reset() {
-        let t0;
-        this.setState(dart.fn(() => {
-          this[_value] = this.widget.initialValue;
-          this[_hasInteractedByUser] = false;
-          this[_errorText] = null;
-        }, T$.VoidTovoid()));
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_fieldDidChange]();
-      }
-      validate() {
-        this.setState(dart.fn(() => {
-          this[_validate]();
-        }, T$.VoidTovoid()));
-        return !this.hasError;
-      }
-      [_validate]() {
-        if (TNToNStringN().as(this.widget.validator) != null) this[_errorText] = dart.nullCheck(TNToNStringN().as(this.widget.validator))(this[_value]);
-      }
-      didChange(value) {
-        let t0;
-        TN().as(value);
-        this.setState(dart.fn(() => {
-          this[_value] = value;
-          this[_hasInteractedByUser] = true;
-        }, T$.VoidTovoid()));
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_fieldDidChange]();
-      }
-      setValue(value) {
-        TN().as(value);
-        this[_value] = value;
-      }
-      initState() {
-        super.initState();
-        this[_value] = this.widget.initialValue;
-      }
-      deactivate() {
-        let t0;
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_unregister](this);
-        super.deactivate();
-      }
-      build(context) {
-        let t0, t0$;
-        if (this.widget.enabled) {
-          switch (this.widget.autovalidateMode) {
-            case C[0] || CT.C0:
-            {
-              this[_validate]();
-              break;
-            }
-            case C[1] || CT.C1:
-            {
-              if (this[_hasInteractedByUser]) {
-                this[_validate]();
-              }
-              break;
-            }
-            case C[2] || CT.C2:
-            {
-              break;
-            }
-          }
-        }
-        t0 = form.Form.of(context);
-        t0 == null ? null : t0[_register](this);
-        t0$ = this.widget;
-        return FormFieldStateOfTToWidget().as(t0$.builder)(this);
-      }
+  }, false);
+  mouse_cursor._DeferringMouseCursor = class _DeferringMouseCursor extends mouse_cursor.MouseCursor {
+    createSession(device) {
+      if (!false) dart.assertFailed("_DeferringMouseCursor can not create a session", I[0], 266, 12, "false");
+      dart.throw(new core.UnimplementedError.new());
     }
-    (FormFieldState.new = function() {
-      this[_value] = null;
-      this[_errorText] = null;
-      this[_hasInteractedByUser] = false;
-      FormFieldState.__proto__.new.call(this);
-      ;
-    }).prototype = FormFieldState.prototype;
-    dart.addTypeTests(FormFieldState);
-    FormFieldState.prototype[_is_FormFieldState_default] = true;
-    dart.addTypeCaches(FormFieldState);
-    dart.setMethodSignature(FormFieldState, () => ({
-      __proto__: dart.getMethods(FormFieldState.__proto__),
-      save: dart.fnType(dart.void, []),
-      reset: dart.fnType(dart.void, []),
-      validate: dart.fnType(core.bool, []),
-      [_validate]: dart.fnType(dart.void, []),
-      didChange: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      setValue: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      build: dart.fnType(framework.Widget, [framework.BuildContext])
-    }));
-    dart.setGetterSignature(FormFieldState, () => ({
-      __proto__: dart.getGetters(FormFieldState.__proto__),
-      value: dart.nullable(T),
-      errorText: dart.nullable(core.String),
-      hasError: core.bool,
-      isValid: core.bool
-    }));
-    dart.setLibraryUri(FormFieldState, I[1]);
-    dart.setFieldSignature(FormFieldState, () => ({
-      __proto__: dart.getFields(FormFieldState.__proto__),
-      [_value]: dart.fieldType(dart.nullable(T)),
-      [_errorText]: dart.fieldType(dart.nullable(core.String)),
-      [_hasInteractedByUser]: dart.fieldType(core.bool)
-    }));
-    return FormFieldState;
-  });
-  form.FormFieldState = form.FormFieldState$();
-  dart.addTypeTests(form.FormFieldState, _is_FormFieldState_default);
-  form.AutovalidateMode = class AutovalidateMode extends core.Object {
-    toString() {
-      return this[_name$];
+    get debugDescription() {
+      return "defer";
+    }
+    static firstNonDeferred(cursors) {
+      for (let cursor of cursors) {
+        if (!(cursor !== null)) dart.assertFailed(null, I[0], 276, 14, "cursor != null");
+        if (!cursor[$_equals](mouse_cursor.MouseCursor.defer)) return cursor;
+      }
+      return null;
     }
   };
-  (form.AutovalidateMode.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
+  (mouse_cursor._DeferringMouseCursor.__ = function() {
+    mouse_cursor._DeferringMouseCursor.__proto__.new.call(this);
     ;
-  }).prototype = form.AutovalidateMode.prototype;
-  dart.addTypeTests(form.AutovalidateMode);
-  dart.addTypeCaches(form.AutovalidateMode);
-  dart.setLibraryUri(form.AutovalidateMode, I[1]);
-  dart.setFieldSignature(form.AutovalidateMode, () => ({
-    __proto__: dart.getFields(form.AutovalidateMode.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
+  }).prototype = mouse_cursor._DeferringMouseCursor.prototype;
+  dart.addTypeTests(mouse_cursor._DeferringMouseCursor);
+  dart.addTypeCaches(mouse_cursor._DeferringMouseCursor);
+  dart.setMethodSignature(mouse_cursor._DeferringMouseCursor, () => ({
+    __proto__: dart.getMethods(mouse_cursor._DeferringMouseCursor.__proto__),
+    createSession: dart.fnType(mouse_cursor.MouseCursorSession, [core.int])
   }));
-  dart.defineExtensionMethods(form.AutovalidateMode, ['toString']);
-  form.AutovalidateMode.disabled = C[2] || CT.C2;
-  form.AutovalidateMode.always = C[0] || CT.C0;
-  form.AutovalidateMode.onUserInteraction = C[1] || CT.C1;
-  form.AutovalidateMode.values = C[12] || CT.C12;
-  dart.trackLibraries("packages/flutter/src/widgets/form.dart", {
-    "package:flutter/src/widgets/form.dart": form
+  dart.setGetterSignature(mouse_cursor._DeferringMouseCursor, () => ({
+    __proto__: dart.getGetters(mouse_cursor._DeferringMouseCursor.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(mouse_cursor._DeferringMouseCursor, I[1]);
+  mouse_cursor._NoopMouseCursorSession = class _NoopMouseCursorSession extends mouse_cursor.MouseCursorSession {
+    activate() {
+      return async.async(dart.void, function* activate() {
+      });
+    }
+    dispose() {
+    }
+  };
+  (mouse_cursor._NoopMouseCursorSession.new = function(cursor, device) {
+    mouse_cursor._NoopMouseCursorSession.__proto__.new.call(this, cursor, device);
+    ;
+  }).prototype = mouse_cursor._NoopMouseCursorSession.prototype;
+  dart.addTypeTests(mouse_cursor._NoopMouseCursorSession);
+  dart.addTypeCaches(mouse_cursor._NoopMouseCursorSession);
+  dart.setMethodSignature(mouse_cursor._NoopMouseCursorSession, () => ({
+    __proto__: dart.getMethods(mouse_cursor._NoopMouseCursorSession.__proto__),
+    activate: dart.fnType(async.Future$(dart.void), []),
+    dispose: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(mouse_cursor._NoopMouseCursorSession, I[1]);
+  mouse_cursor._NoopMouseCursor = class _NoopMouseCursor extends mouse_cursor.MouseCursor {
+    createSession(device) {
+      return new mouse_cursor._NoopMouseCursorSession.new(this, device);
+    }
+    get debugDescription() {
+      return "uncontrolled";
+    }
+  };
+  (mouse_cursor._NoopMouseCursor.__ = function() {
+    mouse_cursor._NoopMouseCursor.__proto__.new.call(this);
+    ;
+  }).prototype = mouse_cursor._NoopMouseCursor.prototype;
+  dart.addTypeTests(mouse_cursor._NoopMouseCursor);
+  dart.addTypeCaches(mouse_cursor._NoopMouseCursor);
+  dart.setMethodSignature(mouse_cursor._NoopMouseCursor, () => ({
+    __proto__: dart.getMethods(mouse_cursor._NoopMouseCursor.__proto__),
+    createSession: dart.fnType(mouse_cursor._NoopMouseCursorSession, [core.int])
+  }));
+  dart.setGetterSignature(mouse_cursor._NoopMouseCursor, () => ({
+    __proto__: dart.getGetters(mouse_cursor._NoopMouseCursor.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(mouse_cursor._NoopMouseCursor, I[1]);
+  mouse_cursor._SystemMouseCursorSession = class _SystemMouseCursorSession extends mouse_cursor.MouseCursorSession {
+    get cursor() {
+      return mouse_cursor.SystemMouseCursor.as(super.cursor);
+    }
+    activate() {
+      return system_channels.SystemChannels.mouseCursor.invokeMethod(dart.void, "activateSystemCursor", new (T.IdentityMapOfString$dynamic()).from(["device", this.device, "kind", this.cursor.kind]));
+    }
+    dispose() {
+    }
+  };
+  (mouse_cursor._SystemMouseCursorSession.new = function(cursor, device) {
+    mouse_cursor._SystemMouseCursorSession.__proto__.new.call(this, cursor, device);
+    ;
+  }).prototype = mouse_cursor._SystemMouseCursorSession.prototype;
+  dart.addTypeTests(mouse_cursor._SystemMouseCursorSession);
+  dart.addTypeCaches(mouse_cursor._SystemMouseCursorSession);
+  dart.setMethodSignature(mouse_cursor._SystemMouseCursorSession, () => ({
+    __proto__: dart.getMethods(mouse_cursor._SystemMouseCursorSession.__proto__),
+    activate: dart.fnType(async.Future$(dart.void), []),
+    dispose: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(mouse_cursor._SystemMouseCursorSession, () => ({
+    __proto__: dart.getGetters(mouse_cursor._SystemMouseCursorSession.__proto__),
+    cursor: mouse_cursor.SystemMouseCursor
+  }));
+  dart.setLibraryUri(mouse_cursor._SystemMouseCursorSession, I[1]);
+  var kind$ = dart.privateName(mouse_cursor, "SystemMouseCursor.kind");
+  mouse_cursor.SystemMouseCursor = class SystemMouseCursor extends mouse_cursor.MouseCursor {
+    get kind() {
+      return this[kind$];
+    }
+    set kind(value) {
+      super.kind = value;
+    }
+    get debugDescription() {
+      return object.objectRuntimeType(this, "SystemMouseCursor") + "(" + this.kind + ")";
+    }
+    createSession(device) {
+      return new mouse_cursor._SystemMouseCursorSession.new(this, device);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return mouse_cursor.SystemMouseCursor.is(other) && other.kind === this.kind;
+    }
+    get hashCode() {
+      return this.kind[$hashCode];
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new (T.DiagnosticsPropertyOfString()).new("kind", this.kind, {level: diagnostics.DiagnosticLevel.debug}));
+    }
+  };
+  (mouse_cursor.SystemMouseCursor.__ = function(opts) {
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[kind$] = kind;
+    if (!(kind !== null)) dart.assertFailed(null, I[0], 372, 15, "kind != null");
+    mouse_cursor.SystemMouseCursor.__proto__.new.call(this);
+    ;
+  }).prototype = mouse_cursor.SystemMouseCursor.prototype;
+  dart.addTypeTests(mouse_cursor.SystemMouseCursor);
+  dart.addTypeCaches(mouse_cursor.SystemMouseCursor);
+  dart.setMethodSignature(mouse_cursor.SystemMouseCursor, () => ({
+    __proto__: dart.getMethods(mouse_cursor.SystemMouseCursor.__proto__),
+    createSession: dart.fnType(mouse_cursor._SystemMouseCursorSession, [core.int])
+  }));
+  dart.setGetterSignature(mouse_cursor.SystemMouseCursor, () => ({
+    __proto__: dart.getGetters(mouse_cursor.SystemMouseCursor.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(mouse_cursor.SystemMouseCursor, I[1]);
+  dart.setFieldSignature(mouse_cursor.SystemMouseCursor, () => ({
+    __proto__: dart.getFields(mouse_cursor.SystemMouseCursor.__proto__),
+    kind: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(mouse_cursor.SystemMouseCursor, ['_equals']);
+  dart.defineExtensionAccessors(mouse_cursor.SystemMouseCursor, ['hashCode']);
+  mouse_cursor.SystemMouseCursors = class SystemMouseCursors extends core.Object {
+    static __() {
+      return dart.throw(new core.Error.new());
+    }
+  };
+  (mouse_cursor.SystemMouseCursors[dart.mixinNew] = function() {
+  }).prototype = mouse_cursor.SystemMouseCursors.prototype;
+  dart.addTypeTests(mouse_cursor.SystemMouseCursors);
+  dart.addTypeCaches(mouse_cursor.SystemMouseCursors);
+  dart.setLibraryUri(mouse_cursor.SystemMouseCursors, I[1]);
+  dart.defineLazy(mouse_cursor.SystemMouseCursors, {
+    /*mouse_cursor.SystemMouseCursors.none*/get none() {
+      return C[3] || CT.C3;
+    },
+    /*mouse_cursor.SystemMouseCursors.basic*/get basic() {
+      return C[4] || CT.C4;
+    },
+    /*mouse_cursor.SystemMouseCursors.click*/get click() {
+      return C[5] || CT.C5;
+    },
+    /*mouse_cursor.SystemMouseCursors.forbidden*/get forbidden() {
+      return C[6] || CT.C6;
+    },
+    /*mouse_cursor.SystemMouseCursors.wait*/get wait() {
+      return C[7] || CT.C7;
+    },
+    /*mouse_cursor.SystemMouseCursors.progress*/get progress() {
+      return C[8] || CT.C8;
+    },
+    /*mouse_cursor.SystemMouseCursors.contextMenu*/get contextMenu() {
+      return C[9] || CT.C9;
+    },
+    /*mouse_cursor.SystemMouseCursors.help*/get help() {
+      return C[10] || CT.C10;
+    },
+    /*mouse_cursor.SystemMouseCursors.text*/get text() {
+      return C[11] || CT.C11;
+    },
+    /*mouse_cursor.SystemMouseCursors.verticalText*/get verticalText() {
+      return C[12] || CT.C12;
+    },
+    /*mouse_cursor.SystemMouseCursors.cell*/get cell() {
+      return C[13] || CT.C13;
+    },
+    /*mouse_cursor.SystemMouseCursors.precise*/get precise() {
+      return C[14] || CT.C14;
+    },
+    /*mouse_cursor.SystemMouseCursors.move*/get move() {
+      return C[15] || CT.C15;
+    },
+    /*mouse_cursor.SystemMouseCursors.grab*/get grab() {
+      return C[16] || CT.C16;
+    },
+    /*mouse_cursor.SystemMouseCursors.grabbing*/get grabbing() {
+      return C[17] || CT.C17;
+    },
+    /*mouse_cursor.SystemMouseCursors.noDrop*/get noDrop() {
+      return C[18] || CT.C18;
+    },
+    /*mouse_cursor.SystemMouseCursors.alias*/get alias() {
+      return C[19] || CT.C19;
+    },
+    /*mouse_cursor.SystemMouseCursors.copy*/get copy() {
+      return C[20] || CT.C20;
+    },
+    /*mouse_cursor.SystemMouseCursors.disappearing*/get disappearing() {
+      return C[21] || CT.C21;
+    },
+    /*mouse_cursor.SystemMouseCursors.allScroll*/get allScroll() {
+      return C[22] || CT.C22;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeLeftRight*/get resizeLeftRight() {
+      return C[23] || CT.C23;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpDown*/get resizeUpDown() {
+      return C[24] || CT.C24;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpLeftDownRight*/get resizeUpLeftDownRight() {
+      return C[25] || CT.C25;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpRightDownLeft*/get resizeUpRightDownLeft() {
+      return C[26] || CT.C26;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUp*/get resizeUp() {
+      return C[27] || CT.C27;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeDown*/get resizeDown() {
+      return C[28] || CT.C28;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeLeft*/get resizeLeft() {
+      return C[29] || CT.C29;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeRight*/get resizeRight() {
+      return C[30] || CT.C30;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpLeft*/get resizeUpLeft() {
+      return C[31] || CT.C31;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpRight*/get resizeUpRight() {
+      return C[32] || CT.C32;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeDownLeft*/get resizeDownLeft() {
+      return C[33] || CT.C33;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeDownRight*/get resizeDownRight() {
+      return C[34] || CT.C34;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeColumn*/get resizeColumn() {
+      return C[35] || CT.C35;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeRow*/get resizeRow() {
+      return C[36] || CT.C36;
+    },
+    /*mouse_cursor.SystemMouseCursors.zoomIn*/get zoomIn() {
+      return C[37] || CT.C37;
+    },
+    /*mouse_cursor.SystemMouseCursors.zoomOut*/get zoomOut() {
+      return C[38] || CT.C38;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/services/mouse_cursor.dart", {
+    "package:flutter/src/services/mouse_cursor.dart": mouse_cursor
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["form.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/widgets/form.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["mouse_cursor.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/services/mouse_cursor.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__form: form
+    src__services__mouse_cursor: mouse_cursor
   };
 }));
 
-//# sourceMappingURL=form.dart.lib.js.map
+//# sourceMappingURL=mouse_cursor.dart.lib.js.map
