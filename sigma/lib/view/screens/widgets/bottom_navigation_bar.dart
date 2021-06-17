@@ -2,24 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:sigma/Resources/App_Colors.dart';
+import 'package:sigma/core/controlles/bottom_bar_controller.dart';
 import 'package:sigma/view/screens/history_screens/My_History_main.dart';
 
 
 class MainBottomNavigationBar extends StatelessWidget{
-  final NavController navController = Get.put(NavController());
+  final BottomBarController bottomBarController = Get.put(BottomBarController());
 
   final List<Widget> bodyContent = [
-    Text('1'),
+    Container(decoration: BoxDecoration(gradient: gradientForStart)),
     MyHistoryMain(),
-    Text('3'),
-    Text('4'),
+    Container(decoration: BoxDecoration(gradient: gradientForStart)),
+    Container(decoration: BoxDecoration(gradient: gradientForStart)),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() => Center(
-          child: bodyContent.elementAt(navController.selectedIndex),
+          child: bodyContent.elementAt(bottomBarController.selectedIndex),
         ),
       ),
       floatingActionButton: Container(
@@ -39,8 +40,8 @@ class MainBottomNavigationBar extends StatelessWidget{
               backgroundColor: bottomBar,
               selectedItemColor:unselectedBottomIcon,
               unselectedItemColor: selectedBottomIcon,
-              currentIndex: navController.selectedIndex,
-              onTap: (index) => navController.selectedIndex = index,
+              currentIndex: bottomBarController.selectedIndex,
+              onTap: (index) => bottomBarController.selectedIndex = index,
               type: BottomNavigationBarType.fixed,
               iconSize: 25,
               items: [
@@ -66,10 +67,4 @@ class MainBottomNavigationBar extends StatelessWidget{
       ),
     );
   }
-}
-class NavController extends GetxController {
-  final _selectedIndex = 0.obs;
-
-  get selectedIndex => _selectedIndex.value;
-  set selectedIndex(index) => _selectedIndex.value = index;
 }
