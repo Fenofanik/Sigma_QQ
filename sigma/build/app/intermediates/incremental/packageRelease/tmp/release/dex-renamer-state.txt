@@ -1,0 +1,4 @@
+#Thu Jun 17 10:31:20 EEST 2021
+base.0=D\:\\SIgmaProject\\sigma\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

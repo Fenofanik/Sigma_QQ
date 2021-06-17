@@ -32,7 +32,7 @@ class TextStyles {
   TextStyle style_6 = GoogleFonts.openSans(
       color: textForUser,
       fontWeight: FontWeight.normal,
-      fontSize: 12,
+      fontSize: 16,
       decoration: TextDecoration.none);
   TextStyle style_7 = GoogleFonts.openSans(
       color: whiteColors,
@@ -57,6 +57,11 @@ class TextStyles {
   TextStyle style_11 = GoogleFonts.openSans(
       color: blackColors,
       fontWeight: FontWeight.bold,
+      fontSize: 16,
+      decoration: TextDecoration.none);
+  TextStyle style_12 = GoogleFonts.openSans(
+      color: whiteColors,
+      fontWeight: FontWeight.w600,
       fontSize: 16,
       decoration: TextDecoration.none);
 }
