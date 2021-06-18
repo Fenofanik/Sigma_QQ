@@ -5,8 +5,7 @@ import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
 import 'package:sigma/Resources/App_borders.dart';
-import 'package:sigma/config/constant_routes.dart';
-import 'package:sigma/core/controlles/onboarding_controller.dart';
+import 'package:sigma/core/controllers/onboarding_controller.dart';
 import 'package:sigma/core/ui/widgets/base_stateless_widget.dart';
 
 class OnBoardingScreen extends BaseStatelessWidget {

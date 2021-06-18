@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'view/screens/splash_screen.dart';
+import 'package:sigma/view/screens/splash_screen.dart';
 import 'config/constant_routes.dart';
 import 'package:get/get.dart';
 import 'package:sigma/config/router.dart';
@@ -12,7 +12,7 @@ class SigmaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: SplashScreen(),
+      home: Splash(),
       onGenerateRoute: Routers.generateRoute,
       initialRoute: splash,
     );

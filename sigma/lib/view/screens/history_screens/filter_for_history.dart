@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
-import 'package:sigma/core/controlles/category_controller.dart';
+import 'package:sigma/core/controllers/category_controller.dart';
 import 'package:sigma/core/ui/widgets/base_stateless_widget.dart';
 
 class HistoryFilter extends BaseStatelessWidget {
@@ -14,11 +14,11 @@ class HistoryFilter extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(gradient: gradientForStart),
-      child: GetX<CategoryController>(builder: (controller) {
-        return Column(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(gradient: gradientForStart),
+          child: GetX<CategoryController>(builder: (controller) {
+          return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Wrap(
@@ -57,21 +57,20 @@ class HistoryFilter extends BaseStatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(left: 16, top: 16),
-                  child:ElevatedButton(
+                  child: ElevatedButton(
                     onPressed: () {
                       controller.categoryNames.first.pressedCafe.toggle();
                     },
                     style: controller.categoryNames.first.pressed.value ||
-                        controller.categoryNames.first.pressedCafe.value
+                            controller.categoryNames.first.pressedCafe.value
                         ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory1Active
+                            .elevatedButtonStyleCategory1Active
                         : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory1,
+                            .elevatedButtonStyleCategory1,
                     child: Text(
                         controller.categoryNames.first.cafesAndRestaurants,
                         style: controller.categoryNames.first.pressed.value ||
-                            controller
-                                .categoryNames.first.pressedCafe.value
+                                controller.categoryNames.first.pressedCafe.value
                             ? TextStyles().style_12
                             : TextStyles().style_6),
                   ),
@@ -83,16 +82,15 @@ class HistoryFilter extends BaseStatelessWidget {
                       controller.categoryNames.first.pressedMarket.toggle();
                     },
                     style: controller.categoryNames.first.pressed.value ||
-                        controller.categoryNames.first.pressedMarket.value
+                            controller.categoryNames.first.pressedMarket.value
                         ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory5Active
+                            .elevatedButtonStyleCategory5Active
                         : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory5,
+                            .elevatedButtonStyleCategory5,
                     child: Text(
                       controller.categoryNames.first.marketplaces,
                       style: controller.categoryNames.first.pressed.value ||
-                          controller
-                              .categoryNames.first.pressedMarket.value
+                              controller.categoryNames.first.pressedMarket.value
                           ? TextStyles().style_12
                           : TextStyles().style_6,
                     ),
@@ -110,15 +108,15 @@ class HistoryFilter extends BaseStatelessWidget {
                       controller.categoryNames.first.pressedCar.toggle();
                     },
                     style: controller.categoryNames.first.pressed.value ||
-                        controller.categoryNames.first.pressedCar.value
+                            controller.categoryNames.first.pressedCar.value
                         ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory3Active
+                            .elevatedButtonStyleCategory3Active
                         : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory3,
+                            .elevatedButtonStyleCategory3,
                     child: Text(
                       controller.categoryNames.first.car,
                       style: controller.categoryNames.first.pressed.value ||
-                          controller.categoryNames.first.pressedCar.value
+                              controller.categoryNames.first.pressedCar.value
                           ? TextStyles().style_12
                           : TextStyles().style_6,
                     ),
@@ -131,16 +129,15 @@ class HistoryFilter extends BaseStatelessWidget {
                       controller.categoryNames.first.pressedBaby.toggle();
                     },
                     style: controller.categoryNames.first.pressed.value ||
-                        controller.categoryNames.first.pressedBaby.value
+                            controller.categoryNames.first.pressedBaby.value
                         ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory6Active
+                            .elevatedButtonStyleCategory6Active
                         : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory6,
+                            .elevatedButtonStyleCategory6,
                     child: Text(
                       controller.categoryNames.first.baby,
                       style: controller.categoryNames.first.pressed.value ||
-                          controller
-                              .categoryNames.first.pressedBaby.value
+                              controller.categoryNames.first.pressedBaby.value
                           ? TextStyles().style_12
                           : TextStyles().style_6,
                     ),
@@ -154,17 +151,17 @@ class HistoryFilter extends BaseStatelessWidget {
                           .toggle();
                     },
                     style: controller.categoryNames.first.pressed.value ||
-                        controller.categoryNames.first
-                            .pressedElectronics.value
+                            controller
+                                .categoryNames.first.pressedElectronics.value
                         ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory8Active
+                            .elevatedButtonStyleCategory8Active
                         : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory8,
+                            .elevatedButtonStyleCategory8,
                     child: Text(
                       controller.categoryNames.first.electronics,
                       style: controller.categoryNames.first.pressed.value ||
-                          controller.categoryNames.first
-                              .pressedElectronics.value
+                              controller
+                                  .categoryNames.first.pressedElectronics.value
                           ? TextStyles().style_12
                           : TextStyles().style_6,
                     ),
@@ -182,17 +179,16 @@ class HistoryFilter extends BaseStatelessWidget {
                       controller.categoryNames.first.pressedClothes.toggle();
                     },
                     style: controller.categoryNames.first.pressed.value ||
-                        controller
-                            .categoryNames.first.pressedClothes.value
+                            controller.categoryNames.first.pressedClothes.value
                         ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory7Active
+                            .elevatedButtonStyleCategory7Active
                         : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory7,
+                            .elevatedButtonStyleCategory7,
                     child: Text(
                       controller.categoryNames.first.clothes,
                       style: controller.categoryNames.first.pressed.value ||
-                          controller
-                              .categoryNames.first.pressedClothes.value
+                              controller
+                                  .categoryNames.first.pressedClothes.value
                           ? TextStyles().style_12
                           : TextStyles().style_6,
                     ),
@@ -205,17 +201,16 @@ class HistoryFilter extends BaseStatelessWidget {
                       controller.categoryNames.first.pressedServices.toggle();
                     },
                     style: controller.categoryNames.first.pressed.value ||
-                        controller
-                            .categoryNames.first.pressedServices.value
+                            controller.categoryNames.first.pressedServices.value
                         ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory9Active
+                            .elevatedButtonStyleCategory9Active
                         : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory9,
+                            .elevatedButtonStyleCategory9,
                     child: Text(
                       controller.categoryNames.first.services,
                       style: controller.categoryNames.first.pressed.value ||
-                          controller
-                              .categoryNames.first.pressedServices.value
+                              controller
+                                  .categoryNames.first.pressedServices.value
                           ? TextStyles().style_12
                           : TextStyles().style_6,
                     ),
@@ -233,16 +228,15 @@ class HistoryFilter extends BaseStatelessWidget {
                       controller.categoryNames.first.pressedTrips.toggle();
                     },
                     style: controller.categoryNames.first.pressed.value ||
-                        controller.categoryNames.first.pressedTrips.value
+                            controller.categoryNames.first.pressedTrips.value
                         ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory2Active
+                            .elevatedButtonStyleCategory2Active
                         : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory2,
+                            .elevatedButtonStyleCategory2,
                     child: Text(
                       controller.categoryNames.first.trips,
                       style: controller.categoryNames.first.pressed.value ||
-                          controller
-                              .categoryNames.first.pressedTrips.value
+                              controller.categoryNames.first.pressedTrips.value
                           ? TextStyles().style_12
                           : TextStyles().style_6,
                     ),
@@ -255,17 +249,15 @@ class HistoryFilter extends BaseStatelessWidget {
                       controller.categoryNames.first.pressedBeauty.toggle();
                     },
                     style: controller.categoryNames.first.pressed.value ||
-                        controller
-                            .categoryNames.first.pressedBeauty.value
+                            controller.categoryNames.first.pressedBeauty.value
                         ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory4Active
+                            .elevatedButtonStyleCategory4Active
                         : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory4,
+                            .elevatedButtonStyleCategory4,
                     child: Text(
                       controller.categoryNames.first.beauty,
                       style: controller.categoryNames.first.pressed.value ||
-                          controller
-                              .categoryNames.first.pressedBeauty.value
+                              controller.categoryNames.first.pressedBeauty.value
                           ? TextStyles().style_12
                           : TextStyles().style_6,
                     ),
@@ -277,21 +269,20 @@ class HistoryFilter extends BaseStatelessWidget {
               padding: const EdgeInsets.only(left: 16, top: 10, right: 46),
               child: ElevatedButton(
                 onPressed: () {
-                  controller.categoryNames.first.pressedEntertainment
-                      .toggle();
+                  controller.categoryNames.first.pressedEntertainment.toggle();
                 },
                 style: controller.categoryNames.first.pressed.value ||
-                    controller.categoryNames.first
-                        .pressedEntertainment.value
+                        controller
+                            .categoryNames.first.pressedEntertainment.value
                     ? ElevatedButtonStyleManager()
-                    .elevatedButtonStyleCategory10Active
+                        .elevatedButtonStyleCategory10Active
                     : ElevatedButtonStyleManager()
-                    .elevatedButtonStyleCategory10,
+                        .elevatedButtonStyleCategory10,
                 child: Text(
                   controller.categoryNames.first.entertainment,
                   style: controller.categoryNames.first.pressed.value ||
-                      controller.categoryNames.first
-                          .pressedEntertainment.value
+                          controller
+                              .categoryNames.first.pressedEntertainment.value
                       ? TextStyles().style_12
                       : TextStyles().style_6,
                 ),
@@ -333,11 +324,11 @@ class HistoryFilter extends BaseStatelessWidget {
                       onPressed: () {
                         controller.categoryNames.first.pressed.toggle();
                       },
-                      icon: controller.categoryNames.first.pressed.value?
-                      Icon(Icons.radio_button_checked,
-                          size: 20, color: borderColor):
-                      Icon(Icons.radio_button_unchecked,
-                          size: 20, color: borderColor)),
+                      icon: controller.categoryNames.first.pressed.value
+                          ? Icon(Icons.radio_button_checked,
+                              size: 20, color: borderColor)
+                          : Icon(Icons.radio_button_unchecked,
+                              size: 20, color: borderColor)),
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(

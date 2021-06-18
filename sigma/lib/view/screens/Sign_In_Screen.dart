@@ -7,91 +7,91 @@ import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
 import 'package:sigma/Resources/App_borders.dart';
 import 'package:sigma/config/constant_routes.dart';
+import 'package:sigma/core/ui/widgets/base_stateless_widget.dart';
 
-class SignInScreen extends StatefulWidget {
-  @override
-  _SignInScreenState createState() => _SignInScreenState();
-}
+class SignInScreen extends BaseStatelessWidget {
 
-class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
-    return signInUI(context);
-  }
-
-  signInUI(context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: gradientForStart),
         child:
-          Column(children: <Widget>[
-            Padding(
-                padding: const EdgeInsets.only(top: 70, left: 16, right: 150),
-                child: Column(
-                  children: [
-                    Text("Войти\nв аккаунт", style: TextStyles().style_1),
-                  ],
+        Column(children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 70, left: 16, right: 150),
+            child: Column(
+              children: [
+                Text("Войти\nв аккаунт", style: TextStyles().style_1),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 61),
+            child: TextFormField(
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.phone_outlined,
+                  size: 18,
+                  color: borderColor,
+                ),
+                hintText: "Номер телефона",
+                hintStyle: TextStyles().style_2,
+                contentPadding: const EdgeInsets.only(left: 10),
+                enabledBorder: OutlineInputBorders().styleForBorder,
+                focusedBorder: OutlineInputBorders().styleForBorder,
+                errorBorder: OutlineInputBorders().styleForBorder,
+                focusedErrorBorder: OutlineInputBorders().styleForBorder,
+              ),
+              keyboardType: TextInputType.phone,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 225),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Нет аккаунта? ",
+                  style: TextStyles().style_3,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, reg);
+                  },
+                  child:
+                  Text("Зарегистрироваться", style: TextStyles().style_4),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+                left: 16, right: 16, bottom: 20, top: 50),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, category);
+                },
+                style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
+                child: Text(
+                  "ВОЙТИ",
+                  style: TextStyles().style_5,
                 ),
               ),
-            Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, top: 61),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.phone_outlined,
-                      size: 18,
-                      color: borderColor,
-                    ),
-                    hintText: "Номер телефона",
-                    hintStyle: TextStyles().style_2,
-                    contentPadding: const EdgeInsets.only(left: 10),
-                    enabledBorder: OutlineInputBorders().styleForBorder,
-                    focusedBorder: OutlineInputBorders().styleForBorder,
-                    errorBorder: OutlineInputBorders().styleForBorder,
-                    focusedErrorBorder: OutlineInputBorders().styleForBorder,
-                  ),
-                  keyboardType: TextInputType.phone,
-                ),
-              ),
-            Padding(
-                padding: const EdgeInsets.only(top: 225),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Нет аккаунта? ",
-                      style: TextStyles().style_3,
-                    ),
-                    InkWell(
-                      onTap: () {
-                       Navigator.pushNamed(context, reg);
-                      },
-                      child:
-                          Text("Зарегистрироваться", style: TextStyles().style_4),
-                    )
-                  ],
-                ),
-              ),
-            Padding(
-                  padding: const EdgeInsets.only(
-                      left: 16, right: 16, bottom: 20, top: 50),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, category);
-                      },
-                      style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
-                      child: Text(
-                        "ВОЙТИ",
-                        style: TextStyles().style_5,
-                      ),
-                    ),
-                  ),
-                ),
-          ]),
+            ),
+          ),
+        ]),
 
       ),
     );
   }
+
+  @override
+  Widget getLayout(BuildContext context) {
+    // TODO: implement getLayout
+    throw UnimplementedError();
+  }
 }
+

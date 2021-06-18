@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:sigma/Resources/App_Colors.dart';
-import 'package:sigma/core/controlles/bottom_bar_controller.dart';
-import 'package:sigma/view/screens/history_screens/My_History_main.dart';
+import 'package:sigma/core/controllers/bottom_bar_controller.dart';
+import 'package:sigma/view/screens/history_screens/My_History_screen.dart';
 
 
 class MainBottomNavigationBar extends StatelessWidget{
@@ -11,7 +11,7 @@ class MainBottomNavigationBar extends StatelessWidget{
 
   final List<Widget> bodyContent = [
     Container(decoration: BoxDecoration(gradient: gradientForStart)),
-    MyHistoryMain(),
+    MyHistory(),
     Container(decoration: BoxDecoration(gradient: gradientForStart)),
     Container(decoration: BoxDecoration(gradient: gradientForStart)),
   ];
