@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   get:
   google_fonts:
+  flutter_pin_code_fields:
+  sliding_up_panel:
 
 
 

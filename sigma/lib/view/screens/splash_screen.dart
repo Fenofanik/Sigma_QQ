@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/core/controllers/splash_controller.dart';
 import 'package:get/get.dart';
-import 'package:sigma/core/ui/widgets/base_stateless_widget.dart';
+import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
-class Splash extends BaseStatelessWidget {
+class Splash extends BaseStatelessScreen {
   final splashController = Get.put(SplashController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       body: Container(
         decoration: BoxDecoration(gradient: gradientForStart),
         child: Center(
@@ -21,8 +22,8 @@ class Splash extends BaseStatelessWidget {
   }
 
   @override
-  Widget getLayout(BuildContext context) {
-    // TODO: implement getLayout
+  Widget buildBody(BuildContext context) {
+    // TODO: implement buildBody
     throw UnimplementedError();
   }
 }

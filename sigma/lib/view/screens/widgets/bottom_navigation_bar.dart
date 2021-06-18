@@ -3,24 +3,18 @@ import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/core/controllers/bottom_bar_controller.dart';
-import 'package:sigma/view/screens/history_screens/My_History_screen.dart';
+import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
 
-class MainBottomNavigationBar extends StatelessWidget{
+class MainBottomNavigationBar extends BaseStatelessScreen{
   final BottomBarController bottomBarController = Get.put(BottomBarController());
-
-  final List<Widget> bodyContent = [
-    Container(decoration: BoxDecoration(gradient: gradientForStart)),
-    MyHistory(),
-    Container(decoration: BoxDecoration(gradient: gradientForStart)),
-    Container(decoration: BoxDecoration(gradient: gradientForStart)),
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       body: Obx(() => Center(
-          child: bodyContent.elementAt(bottomBarController.selectedIndex),
+          child: bottomBarController.bodyContent.elementAt(bottomBarController.selectedIndex),
         ),
       ),
       floatingActionButton: Container(
@@ -66,5 +60,11 @@ class MainBottomNavigationBar extends StatelessWidget{
         ),
       ),
     );
+  }
+
+  @override
+  Widget buildBody(BuildContext context) {
+    // TODO: implement buildBody
+    throw UnimplementedError();
   }
 }

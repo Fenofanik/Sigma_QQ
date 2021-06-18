@@ -74,6 +74,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_pin_code_fields",
+      "rootUri": "file:///D:/FlutterALL/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_pin_code_fields-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///D:/FlutterALL/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -188,6 +194,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "sliding_up_panel",
+      "rootUri": "file:///D:/FlutterALL/flutter/.pub-cache/hosted/pub.dartlang.org/sliding_up_panel-2.0.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "source_span",
       "rootUri": "file:///D:/FlutterALL/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.1",
       "packageUri": "lib/",
@@ -254,7 +266,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-06-14T09:18:26.213219Z",
+  "generated": "2021-06-18T10:47:40.468019Z",
   "generator": "pub",
   "generatorVersion": "2.13.1"
 }

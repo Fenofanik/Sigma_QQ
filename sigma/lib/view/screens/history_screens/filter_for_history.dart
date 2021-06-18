@@ -5,14 +5,15 @@ import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
 import 'package:sigma/core/controllers/category_controller.dart';
-import 'package:sigma/core/ui/widgets/base_stateless_widget.dart';
+import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
-class HistoryFilter extends BaseStatelessWidget {
+class HistoryFilter extends BaseStatelessScreen {
   final categoryController = Get.put(CategoryController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
         body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -361,8 +362,8 @@ class HistoryFilter extends BaseStatelessWidget {
   }
 
   @override
-  Widget getLayout(BuildContext context) {
-    // TODO: implement getLayout
+  Widget buildBody(BuildContext context) {
+    // TODO: implement buildBody
     throw UnimplementedError();
   }
 }

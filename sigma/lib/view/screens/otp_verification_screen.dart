@@ -1,41 +1,96 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pinput/pin_put/pin_put.dart';
+import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
 import 'package:sigma/Resources/App_Colors.dart';
+import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
-class OtpVerificationScreen extends StatelessWidget {
-  final BoxDecoration pinPutDecoration = BoxDecoration(
-    color: const Color.fromRGBO(119, 125, 226, 1),
-    borderRadius: BorderRadius.circular(5.0),
-  );
+class SmsScreen extends BaseStatelessScreen{
+  SmsScreen({
+    required this.phoneNumber
+  });
+
+
+  final TextEditingController _smsController = TextEditingController();
+  final String phoneNumber;
+
+
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(decoration: BoxDecoration(gradient: gradientForStart),
-      child: Column(
-        children: <Widget>[
-      Padding(
-      padding: const EdgeInsets.all(30.0),
-        child: PinPut(
-          fieldsCount: 4,
-          withCursor: true,
-          textStyle: const TextStyle(fontSize: 25.0, color: Colors.white),
-          eachFieldWidth: 40.0,
-          eachFieldHeight: 55.0,
-          onSubmit: (String pin) => null,
-          focusNode: null,
-          controller: null,
-          submittedFieldDecoration: pinPutDecoration,
-          selectedFieldDecoration: pinPutDecoration,
-          followingFieldDecoration: pinPutDecoration,
-          pinAnimationType: PinAnimationType.fade,
+  Widget buildBody(BuildContext context){
+    return Container(
+      decoration: BoxDecoration(
+          gradient: gradientForStart
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 77,),
+              Text(
+                'Войти  в аккаунт',
+                style: style_2,
+              ),
+              const SizedBox(height: 49),
+              Center(
+                child: Column(
+                  children: [
+                    PinCodeFields(
+                        controller: _smsController,
+                        length: 6,
+                        fieldBorderStyle: FieldBorderStyle.Square,
+                        responsive: false,
+                        fieldHeight:45.0,
+                        fieldWidth: 30.0,
+                        borderWidth:1.0,
+                        activeBackgroundColor: blue,
+                        borderRadius: BorderRadius.circular(10.0),
+                        keyboardType: TextInputType.number,
+                        autoHideKeyboard: false,
+                        fieldBackgroundColor: Colors.black12,
+                        borderColor: blue3,
+                        textStyle: style_6
+                    ),
+                    const SizedBox(height: 15),
+                    Text('SMS-соощение отправлено на' + '\n${phoneNumber}' + '\n${'Введите код из SMS'}',
+                      style: style_7, textAlign: TextAlign.center,),
+                    const SizedBox(height: 120,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Нет аккаунта?', style: style_4,),
+                        FlatButton(
+                          child: Text('Зарегистрироваться', style: style_5,),
+                          onPressed: (){},
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 25),
+                      child: RaisedButton(
+                          color: white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(115, 11, 115, 11),
+                            child: Text('Далі', style: style_1,),
+                          ),
+                          onPressed: () async {
+                            await UserService().getUser(phoneNumber);
+                            AuthService().signInWithPhoneNumber(_smsController);
+                          }
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-
-        ],
-      ),),
     );
   }
+
 }

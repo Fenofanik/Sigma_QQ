@@ -5,13 +5,15 @@ import 'package:sigma/Resources/App_borders.dart';
 import 'package:sigma/config/constant_routes.dart';
 import 'package:sigma/core/controllers/my_history_controller.dart';
 import 'package:get/get.dart';
+import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
-class MyHistory extends StatelessWidget {
+class MyHistory extends BaseStatelessScreen {
   final MyHistoryTabController _tabs = Get.put(MyHistoryTabController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       body: Container(
         decoration: BoxDecoration(gradient: gradientForStart),
         child: Padding(
@@ -131,6 +133,7 @@ class MyHistory extends StatelessWidget {
   }
   forNoHistUI(){
     return Scaffold(
+      key: scaffoldKey,
       body: Container(
         decoration: BoxDecoration(gradient: gradientForStart),
         child: Column(
@@ -173,5 +176,11 @@ class MyHistory extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  Widget buildBody(BuildContext context) {
+    // TODO: implement buildBody
+    throw UnimplementedError();
   }
 }

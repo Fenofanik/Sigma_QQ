@@ -7,13 +7,14 @@ import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
 import 'package:sigma/Resources/App_borders.dart';
 import 'package:sigma/config/constant_routes.dart';
-import 'package:sigma/core/ui/widgets/base_stateless_widget.dart';
+import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
-class SignInScreen extends BaseStatelessWidget {
+class SignInScreen extends BaseStatelessScreen {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       body: Container(
         decoration: BoxDecoration(gradient: gradientForStart),
         child:
@@ -89,9 +90,10 @@ class SignInScreen extends BaseStatelessWidget {
   }
 
   @override
-  Widget getLayout(BuildContext context) {
-    // TODO: implement getLayout
+  Widget buildBody(BuildContext context) {
+    // TODO: implement buildBody
     throw UnimplementedError();
   }
+
 }
 
