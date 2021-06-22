@@ -19,16 +19,16 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "QoXllrBcAgwmiG8apYl+cA==";
+    window.$dartAppId = "Tux/tZBW3Xwi2RZW7b0vHQ==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "11.0.2";
-window.$dwdsDevHandlerPath = "http://localhost:65170/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:64265/$dwdsSseHandler";
 window.$dwdsEnableDevtoolsLaunch = true;
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:65172/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:64269/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -85,7 +85,8 @@ let modulePaths = {
  "packages/sigma/main.dart": "packages/sigma/main.dart.lib",
  "packages/sigma/config/router.dart": "packages/sigma/config/router.dart.lib",
  "packages/sigma/config/constant_routes.dart": "packages/sigma/config/constant_routes.dart.lib",
- "packages/sigma/view/screens/un_defined_screen.dart": "packages/sigma/view/screens/un_defined_screen.dart.lib",
+ "packages/sigma/view/screens/widgets/bottom_navigation_bar.dart": "packages/sigma/view/screens/widgets/bottom_navigation_bar.dart.lib",
+ "packages/sigma/core/ui/states/base_stateless_screen.dart": "packages/sigma/core/ui/states/base_stateless_screen.dart.lib",
  "packages/flutter/material.dart": "packages/flutter/material.dart.lib",
  "packages/flutter/widgets.dart": "packages/flutter/widgets.dart.lib",
  "packages/flutter/src/widgets/will_pop_scope.dart": "packages/flutter/src/widgets/will_pop_scope.dart.lib",
@@ -442,9 +443,10 @@ let modulePaths = {
  "packages/flutter/src/material/app.dart": "packages/flutter/src/material/app.dart.lib",
  "packages/flutter/src/material/animated_icons.dart": "packages/flutter/src/material/animated_icons.dart.lib",
  "packages/flutter/src/material/about.dart": "packages/flutter/src/material/about.dart.lib",
- "packages/sigma/view/screens/Onboarding_screen.dart": "packages/sigma/view/screens/Onboarding_screen.dart.lib",
  "packages/sigma/core/ui/widgets/base_stateless_widget.dart": "packages/sigma/core/ui/widgets/base_stateless_widget.dart.lib",
- "packages/sigma/core/controlles/onboarding_controller.dart": "packages/sigma/core/controlles/onboarding_controller.dart.lib",
+ "packages/sigma/Resources/App_Colors.dart": "packages/sigma/Resources/App_Colors.dart.lib",
+ "packages/sigma/core/controllers/bottom_bar_controller.dart": "packages/sigma/core/controllers/bottom_bar_controller.dart.lib",
+ "packages/sigma/view/screens/history_screens/My_History_screen.dart": "packages/sigma/view/screens/history_screens/My_History_screen.dart.lib",
  "packages/get/get_navigation/src/routes/route_middleware.dart": "packages/get/get_navigation/src/routes/route_middleware.dart.lib",
  "packages/get/get_utils/src/platform/platform_web.dart": "packages/get/get_utils/src/platform/platform_web.dart.lib",
  "packages/get/get_utils/src/queue/get_queue.dart": "packages/get/get_utils/src/queue/get_queue.dart.lib",
@@ -495,10 +497,8 @@ let modulePaths = {
  "packages/get/get_connect/http/src/utils/utils.dart": "packages/get/get_connect/http/src/utils/utils.dart.lib",
  "packages/get/get_connect/http/src/exceptions/exceptions.dart": "packages/get/get_connect/http/src/exceptions/exceptions.dart.lib",
  "packages/get/get_connect/http/src/certificates/certificates.dart": "packages/get/get_connect/http/src/certificates/certificates.dart.lib",
- "packages/get/state_manager.dart": "packages/get/state_manager.dart.lib",
- "packages/sigma/core/models/onboarding_info.dart": "packages/sigma/core/models/onboarding_info.dart.lib",
+ "packages/sigma/core/controllers/my_history_controller.dart": "packages/sigma/core/controllers/my_history_controller.dart.lib",
  "packages/sigma/Resources/App_borders.dart": "packages/sigma/Resources/App_borders.dart.lib",
- "packages/sigma/Resources/App_Colors.dart": "packages/sigma/Resources/App_Colors.dart.lib",
  "packages/sigma/Resources/App_TextStyle.dart": "packages/sigma/Resources/App_TextStyle.dart.lib",
  "packages/google_fonts/src/google_fonts_base.dart": "packages/google_fonts/src/google_fonts_base.dart.lib",
  "packages/google_fonts/src/google_fonts_variant.dart": "packages/google_fonts/src/google_fonts_variant.dart.lib",
@@ -556,23 +556,28 @@ let modulePaths = {
  "packages/crypto/src/sha1.dart": "packages/crypto/src/sha1.dart.lib",
  "packages/crypto/src/md5.dart": "packages/crypto/src/md5.dart.lib",
  "packages/crypto/src/hmac.dart": "packages/crypto/src/hmac.dart.lib",
+ "packages/get/state_manager.dart": "packages/get/state_manager.dart.lib",
+ "packages/sigma/view/screens/un_defined_screen.dart": "packages/sigma/view/screens/un_defined_screen.dart.lib",
+ "packages/sigma/view/screens/Onboarding_screen.dart": "packages/sigma/view/screens/Onboarding_screen.dart.lib",
+ "packages/sigma/core/controllers/onboarding_controller.dart": "packages/sigma/core/controllers/onboarding_controller.dart.lib",
+ "packages/sigma/core/models/onboarding_info.dart": "packages/sigma/core/models/onboarding_info.dart.lib",
  "packages/sigma/Resources/App_ElevatedButton_style.dart": "packages/sigma/Resources/App_ElevatedButton_style.dart.lib",
  "packages/sigma/view/screens/splash_screen.dart": "packages/sigma/view/screens/splash_screen.dart.lib",
+ "packages/sigma/core/controllers/splash_controller.dart": "packages/sigma/core/controllers/splash_controller.dart.lib",
  "packages/sigma/view/screens/history_screens/filter_for_history.dart": "packages/sigma/view/screens/history_screens/filter_for_history.dart.lib",
- "packages/sigma/core/ui/widgets/base_stateful_widget.dart": "packages/sigma/core/ui/widgets/base_stateful_widget.dart.lib",
- "packages/sigma/view/screens/history_screens/My_History_main.dart": "packages/sigma/view/screens/history_screens/My_History_main.dart.lib",
+ "packages/sigma/core/controllers/category_controller.dart": "packages/sigma/core/controllers/category_controller.dart.lib",
+ "packages/sigma/core/models/category.dart": "packages/sigma/core/models/category.dart.lib",
  "packages/sigma/view/screens/Sign_In_Screen.dart": "packages/sigma/view/screens/Sign_In_Screen.dart.lib",
  "packages/sigma/view/screens/Reg_Screen.dart": "packages/sigma/view/screens/Reg_Screen.dart.lib",
- "packages/sigma/view/screens/Category_selection.dart": "packages/sigma/view/screens/Category_selection.dart.lib",
- "packages/sigma/core/controlles/category_controller.dart": "packages/sigma/core/controlles/category_controller.dart.lib",
- "packages/sigma/core/models/category.dart": "packages/sigma/core/models/category.dart.lib"
+ "packages/sigma/view/screens/Category_selection.dart": "packages/sigma/view/screens/Category_selection.dart.lib"
 };
 let moduleNames = {
  "web_entrypoint.dart.lib": "web_entrypoint.dart",
  "packages/sigma/main.dart.lib": "packages/sigma/main.dart",
  "packages/sigma/config/router.dart.lib": "packages/sigma/config/router.dart",
  "packages/sigma/config/constant_routes.dart.lib": "packages/sigma/config/constant_routes.dart",
- "packages/sigma/view/screens/un_defined_screen.dart.lib": "packages/sigma/view/screens/un_defined_screen.dart",
+ "packages/sigma/view/screens/widgets/bottom_navigation_bar.dart.lib": "packages/sigma/view/screens/widgets/bottom_navigation_bar.dart",
+ "packages/sigma/core/ui/states/base_stateless_screen.dart.lib": "packages/sigma/core/ui/states/base_stateless_screen.dart",
  "packages/flutter/material.dart.lib": "packages/flutter/material.dart",
  "packages/flutter/widgets.dart.lib": "packages/flutter/widgets.dart",
  "packages/flutter/src/widgets/will_pop_scope.dart.lib": "packages/flutter/src/widgets/will_pop_scope.dart",
@@ -929,9 +934,10 @@ let moduleNames = {
  "packages/flutter/src/material/app.dart.lib": "packages/flutter/src/material/app.dart",
  "packages/flutter/src/material/animated_icons.dart.lib": "packages/flutter/src/material/animated_icons.dart",
  "packages/flutter/src/material/about.dart.lib": "packages/flutter/src/material/about.dart",
- "packages/sigma/view/screens/Onboarding_screen.dart.lib": "packages/sigma/view/screens/Onboarding_screen.dart",
  "packages/sigma/core/ui/widgets/base_stateless_widget.dart.lib": "packages/sigma/core/ui/widgets/base_stateless_widget.dart",
- "packages/sigma/core/controlles/onboarding_controller.dart.lib": "packages/sigma/core/controlles/onboarding_controller.dart",
+ "packages/sigma/Resources/App_Colors.dart.lib": "packages/sigma/Resources/App_Colors.dart",
+ "packages/sigma/core/controllers/bottom_bar_controller.dart.lib": "packages/sigma/core/controllers/bottom_bar_controller.dart",
+ "packages/sigma/view/screens/history_screens/My_History_screen.dart.lib": "packages/sigma/view/screens/history_screens/My_History_screen.dart",
  "packages/get/get_navigation/src/routes/route_middleware.dart.lib": "packages/get/get_navigation/src/routes/route_middleware.dart",
  "packages/get/get_utils/src/platform/platform_web.dart.lib": "packages/get/get_utils/src/platform/platform_web.dart",
  "packages/get/get_utils/src/queue/get_queue.dart.lib": "packages/get/get_utils/src/queue/get_queue.dart",
@@ -982,10 +988,8 @@ let moduleNames = {
  "packages/get/get_connect/http/src/utils/utils.dart.lib": "packages/get/get_connect/http/src/utils/utils.dart",
  "packages/get/get_connect/http/src/exceptions/exceptions.dart.lib": "packages/get/get_connect/http/src/exceptions/exceptions.dart",
  "packages/get/get_connect/http/src/certificates/certificates.dart.lib": "packages/get/get_connect/http/src/certificates/certificates.dart",
- "packages/get/state_manager.dart.lib": "packages/get/state_manager.dart",
- "packages/sigma/core/models/onboarding_info.dart.lib": "packages/sigma/core/models/onboarding_info.dart",
+ "packages/sigma/core/controllers/my_history_controller.dart.lib": "packages/sigma/core/controllers/my_history_controller.dart",
  "packages/sigma/Resources/App_borders.dart.lib": "packages/sigma/Resources/App_borders.dart",
- "packages/sigma/Resources/App_Colors.dart.lib": "packages/sigma/Resources/App_Colors.dart",
  "packages/sigma/Resources/App_TextStyle.dart.lib": "packages/sigma/Resources/App_TextStyle.dart",
  "packages/google_fonts/src/google_fonts_base.dart.lib": "packages/google_fonts/src/google_fonts_base.dart",
  "packages/google_fonts/src/google_fonts_variant.dart.lib": "packages/google_fonts/src/google_fonts_variant.dart",
@@ -1043,16 +1047,20 @@ let moduleNames = {
  "packages/crypto/src/sha1.dart.lib": "packages/crypto/src/sha1.dart",
  "packages/crypto/src/md5.dart.lib": "packages/crypto/src/md5.dart",
  "packages/crypto/src/hmac.dart.lib": "packages/crypto/src/hmac.dart",
+ "packages/get/state_manager.dart.lib": "packages/get/state_manager.dart",
+ "packages/sigma/view/screens/un_defined_screen.dart.lib": "packages/sigma/view/screens/un_defined_screen.dart",
+ "packages/sigma/view/screens/Onboarding_screen.dart.lib": "packages/sigma/view/screens/Onboarding_screen.dart",
+ "packages/sigma/core/controllers/onboarding_controller.dart.lib": "packages/sigma/core/controllers/onboarding_controller.dart",
+ "packages/sigma/core/models/onboarding_info.dart.lib": "packages/sigma/core/models/onboarding_info.dart",
  "packages/sigma/Resources/App_ElevatedButton_style.dart.lib": "packages/sigma/Resources/App_ElevatedButton_style.dart",
  "packages/sigma/view/screens/splash_screen.dart.lib": "packages/sigma/view/screens/splash_screen.dart",
+ "packages/sigma/core/controllers/splash_controller.dart.lib": "packages/sigma/core/controllers/splash_controller.dart",
  "packages/sigma/view/screens/history_screens/filter_for_history.dart.lib": "packages/sigma/view/screens/history_screens/filter_for_history.dart",
- "packages/sigma/core/ui/widgets/base_stateful_widget.dart.lib": "packages/sigma/core/ui/widgets/base_stateful_widget.dart",
- "packages/sigma/view/screens/history_screens/My_History_main.dart.lib": "packages/sigma/view/screens/history_screens/My_History_main.dart",
+ "packages/sigma/core/controllers/category_controller.dart.lib": "packages/sigma/core/controllers/category_controller.dart",
+ "packages/sigma/core/models/category.dart.lib": "packages/sigma/core/models/category.dart",
  "packages/sigma/view/screens/Sign_In_Screen.dart.lib": "packages/sigma/view/screens/Sign_In_Screen.dart",
  "packages/sigma/view/screens/Reg_Screen.dart.lib": "packages/sigma/view/screens/Reg_Screen.dart",
- "packages/sigma/view/screens/Category_selection.dart.lib": "packages/sigma/view/screens/Category_selection.dart",
- "packages/sigma/core/controlles/category_controller.dart.lib": "packages/sigma/core/controlles/category_controller.dart",
- "packages/sigma/core/models/category.dart.lib": "packages/sigma/core/models/category.dart"
+ "packages/sigma/view/screens/Category_selection.dart.lib": "packages/sigma/view/screens/Category_selection.dart"
 };
 if(!window.$requireLoader) {
    window.$requireLoader = {

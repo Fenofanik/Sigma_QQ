@@ -1,442 +1,257 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__painting__colors_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/get/get_utils/src/get_utils/get_utils.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart'], (function load__packages__get__get_utils__src__platform__platform_web_dart(dart_sdk, packages__get__get_utils__src__get_utils__get_utils$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
+  const html = dart_sdk.html;
   const ui = dart_sdk.ui;
-  const _js_helper = dart_sdk._js_helper;
-  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var colors = Object.create(dart.library);
-  var $modulo = dartx['%'];
-  var $abs = dartx.abs;
-  var $clamp = dartx.clamp;
-  var $_get = dartx._get;
-  var $runtimeType = dartx.runtimeType;
-  var $_set = dartx._set;
-  var $isNaN = dartx.isNaN;
-  var $round = dartx.round;
+  const get_utils = packages__get__get_utils__src__get_utils__get_utils$46dart.get_utils__src__get_utils__get_utils;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  var platform_web = Object.create(dart.library);
+  var platform = Object.create(dart.library);
+  var context_extensions = Object.create(dart.library);
+  var $export = Object.create(dart.library);
+  var get_utils$ = Object.create(dart.library);
+  var $appVersion = dartx.appVersion;
+  var $contains = dartx.contains;
+  var $navigator = dartx.navigator;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    IdentityMapOfString$Object: () => (T.IdentityMapOfString$Object = dart.constFn(_js_helper.IdentityMap$(core.String, core.Object)))(),
-    VoidTodouble: () => (T.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
-    doubleTodynamic: () => (T.doubleTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.double])))()
+  var T$ = {
+    __Todouble: () => (T$.__Todouble = dart.constFn(dart.fnType(core.double, [], {dividedBy: core.double, reducedBy: core.double}, {})))(),
+    __Todouble$1: () => (T$.__Todouble$1 = dart.constFn(dart.fnType(core.double, [], {dividedBy: core.double, reducedByH: core.double, reducedByW: core.double}, {})))(),
+    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    __ToTN: () => (T$.__ToTN = dart.constFn(dart.gFnType(T => {
+      var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+      return [TN(), [], {desktop: TN(), mobile: TN(), tablet: TN(), watch: TN()}, {}];
+    }, T => {
+      var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+      return [T$.ObjectN()];
+    })))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: diagnostics._NoDefaultValue.prototype
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: diagnostics.DiagnosticsTreeStyle.prototype,
-        [_name]: "DiagnosticsTreeStyle.singleLine",
-        index: 8
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: diagnostics.DiagnosticLevel.prototype,
-        [_name]: "DiagnosticLevel.info",
-        index: 3
-      });
-    }
-  }, false);
-  var C = Array(3).fill(void 0);
   var I = [
-    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/painting/colors.dart",
-    "package:flutter/src/painting/colors.dart"
+    "package:get/get_utils/src/platform/platform_web.dart",
+    "package:get/get_utils/src/platform/platform.dart"
   ];
-  var alpha$ = dart.privateName(colors, "HSVColor.alpha");
-  var hue$ = dart.privateName(colors, "HSVColor.hue");
-  var saturation$ = dart.privateName(colors, "HSVColor.saturation");
-  var value$ = dart.privateName(colors, "HSVColor.value");
-  var _scaleAlpha = dart.privateName(colors, "_scaleAlpha");
-  colors.HSVColor = class HSVColor extends core.Object {
-    get alpha() {
-      return this[alpha$];
+  platform_web.GeneralPlatform = class GeneralPlatform extends core.Object {
+    static get isWeb() {
+      return true;
     }
-    set alpha(value) {
-      super.alpha = value;
+    static get isMacOS() {
+      return platform_web._navigator[$appVersion][$contains]("Mac OS") && !platform_web.GeneralPlatform.isIOS;
     }
-    get hue() {
-      return this[hue$];
+    static get isWindows() {
+      return platform_web._navigator[$appVersion][$contains]("Win");
     }
-    set hue(value) {
-      super.hue = value;
+    static get isLinux() {
+      return (platform_web._navigator[$appVersion][$contains]("Linux") || platform_web._navigator[$appVersion][$contains]("x11")) && !platform_web.GeneralPlatform.isAndroid;
     }
-    get saturation() {
-      return this[saturation$];
+    static get isAndroid() {
+      return platform_web._navigator[$appVersion][$contains]("Android ");
     }
-    set saturation(value) {
-      super.saturation = value;
+    static get isIOS() {
+      return get_utils.GetUtils.hasMatch(platform_web._navigator.platform, "/iPad|iPhone|iPod/") || platform_web._navigator.platform === "MacIntel" && dart.nullCheck(platform_web._navigator.maxTouchPoints) > 1;
     }
-    get value() {
-      return this[value$];
+    static get isFuchsia() {
+      return false;
     }
-    set value(value) {
-      super.value = value;
-    }
-    static fromColor(color) {
-      let red = color.red / 255;
-      let green = color.green / 255;
-      let blue = color.blue / 255;
-      let max = math.max(core.double, red, math.max(core.double, green, blue));
-      let min = math.min(core.double, red, math.min(core.double, green, blue));
-      let delta = max - min;
-      let alpha = color.alpha / 255;
-      let hue = colors._getHue(red, green, blue, max, delta);
-      let saturation = max === 0.0 ? 0.0 : delta / max;
-      return new colors.HSVColor.fromAHSV(alpha, hue, saturation, max);
-    }
-    withAlpha(alpha) {
-      return new colors.HSVColor.fromAHSV(alpha, this.hue, this.saturation, this.value);
-    }
-    withHue(hue) {
-      return new colors.HSVColor.fromAHSV(this.alpha, hue, this.saturation, this.value);
-    }
-    withSaturation(saturation) {
-      return new colors.HSVColor.fromAHSV(this.alpha, this.hue, saturation, this.value);
-    }
-    withValue(value) {
-      return new colors.HSVColor.fromAHSV(this.alpha, this.hue, this.saturation, value);
-    }
-    toColor() {
-      let chroma = this.saturation * this.value;
-      let secondary = chroma * (1.0 - ((this.hue / 60.0)[$modulo](2.0) - 1.0)[$abs]());
-      let match = this.value - chroma;
-      return colors._colorFromHue(this.alpha, this.hue, chroma, secondary, match);
-    }
-    [_scaleAlpha](factor) {
-      return this.withAlpha(this.alpha * factor);
-    }
-    static lerp(a, b, t) {
-      if (!(t !== null)) dart.assertFailed(null, I[0], 202, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b)[_scaleAlpha](t);
-      if (b == null) return a[_scaleAlpha](1.0 - t);
-      return new colors.HSVColor.fromAHSV(dart.nullCheck(ui.lerpDouble(a.alpha, b.alpha, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.hue, b.hue, t))[$modulo](360.0), dart.nullCheck(ui.lerpDouble(a.saturation, b.saturation, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.value, b.value, t))[$clamp](0.0, 1.0));
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      return colors.HSVColor.is(other) && other.alpha === this.alpha && other.hue === this.hue && other.saturation === this.saturation && other.value === this.value;
-    }
-    get hashCode() {
-      return ui.hashValues(this.alpha, this.hue, this.saturation, this.value);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "HSVColor") + "(" + dart.str(this.alpha) + ", " + dart.str(this.hue) + ", " + dart.str(this.saturation) + ", " + dart.str(this.value) + ")";
+    static get isDesktop() {
+      return platform_web.GeneralPlatform.isMacOS || platform_web.GeneralPlatform.isWindows || platform_web.GeneralPlatform.isLinux;
     }
   };
-  (colors.HSVColor.fromAHSV = function(alpha, hue, saturation, value) {
-    this[alpha$] = alpha;
-    this[hue$] = hue;
-    this[saturation$] = saturation;
-    this[value$] = value;
-    if (!(alpha !== null)) dart.assertFailed(null, I[0], 93, 14, "alpha != null");
-    if (!(hue !== null)) dart.assertFailed(null, I[0], 94, 14, "hue != null");
-    if (!(saturation !== null)) dart.assertFailed(null, I[0], 95, 14, "saturation != null");
-    if (!(value !== null)) dart.assertFailed(null, I[0], 96, 14, "value != null");
-    if (!(alpha >= 0.0)) dart.assertFailed(null, I[0], 97, 14, "alpha >= 0.0");
-    if (!(alpha <= 1.0)) dart.assertFailed(null, I[0], 98, 14, "alpha <= 1.0");
-    if (!(hue >= 0.0)) dart.assertFailed(null, I[0], 99, 14, "hue >= 0.0");
-    if (!(hue <= 360.0)) dart.assertFailed(null, I[0], 100, 14, "hue <= 360.0");
-    if (!(saturation >= 0.0)) dart.assertFailed(null, I[0], 101, 14, "saturation >= 0.0");
-    if (!(saturation <= 1.0)) dart.assertFailed(null, I[0], 102, 14, "saturation <= 1.0");
-    if (!(value >= 0.0)) dart.assertFailed(null, I[0], 103, 14, "value >= 0.0");
-    if (!(value <= 1.0)) dart.assertFailed(null, I[0], 104, 14, "value <= 1.0");
+  (platform_web.GeneralPlatform.new = function() {
     ;
-  }).prototype = colors.HSVColor.prototype;
-  dart.addTypeTests(colors.HSVColor);
-  dart.addTypeCaches(colors.HSVColor);
-  dart.setMethodSignature(colors.HSVColor, () => ({
-    __proto__: dart.getMethods(colors.HSVColor.__proto__),
-    withAlpha: dart.fnType(colors.HSVColor, [core.double]),
-    withHue: dart.fnType(colors.HSVColor, [core.double]),
-    withSaturation: dart.fnType(colors.HSVColor, [core.double]),
-    withValue: dart.fnType(colors.HSVColor, [core.double]),
-    toColor: dart.fnType(ui.Color, []),
-    [_scaleAlpha]: dart.fnType(colors.HSVColor, [core.double])
-  }));
-  dart.setLibraryUri(colors.HSVColor, I[1]);
-  dart.setFieldSignature(colors.HSVColor, () => ({
-    __proto__: dart.getFields(colors.HSVColor.__proto__),
-    alpha: dart.finalFieldType(core.double),
-    hue: dart.finalFieldType(core.double),
-    saturation: dart.finalFieldType(core.double),
-    value: dart.finalFieldType(core.double)
-  }));
-  dart.defineExtensionMethods(colors.HSVColor, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(colors.HSVColor, ['hashCode']);
-  var alpha$0 = dart.privateName(colors, "HSLColor.alpha");
-  var hue$0 = dart.privateName(colors, "HSLColor.hue");
-  var saturation$0 = dart.privateName(colors, "HSLColor.saturation");
-  var lightness$ = dart.privateName(colors, "HSLColor.lightness");
-  colors.HSLColor = class HSLColor extends core.Object {
-    get alpha() {
-      return this[alpha$0];
+  }).prototype = platform_web.GeneralPlatform.prototype;
+  dart.addTypeTests(platform_web.GeneralPlatform);
+  dart.addTypeCaches(platform_web.GeneralPlatform);
+  dart.setLibraryUri(platform_web.GeneralPlatform, I[0]);
+  dart.defineLazy(platform_web, {
+    /*platform_web._navigator*/get _navigator() {
+      return html.window[$navigator];
+    },
+    set _navigator(_) {}
+  }, false);
+  platform.GetPlatform = class GetPlatform extends core.Object {
+    static get isWeb() {
+      return platform_web.GeneralPlatform.isWeb;
     }
-    set alpha(value) {
-      super.alpha = value;
+    static get isMacOS() {
+      return platform_web.GeneralPlatform.isMacOS;
     }
-    get hue() {
-      return this[hue$0];
+    static get isWindows() {
+      return platform_web.GeneralPlatform.isWindows;
     }
-    set hue(value) {
-      super.hue = value;
+    static get isLinux() {
+      return platform_web.GeneralPlatform.isLinux;
     }
-    get saturation() {
-      return this[saturation$0];
+    static get isAndroid() {
+      return platform_web.GeneralPlatform.isAndroid;
     }
-    set saturation(value) {
-      super.saturation = value;
+    static get isIOS() {
+      return platform_web.GeneralPlatform.isIOS;
     }
-    get lightness() {
-      return this[lightness$];
+    static get isFuchsia() {
+      return platform_web.GeneralPlatform.isFuchsia;
     }
-    set lightness(value) {
-      super.lightness = value;
+    static get isMobile() {
+      return platform.GetPlatform.isIOS || platform.GetPlatform.isAndroid;
     }
-    static fromColor(color) {
-      let red = color.red / 255;
-      let green = color.green / 255;
-      let blue = color.blue / 255;
-      let max = math.max(core.double, red, math.max(core.double, green, blue));
-      let min = math.min(core.double, red, math.min(core.double, green, blue));
-      let delta = max - min;
-      let alpha = color.alpha / 255;
-      let hue = colors._getHue(red, green, blue, max, delta);
-      let lightness = (max + min) / 2.0;
-      let saturation = lightness === 1.0 ? 0.0 : (delta / (1.0 - (2.0 * lightness - 1.0)[$abs]()))[$clamp](0.0, 1.0);
-      return new colors.HSLColor.fromAHSL(alpha, hue, saturation, lightness);
-    }
-    withAlpha(alpha) {
-      return new colors.HSLColor.fromAHSL(alpha, this.hue, this.saturation, this.lightness);
-    }
-    withHue(hue) {
-      return new colors.HSLColor.fromAHSL(this.alpha, hue, this.saturation, this.lightness);
-    }
-    withSaturation(saturation) {
-      return new colors.HSLColor.fromAHSL(this.alpha, this.hue, saturation, this.lightness);
-    }
-    withLightness(lightness) {
-      return new colors.HSLColor.fromAHSL(this.alpha, this.hue, this.saturation, lightness);
-    }
-    toColor() {
-      let chroma = (1.0 - (2.0 * this.lightness - 1.0)[$abs]()) * this.saturation;
-      let secondary = chroma * (1.0 - ((this.hue / 60.0)[$modulo](2.0) - 1.0)[$abs]());
-      let match = this.lightness - chroma / 2.0;
-      return colors._colorFromHue(this.alpha, this.hue, chroma, secondary, match);
-    }
-    [_scaleAlpha](factor) {
-      return this.withAlpha(this.alpha * factor);
-    }
-    static lerp(a, b, t) {
-      if (!(t !== null)) dart.assertFailed(null, I[0], 386, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b)[_scaleAlpha](t);
-      if (b == null) return a[_scaleAlpha](1.0 - t);
-      return new colors.HSLColor.fromAHSL(dart.nullCheck(ui.lerpDouble(a.alpha, b.alpha, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.hue, b.hue, t))[$modulo](360.0), dart.nullCheck(ui.lerpDouble(a.saturation, b.saturation, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.lightness, b.lightness, t))[$clamp](0.0, 1.0));
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      return colors.HSLColor.is(other) && other.alpha === this.alpha && other.hue === this.hue && other.saturation === this.saturation && other.lightness === this.lightness;
-    }
-    get hashCode() {
-      return ui.hashValues(this.alpha, this.hue, this.saturation, this.lightness);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "HSLColor") + "(" + dart.str(this.alpha) + ", " + dart.str(this.hue) + ", " + dart.str(this.saturation) + ", " + dart.str(this.lightness) + ")";
+    static get isDesktop() {
+      return platform.GetPlatform.isMacOS || platform.GetPlatform.isWindows || platform.GetPlatform.isLinux;
     }
   };
-  (colors.HSLColor.fromAHSL = function(alpha, hue, saturation, lightness) {
-    this[alpha$0] = alpha;
-    this[hue$0] = hue;
-    this[saturation$0] = saturation;
-    this[lightness$] = lightness;
-    if (!(alpha !== null)) dart.assertFailed(null, I[0], 262, 14, "alpha != null");
-    if (!(hue !== null)) dart.assertFailed(null, I[0], 263, 14, "hue != null");
-    if (!(saturation !== null)) dart.assertFailed(null, I[0], 264, 14, "saturation != null");
-    if (!(lightness !== null)) dart.assertFailed(null, I[0], 265, 14, "lightness != null");
-    if (!(alpha >= 0.0)) dart.assertFailed(null, I[0], 266, 14, "alpha >= 0.0");
-    if (!(alpha <= 1.0)) dart.assertFailed(null, I[0], 267, 14, "alpha <= 1.0");
-    if (!(hue >= 0.0)) dart.assertFailed(null, I[0], 268, 14, "hue >= 0.0");
-    if (!(hue <= 360.0)) dart.assertFailed(null, I[0], 269, 14, "hue <= 360.0");
-    if (!(saturation >= 0.0)) dart.assertFailed(null, I[0], 270, 14, "saturation >= 0.0");
-    if (!(saturation <= 1.0)) dart.assertFailed(null, I[0], 271, 14, "saturation <= 1.0");
-    if (!(lightness >= 0.0)) dart.assertFailed(null, I[0], 272, 14, "lightness >= 0.0");
-    if (!(lightness <= 1.0)) dart.assertFailed(null, I[0], 273, 14, "lightness <= 1.0");
+  (platform.GetPlatform.new = function() {
     ;
-  }).prototype = colors.HSLColor.prototype;
-  dart.addTypeTests(colors.HSLColor);
-  dart.addTypeCaches(colors.HSLColor);
-  dart.setMethodSignature(colors.HSLColor, () => ({
-    __proto__: dart.getMethods(colors.HSLColor.__proto__),
-    withAlpha: dart.fnType(colors.HSLColor, [core.double]),
-    withHue: dart.fnType(colors.HSLColor, [core.double]),
-    withSaturation: dart.fnType(colors.HSLColor, [core.double]),
-    withLightness: dart.fnType(colors.HSLColor, [core.double]),
-    toColor: dart.fnType(ui.Color, []),
-    [_scaleAlpha]: dart.fnType(colors.HSLColor, [core.double])
-  }));
-  dart.setLibraryUri(colors.HSLColor, I[1]);
-  dart.setFieldSignature(colors.HSLColor, () => ({
-    __proto__: dart.getFields(colors.HSLColor.__proto__),
-    alpha: dart.finalFieldType(core.double),
-    hue: dart.finalFieldType(core.double),
-    saturation: dart.finalFieldType(core.double),
-    lightness: dart.finalFieldType(core.double)
-  }));
-  dart.defineExtensionMethods(colors.HSLColor, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(colors.HSLColor, ['hashCode']);
-  var _swatch$ = dart.privateName(colors, "ColorSwatch._swatch");
-  var _swatch = dart.privateName(colors, "_swatch");
-  const _is_ColorSwatch_default = Symbol('_is_ColorSwatch_default');
-  colors.ColorSwatch$ = dart.generic(T => {
-    var ColorSwatchOfT = () => (ColorSwatchOfT = dart.constFn(colors.ColorSwatch$(T)))();
-    class ColorSwatch extends ui.Color {
-      get [_swatch]() {
-        return this[_swatch$];
-      }
-      set [_swatch](value) {
-        super[_swatch] = value;
-      }
-      _get(index) {
-        T.as(index);
-        return this[_swatch][$_get](index);
-      }
-      _equals(other) {
-        if (other == null) return false;
-        if (this === other) return true;
-        if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-        return super._equals(other) && ColorSwatchOfT().is(other) && collections.mapEquals(T, ui.Color, other[_swatch], this[_swatch]);
-      }
-      get hashCode() {
-        return ui.hashValues(this[$runtimeType], this.value, this[_swatch]);
-      }
-      toString() {
-        return object.objectRuntimeType(this, "ColorSwatch") + "(primary value: " + super.toString() + ")";
-      }
-    }
-    (ColorSwatch.new = function(primary, _swatch) {
-      this[_swatch$] = _swatch;
-      ColorSwatch.__proto__.new.call(this, primary);
-      ;
-    }).prototype = ColorSwatch.prototype;
-    dart.addTypeTests(ColorSwatch);
-    ColorSwatch.prototype[_is_ColorSwatch_default] = true;
-    dart.addTypeCaches(ColorSwatch);
-    dart.setMethodSignature(ColorSwatch, () => ({
-      __proto__: dart.getMethods(ColorSwatch.__proto__),
-      _get: dart.fnType(dart.nullable(ui.Color), [dart.nullable(core.Object)])
-    }));
-    dart.setLibraryUri(ColorSwatch, I[1]);
-    dart.setFieldSignature(ColorSwatch, () => ({
-      __proto__: dart.getFields(ColorSwatch.__proto__),
-      [_swatch]: dart.finalFieldType(core.Map$(T, ui.Color))
-    }));
-    dart.defineExtensionMethods(ColorSwatch, ['_equals', 'toString']);
-    dart.defineExtensionAccessors(ColorSwatch, ['hashCode']);
-    return ColorSwatch;
-  });
-  colors.ColorSwatch = colors.ColorSwatch$();
-  dart.addTypeTests(colors.ColorSwatch, _is_ColorSwatch_default);
-  var _name = dart.privateName(diagnostics, "_name");
-  colors.ColorProperty = class ColorProperty extends diagnostics.DiagnosticsProperty$(ui.Color) {
-    toJsonMap(delegate) {
-      let json = super.toJsonMap(delegate);
-      if (this.value != null) {
-        json[$_set]("valueProperties", new (T.IdentityMapOfString$Object()).from(["red", dart.nullCheck(this.value).red, "green", dart.nullCheck(this.value).green, "blue", dart.nullCheck(this.value).blue, "alpha", dart.nullCheck(this.value).alpha]));
-      }
-      return json;
-    }
+  }).prototype = platform.GetPlatform.prototype;
+  dart.addTypeTests(platform.GetPlatform);
+  dart.addTypeCaches(platform.GetPlatform);
+  dart.setLibraryUri(platform.GetPlatform, I[1]);
+  context_extensions['ContextExtensionss|get#mediaQuerySize'] = function ContextExtensionss$124get$35mediaQuerySize($this) {
+    return media_query.MediaQuery.of($this).size;
   };
-  (colors.ColorProperty.new = function(name, value, opts) {
-    let showName = opts && 'showName' in opts ? opts.showName : true;
-    let defaultValue = opts && 'defaultValue' in opts ? opts.defaultValue : C[0] || CT.C0;
-    let style = opts && 'style' in opts ? opts.style : C[1] || CT.C1;
-    let level = opts && 'level' in opts ? opts.level : C[2] || CT.C2;
-    if (!(showName !== null)) dart.assertFailed(null, I[0], 475, 15, "showName != null");
-    if (!(style !== null)) dart.assertFailed(null, I[0], 476, 15, "style != null");
-    if (!(level !== null)) dart.assertFailed(null, I[0], 477, 15, "level != null");
-    colors.ColorProperty.__proto__.new.call(this, name, value, {defaultValue: defaultValue, showName: showName, style: style, level: level});
-    ;
-  }).prototype = colors.ColorProperty.prototype;
-  dart.addTypeTests(colors.ColorProperty);
-  dart.addTypeCaches(colors.ColorProperty);
-  dart.setLibraryUri(colors.ColorProperty, I[1]);
-  colors._getHue = function _getHue(red, green, blue, max, delta) {
-    let hue = null;
-    function hue$35get() {
-      let t1;
-      t1 = hue;
-      return t1 == null ? dart.throw(new _internal.LateError.localNI("hue")) : t1;
-    }
-    dart.fn(hue$35get, T.VoidTodouble());
-    function hue$35set(t2) {
-      return hue = t2;
-    }
-    dart.fn(hue$35set, T.doubleTodynamic());
-    if (max === 0.0) {
-      hue$35set(0.0);
-    } else if (max === red) {
-      hue$35set(60.0 * ((green - blue) / delta)[$modulo](6));
-    } else if (max === green) {
-      hue$35set(60.0 * ((blue - red) / delta + 2));
-    } else if (max === blue) {
-      hue$35set(60.0 * ((red - green) / delta + 4));
-    }
-    hue$35set(hue$35get()[$isNaN] ? 0.0 : hue$35get());
-    return hue$35get();
+  context_extensions['ContextExtensionss|get#height'] = function ContextExtensionss$124get$35height($this) {
+    return context_extensions['ContextExtensionss|get#mediaQuerySize']($this).height;
   };
-  colors._colorFromHue = function _colorFromHue(alpha, hue, chroma, secondary, match) {
-    let red = null;
-    let green = null;
-    let blue = null;
-    if (hue < 60.0) {
-      red = chroma;
-      green = secondary;
-      blue = 0.0;
-    } else if (hue < 120.0) {
-      red = secondary;
-      green = chroma;
-      blue = 0.0;
-    } else if (hue < 180.0) {
-      red = 0.0;
-      green = chroma;
-      blue = secondary;
-    } else if (hue < 240.0) {
-      red = 0.0;
-      green = secondary;
-      blue = chroma;
-    } else if (hue < 300.0) {
-      red = secondary;
-      green = 0.0;
-      blue = chroma;
-    } else {
-      red = chroma;
-      green = 0.0;
-      blue = secondary;
-    }
-    return new ui.Color.fromARGB((alpha * 255)[$round](), ((red + match) * 255)[$round](), ((green + match) * 255)[$round](), ((blue + match) * 255)[$round]());
+  context_extensions['ContextExtensionss|get#width'] = function ContextExtensionss$124get$35width($this) {
+    return context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width;
   };
-  dart.trackLibraries("packages/flutter/src/painting/colors.dart", {
-    "package:flutter/src/painting/colors.dart": colors
+  context_extensions['ContextExtensionss|heightTransformer'] = function ContextExtensionss$124heightTransformer($this, opts) {
+    let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+    let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+    return (context_extensions['ContextExtensionss|get#mediaQuerySize']($this).height - context_extensions['ContextExtensionss|get#mediaQuerySize']($this).height / 100 * reducedBy) / dividedBy;
+  };
+  context_extensions['ContextExtensionss|get#heightTransformer'] = function ContextExtensionss$124get$35heightTransformer($this) {
+    return dart.fn(opts => {
+      let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+      let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+      return context_extensions['ContextExtensionss|heightTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedBy});
+    }, T$.__Todouble());
+  };
+  context_extensions['ContextExtensionss|widthTransformer'] = function ContextExtensionss$124widthTransformer($this, opts) {
+    let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+    let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+    return (context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width - context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width / 100 * reducedBy) / dividedBy;
+  };
+  context_extensions['ContextExtensionss|get#widthTransformer'] = function ContextExtensionss$124get$35widthTransformer($this) {
+    return dart.fn(opts => {
+      let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+      let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+      return context_extensions['ContextExtensionss|widthTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedBy});
+    }, T$.__Todouble());
+  };
+  context_extensions['ContextExtensionss|ratio'] = function ContextExtensionss$124ratio($this, opts) {
+    let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+    let reducedByW = opts && 'reducedByW' in opts ? opts.reducedByW : 0;
+    let reducedByH = opts && 'reducedByH' in opts ? opts.reducedByH : 0;
+    return context_extensions['ContextExtensionss|heightTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedByH}) / context_extensions['ContextExtensionss|widthTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedByW});
+  };
+  context_extensions['ContextExtensionss|get#ratio'] = function ContextExtensionss$124get$35ratio($this) {
+    return dart.fn(opts => {
+      let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+      let reducedByW = opts && 'reducedByW' in opts ? opts.reducedByW : 0;
+      let reducedByH = opts && 'reducedByH' in opts ? opts.reducedByH : 0;
+      return context_extensions['ContextExtensionss|ratio']($this, {dividedBy: dividedBy, reducedByW: reducedByW, reducedByH: reducedByH});
+    }, T$.__Todouble$1());
+  };
+  context_extensions['ContextExtensionss|get#theme'] = function ContextExtensionss$124get$35theme($this) {
+    return theme.Theme.of($this);
+  };
+  context_extensions['ContextExtensionss|get#isDarkMode'] = function ContextExtensionss$124get$35isDarkMode($this) {
+    return context_extensions['ContextExtensionss|get#theme']($this).brightness === ui.Brightness.dark;
+  };
+  context_extensions['ContextExtensionss|get#iconColor'] = function ContextExtensionss$124get$35iconColor($this) {
+    return context_extensions['ContextExtensionss|get#theme']($this).iconTheme.color;
+  };
+  context_extensions['ContextExtensionss|get#textTheme'] = function ContextExtensionss$124get$35textTheme($this) {
+    return theme.Theme.of($this).textTheme;
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryPadding'] = function ContextExtensionss$124get$35mediaQueryPadding($this) {
+    return media_query.MediaQuery.of($this).padding;
+  };
+  context_extensions['ContextExtensionss|get#mediaQuery'] = function ContextExtensionss$124get$35mediaQuery($this) {
+    return media_query.MediaQuery.of($this);
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryViewPadding'] = function ContextExtensionss$124get$35mediaQueryViewPadding($this) {
+    return media_query.MediaQuery.of($this).viewPadding;
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryViewInsets'] = function ContextExtensionss$124get$35mediaQueryViewInsets($this) {
+    return media_query.MediaQuery.of($this).viewInsets;
+  };
+  context_extensions['ContextExtensionss|get#orientation'] = function ContextExtensionss$124get$35orientation($this) {
+    return media_query.MediaQuery.of($this).orientation;
+  };
+  context_extensions['ContextExtensionss|get#isLandscape'] = function ContextExtensionss$124get$35isLandscape($this) {
+    return context_extensions['ContextExtensionss|get#orientation']($this) === media_query.Orientation.landscape;
+  };
+  context_extensions['ContextExtensionss|get#isPortrait'] = function ContextExtensionss$124get$35isPortrait($this) {
+    return context_extensions['ContextExtensionss|get#orientation']($this) === media_query.Orientation.portrait;
+  };
+  context_extensions['ContextExtensionss|get#devicePixelRatio'] = function ContextExtensionss$124get$35devicePixelRatio($this) {
+    return media_query.MediaQuery.of($this).devicePixelRatio;
+  };
+  context_extensions['ContextExtensionss|get#textScaleFactor'] = function ContextExtensionss$124get$35textScaleFactor($this) {
+    return media_query.MediaQuery.of($this).textScaleFactor;
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryShortestSide'] = function ContextExtensionss$124get$35mediaQueryShortestSide($this) {
+    return context_extensions['ContextExtensionss|get#mediaQuerySize']($this).shortestSide;
+  };
+  context_extensions['ContextExtensionss|get#showNavbar'] = function ContextExtensionss$124get$35showNavbar($this) {
+    return context_extensions['ContextExtensionss|get#width']($this) > 800;
+  };
+  context_extensions['ContextExtensionss|get#isPhone'] = function ContextExtensionss$124get$35isPhone($this) {
+    return context_extensions['ContextExtensionss|get#mediaQueryShortestSide']($this) < 600;
+  };
+  context_extensions['ContextExtensionss|get#isSmallTablet'] = function ContextExtensionss$124get$35isSmallTablet($this) {
+    return context_extensions['ContextExtensionss|get#mediaQueryShortestSide']($this) >= 600;
+  };
+  context_extensions['ContextExtensionss|get#isLargeTablet'] = function ContextExtensionss$124get$35isLargeTablet($this) {
+    return context_extensions['ContextExtensionss|get#mediaQueryShortestSide']($this) >= 720;
+  };
+  context_extensions['ContextExtensionss|get#isTablet'] = function ContextExtensionss$124get$35isTablet($this) {
+    return context_extensions['ContextExtensionss|get#isSmallTablet']($this) || context_extensions['ContextExtensionss|get#isLargeTablet']($this);
+  };
+  context_extensions['ContextExtensionss|responsiveValue'] = function ContextExtensionss$124responsiveValue(T, $this, opts) {
+    let mobile = opts && 'mobile' in opts ? opts.mobile : null;
+    let tablet = opts && 'tablet' in opts ? opts.tablet : null;
+    let desktop = opts && 'desktop' in opts ? opts.desktop : null;
+    let watch = opts && 'watch' in opts ? opts.watch : null;
+    let deviceWidth = context_extensions['ContextExtensionss|get#mediaQuerySize']($this).shortestSide;
+    if (platform.GetPlatform.isDesktop) {
+      deviceWidth = context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width;
+    }
+    if (deviceWidth >= 1200 && desktop != null) return desktop;
+    if (deviceWidth >= 600 && tablet != null) return tablet;
+    if (deviceWidth < 300 && watch != null) return watch;
+    return mobile;
+  };
+  context_extensions['ContextExtensionss|get#responsiveValue'] = function ContextExtensionss$124get$35responsiveValue($this) {
+    return dart.fn((T, opts) => {
+      let mobile = opts && 'mobile' in opts ? opts.mobile : null;
+      let tablet = opts && 'tablet' in opts ? opts.tablet : null;
+      let desktop = opts && 'desktop' in opts ? opts.desktop : null;
+      let watch = opts && 'watch' in opts ? opts.watch : null;
+      return context_extensions['ContextExtensionss|responsiveValue'](T, $this, {mobile: mobile, tablet: tablet, desktop: desktop, watch: watch});
+    }, T$.__ToTN());
+  };
+  dart.trackLibraries("packages/get/get_utils/src/platform/platform_web.dart", {
+    "package:get/get_utils/src/platform/platform_web.dart": platform_web,
+    "package:get/get_utils/src/platform/platform.dart": platform,
+    "package:get/get_utils/src/extensions/context_extensions.dart": context_extensions,
+    "package:get/get_utils/src/extensions/export.dart": $export,
+    "package:get/get_utils/get_utils.dart": get_utils$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["colors.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/painting/colors.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["platform_web.dart","platform.dart","../extensions/context_extensions.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAU2B;IAAI;;AAGzB,YAAA,AAAW,AAAW,AAAmB,iDAAV,cAA8B;IAAK;;AAEzC,YAAA,AAAW,AAAW,iDAAS;IAAM;;AAG9D,YAC2C,EAD1C,AAAW,AAAW,gDAAS,YAC5B,AAAW,AAAW,gDAAS,YAClC;IAAS;;AAGe,YAAA,AAAW,AAAW,iDAAS;IAAW;;AAIrE,YAAgB,AAAqD,6BAA5C,AAAW,kCAAU,yBACzC,AAAW,AAAS,qCAAG,cAAuC,AAAE,eAA3B,AAAW,0CAAkB;IACzE;;AAE6B;IAAK;;AAEL,YAAA,AAAqB,yCAAV,0CAAa;IAAO;;;;EAC9D;;;;;MA5Be,uBAAU;YAAQ,AAAO;;;;;;ACFb,YAAgB;IAAK;;AAEnB,YAAgB;IAAO;;AAErB,YAAgB;IAAS;;AAE3B,YAAgB;IAAO;;AAErB,YAAgB;IAAS;;AAE7B,YAAgB;IAAK;;AAEjB,YAAgB;IAAS;;AAE1B,YAAY,AAAM,+BAAe;IAAS;;AAGlE,YAAY,AAAiC,iCAAV,kCAAyB;IAAO;;;;EACzE;;;;;ACf6B,UAAW,AAAS;EAAI;;AAK9B,UAAA,AAAe;EAAM;;AAKtB,UAAA,AAAe;EAAK;;QAWP;QAAsB;AACrD,UACqD,EAD7C,AAAe,AAAO,4EACpB,AAAe,AAAO,AAAO,4EAAL,MAAO,SAAS,IAC9C,SAAS;EACf;;AAJO;UAA0B;UAAsB;AAAhD,oGAAS,aAAT,SAAS;;EAIhB;;QAWgC;QAAsB;AACpD,UAA2E,EAAnE,AAAe,AAAM,2EAAI,AAAe,AAAM,AAAO,2EAAL,MAAO,SAAS,IACpE,SAAS;EACf;;AAHO;UAAyB;UAAsB;AAA/C,mGAAS,aAAT,SAAS;;EAGhB;;QAIS;QACA;QACA;AAEP,UAAO,AAA+D,+EAAlC,SAAS,aAAa,UAAU,KAChE,6EAA4B,SAAS,aAAa,UAAU;EAClE;;AAPO;UACE;UACA;UACA;AAHF,wFACR,cADQ,UACP,cADO,UACP;;EAMA;;AAGuB,UAAM;EAAQ;;AAGd,UAAC,AAAM,AAAW,0EAAc;EAAK;;AAGpC,UAAA,AAAM,AAAU;EAAK;;AAGlB,UAAM,AAAS;EAAS;;AAGf,UAAW,AAAS;EAAO;;AAG9B,UAAW;EAAQ;;AAGZ,UAAW,AAAS;EAAW;;AAGhC,UAAW,AAAS;EAAU;;AAGtC,UAAW,AAAS;EAAW;;AAGtC,UAAA,AAAY,qEAAe;EAAS;;AAGrC,UAAA,AAAY,qEAAe;EAAQ;;AAG3B,UAAW,AAAS;EAAgB;;AAGrC,UAAW,AAAS;EAAe;;AAG5B,UAAA,AAAe;EAAY;;AAGzC,UAAC,AAAM,6DAAE;EAAI;;AAGhB,UAAC,AAAuB,8EAAE;EAAI;;AAGxB,UAAC,AAAuB,+EAAG;EAAI;;AAG/B,UAAC,AAAuB,+EAAG;EAAI;;AAGpC,UAAA,AAAc,sEAAG;EAAa;;QAS9C;QACA;QACA;QACA;AAEC,sBAAc,AAAe;AACjC,QAAgB;AACoB,MAAlC,cAAc,AAAe;;AAE/B,QAAI,AAAY,WAAD,IAAI,QAAQ,OAAO,UAAU,MAAO,QAAO;AAC1D,QAAI,AAAY,WAAD,IAAI,OAAO,MAAM,UAAU,MAAO,OAAM;AACvD,QAAI,AAAY,WAAD,GAAG,OAAO,KAAK,UAAU,MAAO,MAAK;AACpD,UAAO,OAAM;EACf;;AAdG;UACE;UACA;UACA;UACA;AAJF,+FAAM,UAAN,MAAM,WAAN,OAAO,SAAP,KAAK;;EAcR","file":"../../../../../../../../../../packages/get/get_utils/src/platform/platform_web.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__colors: colors
+    get_utils__src__platform__platform_web: platform_web,
+    get_utils__src__platform__platform: platform,
+    get_utils__src__extensions__context_extensions: context_extensions,
+    get_utils__src__extensions__export: $export,
+    get_utils__get_utils: get_utils$
   };
 }));
 
-//# sourceMappingURL=colors.dart.lib.js.map
+//# sourceMappingURL=platform_web.dart.lib.js.map

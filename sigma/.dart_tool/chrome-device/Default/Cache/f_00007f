@@ -1,266 +1,430 @@
-define(['dart_sdk', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/material/elevated_button.dart', 'packages/sigma/Resources/App_Colors.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/material/icon_button.dart'], (function load__packages__sigma__Resources__App_ElevatedButton_style_dart(dart_sdk, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__material__elevated_button$46dart, packages__sigma__Resources__App_Colors$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__material__icon_button$46dart) {
+define(['dart_sdk', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/characters/src/characters_impl.dart', 'packages/characters/src/extensions.dart', 'packages/flutter/src/services/text_editing.dart'], (function load__packages__flutter__src__services__text_formatter_dart(dart_sdk, packages__flutter__src__services__text_input$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__characters__src__characters_impl$46dart, packages__characters__src__extensions$46dart, packages__flutter__src__services__text_editing$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const math = dart_sdk.math;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
-  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
-  const elevated_button = packages__flutter__src__material__elevated_button$46dart.src__material__elevated_button;
-  const App_Colors = packages__sigma__Resources__App_Colors$46dart.Resources__App_Colors;
-  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
-  const button_style = packages__flutter__src__material__icon_button$46dart.src__material__button_style;
-  var App_ElevatedButton_style = Object.create(dart.library);
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  const platform$ = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
+  const characters_impl = packages__characters__src__characters_impl$46dart.src__characters_impl;
+  const extensions = packages__characters__src__extensions$46dart.src__extensions;
+  const text_editing = packages__flutter__src__services__text_editing$46dart.src__services__text_editing;
+  var text_formatter = Object.create(dart.library);
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $splitMapJoin = dartx.splitMapJoin;
+  var $length = dartx.length;
+  var $substring = dartx.substring;
   dart._checkModuleNullSafetyMode(true);
+  var T = {
+    MatchToString: () => (T.MatchToString = dart.constFn(dart.fnType(core.String, [core.Match])))(),
+    StringToString: () => (T.StringToString = dart.constFn(dart.fnType(core.String, [core.String])))()
+  };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  var I = ["package:sigma/Resources/App_ElevatedButton_style.dart"];
-  var shape = dart.privateName(App_ElevatedButton_style, "ShapeButtonManager.shape");
-  var shape1 = dart.privateName(App_ElevatedButton_style, "ShapeButtonManager.shape1");
-  App_ElevatedButton_style.ShapeButtonManager = class ShapeButtonManager extends core.Object {
-    get shape() {
-      return this[shape];
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: text_formatter.MaxLengthEnforcement.prototype,
+        [_name$]: "MaxLengthEnforcement.none",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: text_formatter.MaxLengthEnforcement.prototype,
+        [_name$]: "MaxLengthEnforcement.enforced",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: text_formatter.MaxLengthEnforcement.prototype,
+        [_name$]: "MaxLengthEnforcement.truncateAfterCompositionEnds",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], text_formatter.MaxLengthEnforcement);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: platform$.TargetPlatform.prototype,
+        [_name]: "TargetPlatform.android",
+        index: 0
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: platform$.TargetPlatform.prototype,
+        [_name]: "TargetPlatform.windows",
+        index: 5
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: platform$.TargetPlatform.prototype,
+        [_name]: "TargetPlatform.iOS",
+        index: 2
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: platform$.TargetPlatform.prototype,
+        [_name]: "TargetPlatform.macOS",
+        index: 4
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: platform$.TargetPlatform.prototype,
+        [_name]: "TargetPlatform.linux",
+        index: 3
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: platform$.TargetPlatform.prototype,
+        [_name]: "TargetPlatform.fuchsia",
+        index: 1
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.TextAffinity.prototype,
+        [_name$0]: "TextAffinity.downstream",
+        index: 1
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: text_editing.TextSelection.prototype,
+        [TextRange_end]: -1,
+        [TextRange_start]: -1,
+        [TextSelection_isDirectional]: false,
+        [TextSelection_affinity]: C[11] || CT.C11,
+        [TextSelection_extentOffset]: -1,
+        [TextSelection_baseOffset]: -1
+      });
     }
-    set shape(value) {
-      super.shape = value;
-    }
-    get shape1() {
-      return this[shape1];
-    }
-    set shape1(value) {
-      super.shape1 = value;
-    }
-  };
-  (App_ElevatedButton_style.ShapeButtonManager.new = function() {
-    this[shape] = new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.circular(16.0)});
-    this[shape1] = new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.circular(30.0)});
-    ;
-  }).prototype = App_ElevatedButton_style.ShapeButtonManager.prototype;
-  dart.addTypeTests(App_ElevatedButton_style.ShapeButtonManager);
-  dart.addTypeCaches(App_ElevatedButton_style.ShapeButtonManager);
-  dart.setLibraryUri(App_ElevatedButton_style.ShapeButtonManager, I[0]);
-  dart.setFieldSignature(App_ElevatedButton_style.ShapeButtonManager, () => ({
-    __proto__: dart.getFields(App_ElevatedButton_style.ShapeButtonManager.__proto__),
-    shape: dart.finalFieldType(rounded_rectangle_border.RoundedRectangleBorder),
-    shape1: dart.finalFieldType(rounded_rectangle_border.RoundedRectangleBorder)
-  }));
-  var elevatedButtonStyleStart = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleStart");
-  var elevatedButtonStyleStart2 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleStart2");
-  var elevatedButtonStyleCategory1 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory1");
-  var elevatedButtonStyleCategory1Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory1Active");
-  var elevatedButtonStyleCategory2 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory2");
-  var elevatedButtonStyleCategory2Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory2Active");
-  var elevatedButtonStyleCategory3 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory3");
-  var elevatedButtonStyleCategory3Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory3Active");
-  var elevatedButtonStyleCategory4 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory4");
-  var elevatedButtonStyleCategory4Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory4Active");
-  var elevatedButtonStyleCategory5 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory5");
-  var elevatedButtonStyleCategory5Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory5Active");
-  var elevatedButtonStyleCategory6 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory6");
-  var elevatedButtonStyleCategory6Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory6Active");
-  var elevatedButtonStyleCategory7 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory7");
-  var elevatedButtonStyleCategory7Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory7Active");
-  var elevatedButtonStyleCategory8 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory8");
-  var elevatedButtonStyleCategory8Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory8Active");
-  var elevatedButtonStyleCategory9 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory9");
-  var elevatedButtonStyleCategory9Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory9Active");
-  var elevatedButtonStyleCategory10 = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory10");
-  var elevatedButtonStyleCategory10Active = dart.privateName(App_ElevatedButton_style, "ElevatedButtonStyleManager.elevatedButtonStyleCategory10Active");
-  App_ElevatedButton_style.ElevatedButtonStyleManager = class ElevatedButtonStyleManager extends core.Object {
-    get elevatedButtonStyleStart() {
-      return this[elevatedButtonStyleStart];
-    }
-    set elevatedButtonStyleStart(value) {
-      super.elevatedButtonStyleStart = value;
-    }
-    get elevatedButtonStyleStart2() {
-      return this[elevatedButtonStyleStart2];
-    }
-    set elevatedButtonStyleStart2(value) {
-      super.elevatedButtonStyleStart2 = value;
-    }
-    get elevatedButtonStyleCategory1() {
-      return this[elevatedButtonStyleCategory1];
-    }
-    set elevatedButtonStyleCategory1(value) {
-      super.elevatedButtonStyleCategory1 = value;
-    }
-    get elevatedButtonStyleCategory1Active() {
-      return this[elevatedButtonStyleCategory1Active];
-    }
-    set elevatedButtonStyleCategory1Active(value) {
-      super.elevatedButtonStyleCategory1Active = value;
-    }
-    get elevatedButtonStyleCategory2() {
-      return this[elevatedButtonStyleCategory2];
-    }
-    set elevatedButtonStyleCategory2(value) {
-      super.elevatedButtonStyleCategory2 = value;
-    }
-    get elevatedButtonStyleCategory2Active() {
-      return this[elevatedButtonStyleCategory2Active];
-    }
-    set elevatedButtonStyleCategory2Active(value) {
-      super.elevatedButtonStyleCategory2Active = value;
-    }
-    get elevatedButtonStyleCategory3() {
-      return this[elevatedButtonStyleCategory3];
-    }
-    set elevatedButtonStyleCategory3(value) {
-      super.elevatedButtonStyleCategory3 = value;
-    }
-    get elevatedButtonStyleCategory3Active() {
-      return this[elevatedButtonStyleCategory3Active];
-    }
-    set elevatedButtonStyleCategory3Active(value) {
-      super.elevatedButtonStyleCategory3Active = value;
-    }
-    get elevatedButtonStyleCategory4() {
-      return this[elevatedButtonStyleCategory4];
-    }
-    set elevatedButtonStyleCategory4(value) {
-      super.elevatedButtonStyleCategory4 = value;
-    }
-    get elevatedButtonStyleCategory4Active() {
-      return this[elevatedButtonStyleCategory4Active];
-    }
-    set elevatedButtonStyleCategory4Active(value) {
-      super.elevatedButtonStyleCategory4Active = value;
-    }
-    get elevatedButtonStyleCategory5() {
-      return this[elevatedButtonStyleCategory5];
-    }
-    set elevatedButtonStyleCategory5(value) {
-      super.elevatedButtonStyleCategory5 = value;
-    }
-    get elevatedButtonStyleCategory5Active() {
-      return this[elevatedButtonStyleCategory5Active];
-    }
-    set elevatedButtonStyleCategory5Active(value) {
-      super.elevatedButtonStyleCategory5Active = value;
-    }
-    get elevatedButtonStyleCategory6() {
-      return this[elevatedButtonStyleCategory6];
-    }
-    set elevatedButtonStyleCategory6(value) {
-      super.elevatedButtonStyleCategory6 = value;
-    }
-    get elevatedButtonStyleCategory6Active() {
-      return this[elevatedButtonStyleCategory6Active];
-    }
-    set elevatedButtonStyleCategory6Active(value) {
-      super.elevatedButtonStyleCategory6Active = value;
-    }
-    get elevatedButtonStyleCategory7() {
-      return this[elevatedButtonStyleCategory7];
-    }
-    set elevatedButtonStyleCategory7(value) {
-      super.elevatedButtonStyleCategory7 = value;
-    }
-    get elevatedButtonStyleCategory7Active() {
-      return this[elevatedButtonStyleCategory7Active];
-    }
-    set elevatedButtonStyleCategory7Active(value) {
-      super.elevatedButtonStyleCategory7Active = value;
-    }
-    get elevatedButtonStyleCategory8() {
-      return this[elevatedButtonStyleCategory8];
-    }
-    set elevatedButtonStyleCategory8(value) {
-      super.elevatedButtonStyleCategory8 = value;
-    }
-    get elevatedButtonStyleCategory8Active() {
-      return this[elevatedButtonStyleCategory8Active];
-    }
-    set elevatedButtonStyleCategory8Active(value) {
-      super.elevatedButtonStyleCategory8Active = value;
-    }
-    get elevatedButtonStyleCategory9() {
-      return this[elevatedButtonStyleCategory9];
-    }
-    set elevatedButtonStyleCategory9(value) {
-      super.elevatedButtonStyleCategory9 = value;
-    }
-    get elevatedButtonStyleCategory9Active() {
-      return this[elevatedButtonStyleCategory9Active];
-    }
-    set elevatedButtonStyleCategory9Active(value) {
-      super.elevatedButtonStyleCategory9Active = value;
-    }
-    get elevatedButtonStyleCategory10() {
-      return this[elevatedButtonStyleCategory10];
-    }
-    set elevatedButtonStyleCategory10(value) {
-      super.elevatedButtonStyleCategory10 = value;
-    }
-    get elevatedButtonStyleCategory10Active() {
-      return this[elevatedButtonStyleCategory10Active];
-    }
-    set elevatedButtonStyleCategory10Active(value) {
-      super.elevatedButtonStyleCategory10Active = value;
+  }, false);
+  var C = Array(12).fill(void 0);
+  var I = [
+    "package:flutter/src/services/text_formatter.dart",
+    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/services/text_formatter.dart"
+  ];
+  var _name$ = dart.privateName(text_formatter, "_name");
+  text_formatter.MaxLengthEnforcement = class MaxLengthEnforcement extends core.Object {
+    toString() {
+      return this[_name$];
     }
   };
-  (App_ElevatedButton_style.ElevatedButtonStyleManager.new = function() {
-    this[elevatedButtonStyleStart] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape, primary: App_Colors.whiteColors});
-    this[elevatedButtonStyleStart2] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory1] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory1Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryCafe})});
-    this[elevatedButtonStyleCategory2] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory2Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryTrips})});
-    this[elevatedButtonStyleCategory3] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory3Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryCar})});
-    this[elevatedButtonStyleCategory4] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory4Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryBeauty})});
-    this[elevatedButtonStyleCategory5] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory5Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryMarketPlaces})});
-    this[elevatedButtonStyleCategory6] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory6Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryBaby})});
-    this[elevatedButtonStyleCategory7] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory7Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryClothes})});
-    this[elevatedButtonStyleCategory8] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory8Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryElectronics})});
-    this[elevatedButtonStyleCategory9] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory9Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryServices})});
-    this[elevatedButtonStyleCategory10] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.forOnBoarding})});
-    this[elevatedButtonStyleCategory10Active] = elevated_button.ElevatedButton.styleFrom({shape: new App_ElevatedButton_style.ShapeButtonManager.new().shape1, primary: App_Colors.TransparentForCategory, side: new borders.BorderSide.new({width: 2.0, color: App_Colors.CategoryEntertainment})});
+  (text_formatter.MaxLengthEnforcement.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
     ;
-  }).prototype = App_ElevatedButton_style.ElevatedButtonStyleManager.prototype;
-  dart.addTypeTests(App_ElevatedButton_style.ElevatedButtonStyleManager);
-  dart.addTypeCaches(App_ElevatedButton_style.ElevatedButtonStyleManager);
-  dart.setLibraryUri(App_ElevatedButton_style.ElevatedButtonStyleManager, I[0]);
-  dart.setFieldSignature(App_ElevatedButton_style.ElevatedButtonStyleManager, () => ({
-    __proto__: dart.getFields(App_ElevatedButton_style.ElevatedButtonStyleManager.__proto__),
-    elevatedButtonStyleStart: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleStart2: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory1: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory1Active: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory2: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory2Active: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory3: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory3Active: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory4: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory4Active: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory5: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory5Active: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory6: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory6Active: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory7: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory7Active: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory8: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory8Active: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory9: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory9Active: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory10: dart.finalFieldType(button_style.ButtonStyle),
-    elevatedButtonStyleCategory10Active: dart.finalFieldType(button_style.ButtonStyle)
+  }).prototype = text_formatter.MaxLengthEnforcement.prototype;
+  dart.addTypeTests(text_formatter.MaxLengthEnforcement);
+  dart.addTypeCaches(text_formatter.MaxLengthEnforcement);
+  dart.setLibraryUri(text_formatter.MaxLengthEnforcement, I[0]);
+  dart.setFieldSignature(text_formatter.MaxLengthEnforcement, () => ({
+    __proto__: dart.getFields(text_formatter.MaxLengthEnforcement.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.trackLibraries("packages/sigma/Resources/App_ElevatedButton_style.dart", {
-    "package:sigma/Resources/App_ElevatedButton_style.dart": App_ElevatedButton_style
+  dart.defineExtensionMethods(text_formatter.MaxLengthEnforcement, ['toString']);
+  text_formatter.MaxLengthEnforcement.none = C[0] || CT.C0;
+  text_formatter.MaxLengthEnforcement.enforced = C[1] || CT.C1;
+  text_formatter.MaxLengthEnforcement.truncateAfterCompositionEnds = C[2] || CT.C2;
+  text_formatter.MaxLengthEnforcement.values = C[3] || CT.C3;
+  text_formatter.TextInputFormatter = class TextInputFormatter extends core.Object {
+    static withFunction(formatFunction) {
+      return new text_formatter._SimpleTextInputFormatter.new(formatFunction);
+    }
+  };
+  (text_formatter.TextInputFormatter.new = function() {
+    ;
+  }).prototype = text_formatter.TextInputFormatter.prototype;
+  dart.addTypeTests(text_formatter.TextInputFormatter);
+  dart.addTypeCaches(text_formatter.TextInputFormatter);
+  dart.setLibraryUri(text_formatter.TextInputFormatter, I[0]);
+  text_formatter._SimpleTextInputFormatter = class _SimpleTextInputFormatter extends text_formatter.TextInputFormatter {
+    formatEditUpdate(oldValue, newValue) {
+      let t1, t0;
+      t0 = oldValue;
+      t1 = newValue;
+      return this.formatFunction(t0, t1);
+    }
+  };
+  (text_formatter._SimpleTextInputFormatter.new = function(formatFunction) {
+    this.formatFunction = formatFunction;
+    if (!(formatFunction !== null)) dart.assertFailed(null, I[1], 111, 14, "formatFunction != null");
+    ;
+  }).prototype = text_formatter._SimpleTextInputFormatter.prototype;
+  dart.addTypeTests(text_formatter._SimpleTextInputFormatter);
+  dart.addTypeCaches(text_formatter._SimpleTextInputFormatter);
+  dart.setMethodSignature(text_formatter._SimpleTextInputFormatter, () => ({
+    __proto__: dart.getMethods(text_formatter._SimpleTextInputFormatter.__proto__),
+    formatEditUpdate: dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue])
+  }));
+  dart.setLibraryUri(text_formatter._SimpleTextInputFormatter, I[0]);
+  dart.setFieldSignature(text_formatter._SimpleTextInputFormatter, () => ({
+    __proto__: dart.getFields(text_formatter._SimpleTextInputFormatter.__proto__),
+    formatFunction: dart.finalFieldType(dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue]))
+  }));
+  var filterPattern$ = dart.privateName(text_formatter, "FilteringTextInputFormatter.filterPattern");
+  var allow$ = dart.privateName(text_formatter, "FilteringTextInputFormatter.allow");
+  var replacementString$ = dart.privateName(text_formatter, "FilteringTextInputFormatter.replacementString");
+  text_formatter.FilteringTextInputFormatter = class FilteringTextInputFormatter extends text_formatter.TextInputFormatter {
+    get filterPattern() {
+      return this[filterPattern$];
+    }
+    set filterPattern(value) {
+      super.filterPattern = value;
+    }
+    get allow() {
+      return this[allow$];
+    }
+    set allow(value) {
+      super.allow = value;
+    }
+    get replacementString() {
+      return this[replacementString$];
+    }
+    set replacementString(value) {
+      super.replacementString = value;
+    }
+    formatEditUpdate(oldValue, newValue) {
+      return text_formatter._selectionAwareTextManipulation(newValue, dart.fn(substring => substring[$splitMapJoin](this.filterPattern, {onMatch: !this.allow ? dart.fn(match => this.replacementString, T.MatchToString()) : null, onNonMatch: this.allow ? dart.fn(nonMatch => nonMatch[$isNotEmpty] ? this.replacementString : "", T.StringToString()) : null}), T.StringToString()));
+    }
+  };
+  (text_formatter.FilteringTextInputFormatter.new = function(filterPattern, opts) {
+    let allow = opts && 'allow' in opts ? opts.allow : null;
+    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
+    this[filterPattern$] = filterPattern;
+    this[allow$] = allow;
+    this[replacementString$] = replacementString;
+    if (!(filterPattern !== null)) dart.assertFailed(null, I[1], 153, 15, "filterPattern != null");
+    if (!(allow !== null)) dart.assertFailed(null, I[1], 154, 15, "allow != null");
+    if (!(replacementString !== null)) dart.assertFailed(null, I[1], 155, 15, "replacementString != null");
+    ;
+  }).prototype = text_formatter.FilteringTextInputFormatter.prototype;
+  (text_formatter.FilteringTextInputFormatter.allow = function(filterPattern, opts) {
+    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
+    this[filterPattern$] = filterPattern;
+    this[replacementString$] = replacementString;
+    if (!(filterPattern !== null)) dart.assertFailed(null, I[1], 164, 15, "filterPattern != null");
+    if (!(replacementString !== null)) dart.assertFailed(null, I[1], 165, 15, "replacementString != null");
+    this[allow$] = true;
+    ;
+  }).prototype = text_formatter.FilteringTextInputFormatter.prototype;
+  (text_formatter.FilteringTextInputFormatter.deny = function(filterPattern, opts) {
+    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
+    this[filterPattern$] = filterPattern;
+    this[replacementString$] = replacementString;
+    if (!(filterPattern !== null)) dart.assertFailed(null, I[1], 175, 15, "filterPattern != null");
+    if (!(replacementString !== null)) dart.assertFailed(null, I[1], 176, 15, "replacementString != null");
+    this[allow$] = false;
+    ;
+  }).prototype = text_formatter.FilteringTextInputFormatter.prototype;
+  dart.addTypeTests(text_formatter.FilteringTextInputFormatter);
+  dart.addTypeCaches(text_formatter.FilteringTextInputFormatter);
+  dart.setMethodSignature(text_formatter.FilteringTextInputFormatter, () => ({
+    __proto__: dart.getMethods(text_formatter.FilteringTextInputFormatter.__proto__),
+    formatEditUpdate: dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue])
+  }));
+  dart.setLibraryUri(text_formatter.FilteringTextInputFormatter, I[0]);
+  dart.setFieldSignature(text_formatter.FilteringTextInputFormatter, () => ({
+    __proto__: dart.getFields(text_formatter.FilteringTextInputFormatter.__proto__),
+    filterPattern: dart.finalFieldType(core.Pattern),
+    allow: dart.finalFieldType(core.bool),
+    replacementString: dart.finalFieldType(core.String)
+  }));
+  dart.defineLazy(text_formatter.FilteringTextInputFormatter, {
+    /*text_formatter.FilteringTextInputFormatter.singleLineFormatter*/get singleLineFormatter() {
+      return new text_formatter.FilteringTextInputFormatter.deny("\n");
+    },
+    /*text_formatter.FilteringTextInputFormatter.digitsOnly*/get digitsOnly() {
+      return new text_formatter.FilteringTextInputFormatter.allow(core.RegExp.new("[0-9]"));
+    }
+  }, false);
+  text_formatter.BlacklistingTextInputFormatter = class BlacklistingTextInputFormatter extends text_formatter.FilteringTextInputFormatter {
+    get blacklistedPattern() {
+      return this.filterPattern;
+    }
+  };
+  (text_formatter.BlacklistingTextInputFormatter.new = function(blacklistedPattern, opts) {
+    let replacementString = opts && 'replacementString' in opts ? opts.replacementString : "";
+    text_formatter.BlacklistingTextInputFormatter.__proto__.deny.call(this, blacklistedPattern, {replacementString: replacementString});
+    ;
+  }).prototype = text_formatter.BlacklistingTextInputFormatter.prototype;
+  dart.addTypeTests(text_formatter.BlacklistingTextInputFormatter);
+  dart.addTypeCaches(text_formatter.BlacklistingTextInputFormatter);
+  dart.setGetterSignature(text_formatter.BlacklistingTextInputFormatter, () => ({
+    __proto__: dart.getGetters(text_formatter.BlacklistingTextInputFormatter.__proto__),
+    blacklistedPattern: core.Pattern
+  }));
+  dart.setLibraryUri(text_formatter.BlacklistingTextInputFormatter, I[0]);
+  dart.defineLazy(text_formatter.BlacklistingTextInputFormatter, {
+    /*text_formatter.BlacklistingTextInputFormatter.singleLineFormatter*/get singleLineFormatter() {
+      return new text_formatter.BlacklistingTextInputFormatter.new(core.RegExp.new("\\n"));
+    }
+  }, false);
+  text_formatter.WhitelistingTextInputFormatter = class WhitelistingTextInputFormatter extends text_formatter.FilteringTextInputFormatter {
+    get whitelistedPattern() {
+      return this.filterPattern;
+    }
+  };
+  (text_formatter.WhitelistingTextInputFormatter.new = function(whitelistedPattern) {
+    if (!(whitelistedPattern !== null)) dart.assertFailed(null, I[1], 329, 14, "whitelistedPattern != null");
+    text_formatter.WhitelistingTextInputFormatter.__proto__.allow.call(this, whitelistedPattern);
+    ;
+  }).prototype = text_formatter.WhitelistingTextInputFormatter.prototype;
+  dart.addTypeTests(text_formatter.WhitelistingTextInputFormatter);
+  dart.addTypeCaches(text_formatter.WhitelistingTextInputFormatter);
+  dart.setGetterSignature(text_formatter.WhitelistingTextInputFormatter, () => ({
+    __proto__: dart.getGetters(text_formatter.WhitelistingTextInputFormatter.__proto__),
+    whitelistedPattern: core.Pattern
+  }));
+  dart.setLibraryUri(text_formatter.WhitelistingTextInputFormatter, I[0]);
+  dart.defineLazy(text_formatter.WhitelistingTextInputFormatter, {
+    /*text_formatter.WhitelistingTextInputFormatter.digitsOnly*/get digitsOnly() {
+      return new text_formatter.WhitelistingTextInputFormatter.new(core.RegExp.new("\\d+"));
+    }
+  }, false);
+  var maxLength$ = dart.privateName(text_formatter, "LengthLimitingTextInputFormatter.maxLength");
+  var maxLengthEnforcement$ = dart.privateName(text_formatter, "LengthLimitingTextInputFormatter.maxLengthEnforcement");
+  var _name = dart.privateName(platform$, "_name");
+  text_formatter.LengthLimitingTextInputFormatter = class LengthLimitingTextInputFormatter extends text_formatter.TextInputFormatter {
+    get maxLength() {
+      return this[maxLength$];
+    }
+    set maxLength(value) {
+      super.maxLength = value;
+    }
+    get maxLengthEnforcement() {
+      return this[maxLengthEnforcement$];
+    }
+    set maxLengthEnforcement(value) {
+      super.maxLengthEnforcement = value;
+    }
+    static getDefaultMaxLengthEnforcement(platform = null) {
+      let t0;
+      if (true) {
+        return text_formatter.MaxLengthEnforcement.truncateAfterCompositionEnds;
+      } else {
+        switch (t0 = platform, t0 == null ? platform$.defaultTargetPlatform : t0) {
+          case C[4] || CT.C4:
+          case C[5] || CT.C5:
+          {
+            return text_formatter.MaxLengthEnforcement.enforced;
+          }
+          case C[6] || CT.C6:
+          case C[7] || CT.C7:
+          case C[8] || CT.C8:
+          case C[9] || CT.C9:
+          {
+            return text_formatter.MaxLengthEnforcement.truncateAfterCompositionEnds;
+          }
+        }
+      }
+    }
+    static truncate(value, maxLength) {
+      let iterator = new characters_impl.StringCharacterRange.new(value.text);
+      if (extensions['StringCharacters|get#characters'](value.text)[$length] > maxLength) {
+        iterator.expandNext(maxLength);
+      }
+      let truncated = iterator.current;
+      return new text_input.TextEditingValue.new({text: truncated, selection: value.selection.copyWith({baseOffset: math.min(core.int, value.selection.start, truncated.length), extentOffset: math.min(core.int, value.selection.end, truncated.length)}), composing: !value.composing.isCollapsed && truncated.length > value.composing.start ? new ui.TextRange.new({start: value.composing.start, end: math.min(core.int, value.composing.end, truncated.length)}) : ui.TextRange.empty});
+    }
+    formatEditUpdate(oldValue, newValue) {
+      let t0;
+      let maxLength = this.maxLength;
+      if (maxLength == null || maxLength === -1 || extensions['StringCharacters|get#characters'](newValue.text)[$length] <= dart.notNull(maxLength)) {
+        return newValue;
+      }
+      if (!(dart.notNull(maxLength) > 0)) dart.assertFailed(null, I[1], 497, 12, "maxLength > 0");
+      switch (t0 = this.maxLengthEnforcement, t0 == null ? text_formatter.LengthLimitingTextInputFormatter.getDefaultMaxLengthEnforcement() : t0) {
+        case C[0] || CT.C0:
+        {
+          return newValue;
+        }
+        case C[1] || CT.C1:
+        {
+          if (extensions['StringCharacters|get#characters'](oldValue.text)[$length] === maxLength && oldValue.selection.isCollapsed) {
+            return oldValue;
+          }
+          return text_formatter.LengthLimitingTextInputFormatter.truncate(newValue, maxLength);
+        }
+        case C[2] || CT.C2:
+        {
+          if (extensions['StringCharacters|get#characters'](oldValue.text)[$length] === maxLength && !oldValue.composing.isValid) {
+            return oldValue;
+          }
+          if (newValue.composing.isValid) {
+            return newValue;
+          }
+          return text_formatter.LengthLimitingTextInputFormatter.truncate(newValue, maxLength);
+        }
+      }
+    }
+  };
+  (text_formatter.LengthLimitingTextInputFormatter.new = function(maxLength, opts) {
+    let maxLengthEnforcement = opts && 'maxLengthEnforcement' in opts ? opts.maxLengthEnforcement : null;
+    this[maxLength$] = maxLength;
+    this[maxLengthEnforcement$] = maxLengthEnforcement;
+    if (!(maxLength == null || maxLength === -1 || dart.notNull(maxLength) > 0)) dart.assertFailed(null, I[1], 371, 15, "maxLength == null || maxLength == -1 || maxLength > 0");
+    ;
+  }).prototype = text_formatter.LengthLimitingTextInputFormatter.prototype;
+  dart.addTypeTests(text_formatter.LengthLimitingTextInputFormatter);
+  dart.addTypeCaches(text_formatter.LengthLimitingTextInputFormatter);
+  dart.setMethodSignature(text_formatter.LengthLimitingTextInputFormatter, () => ({
+    __proto__: dart.getMethods(text_formatter.LengthLimitingTextInputFormatter.__proto__),
+    formatEditUpdate: dart.fnType(text_input.TextEditingValue, [text_input.TextEditingValue, text_input.TextEditingValue])
+  }));
+  dart.setLibraryUri(text_formatter.LengthLimitingTextInputFormatter, I[0]);
+  dart.setFieldSignature(text_formatter.LengthLimitingTextInputFormatter, () => ({
+    __proto__: dart.getFields(text_formatter.LengthLimitingTextInputFormatter.__proto__),
+    maxLength: dart.finalFieldType(dart.nullable(core.int)),
+    maxLengthEnforcement: dart.finalFieldType(dart.nullable(text_formatter.MaxLengthEnforcement))
+  }));
+  var TextRange_end = dart.privateName(ui, "TextRange.end");
+  var TextRange_start = dart.privateName(ui, "TextRange.start");
+  var TextSelection_isDirectional = dart.privateName(text_editing, "TextSelection.isDirectional");
+  var _name$0 = dart.privateName(ui, "_name");
+  var TextSelection_affinity = dart.privateName(text_editing, "TextSelection.affinity");
+  var TextSelection_extentOffset = dart.privateName(text_editing, "TextSelection.extentOffset");
+  var TextSelection_baseOffset = dart.privateName(text_editing, "TextSelection.baseOffset");
+  text_formatter._selectionAwareTextManipulation = function _selectionAwareTextManipulation(value, substringManipulation) {
+    let t0;
+    let selectionStartIndex = value.selection.start;
+    let selectionEndIndex = value.selection.end;
+    let manipulatedText = null;
+    let manipulatedSelection = null;
+    if (selectionStartIndex < 0 || selectionEndIndex < 0) {
+      manipulatedText = substringManipulation(value.text);
+    } else {
+      let beforeSelection = substringManipulation(value.text[$substring](0, selectionStartIndex));
+      let inSelection = substringManipulation(value.text[$substring](selectionStartIndex, selectionEndIndex));
+      let afterSelection = substringManipulation(value.text[$substring](selectionEndIndex));
+      manipulatedText = beforeSelection + inSelection + afterSelection;
+      if (value.selection.baseOffset > value.selection.extentOffset) {
+        manipulatedSelection = value.selection.copyWith({baseOffset: beforeSelection.length + inSelection.length, extentOffset: beforeSelection.length});
+      } else {
+        manipulatedSelection = value.selection.copyWith({baseOffset: beforeSelection.length, extentOffset: beforeSelection.length + inSelection.length});
+      }
+    }
+    return new text_input.TextEditingValue.new({text: manipulatedText, selection: (t0 = manipulatedSelection, t0 == null ? C[10] || CT.C10 : t0), composing: manipulatedText === value.text ? value.composing : ui.TextRange.empty});
+  };
+  dart.trackLibraries("packages/flutter/src/services/text_formatter.dart", {
+    "package:flutter/src/services/text_formatter.dart": text_formatter
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["App_ElevatedButton_style.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;IAIQ;;;;;;IACA;;;;;;;;IADA,cAAQ,uEAAkD,wCAAS;IACnE,eACF,uEAAkD,wCAAS;;EACjE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAGQ;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;IAIA;;;;;;;;IApFA,iCAA0C,iDACvC,AAAqB,sEACnB;IAEL,kCAA2C,iDACtC,AAAqB,sEACnB,yCACH,mCAAkB,YAAU;IAChC,qCAA8C,iDACzC,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,2CAAoD,iDAC/C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,qCAA8C,iDACzC,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,2CAAoD,iDAC/C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,qCAA8C,iDACzC,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,2CAAoD,iDAC/C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,qCAA8C,iDACzC,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,2CAAoD,iDAC/C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,qCAA8C,iDACzC,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,2CAAoD,iDAC/C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,qCAA8C,iDACzC,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,2CAAoD,iDAC/C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,qCAA8C,iDACzC,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,2CAAoD,iDAC/C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,qCAA8C,iDACzC,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,2CAAoD,iDAC/C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,qCAA8C,iDACzC,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,2CAAoD,iDAC/C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,sCAA+C,iDAC1C,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;IAChC,4CAAqD,iDAChD,AAAqB,uEACnB,yCACH,mCAAkB,YAAU;;EACxC","file":"../../../../packages/sigma/Resources/App_ElevatedButton_style.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["text_formatter.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/services/text_formatter.dart.lib.js"}');
   // Exports:
   return {
-    Resources__App_ElevatedButton_style: App_ElevatedButton_style
+    src__services__text_formatter: text_formatter
   };
 }));
 
-//# sourceMappingURL=App_ElevatedButton_style.dart.lib.js.map
+//# sourceMappingURL=text_formatter.dart.lib.js.map

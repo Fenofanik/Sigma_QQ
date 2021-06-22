@@ -13,8 +13,8 @@ class CategorySelection extends BaseStatelessScreen {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       key: scaffoldKey,
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -43,69 +43,65 @@ class CategorySelection extends BaseStatelessScreen {
                     padding: const EdgeInsets.only(top: 45),
                     child: Text(
                       "Давайте знакомиться",
-                      style: TextStyles().style_7,
+                      style: style_7,
                     ),
                   )
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 8, left: 16),
+                padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
                 child: Text(
                   "Выберите категории, которые вам интересны",
-                  style: TextStyles().style_6,
+                  style: style_6,
                 ),
               ),
-              Wrap(
-                direction: Axis.horizontal,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, top: 50),
-                    child: ElevatedButton(
+              Padding(
+                padding: const EdgeInsets.only(top: 10, left: 16, right: 16),
+                child: Wrap(
+                  direction: Axis.horizontal,
+                  children: <Widget>[
+                    ElevatedButton(
                       onPressed: () {
                         controller.categoryNames.first.pressedCafe.toggle();
                       },
                       style: controller.categoryNames.first.pressed.value ||
                               controller.categoryNames.first.pressedCafe.value
-                          ? ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory1Active
-                          : ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory1,
+                          ? elevatedButtonStyleCategory1Active
+                          : elevatedButtonStyleCategory1,
                       child: Text(
                           controller.categoryNames.first.cafesAndRestaurants,
                           style: controller.categoryNames.first.pressed.value ||
                                   controller
                                       .categoryNames.first.pressedCafe.value
-                              ? TextStyles().style_12
-                              : TextStyles().style_6),
+                              ? style_12
+                              : style_6),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(right: 16, left: 10, top: 50),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        controller.categoryNames.first.pressedTrips.toggle();
-                      },
-                      style: controller.categoryNames.first.pressed.value ||
-                              controller.categoryNames.first.pressedTrips.value
-                          ? ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory2Active
-                          : ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory2,
-                      child: Text(
-                        controller.categoryNames.first.trips,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          controller.categoryNames.first.pressedTrips.toggle();
+                        },
                         style: controller.categoryNames.first.pressed.value ||
                                 controller
                                     .categoryNames.first.pressedTrips.value
-                            ? TextStyles().style_12
-                            : TextStyles().style_6,
+                            ? elevatedButtonStyleCategory2Active
+                            : elevatedButtonStyleCategory2,
+                        child: Text(
+                          controller.categoryNames.first.trips,
+                          style: controller.categoryNames.first.pressed.value ||
+                                  controller
+                                      .categoryNames.first.pressedTrips.value
+                              ? style_12
+                              : style_6,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20, left: 16),
+                padding: const EdgeInsets.only(top: 5, left: 16, right: 16),
                 child: Wrap(
                   direction: Axis.horizontal,
                   children: <Widget>[
@@ -115,20 +111,18 @@ class CategorySelection extends BaseStatelessScreen {
                       },
                       style: controller.categoryNames.first.pressed.value ||
                               controller.categoryNames.first.pressedCar.value
-                          ? ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory3Active
-                          : ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory3,
+                          ? elevatedButtonStyleCategory3Active
+                          : elevatedButtonStyleCategory3,
                       child: Text(
                         controller.categoryNames.first.car,
                         style: controller.categoryNames.first.pressed.value ||
                                 controller.categoryNames.first.pressedCar.value
-                            ? TextStyles().style_12
-                            : TextStyles().style_6,
+                            ? style_12
+                            : style_6,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 71, left: 10),
+                      padding: const EdgeInsets.only(left: 10),
                       child: ElevatedButton(
                         onPressed: () {
                           controller.categoryNames.first.pressedBeauty.toggle();
@@ -136,17 +130,15 @@ class CategorySelection extends BaseStatelessScreen {
                         style: controller.categoryNames.first.pressed.value ||
                                 controller
                                     .categoryNames.first.pressedBeauty.value
-                            ? ElevatedButtonStyleManager()
-                                .elevatedButtonStyleCategory4Active
-                            : ElevatedButtonStyleManager()
-                                .elevatedButtonStyleCategory4,
+                            ? elevatedButtonStyleCategory4Active
+                            : elevatedButtonStyleCategory4,
                         child: Text(
                           controller.categoryNames.first.beauty,
                           style: controller.categoryNames.first.pressed.value ||
                                   controller
                                       .categoryNames.first.pressedBeauty.value
-                              ? TextStyles().style_12
-                              : TextStyles().style_6,
+                              ? style_12
+                              : style_6,
                         ),
                       ),
                     ),
@@ -154,7 +146,7 @@ class CategorySelection extends BaseStatelessScreen {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20, left: 16),
+                padding: const EdgeInsets.only(top: 5, left: 16, right: 16),
                 child: Wrap(
                   direction: Axis.horizontal,
                   children: <Widget>[
@@ -164,38 +156,34 @@ class CategorySelection extends BaseStatelessScreen {
                       },
                       style: controller.categoryNames.first.pressed.value ||
                               controller.categoryNames.first.pressedMarket.value
-                          ? ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory5Active
-                          : ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory5,
+                          ? elevatedButtonStyleCategory5Active
+                          : elevatedButtonStyleCategory5,
                       child: Text(
                         controller.categoryNames.first.marketplaces,
                         style: controller.categoryNames.first.pressed.value ||
                                 controller
                                     .categoryNames.first.pressedMarket.value
-                            ? TextStyles().style_12
-                            : TextStyles().style_6,
+                            ? style_12
+                            : style_6,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 19),
+                      padding: const EdgeInsets.only(left: 10),
                       child: ElevatedButton(
                         onPressed: () {
                           controller.categoryNames.first.pressedBaby.toggle();
                         },
                         style: controller.categoryNames.first.pressed.value ||
                                 controller.categoryNames.first.pressedBaby.value
-                            ? ElevatedButtonStyleManager()
-                                .elevatedButtonStyleCategory6Active
-                            : ElevatedButtonStyleManager()
-                                .elevatedButtonStyleCategory6,
+                            ? elevatedButtonStyleCategory6Active
+                            : elevatedButtonStyleCategory6,
                         child: Text(
                           controller.categoryNames.first.baby,
                           style: controller.categoryNames.first.pressed.value ||
                                   controller
                                       .categoryNames.first.pressedBaby.value
-                              ? TextStyles().style_12
-                              : TextStyles().style_6,
+                              ? style_12
+                              : style_6,
                         ),
                       ),
                     ),
@@ -203,7 +191,7 @@ class CategorySelection extends BaseStatelessScreen {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20, left: 16),
+                padding: const EdgeInsets.only(top: 5, left: 16, right: 16),
                 child: Wrap(
                   direction: Axis.horizontal,
                   children: <Widget>[
@@ -214,21 +202,19 @@ class CategorySelection extends BaseStatelessScreen {
                       style: controller.categoryNames.first.pressed.value ||
                               controller
                                   .categoryNames.first.pressedClothes.value
-                          ? ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory7Active
-                          : ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory7,
+                          ? elevatedButtonStyleCategory7Active
+                          : elevatedButtonStyleCategory7,
                       child: Text(
                         controller.categoryNames.first.clothes,
                         style: controller.categoryNames.first.pressed.value ||
                                 controller
                                     .categoryNames.first.pressedClothes.value
-                            ? TextStyles().style_12
-                            : TextStyles().style_6,
+                            ? style_12
+                            : style_6,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 29),
+                      padding: const EdgeInsets.only(left: 10),
                       child: ElevatedButton(
                         onPressed: () {
                           controller.categoryNames.first.pressedElectronics
@@ -237,17 +223,15 @@ class CategorySelection extends BaseStatelessScreen {
                         style: controller.categoryNames.first.pressed.value ||
                                 controller.categoryNames.first
                                     .pressedElectronics.value
-                            ? ElevatedButtonStyleManager()
-                                .elevatedButtonStyleCategory8Active
-                            : ElevatedButtonStyleManager()
-                                .elevatedButtonStyleCategory8,
+                            ? elevatedButtonStyleCategory8Active
+                            : elevatedButtonStyleCategory8,
                         child: Text(
                           controller.categoryNames.first.electronics,
                           style: controller.categoryNames.first.pressed.value ||
                                   controller.categoryNames.first
                                       .pressedElectronics.value
-                              ? TextStyles().style_12
-                              : TextStyles().style_6,
+                              ? style_12
+                              : style_6,
                         ),
                       ),
                     ),
@@ -255,7 +239,7 @@ class CategorySelection extends BaseStatelessScreen {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20, left: 16),
+                padding: const EdgeInsets.only(top: 5, left: 16, right: 16),
                 child: Wrap(
                   direction: Axis.horizontal,
                   children: <Widget>[
@@ -266,21 +250,19 @@ class CategorySelection extends BaseStatelessScreen {
                       style: controller.categoryNames.first.pressed.value ||
                               controller
                                   .categoryNames.first.pressedServices.value
-                          ? ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory9Active
-                          : ElevatedButtonStyleManager()
-                              .elevatedButtonStyleCategory9,
+                          ? elevatedButtonStyleCategory9Active
+                          : elevatedButtonStyleCategory9,
                       child: Text(
                         controller.categoryNames.first.services,
                         style: controller.categoryNames.first.pressed.value ||
                                 controller
                                     .categoryNames.first.pressedServices.value
-                            ? TextStyles().style_12
-                            : TextStyles().style_6,
+                            ? style_12
+                            : style_6,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 46),
+                      padding: const EdgeInsets.only(left: 10),
                       child: ElevatedButton(
                         onPressed: () {
                           controller.categoryNames.first.pressedEntertainment
@@ -289,17 +271,15 @@ class CategorySelection extends BaseStatelessScreen {
                         style: controller.categoryNames.first.pressed.value ||
                                 controller.categoryNames.first
                                     .pressedEntertainment.value
-                            ? ElevatedButtonStyleManager()
-                                .elevatedButtonStyleCategory10Active
-                            : ElevatedButtonStyleManager()
-                                .elevatedButtonStyleCategory10,
+                            ? elevatedButtonStyleCategory10Active
+                            : elevatedButtonStyleCategory10,
                         child: Text(
                           controller.categoryNames.first.entertainment,
                           style: controller.categoryNames.first.pressed.value ||
                                   controller.categoryNames.first
                                       .pressedEntertainment.value
-                              ? TextStyles().style_12
-                              : TextStyles().style_6,
+                              ? style_12
+                              : style_6,
                         ),
                       ),
                     ),
@@ -307,7 +287,7 @@ class CategorySelection extends BaseStatelessScreen {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 26, right: 14, top: 30),
+                padding: const EdgeInsets.only(left: 26, right: 16, top: 20),
                 child: Wrap(
                   children: <Widget>[
                     Obx(() => IconButton(
@@ -323,7 +303,7 @@ class CategorySelection extends BaseStatelessScreen {
                       padding: const EdgeInsets.only(left: 10, top: 12),
                       child: Text(
                         "Выбрать все",
-                        style: TextStyles().style_3,
+                        style: style_3,
                       ),
                     ),
                   ],
@@ -331,27 +311,36 @@ class CategorySelection extends BaseStatelessScreen {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 100, left: 16, right: 16, bottom: 40),
+                    top: 70, left: 16, right: 16, bottom: 40),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.pushNamed(context, bottomNavBar);
                     },
-                    style: controller.categoryNames.first.pressed.value || controller.categoryNames.first.pressedCafe.value ||
-                        controller.categoryNames.first.pressedClothes.value || controller.categoryNames.first.pressedElectronics.value ||
-                        controller.categoryNames.first.pressedEntertainment.value || controller.categoryNames.first.pressedServices.value ||
-                        controller.categoryNames.first.pressedBaby.value || controller.categoryNames.first.pressedBeauty.value ||
-                        controller.categoryNames.first.pressedCar.value || controller.categoryNames.first.pressedTrips.value||
-                        controller.categoryNames.first.pressedMarket.value
-                        ? ElevatedButtonStyleManager().elevatedButtonStyleStart
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleStart2,
+                    style: controller.categoryNames.first.pressed.value ||
+                            controller.categoryNames.first.pressedCafe.value ||
+                            controller
+                                .categoryNames.first.pressedClothes.value ||
+                            controller
+                                .categoryNames.first.pressedElectronics.value ||
+                            controller.categoryNames.first.pressedEntertainment
+                                .value ||
+                            controller
+                                .categoryNames.first.pressedServices.value ||
+                            controller.categoryNames.first.pressedBaby.value ||
+                            controller
+                                .categoryNames.first.pressedBeauty.value ||
+                            controller.categoryNames.first.pressedCar.value ||
+                            controller.categoryNames.first.pressedTrips.value ||
+                            controller.categoryNames.first.pressedMarket.value
+                        ? elevatedButtonStyleStart
+                        : elevatedButtonStyleStart2,
                     child: Text(
                       "ДЕЛЕЕ",
                       style: controller.categoryNames.first.pressed.value
-                          ? TextStyles().style_5
-                          : TextStyles().style_8,
+                          ? style_5
+                          : style_8,
                     ),
                   ),
                 ),
@@ -368,5 +357,4 @@ class CategorySelection extends BaseStatelessScreen {
     // TODO: implement buildBody
     throw UnimplementedError();
   }
-
 }

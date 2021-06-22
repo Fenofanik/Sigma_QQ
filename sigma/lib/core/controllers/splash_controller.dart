@@ -15,7 +15,7 @@ class SplashController extends GetxController{
     return Timer(_duration, navigationPage);
   }
   void navigationPage() {
-   Get.toNamed(onBoarding); //onBoarding  //bottomNavBar
+   Get.toNamed(onBoarding); //onBoarding  //bottomNavBar //otp
   }
 
   @override

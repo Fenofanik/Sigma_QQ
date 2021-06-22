@@ -23,7 +23,7 @@ class SignInScreen extends BaseStatelessScreen {
             padding: const EdgeInsets.only(top: 70, left: 16, right: 150),
             child: Column(
               children: [
-                Text("Войти\nв аккаунт", style: TextStyles().style_1),
+                Text("Войти\nв аккаунт", style: style_1),
               ],
             ),
           ),
@@ -37,12 +37,12 @@ class SignInScreen extends BaseStatelessScreen {
                   color: borderColor,
                 ),
                 hintText: "Номер телефона",
-                hintStyle: TextStyles().style_2,
+                hintStyle: style_2,
                 contentPadding: const EdgeInsets.only(left: 10),
-                enabledBorder: OutlineInputBorders().styleForBorder,
-                focusedBorder: OutlineInputBorders().styleForBorder,
-                errorBorder: OutlineInputBorders().styleForBorder,
-                focusedErrorBorder: OutlineInputBorders().styleForBorder,
+                enabledBorder: styleForBorder,
+                focusedBorder: styleForBorder,
+                errorBorder: styleForBorder,
+                focusedErrorBorder: styleForBorder,
               ),
               keyboardType: TextInputType.phone,
             ),
@@ -54,14 +54,14 @@ class SignInScreen extends BaseStatelessScreen {
               children: [
                 Text(
                   "Нет аккаунта? ",
-                  style: TextStyles().style_3,
+                  style: style_3,
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, reg);
                   },
                   child:
-                  Text("Зарегистрироваться", style: TextStyles().style_4),
+                  Text("Зарегистрироваться", style: style_4),
                 )
               ],
             ),
@@ -73,12 +73,12 @@ class SignInScreen extends BaseStatelessScreen {
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, category);
+                  Get.toNamed(otp);
                 },
-                style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
+                style: elevatedButtonStyleStart,
                 child: Text(
                   "ВОЙТИ",
-                  style: TextStyles().style_5,
+                  style: style_5,
                 ),
               ),
             ),

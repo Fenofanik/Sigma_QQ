@@ -4,6 +4,7 @@ import 'package:sigma/view/screens/Reg_Screen.dart';
 import 'package:sigma/view/screens/Sign_In_Screen.dart';
 import 'package:sigma/view/screens/history_screens/My_History_screen.dart';
 import 'package:sigma/view/screens/history_screens/filter_for_history.dart';
+import 'package:sigma/view/screens/otp_verification_screen.dart';
 import 'package:sigma/view/screens/splash_screen.dart';
 import 'package:sigma/view/screens/Onboarding_screen.dart';
 import 'package:sigma/view/screens/un_defined_screen.dart';
@@ -30,6 +31,8 @@ class Routers {
         return MaterialPageRoute(builder: (_) => Splash());
       case bottomNavBar:
         return MaterialPageRoute(builder: (_) => MainBottomNavigationBar());
+      case otp:
+        return MaterialPageRoute(builder: (_)=>SmsScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => UndefinedScreen(),

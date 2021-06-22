@@ -17,4 +17,5 @@ class CategoryController extends GetxController {
         trips: "Путешествия"
     )].obs;
 
+
 }

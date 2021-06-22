@@ -20,7 +20,7 @@ class RegScreen extends BaseStatelessScreen {
             padding: const EdgeInsets.only(top: 77, left: 16, right: 170),
             child: Column(
               children: [
-                Text("Создать\nаккаунт", style: TextStyles().style_1),
+                Text("Создать\nаккаунт", style: style_1),
               ],
             ),
           ),
@@ -34,12 +34,12 @@ class RegScreen extends BaseStatelessScreen {
                   color: borderColor,
                 ),
                 hintText: "Номер телефона",
-                hintStyle: TextStyles().style_2,
+                hintStyle: style_2,
                 contentPadding: const EdgeInsets.only(left: 10),
-                enabledBorder: OutlineInputBorders().styleForBorder,
-                focusedBorder: OutlineInputBorders().styleForBorder,
-                errorBorder: OutlineInputBorders().styleForBorder,
-                focusedErrorBorder: OutlineInputBorders().styleForBorder,
+                enabledBorder: styleForBorder,
+                focusedBorder: styleForBorder,
+                errorBorder: styleForBorder,
+                focusedErrorBorder: styleForBorder,
               ),
               keyboardType: TextInputType.phone,
             ),
@@ -54,7 +54,7 @@ class RegScreen extends BaseStatelessScreen {
                     child: Text(
                         "Нажимая кнопку “Далее”, я принимаю условия Пользовательского соглашения и Политику конфиденциальности.",
                         textAlign: TextAlign.center,
-                        style: TextStyles().style_6),
+                        style: style_6),
                   ),
 
                 ],
@@ -68,10 +68,10 @@ class RegScreen extends BaseStatelessScreen {
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                 onPressed: () {},
-                style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
+                style: elevatedButtonStyleStart,
                 child: Text(
                   "ДЕЛЕЕ",
-                  style: TextStyles().style_5,
+                  style: style_5,
                 ),
               ),
             ),

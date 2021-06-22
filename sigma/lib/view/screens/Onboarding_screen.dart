@@ -50,7 +50,7 @@ class OnBoardingScreen extends BaseStatelessScreen {
                         color: _controller.selectedPageIndex.value == index
                             ? forOnBoarding
                             : forOnBoarding2,
-                        borderRadius: RadiusManager().radius,
+                        borderRadius: radius,
                   ),
                 );
                       }
@@ -66,10 +66,10 @@ class OnBoardingScreen extends BaseStatelessScreen {
                   onPressed: () {
                     _controller.forButtonNext();
                   },
-                  style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
+                  style: elevatedButtonStyleStart,
                   child: Text(
                     "ПРОПУСТИТЬ",
-                    style: TextStyles().style_5,
+                    style: style_5,
                   ),
                 ),
               ),

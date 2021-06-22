@@ -41,7 +41,7 @@ class HistoryFilter extends BaseStatelessScreen {
                   padding: const EdgeInsets.only(top: 45),
                   child: Text(
                     "Фильтр",
-                    style: TextStyles().style_7,
+                    style: style_7,
                   ),
                 )
               ],
@@ -50,7 +50,7 @@ class HistoryFilter extends BaseStatelessScreen {
               padding: const EdgeInsets.only(top: 8, left: 16),
               child: Text(
                 "Категории",
-                style: TextStyles().style_10,
+                style: style_10,
               ),
             ),
             Wrap(
@@ -64,16 +64,14 @@ class HistoryFilter extends BaseStatelessScreen {
                     },
                     style: controller.categoryNames.first.pressed.value ||
                             controller.categoryNames.first.pressedCafe.value
-                        ? ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory1Active
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory1,
+                        ? elevatedButtonStyleCategory1Active
+                        : elevatedButtonStyleCategory1,
                     child: Text(
                         controller.categoryNames.first.cafesAndRestaurants,
                         style: controller.categoryNames.first.pressed.value ||
                                 controller.categoryNames.first.pressedCafe.value
-                            ? TextStyles().style_12
-                            : TextStyles().style_6),
+                            ? style_12
+                            : style_6),
                   ),
                 ),
                 Padding(
@@ -84,16 +82,14 @@ class HistoryFilter extends BaseStatelessScreen {
                     },
                     style: controller.categoryNames.first.pressed.value ||
                             controller.categoryNames.first.pressedMarket.value
-                        ? ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory5Active
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory5,
+                        ? elevatedButtonStyleCategory5Active
+                        : elevatedButtonStyleCategory5,
                     child: Text(
                       controller.categoryNames.first.marketplaces,
                       style: controller.categoryNames.first.pressed.value ||
                               controller.categoryNames.first.pressedMarket.value
-                          ? TextStyles().style_12
-                          : TextStyles().style_6,
+                          ? style_12
+                          : style_6,
                     ),
                   ),
                 ),
@@ -110,16 +106,14 @@ class HistoryFilter extends BaseStatelessScreen {
                     },
                     style: controller.categoryNames.first.pressed.value ||
                             controller.categoryNames.first.pressedCar.value
-                        ? ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory3Active
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory3,
+                        ? elevatedButtonStyleCategory3Active
+                        : elevatedButtonStyleCategory3,
                     child: Text(
                       controller.categoryNames.first.car,
                       style: controller.categoryNames.first.pressed.value ||
                               controller.categoryNames.first.pressedCar.value
-                          ? TextStyles().style_12
-                          : TextStyles().style_6,
+                          ? style_12
+                          : style_6,
                     ),
                   ),
                 ),
@@ -131,16 +125,14 @@ class HistoryFilter extends BaseStatelessScreen {
                     },
                     style: controller.categoryNames.first.pressed.value ||
                             controller.categoryNames.first.pressedBaby.value
-                        ? ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory6Active
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory6,
+                        ? elevatedButtonStyleCategory6Active
+                        : elevatedButtonStyleCategory6,
                     child: Text(
                       controller.categoryNames.first.baby,
                       style: controller.categoryNames.first.pressed.value ||
                               controller.categoryNames.first.pressedBaby.value
-                          ? TextStyles().style_12
-                          : TextStyles().style_6,
+                          ? style_12
+                          : style_6,
                     ),
                   ),
                 ),
@@ -154,17 +146,15 @@ class HistoryFilter extends BaseStatelessScreen {
                     style: controller.categoryNames.first.pressed.value ||
                             controller
                                 .categoryNames.first.pressedElectronics.value
-                        ? ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory8Active
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory8,
+                        ? elevatedButtonStyleCategory8Active
+                        : elevatedButtonStyleCategory8,
                     child: Text(
                       controller.categoryNames.first.electronics,
                       style: controller.categoryNames.first.pressed.value ||
                               controller
                                   .categoryNames.first.pressedElectronics.value
-                          ? TextStyles().style_12
-                          : TextStyles().style_6,
+                          ? style_12
+                          : style_6,
                     ),
                   ),
                 ),
@@ -181,17 +171,15 @@ class HistoryFilter extends BaseStatelessScreen {
                     },
                     style: controller.categoryNames.first.pressed.value ||
                             controller.categoryNames.first.pressedClothes.value
-                        ? ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory7Active
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory7,
+                        ? elevatedButtonStyleCategory7Active
+                        : elevatedButtonStyleCategory7,
                     child: Text(
                       controller.categoryNames.first.clothes,
                       style: controller.categoryNames.first.pressed.value ||
                               controller
                                   .categoryNames.first.pressedClothes.value
-                          ? TextStyles().style_12
-                          : TextStyles().style_6,
+                          ? style_12
+                          : style_6,
                     ),
                   ),
                 ),
@@ -203,17 +191,15 @@ class HistoryFilter extends BaseStatelessScreen {
                     },
                     style: controller.categoryNames.first.pressed.value ||
                             controller.categoryNames.first.pressedServices.value
-                        ? ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory9Active
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory9,
+                        ? elevatedButtonStyleCategory9Active
+                        : elevatedButtonStyleCategory9,
                     child: Text(
                       controller.categoryNames.first.services,
                       style: controller.categoryNames.first.pressed.value ||
                               controller
                                   .categoryNames.first.pressedServices.value
-                          ? TextStyles().style_12
-                          : TextStyles().style_6,
+                          ? style_12
+                          : style_6,
                     ),
                   ),
                 ),
@@ -230,16 +216,14 @@ class HistoryFilter extends BaseStatelessScreen {
                     },
                     style: controller.categoryNames.first.pressed.value ||
                             controller.categoryNames.first.pressedTrips.value
-                        ? ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory2Active
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory2,
+                        ? elevatedButtonStyleCategory2Active
+                        : elevatedButtonStyleCategory2,
                     child: Text(
                       controller.categoryNames.first.trips,
                       style: controller.categoryNames.first.pressed.value ||
                               controller.categoryNames.first.pressedTrips.value
-                          ? TextStyles().style_12
-                          : TextStyles().style_6,
+                          ? style_12
+                          : style_6,
                     ),
                   ),
                 ),
@@ -251,16 +235,14 @@ class HistoryFilter extends BaseStatelessScreen {
                     },
                     style: controller.categoryNames.first.pressed.value ||
                             controller.categoryNames.first.pressedBeauty.value
-                        ? ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory4Active
-                        : ElevatedButtonStyleManager()
-                            .elevatedButtonStyleCategory4,
+                        ? elevatedButtonStyleCategory4Active
+                        : elevatedButtonStyleCategory4,
                     child: Text(
                       controller.categoryNames.first.beauty,
                       style: controller.categoryNames.first.pressed.value ||
                               controller.categoryNames.first.pressedBeauty.value
-                          ? TextStyles().style_12
-                          : TextStyles().style_6,
+                          ? style_12
+                          : style_6,
                     ),
                   ),
                 ),
@@ -275,17 +257,15 @@ class HistoryFilter extends BaseStatelessScreen {
                 style: controller.categoryNames.first.pressed.value ||
                         controller
                             .categoryNames.first.pressedEntertainment.value
-                    ? ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory10Active
-                    : ElevatedButtonStyleManager()
-                        .elevatedButtonStyleCategory10,
+                    ? elevatedButtonStyleCategory10Active
+                    : elevatedButtonStyleCategory10,
                 child: Text(
                   controller.categoryNames.first.entertainment,
                   style: controller.categoryNames.first.pressed.value ||
                           controller
                               .categoryNames.first.pressedEntertainment.value
-                      ? TextStyles().style_12
-                      : TextStyles().style_6,
+                      ? style_12
+                      : style_6,
                 ),
               ),
             ),
@@ -293,7 +273,7 @@ class HistoryFilter extends BaseStatelessScreen {
               padding: const EdgeInsets.only(top: 30, left: 16),
               child: Text(
                 "Расстояние",
-                style: TextStyles().style_10,
+                style: style_10,
               ),
             ),
             Padding(
@@ -311,7 +291,7 @@ class HistoryFilter extends BaseStatelessScreen {
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       "ближайшие",
-                      style: TextStyles().style_3,
+                      style: style_3,
                     ),
                   )
                 ],
@@ -334,7 +314,7 @@ class HistoryFilter extends BaseStatelessScreen {
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       "все",
-                      style: TextStyles().style_3,
+                      style: style_3,
                     ),
                   )
                 ],
@@ -347,10 +327,10 @@ class HistoryFilter extends BaseStatelessScreen {
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
                   onPressed: () {},
-                  style: ElevatedButtonStyleManager().elevatedButtonStyleStart,
+                  style: elevatedButtonStyleStart,
                   child: Text(
                     "ПРИМЕНИТЬ",
-                    style: TextStyles().style_11,
+                    style: style_11,
                   ),
                 ),
               ),

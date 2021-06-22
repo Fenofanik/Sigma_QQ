@@ -1,800 +1,577 @@
-define(['dart_sdk'], (function load__packages__get__get_rx__src__rx_stream__rx_stream_dart(dart_sdk) {
+define(['dart_sdk', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/rendering/sliver_multi_box_adaptor.dart'], (function load__packages__flutter__src__rendering__sliver_grid_dart(dart_sdk, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const _interceptors = dart_sdk._interceptors;
-  const async = dart_sdk.async;
-  const _internal = dart_sdk._internal;
+  const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var rx_stream = Object.create(dart.library);
-  var $remove = dartx.remove;
-  var $add = dartx.add;
-  var $length = dartx.length;
-  var $isNotEmpty = dartx.isNotEmpty;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const sliver_multi_box_adaptor = packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart.src__rendering__sliver_multi_box_adaptor;
+  var sliver_grid = Object.create(dart.library);
+  var $join = dartx.join;
+  var $truncate = dartx.truncate;
+  var $ceil = dartx.ceil;
+  var $modulo = dartx['%'];
+  var $_equals = dartx._equals;
+  var $runtimeType = dartx.runtimeType;
+  var $isFinite = dartx.isFinite;
+  var $clamp = dartx.clamp;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    boolN: () => (T$.boolN = dart.constFn(dart.nullable(core.bool)))(),
-    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))()
+  var T = {
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   var I = [
-    "file:///D:/FlutterALL/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.1.4/lib/get_rx/src/rx_stream/get_stream.dart",
-    "package:get/get_rx/src/rx_stream/rx_stream.dart"
+    "package:flutter/src/rendering/sliver_grid.dart",
+    "file:///D:/FlutterALL/flutter/packages/flutter/lib/src/rendering/sliver_grid.dart"
   ];
-  var onListen$ = dart.privateName(rx_stream, "GetStream.onListen");
-  var onPause$ = dart.privateName(rx_stream, "GetStream.onPause");
-  var onResume$ = dart.privateName(rx_stream, "GetStream.onResume");
-  var onCancel$ = dart.privateName(rx_stream, "GetStream.onCancel");
-  var _onData = dart.privateName(rx_stream, "_onData");
-  var _isBusy = dart.privateName(rx_stream, "_isBusy");
-  var _value = dart.privateName(rx_stream, "_value");
-  var _data = dart.privateName(rx_stream, "_data");
-  var _notifyData = dart.privateName(rx_stream, "_notifyData");
-  var _onError = dart.privateName(rx_stream, "_onError");
-  var _onDone = dart.privateName(rx_stream, "_onDone");
-  var _notifyError = dart.privateName(rx_stream, "_notifyError");
-  var _notifyDone = dart.privateName(rx_stream, "_notifyDone");
-  const _is_GetStream_default = Symbol('_is_GetStream_default');
-  rx_stream.GetStream$ = dart.generic(T => {
-    var LightSubscriptionOfT = () => (LightSubscriptionOfT = dart.constFn(rx_stream.LightSubscription$(T)))();
-    var JSArrayOfLightSubscriptionOfT = () => (JSArrayOfLightSubscriptionOfT = dart.constFn(_interceptors.JSArray$(LightSubscriptionOfT())))();
-    var TTovoid = () => (TTovoid = dart.constFn(dart.fnType(dart.void, [T])))();
-    var TToNvoid = () => (TToNvoid = dart.constFn(dart.nullable(TTovoid())))();
-    var GetStreamTransformationOfT = () => (GetStreamTransformationOfT = dart.constFn(rx_stream.GetStreamTransformation$(T)))();
-    class GetStream extends core.Object {
-      get onListen() {
-        return this[onListen$];
-      }
-      set onListen(value) {
-        this[onListen$] = value;
-      }
-      get onPause() {
-        return this[onPause$];
-      }
-      set onPause(value) {
-        this[onPause$] = value;
-      }
-      get onResume() {
-        return this[onResume$];
-      }
-      set onResume(value) {
-        this[onResume$] = value;
-      }
-      get onCancel() {
-        return this[onCancel$];
-      }
-      set onCancel(value) {
-        this[onCancel$] = value;
-      }
-      removeSubscription(subs) {
-        LightSubscriptionOfT().as(subs);
-        return async.async(T$.boolN(), (function* removeSubscription() {
-          let t0;
-          if (!dart.nullCheck(this[_isBusy])) {
-            return dart.nullCheck(this[_onData])[$remove](subs);
-          } else {
-            yield async.Future.delayed(core.Duration.zero);
-            t0 = this[_onData];
-            return t0 == null ? null : t0[$remove](subs);
-          }
-        }).bind(this));
-      }
-      addSubscription(subs) {
-        LightSubscriptionOfT().as(subs);
-        return async.async(dart.void, (function* addSubscription() {
-          if (!dart.nullCheck(this[_isBusy])) {
-            return dart.nullCheck(this[_onData])[$add](subs);
-          } else {
-            yield async.Future.delayed(core.Duration.zero);
-            return dart.nullCheck(this[_onData])[$add](subs);
-          }
-        }).bind(this));
-      }
-      get length() {
-        let t0;
-        t0 = this[_onData];
-        return t0 == null ? null : t0[$length];
-      }
-      get hasListeners() {
-        return dart.nullCheck(this[_onData])[$isNotEmpty];
-      }
-      [_notifyData](data) {
-        let t0;
-        this[_isBusy] = true;
-        for (let item of dart.nullCheck(this[_onData])) {
-          if (!item.isPaused) {
-            t0 = TToNvoid().as(item[_data]);
-            t0 == null ? null : t0(data);
-          }
-        }
-        this[_isBusy] = false;
-      }
-      [_notifyError](error, stackTrace = null) {
-        let t0, t0$, t0$0;
-        if (!!this.isClosed) dart.assertFailed("You cannot add errors to a closed stream.", I[0], 54, 12, "!isClosed");
-        this[_isBusy] = true;
-        let itemsToRemove = JSArrayOfLightSubscriptionOfT().of([]);
-        for (let item of dart.nullCheck(this[_onData])) {
-          if (!item.isPaused) {
-            if (stackTrace != null) {
-              t0 = item[_onError];
-              t0 == null ? null : dart.dcall(t0, [error, stackTrace]);
-            } else {
-              t0$ = item[_onError];
-              t0$ == null ? null : dart.dcall(t0$, [error]);
-            }
-            if (dart.nullCheck(item.cancelOnError)) {
-              itemsToRemove[$add](item);
-              item.pause();
-              t0$0 = item[_onDone];
-              t0$0 == null ? null : t0$0();
-            }
-          }
-        }
-        for (let item of itemsToRemove) {
-          dart.nullCheck(this[_onData])[$remove](item);
-        }
-        this[_isBusy] = false;
-      }
-      [_notifyDone]() {
-        let t0;
-        if (!!this.isClosed) dart.assertFailed("You cannot close a closed stream.", I[0], 80, 12, "!isClosed");
-        this[_isBusy] = true;
-        for (let item of dart.nullCheck(this[_onData])) {
-          if (!item.isPaused) {
-            t0 = item[_onDone];
-            t0 == null ? null : t0();
-          }
-        }
-        this[_isBusy] = false;
-      }
-      get value() {
-        return this[_value];
-      }
-      add(event) {
-        T.as(event);
-        if (!!this.isClosed) dart.assertFailed("You cannot add event to closed Stream", I[0], 95, 12, "!isClosed");
-        this[_value] = event;
-        this[_notifyData](event);
-      }
-      get isClosed() {
-        return this[_onData] == null;
-      }
-      addError(error, stackTrace = null) {
-        if (!!this.isClosed) dart.assertFailed("You cannot add error to closed Stream", I[0], 103, 12, "!isClosed");
-        this[_notifyError](error, stackTrace);
-      }
-      close() {
-        if (!!this.isClosed) dart.assertFailed("You cannot close a closed Stream", I[0], 108, 12, "!isClosed");
-        this[_notifyDone]();
-        this[_onData] = null;
-        this[_isBusy] = null;
-        this[_value] = null;
-      }
-      listen(onData, opts) {
-        let t0, t0$;
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
-        let subs = (t0 = new (LightSubscriptionOfT()).new(dart.bind(this, 'removeSubscription'), {onPause: this.onPause, onResume: this.onResume, onCancel: this.onCancel}), (() => {
-          t0.onData(onData);
-          t0.onError(onError);
-          t0.onDone(onDone);
-          t0.cancelOnError = cancelOnError;
-          return t0;
-        })());
-        this.addSubscription(subs);
-        t0$ = this.onListen;
-        t0$ == null ? null : t0$();
-        return subs;
-      }
-      get stream() {
-        return new (GetStreamTransformationOfT()).new(dart.bind(this, 'addSubscription'), dart.bind(this, 'removeSubscription'));
-      }
+  var scrollOffset$ = dart.privateName(sliver_grid, "SliverGridGeometry.scrollOffset");
+  var crossAxisOffset$ = dart.privateName(sliver_grid, "SliverGridGeometry.crossAxisOffset");
+  var mainAxisExtent$ = dart.privateName(sliver_grid, "SliverGridGeometry.mainAxisExtent");
+  var crossAxisExtent$ = dart.privateName(sliver_grid, "SliverGridGeometry.crossAxisExtent");
+  sliver_grid.SliverGridGeometry = class SliverGridGeometry extends core.Object {
+    get scrollOffset() {
+      return this[scrollOffset$];
     }
-    (GetStream.new = function(opts) {
-      let onListen = opts && 'onListen' in opts ? opts.onListen : null;
-      let onPause = opts && 'onPause' in opts ? opts.onPause : null;
-      let onResume = opts && 'onResume' in opts ? opts.onResume : null;
-      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
-      this[_onData] = JSArrayOfLightSubscriptionOfT().of([]);
-      this[_isBusy] = false;
-      this[_value] = null;
-      this[onListen$] = onListen;
-      this[onPause$] = onPause;
-      this[onResume$] = onResume;
-      this[onCancel$] = onCancel;
-      ;
-    }).prototype = GetStream.prototype;
-    dart.addTypeTests(GetStream);
-    GetStream.prototype[_is_GetStream_default] = true;
-    dart.addTypeCaches(GetStream);
-    dart.setMethodSignature(GetStream, () => ({
-      __proto__: dart.getMethods(GetStream.__proto__),
-      removeSubscription: dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [dart.nullable(core.Object)]),
-      addSubscription: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [_notifyData]: dart.fnType(dart.void, [T]),
-      [_notifyError]: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      [_notifyDone]: dart.fnType(dart.void, []),
-      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      close: dart.fnType(dart.void, []),
-      listen: dart.fnType(rx_stream.LightSubscription$(T), [dart.fnType(dart.void, [T])], {cancelOnError: dart.nullable(core.bool), onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {})
-    }));
-    dart.setGetterSignature(GetStream, () => ({
-      __proto__: dart.getGetters(GetStream.__proto__),
-      length: dart.nullable(core.int),
-      hasListeners: core.bool,
-      value: dart.nullable(T),
-      isClosed: core.bool,
-      stream: async.Stream$(T)
-    }));
-    dart.setLibraryUri(GetStream, I[1]);
-    dart.setFieldSignature(GetStream, () => ({
-      __proto__: dart.getFields(GetStream.__proto__),
-      onListen: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onPause: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onResume: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      [_onData]: dart.fieldType(dart.nullable(core.List$(rx_stream.LightSubscription$(T)))),
-      [_isBusy]: dart.fieldType(dart.nullable(core.bool)),
-      [_value]: dart.fieldType(dart.nullable(T))
-    }));
-    return GetStream;
-  });
-  rx_stream.GetStream = rx_stream.GetStream$();
-  dart.addTypeTests(rx_stream.GetStream, _is_GetStream_default);
-  var onPause$0 = dart.privateName(rx_stream, "LightSubscription.onPause");
-  var onResume$0 = dart.privateName(rx_stream, "LightSubscription.onResume");
-  var onCancel$0 = dart.privateName(rx_stream, "LightSubscription.onCancel");
-  var cancelOnError = dart.privateName(rx_stream, "LightSubscription.cancelOnError");
-  var _isPaused = dart.privateName(rx_stream, "_isPaused");
-  var _removeSubscription$ = dart.privateName(rx_stream, "_removeSubscription");
-  const _is_LightSubscription_default = Symbol('_is_LightSubscription_default');
-  rx_stream.LightSubscription$ = dart.generic(T => {
-    class LightSubscription extends async.StreamSubscription$(T) {
-      get onPause() {
-        return this[onPause$0];
-      }
-      set onPause(value) {
-        super.onPause = value;
-      }
-      get onResume() {
-        return this[onResume$0];
-      }
-      set onResume(value) {
-        super.onResume = value;
-      }
-      get onCancel() {
-        return this[onCancel$0];
-      }
-      set onCancel(value) {
-        super.onCancel = value;
-      }
-      get cancelOnError() {
-        return this[cancelOnError];
-      }
-      set cancelOnError(value) {
-        this[cancelOnError] = value;
-      }
-      cancel() {
-        let t0;
-        this[_removeSubscription$](this);
-        t0 = this.onCancel;
-        t0 == null ? null : t0();
-        return T$.FutureOfvoid().value();
-      }
-      onData(handleData) {
-        return this[_data] = handleData;
-      }
-      onError(handleError) {
-        return this[_onError] = handleError;
-      }
-      onDone(handleDone) {
-        return this[_onDone] = handleDone;
-      }
-      pause(resumeSignal = null) {
-        let t0;
-        this[_isPaused] = true;
-        t0 = this.onPause;
-        t0 == null ? null : t0();
-      }
-      resume() {
-        let t0;
-        this[_isPaused] = false;
-        t0 = this.onResume;
-        t0 == null ? null : t0();
-      }
-      get isPaused() {
-        return this[_isPaused];
-      }
-      asFuture(E, futureValue = null) {
-        return async.Future$(E).value(futureValue);
-      }
+    set scrollOffset(value) {
+      super.scrollOffset = value;
     }
-    (LightSubscription.new = function(_removeSubscription, opts) {
-      let onPause = opts && 'onPause' in opts ? opts.onPause : null;
-      let onResume = opts && 'onResume' in opts ? opts.onResume : null;
-      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
-      this[cancelOnError] = false;
-      this[_data] = null;
-      this[_onError] = null;
-      this[_onDone] = null;
-      this[_isPaused] = false;
-      this[_removeSubscription$] = _removeSubscription;
-      this[onPause$0] = onPause;
-      this[onResume$0] = onResume;
-      this[onCancel$0] = onCancel;
-      ;
-    }).prototype = LightSubscription.prototype;
-    dart.addTypeTests(LightSubscription);
-    LightSubscription.prototype[_is_LightSubscription_default] = true;
-    dart.addTypeCaches(LightSubscription);
-    dart.setMethodSignature(LightSubscription, () => ({
-      __proto__: dart.getMethods(LightSubscription.__proto__),
-      cancel: dart.fnType(async.Future$(dart.void), []),
-      onData: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, [T]))]),
-      onError: dart.fnType(dart.void, [dart.nullable(core.Function)]),
-      onDone: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, []))]),
-      pause: dart.fnType(dart.void, [], [dart.nullable(async.Future$(dart.void))]),
-      resume: dart.fnType(dart.void, []),
-      asFuture: dart.gFnType(E => [async.Future$(E), [], [dart.nullable(E)]], E => [dart.nullable(core.Object)])
-    }));
-    dart.setGetterSignature(LightSubscription, () => ({
-      __proto__: dart.getGetters(LightSubscription.__proto__),
-      isPaused: core.bool
-    }));
-    dart.setLibraryUri(LightSubscription, I[1]);
-    dart.setFieldSignature(LightSubscription, () => ({
-      __proto__: dart.getFields(LightSubscription.__proto__),
-      [_removeSubscription$]: dart.finalFieldType(dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [rx_stream.LightSubscription$(T)])),
-      onPause: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onResume: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onCancel: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      cancelOnError: dart.fieldType(dart.nullable(core.bool)),
-      [_data]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [T]))),
-      [_onError]: dart.fieldType(dart.nullable(core.Function)),
-      [_onDone]: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      [_isPaused]: dart.fieldType(core.bool)
-    }));
-    return LightSubscription;
-  });
-  rx_stream.LightSubscription = rx_stream.LightSubscription$();
-  dart.addTypeTests(rx_stream.LightSubscription, _is_LightSubscription_default);
-  var _addSubscription$ = dart.privateName(rx_stream, "_addSubscription");
-  const _is_GetStreamTransformation_default = Symbol('_is_GetStreamTransformation_default');
-  rx_stream.GetStreamTransformation$ = dart.generic(T => {
-    var LightSubscriptionOfT = () => (LightSubscriptionOfT = dart.constFn(rx_stream.LightSubscription$(T)))();
-    class GetStreamTransformation extends async.Stream$(T) {
-      listen(onData, opts) {
-        let t0, t0$;
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
-        let subs = (t0 = new (LightSubscriptionOfT()).new(this[_removeSubscription$]), (() => {
-          t0.onData(onData);
-          t0.onError(onError);
-          t0.onDone(onDone);
-          return t0;
-        })());
-        t0$ = subs;
-        this[_addSubscription$](t0$);
-        return subs;
-      }
+    get crossAxisOffset() {
+      return this[crossAxisOffset$];
     }
-    (GetStreamTransformation.new = function(_addSubscription, _removeSubscription) {
-      this[_addSubscription$] = _addSubscription;
-      this[_removeSubscription$] = _removeSubscription;
-      GetStreamTransformation.__proto__.new.call(this);
-      ;
-    }).prototype = GetStreamTransformation.prototype;
-    dart.addTypeTests(GetStreamTransformation);
-    GetStreamTransformation.prototype[_is_GetStreamTransformation_default] = true;
-    dart.addTypeCaches(GetStreamTransformation);
-    dart.setMethodSignature(GetStreamTransformation, () => ({
-      __proto__: dart.getMethods(GetStreamTransformation.__proto__),
-      listen: dart.fnType(rx_stream.LightSubscription$(T), [dart.nullable(dart.fnType(dart.void, [T]))], {cancelOnError: dart.nullable(core.bool), onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {})
-    }));
-    dart.setLibraryUri(GetStreamTransformation, I[1]);
-    dart.setFieldSignature(GetStreamTransformation, () => ({
-      __proto__: dart.getFields(GetStreamTransformation.__proto__),
-      [_addSubscription$]: dart.finalFieldType(dart.fnType(dart.void, [rx_stream.LightSubscription$(T)])),
-      [_removeSubscription$]: dart.finalFieldType(dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [rx_stream.LightSubscription$(T)]))
-    }));
-    return GetStreamTransformation;
-  });
-  rx_stream.GetStreamTransformation = rx_stream.GetStreamTransformation$();
-  dart.addTypeTests(rx_stream.GetStreamTransformation, _is_GetStreamTransformation_default);
-  var data$ = dart.privateName(rx_stream, "Node.data");
-  var next$ = dart.privateName(rx_stream, "Node.next");
-  const _is_Node_default = Symbol('_is_Node_default');
-  rx_stream.Node$ = dart.generic(T => {
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    var NodeOfT = () => (NodeOfT = dart.constFn(rx_stream.Node$(T)))();
-    var NodeNOfT = () => (NodeNOfT = dart.constFn(dart.nullable(NodeOfT())))();
-    class Node extends core.Object {
-      get data() {
-        return this[data$];
-      }
-      set data(value) {
-        this[data$] = TN().as(value);
-      }
-      get next() {
-        return this[next$];
-      }
-      set next(value) {
-        this[next$] = NodeNOfT().as(value);
-      }
+    set crossAxisOffset(value) {
+      super.crossAxisOffset = value;
     }
-    (Node.new = function(opts) {
-      let data = opts && 'data' in opts ? opts.data : null;
-      let next = opts && 'next' in opts ? opts.next : null;
-      this[data$] = data;
-      this[next$] = next;
-      ;
-    }).prototype = Node.prototype;
-    dart.addTypeTests(Node);
-    Node.prototype[_is_Node_default] = true;
-    dart.addTypeCaches(Node);
-    dart.setLibraryUri(Node, I[1]);
-    dart.setFieldSignature(Node, () => ({
-      __proto__: dart.getFields(Node.__proto__),
-      data: dart.fieldType(dart.nullable(T)),
-      next: dart.fieldType(dart.nullable(rx_stream.Node$(T)))
-    }));
-    return Node;
-  });
-  rx_stream.Node = rx_stream.Node$();
-  dart.addTypeTests(rx_stream.Node, _is_Node_default);
-  var data$0 = dart.privateName(rx_stream, "MiniSubscription.data");
-  var onError$ = dart.privateName(rx_stream, "MiniSubscription.onError");
-  var onDone$ = dart.privateName(rx_stream, "MiniSubscription.onDone");
-  var cancelOnError$ = dart.privateName(rx_stream, "MiniSubscription.cancelOnError");
-  var listener$ = dart.privateName(rx_stream, "MiniSubscription.listener");
-  const _is_MiniSubscription_default = Symbol('_is_MiniSubscription_default');
-  rx_stream.MiniSubscription$ = dart.generic(T => {
-    class MiniSubscription extends core.Object {
-      get data() {
-        return this[data$0];
-      }
-      set data(value) {
-        super.data = value;
-      }
-      get onError() {
-        return this[onError$];
-      }
-      set onError(value) {
-        super.onError = value;
-      }
-      get onDone() {
-        return this[onDone$];
-      }
-      set onDone(value) {
-        super.onDone = value;
-      }
-      get cancelOnError() {
-        return this[cancelOnError$];
-      }
-      set cancelOnError(value) {
-        super.cancelOnError = value;
-      }
-      get listener() {
-        return this[listener$];
-      }
-      set listener(value) {
-        super.listener = value;
-      }
-      cancel() {
-        return async.async(dart.void, (function* cancel() {
-          return this.listener.removeListener(this);
-        }).bind(this));
-      }
+    get mainAxisExtent() {
+      return this[mainAxisExtent$];
     }
-    (MiniSubscription.new = function(data, onError, onDone, cancelOnError, listener) {
-      this[data$0] = data;
-      this[onError$] = onError;
-      this[onDone$] = onDone;
-      this[cancelOnError$] = cancelOnError;
-      this[listener$] = listener;
-      ;
-    }).prototype = MiniSubscription.prototype;
-    dart.addTypeTests(MiniSubscription);
-    MiniSubscription.prototype[_is_MiniSubscription_default] = true;
-    dart.addTypeCaches(MiniSubscription);
-    dart.setMethodSignature(MiniSubscription, () => ({
-      __proto__: dart.getMethods(MiniSubscription.__proto__),
-      cancel: dart.fnType(async.Future$(dart.void), [])
-    }));
-    dart.setLibraryUri(MiniSubscription, I[1]);
-    dart.setFieldSignature(MiniSubscription, () => ({
-      __proto__: dart.getFields(MiniSubscription.__proto__),
-      data: dart.finalFieldType(dart.fnType(dart.void, [T])),
-      onError: dart.finalFieldType(dart.nullable(core.Function)),
-      onDone: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      cancelOnError: dart.finalFieldType(core.bool),
-      listener: dart.finalFieldType(rx_stream.FastList$(T))
-    }));
-    return MiniSubscription;
-  });
-  rx_stream.MiniSubscription = rx_stream.MiniSubscription$();
-  dart.addTypeTests(rx_stream.MiniSubscription, _is_MiniSubscription_default);
-  var listenable = dart.privateName(rx_stream, "MiniStream.listenable");
-  var __MiniStream__value = dart.privateName(rx_stream, "_#MiniStream#_value");
-  var __MiniStream__value_isSet = dart.privateName(rx_stream, "_#MiniStream#_value#isSet");
-  var _isClosed = dart.privateName(rx_stream, "_isClosed");
-  const _is_MiniStream_default = Symbol('_is_MiniStream_default');
-  rx_stream.MiniStream$ = dart.generic(T => {
-    var FastListOfT = () => (FastListOfT = dart.constFn(rx_stream.FastList$(T)))();
-    var MiniSubscriptionOfT = () => (MiniSubscriptionOfT = dart.constFn(rx_stream.MiniSubscription$(T)))();
-    class MiniStream extends core.Object {
-      get listenable() {
-        return this[listenable];
-      }
-      set listenable(value) {
-        this[listenable] = FastListOfT().as(value);
-      }
-      get [_value]() {
-        let t0;
-        return this[__MiniStream__value_isSet] ? (t0 = this[__MiniStream__value], t0) : dart.throw(new _internal.LateError.fieldNI("_value"));
-      }
-      set [_value](t0) {
-        this[__MiniStream__value_isSet] = true;
-        this[__MiniStream__value] = t0;
-      }
-      get value() {
-        return this[_value];
-      }
-      set value(val) {
-        T.as(val);
-        this.add(val);
-      }
-      add(event) {
-        T.as(event);
-        this[_value] = event;
-        this.listenable[_notifyData](event);
-      }
-      addError(error, stackTrace = null) {
-        this.listenable[_notifyError](error, stackTrace);
-      }
-      get length() {
-        return this.listenable.length;
-      }
-      get hasListeners() {
-        return this.listenable.isNotEmpty;
-      }
-      get isClosed() {
-        return this[_isClosed];
-      }
-      listen(onData, opts) {
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : false;
-        let subs = new (MiniSubscriptionOfT()).new(onData, onError, onDone, cancelOnError, this.listenable);
-        this.listenable.addListener(subs);
-        return subs;
-      }
-      close() {
-        if (this[_isClosed]) {
-          dart.throw("You can not close a closed Stream");
-        }
-        this.listenable[_notifyDone]();
-        this.listenable.clear();
-        this[_isClosed] = true;
-      }
+    set mainAxisExtent(value) {
+      super.mainAxisExtent = value;
     }
-    (MiniStream.new = function() {
-      this[listenable] = new (FastListOfT()).new();
-      this[__MiniStream__value] = null;
-      this[__MiniStream__value_isSet] = false;
-      this[_isClosed] = false;
-      ;
-    }).prototype = MiniStream.prototype;
-    dart.addTypeTests(MiniStream);
-    MiniStream.prototype[_is_MiniStream_default] = true;
-    dart.addTypeCaches(MiniStream);
-    dart.setMethodSignature(MiniStream, () => ({
-      __proto__: dart.getMethods(MiniStream.__proto__),
-      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      listen: dart.fnType(rx_stream.MiniSubscription$(T), [dart.fnType(dart.void, [T])], {cancelOnError: core.bool, onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {}),
-      close: dart.fnType(dart.void, [])
-    }));
-    dart.setGetterSignature(MiniStream, () => ({
-      __proto__: dart.getGetters(MiniStream.__proto__),
-      [_value]: T,
-      value: T,
-      length: core.int,
-      hasListeners: core.bool,
-      isClosed: core.bool
-    }));
-    dart.setSetterSignature(MiniStream, () => ({
-      __proto__: dart.getSetters(MiniStream.__proto__),
-      [_value]: T,
-      value: dart.nullable(core.Object)
-    }));
-    dart.setLibraryUri(MiniStream, I[1]);
-    dart.setFieldSignature(MiniStream, () => ({
-      __proto__: dart.getFields(MiniStream.__proto__),
-      listenable: dart.fieldType(rx_stream.FastList$(T)),
-      [__MiniStream__value]: dart.fieldType(dart.nullable(T)),
-      [__MiniStream__value_isSet]: dart.fieldType(core.bool),
-      [_isClosed]: dart.fieldType(core.bool)
-    }));
-    return MiniStream;
-  });
-  rx_stream.MiniStream = rx_stream.MiniStream$();
-  dart.addTypeTests(rx_stream.MiniStream, _is_MiniStream_default);
-  var _head = dart.privateName(rx_stream, "_head");
-  var _elementAt = dart.privateName(rx_stream, "_elementAt");
-  var _removeAt = dart.privateName(rx_stream, "_removeAt");
-  const _is_FastList_default = Symbol('_is_FastList_default');
-  rx_stream.FastList$ = dart.generic(T => {
-    var TTovoid = () => (TTovoid = dart.constFn(dart.fnType(dart.void, [T])))();
-    var MiniSubscriptionOfT = () => (MiniSubscriptionOfT = dart.constFn(rx_stream.MiniSubscription$(T)))();
-    var NodeOfMiniSubscriptionOfT = () => (NodeOfMiniSubscriptionOfT = dart.constFn(rx_stream.Node$(MiniSubscriptionOfT())))();
-    class FastList extends core.Object {
-      [_notifyData](data) {
-        let t4, t3, t2, t1, t1$;
-        T.as(data);
-        let currentNode = this[_head];
-        do {
-          t1 = currentNode;
-          t1 == null ? null : (t2 = t1.data, t2 == null ? null : (t3 = t2, t4 = data, TTovoid().as(t3.data)(t4)));
-          currentNode = (t1$ = currentNode, t1$ == null ? null : t1$.next);
-        } while (currentNode != null);
+    get crossAxisExtent() {
+      return this[crossAxisExtent$];
+    }
+    set crossAxisExtent(value) {
+      super.crossAxisExtent = value;
+    }
+    get trailingScrollOffset() {
+      return this.scrollOffset + this.mainAxisExtent;
+    }
+    getBoxConstraints(constraints) {
+      return constraints.asBoxConstraints({minExtent: this.mainAxisExtent, maxExtent: this.mainAxisExtent, crossAxisExtent: this.crossAxisExtent});
+    }
+    toString() {
+      let properties = T.JSArrayOfString().of(["scrollOffset: " + dart.str(this.scrollOffset), "crossAxisOffset: " + dart.str(this.crossAxisOffset), "mainAxisExtent: " + dart.str(this.mainAxisExtent), "crossAxisExtent: " + dart.str(this.crossAxisExtent)]);
+      return "SliverGridGeometry(" + properties[$join](", ") + ")";
+    }
+  };
+  (sliver_grid.SliverGridGeometry.new = function(opts) {
+    let scrollOffset = opts && 'scrollOffset' in opts ? opts.scrollOffset : null;
+    let crossAxisOffset = opts && 'crossAxisOffset' in opts ? opts.crossAxisOffset : null;
+    let mainAxisExtent = opts && 'mainAxisExtent' in opts ? opts.mainAxisExtent : null;
+    let crossAxisExtent = opts && 'crossAxisExtent' in opts ? opts.crossAxisExtent : null;
+    this[scrollOffset$] = scrollOffset;
+    this[crossAxisOffset$] = crossAxisOffset;
+    this[mainAxisExtent$] = mainAxisExtent;
+    this[crossAxisExtent$] = crossAxisExtent;
+    ;
+  }).prototype = sliver_grid.SliverGridGeometry.prototype;
+  dart.addTypeTests(sliver_grid.SliverGridGeometry);
+  dart.addTypeCaches(sliver_grid.SliverGridGeometry);
+  dart.setMethodSignature(sliver_grid.SliverGridGeometry, () => ({
+    __proto__: dart.getMethods(sliver_grid.SliverGridGeometry.__proto__),
+    getBoxConstraints: dart.fnType(box.BoxConstraints, [sliver.SliverConstraints])
+  }));
+  dart.setGetterSignature(sliver_grid.SliverGridGeometry, () => ({
+    __proto__: dart.getGetters(sliver_grid.SliverGridGeometry.__proto__),
+    trailingScrollOffset: core.double
+  }));
+  dart.setLibraryUri(sliver_grid.SliverGridGeometry, I[0]);
+  dart.setFieldSignature(sliver_grid.SliverGridGeometry, () => ({
+    __proto__: dart.getFields(sliver_grid.SliverGridGeometry.__proto__),
+    scrollOffset: dart.finalFieldType(core.double),
+    crossAxisOffset: dart.finalFieldType(core.double),
+    mainAxisExtent: dart.finalFieldType(core.double),
+    crossAxisExtent: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(sliver_grid.SliverGridGeometry, ['toString']);
+  sliver_grid.SliverGridLayout = class SliverGridLayout extends core.Object {};
+  (sliver_grid.SliverGridLayout.new = function() {
+    ;
+  }).prototype = sliver_grid.SliverGridLayout.prototype;
+  dart.addTypeTests(sliver_grid.SliverGridLayout);
+  dart.addTypeCaches(sliver_grid.SliverGridLayout);
+  dart.setLibraryUri(sliver_grid.SliverGridLayout, I[0]);
+  var crossAxisCount$ = dart.privateName(sliver_grid, "SliverGridRegularTileLayout.crossAxisCount");
+  var mainAxisStride$ = dart.privateName(sliver_grid, "SliverGridRegularTileLayout.mainAxisStride");
+  var crossAxisStride$ = dart.privateName(sliver_grid, "SliverGridRegularTileLayout.crossAxisStride");
+  var childMainAxisExtent$ = dart.privateName(sliver_grid, "SliverGridRegularTileLayout.childMainAxisExtent");
+  var childCrossAxisExtent$ = dart.privateName(sliver_grid, "SliverGridRegularTileLayout.childCrossAxisExtent");
+  var reverseCrossAxis$ = dart.privateName(sliver_grid, "SliverGridRegularTileLayout.reverseCrossAxis");
+  var _getOffsetFromStartInCrossAxis = dart.privateName(sliver_grid, "_getOffsetFromStartInCrossAxis");
+  sliver_grid.SliverGridRegularTileLayout = class SliverGridRegularTileLayout extends sliver_grid.SliverGridLayout {
+    get crossAxisCount() {
+      return this[crossAxisCount$];
+    }
+    set crossAxisCount(value) {
+      super.crossAxisCount = value;
+    }
+    get mainAxisStride() {
+      return this[mainAxisStride$];
+    }
+    set mainAxisStride(value) {
+      super.mainAxisStride = value;
+    }
+    get crossAxisStride() {
+      return this[crossAxisStride$];
+    }
+    set crossAxisStride(value) {
+      super.crossAxisStride = value;
+    }
+    get childMainAxisExtent() {
+      return this[childMainAxisExtent$];
+    }
+    set childMainAxisExtent(value) {
+      super.childMainAxisExtent = value;
+    }
+    get childCrossAxisExtent() {
+      return this[childCrossAxisExtent$];
+    }
+    set childCrossAxisExtent(value) {
+      super.childCrossAxisExtent = value;
+    }
+    get reverseCrossAxis() {
+      return this[reverseCrossAxis$];
+    }
+    set reverseCrossAxis(value) {
+      super.reverseCrossAxis = value;
+    }
+    getMinChildIndexForScrollOffset(scrollOffset) {
+      return this.mainAxisStride > 1e-10 ? this.crossAxisCount * (scrollOffset / this.mainAxisStride)[$truncate]() : 0;
+    }
+    getMaxChildIndexForScrollOffset(scrollOffset) {
+      if (this.mainAxisStride > 0.0) {
+        let mainAxisCount = (scrollOffset / this.mainAxisStride)[$ceil]();
+        return math.max(core.int, 0, this.crossAxisCount * mainAxisCount - 1);
       }
-      [_notifyDone]() {
-        let t3, t2, t1, t1$;
-        let currentNode = this[_head];
-        do {
-          t1 = currentNode;
-          t1 == null ? null : (t2 = t1.data, t2 == null ? null : (t3 = t2.onDone, t3 == null ? null : t3()));
-          currentNode = (t1$ = currentNode, t1$ == null ? null : t1$.next);
-        } while (currentNode != null);
+      return 0;
+    }
+    [_getOffsetFromStartInCrossAxis](crossAxisStart) {
+      if (this.reverseCrossAxis) return this.crossAxisCount * this.crossAxisStride - crossAxisStart - this.childCrossAxisExtent - (this.crossAxisStride - this.childCrossAxisExtent);
+      return crossAxisStart;
+    }
+    getGeometryForChildIndex(index) {
+      let crossAxisStart = index[$modulo](this.crossAxisCount) * this.crossAxisStride;
+      return new sliver_grid.SliverGridGeometry.new({scrollOffset: (index / this.crossAxisCount)[$truncate]() * this.mainAxisStride, crossAxisOffset: this[_getOffsetFromStartInCrossAxis](crossAxisStart), mainAxisExtent: this.childMainAxisExtent, crossAxisExtent: this.childCrossAxisExtent});
+    }
+    computeMaxScrollOffset(childCount) {
+      if (!(childCount !== null)) dart.assertFailed(null, I[1], 228, 12, "childCount != null");
+      let mainAxisCount = ((childCount - 1) / this.crossAxisCount)[$truncate]() + 1;
+      let mainAxisSpacing = this.mainAxisStride - this.childMainAxisExtent;
+      return this.mainAxisStride * mainAxisCount - mainAxisSpacing;
+    }
+  };
+  (sliver_grid.SliverGridRegularTileLayout.new = function(opts) {
+    let crossAxisCount = opts && 'crossAxisCount' in opts ? opts.crossAxisCount : null;
+    let mainAxisStride = opts && 'mainAxisStride' in opts ? opts.mainAxisStride : null;
+    let crossAxisStride = opts && 'crossAxisStride' in opts ? opts.crossAxisStride : null;
+    let childMainAxisExtent = opts && 'childMainAxisExtent' in opts ? opts.childMainAxisExtent : null;
+    let childCrossAxisExtent = opts && 'childCrossAxisExtent' in opts ? opts.childCrossAxisExtent : null;
+    let reverseCrossAxis = opts && 'reverseCrossAxis' in opts ? opts.reverseCrossAxis : null;
+    this[crossAxisCount$] = crossAxisCount;
+    this[mainAxisStride$] = mainAxisStride;
+    this[crossAxisStride$] = crossAxisStride;
+    this[childMainAxisExtent$] = childMainAxisExtent;
+    this[childCrossAxisExtent$] = childCrossAxisExtent;
+    this[reverseCrossAxis$] = reverseCrossAxis;
+    if (!(crossAxisCount !== null && crossAxisCount > 0)) dart.assertFailed(null, I[1], 158, 15, "crossAxisCount != null && crossAxisCount > 0");
+    if (!(mainAxisStride !== null && mainAxisStride >= 0)) dart.assertFailed(null, I[1], 159, 15, "mainAxisStride != null && mainAxisStride >= 0");
+    if (!(crossAxisStride !== null && crossAxisStride >= 0)) dart.assertFailed(null, I[1], 160, 15, "crossAxisStride != null && crossAxisStride >= 0");
+    if (!(childMainAxisExtent !== null && childMainAxisExtent >= 0)) dart.assertFailed(null, I[1], 161, 15, "childMainAxisExtent != null && childMainAxisExtent >= 0");
+    if (!(childCrossAxisExtent !== null && childCrossAxisExtent >= 0)) dart.assertFailed(null, I[1], 162, 15, "childCrossAxisExtent != null && childCrossAxisExtent >= 0");
+    if (!(reverseCrossAxis !== null)) dart.assertFailed(null, I[1], 163, 15, "reverseCrossAxis != null");
+    sliver_grid.SliverGridRegularTileLayout.__proto__.new.call(this);
+    ;
+  }).prototype = sliver_grid.SliverGridRegularTileLayout.prototype;
+  dart.addTypeTests(sliver_grid.SliverGridRegularTileLayout);
+  dart.addTypeCaches(sliver_grid.SliverGridRegularTileLayout);
+  dart.setMethodSignature(sliver_grid.SliverGridRegularTileLayout, () => ({
+    __proto__: dart.getMethods(sliver_grid.SliverGridRegularTileLayout.__proto__),
+    getMinChildIndexForScrollOffset: dart.fnType(core.int, [core.double]),
+    getMaxChildIndexForScrollOffset: dart.fnType(core.int, [core.double]),
+    [_getOffsetFromStartInCrossAxis]: dart.fnType(core.double, [core.double]),
+    getGeometryForChildIndex: dart.fnType(sliver_grid.SliverGridGeometry, [core.int]),
+    computeMaxScrollOffset: dart.fnType(core.double, [core.int])
+  }));
+  dart.setLibraryUri(sliver_grid.SliverGridRegularTileLayout, I[0]);
+  dart.setFieldSignature(sliver_grid.SliverGridRegularTileLayout, () => ({
+    __proto__: dart.getFields(sliver_grid.SliverGridRegularTileLayout.__proto__),
+    crossAxisCount: dart.finalFieldType(core.int),
+    mainAxisStride: dart.finalFieldType(core.double),
+    crossAxisStride: dart.finalFieldType(core.double),
+    childMainAxisExtent: dart.finalFieldType(core.double),
+    childCrossAxisExtent: dart.finalFieldType(core.double),
+    reverseCrossAxis: dart.finalFieldType(core.bool)
+  }));
+  sliver_grid.SliverGridDelegate = class SliverGridDelegate extends core.Object {};
+  (sliver_grid.SliverGridDelegate.new = function() {
+    ;
+  }).prototype = sliver_grid.SliverGridDelegate.prototype;
+  dart.addTypeTests(sliver_grid.SliverGridDelegate);
+  dart.addTypeCaches(sliver_grid.SliverGridDelegate);
+  dart.setLibraryUri(sliver_grid.SliverGridDelegate, I[0]);
+  var crossAxisCount$0 = dart.privateName(sliver_grid, "SliverGridDelegateWithFixedCrossAxisCount.crossAxisCount");
+  var mainAxisSpacing$ = dart.privateName(sliver_grid, "SliverGridDelegateWithFixedCrossAxisCount.mainAxisSpacing");
+  var crossAxisSpacing$ = dart.privateName(sliver_grid, "SliverGridDelegateWithFixedCrossAxisCount.crossAxisSpacing");
+  var childAspectRatio$ = dart.privateName(sliver_grid, "SliverGridDelegateWithFixedCrossAxisCount.childAspectRatio");
+  var mainAxisExtent$0 = dart.privateName(sliver_grid, "SliverGridDelegateWithFixedCrossAxisCount.mainAxisExtent");
+  var _debugAssertIsValid = dart.privateName(sliver_grid, "_debugAssertIsValid");
+  sliver_grid.SliverGridDelegateWithFixedCrossAxisCount = class SliverGridDelegateWithFixedCrossAxisCount extends sliver_grid.SliverGridDelegate {
+    get crossAxisCount() {
+      return this[crossAxisCount$0];
+    }
+    set crossAxisCount(value) {
+      super.crossAxisCount = value;
+    }
+    get mainAxisSpacing() {
+      return this[mainAxisSpacing$];
+    }
+    set mainAxisSpacing(value) {
+      super.mainAxisSpacing = value;
+    }
+    get crossAxisSpacing() {
+      return this[crossAxisSpacing$];
+    }
+    set crossAxisSpacing(value) {
+      super.crossAxisSpacing = value;
+    }
+    get childAspectRatio() {
+      return this[childAspectRatio$];
+    }
+    set childAspectRatio(value) {
+      super.childAspectRatio = value;
+    }
+    get mainAxisExtent() {
+      return this[mainAxisExtent$0];
+    }
+    set mainAxisExtent(value) {
+      super.mainAxisExtent = value;
+    }
+    [_debugAssertIsValid]() {
+      if (!(this.crossAxisCount > 0)) dart.assertFailed(null, I[1], 373, 12, "crossAxisCount > 0");
+      if (!(this.mainAxisSpacing >= 0.0)) dart.assertFailed(null, I[1], 374, 12, "mainAxisSpacing >= 0.0");
+      if (!(this.crossAxisSpacing >= 0.0)) dart.assertFailed(null, I[1], 375, 12, "crossAxisSpacing >= 0.0");
+      if (!(this.childAspectRatio > 0.0)) dart.assertFailed(null, I[1], 376, 12, "childAspectRatio > 0.0");
+      return true;
+    }
+    getLayout(constraints) {
+      let t0;
+      if (!this[_debugAssertIsValid]()) dart.assertFailed(null, I[1], 382, 12, "_debugAssertIsValid()");
+      let usableCrossAxisExtent = math.max(core.double, 0.0, constraints.crossAxisExtent - this.crossAxisSpacing * (this.crossAxisCount - 1));
+      let childCrossAxisExtent = usableCrossAxisExtent / this.crossAxisCount;
+      let childMainAxisExtent = (t0 = this.mainAxisExtent, t0 == null ? childCrossAxisExtent / this.childAspectRatio : t0);
+      return new sliver_grid.SliverGridRegularTileLayout.new({crossAxisCount: this.crossAxisCount, mainAxisStride: childMainAxisExtent + this.mainAxisSpacing, crossAxisStride: childCrossAxisExtent + this.crossAxisSpacing, childMainAxisExtent: childMainAxisExtent, childCrossAxisExtent: childCrossAxisExtent, reverseCrossAxis: basic_types.axisDirectionIsReversed(constraints.crossAxisDirection)});
+    }
+    shouldRelayout(oldDelegate) {
+      sliver_grid.SliverGridDelegateWithFixedCrossAxisCount.as(oldDelegate);
+      return oldDelegate.crossAxisCount !== this.crossAxisCount || oldDelegate.mainAxisSpacing !== this.mainAxisSpacing || oldDelegate.crossAxisSpacing !== this.crossAxisSpacing || oldDelegate.childAspectRatio !== this.childAspectRatio || oldDelegate.mainAxisExtent != this.mainAxisExtent;
+    }
+  };
+  (sliver_grid.SliverGridDelegateWithFixedCrossAxisCount.new = function(opts) {
+    let crossAxisCount = opts && 'crossAxisCount' in opts ? opts.crossAxisCount : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    let childAspectRatio = opts && 'childAspectRatio' in opts ? opts.childAspectRatio : 1;
+    let mainAxisExtent = opts && 'mainAxisExtent' in opts ? opts.mainAxisExtent : null;
+    this[crossAxisCount$0] = crossAxisCount;
+    this[mainAxisSpacing$] = mainAxisSpacing;
+    this[crossAxisSpacing$] = crossAxisSpacing;
+    this[childAspectRatio$] = childAspectRatio;
+    this[mainAxisExtent$0] = mainAxisExtent;
+    if (!(crossAxisCount !== null && crossAxisCount > 0)) dart.assertFailed(null, I[1], 349, 15, "crossAxisCount != null && crossAxisCount > 0");
+    if (!(mainAxisSpacing !== null && mainAxisSpacing >= 0)) dart.assertFailed(null, I[1], 350, 15, "mainAxisSpacing != null && mainAxisSpacing >= 0");
+    if (!(crossAxisSpacing !== null && crossAxisSpacing >= 0)) dart.assertFailed(null, I[1], 351, 15, "crossAxisSpacing != null && crossAxisSpacing >= 0");
+    if (!(childAspectRatio !== null && childAspectRatio > 0)) dart.assertFailed(null, I[1], 352, 15, "childAspectRatio != null && childAspectRatio > 0");
+    sliver_grid.SliverGridDelegateWithFixedCrossAxisCount.__proto__.new.call(this);
+    ;
+  }).prototype = sliver_grid.SliverGridDelegateWithFixedCrossAxisCount.prototype;
+  dart.addTypeTests(sliver_grid.SliverGridDelegateWithFixedCrossAxisCount);
+  dart.addTypeCaches(sliver_grid.SliverGridDelegateWithFixedCrossAxisCount);
+  dart.setMethodSignature(sliver_grid.SliverGridDelegateWithFixedCrossAxisCount, () => ({
+    __proto__: dart.getMethods(sliver_grid.SliverGridDelegateWithFixedCrossAxisCount.__proto__),
+    [_debugAssertIsValid]: dart.fnType(core.bool, []),
+    getLayout: dart.fnType(sliver_grid.SliverGridLayout, [sliver.SliverConstraints]),
+    shouldRelayout: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(sliver_grid.SliverGridDelegateWithFixedCrossAxisCount, I[0]);
+  dart.setFieldSignature(sliver_grid.SliverGridDelegateWithFixedCrossAxisCount, () => ({
+    __proto__: dart.getFields(sliver_grid.SliverGridDelegateWithFixedCrossAxisCount.__proto__),
+    crossAxisCount: dart.finalFieldType(core.int),
+    mainAxisSpacing: dart.finalFieldType(core.double),
+    crossAxisSpacing: dart.finalFieldType(core.double),
+    childAspectRatio: dart.finalFieldType(core.double),
+    mainAxisExtent: dart.finalFieldType(dart.nullable(core.double))
+  }));
+  var maxCrossAxisExtent$ = dart.privateName(sliver_grid, "SliverGridDelegateWithMaxCrossAxisExtent.maxCrossAxisExtent");
+  var mainAxisSpacing$0 = dart.privateName(sliver_grid, "SliverGridDelegateWithMaxCrossAxisExtent.mainAxisSpacing");
+  var crossAxisSpacing$0 = dart.privateName(sliver_grid, "SliverGridDelegateWithMaxCrossAxisExtent.crossAxisSpacing");
+  var childAspectRatio$0 = dart.privateName(sliver_grid, "SliverGridDelegateWithMaxCrossAxisExtent.childAspectRatio");
+  var mainAxisExtent$1 = dart.privateName(sliver_grid, "SliverGridDelegateWithMaxCrossAxisExtent.mainAxisExtent");
+  sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent = class SliverGridDelegateWithMaxCrossAxisExtent extends sliver_grid.SliverGridDelegate {
+    get maxCrossAxisExtent() {
+      return this[maxCrossAxisExtent$];
+    }
+    set maxCrossAxisExtent(value) {
+      super.maxCrossAxisExtent = value;
+    }
+    get mainAxisSpacing() {
+      return this[mainAxisSpacing$0];
+    }
+    set mainAxisSpacing(value) {
+      super.mainAxisSpacing = value;
+    }
+    get crossAxisSpacing() {
+      return this[crossAxisSpacing$0];
+    }
+    set crossAxisSpacing(value) {
+      super.crossAxisSpacing = value;
+    }
+    get childAspectRatio() {
+      return this[childAspectRatio$0];
+    }
+    set childAspectRatio(value) {
+      super.childAspectRatio = value;
+    }
+    get mainAxisExtent() {
+      return this[mainAxisExtent$1];
+    }
+    set mainAxisExtent(value) {
+      super.mainAxisExtent = value;
+    }
+    [_debugAssertIsValid](crossAxisExtent) {
+      if (!(crossAxisExtent > 0.0)) dart.assertFailed(null, I[1], 482, 12, "crossAxisExtent > 0.0");
+      if (!(this.maxCrossAxisExtent > 0.0)) dart.assertFailed(null, I[1], 483, 12, "maxCrossAxisExtent > 0.0");
+      if (!(this.mainAxisSpacing >= 0.0)) dart.assertFailed(null, I[1], 484, 12, "mainAxisSpacing >= 0.0");
+      if (!(this.crossAxisSpacing >= 0.0)) dart.assertFailed(null, I[1], 485, 12, "crossAxisSpacing >= 0.0");
+      if (!(this.childAspectRatio > 0.0)) dart.assertFailed(null, I[1], 486, 12, "childAspectRatio > 0.0");
+      return true;
+    }
+    getLayout(constraints) {
+      let t0;
+      if (!this[_debugAssertIsValid](constraints.crossAxisExtent)) dart.assertFailed(null, I[1], 492, 12, "_debugAssertIsValid(constraints.crossAxisExtent)");
+      let crossAxisCount = (constraints.crossAxisExtent / (this.maxCrossAxisExtent + this.crossAxisSpacing))[$ceil]();
+      let usableCrossAxisExtent = math.max(core.double, 0.0, constraints.crossAxisExtent - this.crossAxisSpacing * (crossAxisCount - 1));
+      let childCrossAxisExtent = usableCrossAxisExtent / crossAxisCount;
+      let childMainAxisExtent = (t0 = this.mainAxisExtent, t0 == null ? childCrossAxisExtent / this.childAspectRatio : t0);
+      return new sliver_grid.SliverGridRegularTileLayout.new({crossAxisCount: crossAxisCount, mainAxisStride: childMainAxisExtent + this.mainAxisSpacing, crossAxisStride: childCrossAxisExtent + this.crossAxisSpacing, childMainAxisExtent: childMainAxisExtent, childCrossAxisExtent: childCrossAxisExtent, reverseCrossAxis: basic_types.axisDirectionIsReversed(constraints.crossAxisDirection)});
+    }
+    shouldRelayout(oldDelegate) {
+      sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent.as(oldDelegate);
+      return oldDelegate.maxCrossAxisExtent !== this.maxCrossAxisExtent || oldDelegate.mainAxisSpacing !== this.mainAxisSpacing || oldDelegate.crossAxisSpacing !== this.crossAxisSpacing || oldDelegate.childAspectRatio !== this.childAspectRatio || oldDelegate.mainAxisExtent != this.mainAxisExtent;
+    }
+  };
+  (sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent.new = function(opts) {
+    let maxCrossAxisExtent = opts && 'maxCrossAxisExtent' in opts ? opts.maxCrossAxisExtent : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    let childAspectRatio = opts && 'childAspectRatio' in opts ? opts.childAspectRatio : 1;
+    let mainAxisExtent = opts && 'mainAxisExtent' in opts ? opts.mainAxisExtent : null;
+    this[maxCrossAxisExtent$] = maxCrossAxisExtent;
+    this[mainAxisSpacing$0] = mainAxisSpacing;
+    this[crossAxisSpacing$0] = crossAxisSpacing;
+    this[childAspectRatio$0] = childAspectRatio;
+    this[mainAxisExtent$1] = mainAxisExtent;
+    if (!(maxCrossAxisExtent !== null && maxCrossAxisExtent > 0)) dart.assertFailed(null, I[1], 448, 15, "maxCrossAxisExtent != null && maxCrossAxisExtent > 0");
+    if (!(mainAxisSpacing !== null && mainAxisSpacing >= 0)) dart.assertFailed(null, I[1], 449, 15, "mainAxisSpacing != null && mainAxisSpacing >= 0");
+    if (!(crossAxisSpacing !== null && crossAxisSpacing >= 0)) dart.assertFailed(null, I[1], 450, 15, "crossAxisSpacing != null && crossAxisSpacing >= 0");
+    if (!(childAspectRatio !== null && childAspectRatio > 0)) dart.assertFailed(null, I[1], 451, 15, "childAspectRatio != null && childAspectRatio > 0");
+    sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent.__proto__.new.call(this);
+    ;
+  }).prototype = sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent.prototype;
+  dart.addTypeTests(sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent);
+  dart.addTypeCaches(sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent);
+  dart.setMethodSignature(sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent, () => ({
+    __proto__: dart.getMethods(sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent.__proto__),
+    [_debugAssertIsValid]: dart.fnType(core.bool, [core.double]),
+    getLayout: dart.fnType(sliver_grid.SliverGridLayout, [sliver.SliverConstraints]),
+    shouldRelayout: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent, I[0]);
+  dart.setFieldSignature(sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent, () => ({
+    __proto__: dart.getFields(sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent.__proto__),
+    maxCrossAxisExtent: dart.finalFieldType(core.double),
+    mainAxisSpacing: dart.finalFieldType(core.double),
+    crossAxisSpacing: dart.finalFieldType(core.double),
+    childAspectRatio: dart.finalFieldType(core.double),
+    mainAxisExtent: dart.finalFieldType(dart.nullable(core.double))
+  }));
+  var crossAxisOffset = dart.privateName(sliver_grid, "SliverGridParentData.crossAxisOffset");
+  sliver_grid.SliverGridParentData = class SliverGridParentData extends sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData {
+    get crossAxisOffset() {
+      return this[crossAxisOffset];
+    }
+    set crossAxisOffset(value) {
+      this[crossAxisOffset] = value;
+    }
+    toString() {
+      return "crossAxisOffset=" + dart.str(this.crossAxisOffset) + "; " + super.toString();
+    }
+  };
+  (sliver_grid.SliverGridParentData.new = function() {
+    this[crossAxisOffset] = null;
+    sliver_grid.SliverGridParentData.__proto__.new.call(this);
+    ;
+  }).prototype = sliver_grid.SliverGridParentData.prototype;
+  dart.addTypeTests(sliver_grid.SliverGridParentData);
+  dart.addTypeCaches(sliver_grid.SliverGridParentData);
+  dart.setLibraryUri(sliver_grid.SliverGridParentData, I[0]);
+  dart.setFieldSignature(sliver_grid.SliverGridParentData, () => ({
+    __proto__: dart.getFields(sliver_grid.SliverGridParentData.__proto__),
+    crossAxisOffset: dart.fieldType(dart.nullable(core.double))
+  }));
+  dart.defineExtensionMethods(sliver_grid.SliverGridParentData, ['toString']);
+  var _gridDelegate = dart.privateName(sliver_grid, "_gridDelegate");
+  sliver_grid.RenderSliverGrid = class RenderSliverGrid extends sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor {
+    setupParentData(child) {
+      object.RenderObject.as(child);
+      if (!sliver_grid.SliverGridParentData.is(child.parentData)) child.parentData = new sliver_grid.SliverGridParentData.new();
+    }
+    get gridDelegate() {
+      return this[_gridDelegate];
+    }
+    set gridDelegate(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 568, 12, "value != null");
+      if (this[_gridDelegate][$_equals](value)) return;
+      if (!value[$runtimeType]._equals(this[_gridDelegate][$runtimeType]) || value.shouldRelayout(this[_gridDelegate])) this.markNeedsLayout();
+      this[_gridDelegate] = value;
+    }
+    childCrossAxisPosition(child) {
+      box.RenderBox.as(child);
+      let childParentData = sliver_grid.SliverGridParentData.as(dart.nullCheck(child.parentData));
+      return dart.nullCheck(childParentData.crossAxisOffset);
+    }
+    performLayout() {
+      let constraints = this.constraints;
+      this.childManager.didStartLayout();
+      this.childManager.setDidUnderflow(false);
+      let scrollOffset = constraints.scrollOffset + constraints.cacheOrigin;
+      if (!(scrollOffset >= 0.0)) dart.assertFailed(null, I[1], 590, 12, "scrollOffset >= 0.0");
+      let remainingExtent = constraints.remainingCacheExtent;
+      if (!(remainingExtent >= 0.0)) dart.assertFailed(null, I[1], 592, 12, "remainingExtent >= 0.0");
+      let targetEndScrollOffset = scrollOffset + remainingExtent;
+      let layout = this[_gridDelegate].getLayout(constraints);
+      let firstIndex = layout.getMinChildIndexForScrollOffset(scrollOffset);
+      let targetLastIndex = targetEndScrollOffset[$isFinite] ? layout.getMaxChildIndexForScrollOffset(targetEndScrollOffset) : null;
+      if (this.firstChild != null) {
+        let oldFirstIndex = this.indexOf(dart.nullCheck(this.firstChild));
+        let oldLastIndex = this.indexOf(dart.nullCheck(this.lastChild));
+        let leadingGarbage = (firstIndex - oldFirstIndex)[$clamp](0, this.childCount);
+        let trailingGarbage = targetLastIndex == null ? 0 : (oldLastIndex - dart.notNull(targetLastIndex))[$clamp](0, this.childCount);
+        this.collectGarbage(leadingGarbage, trailingGarbage);
+      } else {
+        this.collectGarbage(0, 0);
       }
-      [_notifyError](error, stackTrace = null) {
-        let t1;
-        let currentNode = this[_head];
-        while (currentNode != null) {
-          t1 = dart.nullCheck(currentNode.data).onError;
-          t1 == null ? null : dart.dcall(t1, [error, stackTrace]);
-          currentNode = currentNode.next;
+      let firstChildGridGeometry = layout.getGeometryForChildIndex(firstIndex);
+      let leadingScrollOffset = firstChildGridGeometry.scrollOffset;
+      let trailingScrollOffset = firstChildGridGeometry.trailingScrollOffset;
+      if (this.firstChild == null) {
+        if (!this.addInitialChild({index: firstIndex, layoutOffset: firstChildGridGeometry.scrollOffset})) {
+          let max = layout.computeMaxScrollOffset(this.childManager.childCount);
+          this.geometry = new sliver.SliverGeometry.new({scrollExtent: max, maxPaintExtent: max});
+          this.childManager.didFinishLayout();
+          return;
         }
       }
-      get isEmpty() {
-        return this[_head] == null;
+      let trailingChildWithLayout = null;
+      for (let index = this.indexOf(dart.nullCheck(this.firstChild)) - 1; index >= firstIndex; index = index - 1) {
+        let gridGeometry = layout.getGeometryForChildIndex(index);
+        let child = dart.nullCheck(this.insertAndLayoutLeadingChild(gridGeometry.getBoxConstraints(constraints)));
+        let childParentData = sliver_grid.SliverGridParentData.as(dart.nullCheck(child.parentData));
+        childParentData.layoutOffset = gridGeometry.scrollOffset;
+        childParentData.crossAxisOffset = gridGeometry.crossAxisOffset;
+        if (!(childParentData.index === index)) dart.assertFailed(null, I[1], 640, 14, "childParentData.index == index");
+        trailingChildWithLayout == null ? trailingChildWithLayout = child : null;
+        trailingScrollOffset = math.max(core.double, trailingScrollOffset, gridGeometry.trailingScrollOffset);
       }
-      get isNotEmpty() {
-        return !this.isEmpty;
+      if (trailingChildWithLayout == null) {
+        dart.nullCheck(this.firstChild).layout(firstChildGridGeometry.getBoxConstraints(constraints));
+        let childParentData = sliver_grid.SliverGridParentData.as(dart.nullCheck(dart.nullCheck(this.firstChild).parentData));
+        childParentData.layoutOffset = firstChildGridGeometry.scrollOffset;
+        childParentData.crossAxisOffset = firstChildGridGeometry.crossAxisOffset;
+        trailingChildWithLayout = this.firstChild;
       }
-      get length() {
-        let length = 0;
-        let currentNode = this[_head];
-        while (currentNode != null) {
-          currentNode = currentNode.next;
-          length = length + 1;
-        }
-        return length;
-      }
-      [_elementAt](position) {
-        if (this.isEmpty || this.length < position || position < 0) return null;
-        let node = this[_head];
-        let current = 0;
-        while (current !== position) {
-          node = dart.nullCheck(node).next;
-          current = current + 1;
-        }
-        return dart.nullCheck(node).data;
-      }
-      addListener(data) {
-        MiniSubscriptionOfT().as(data);
-        let newNode = new (NodeOfMiniSubscriptionOfT()).new({data: data});
-        if (this.isEmpty) {
-          this[_head] = newNode;
-        } else {
-          let currentNode = dart.nullCheck(this[_head]);
-          while (currentNode.next != null) {
-            currentNode = dart.nullCheck(currentNode.next);
-          }
-          currentNode.next = newNode;
-        }
-      }
-      contains(element) {
-        T.as(element);
-        let length = this.length;
-        for (let i = 0; i < length; i = i + 1) {
-          if (dart.equals(this[_elementAt](i), element)) return true;
-          if (length !== this.length) {
-            dart.throw(new core.ConcurrentModificationError.new(this));
-          }
-        }
-        return false;
-      }
-      removeListener(element) {
-        MiniSubscriptionOfT().as(element);
-        let length = this.length;
-        for (let i = 0; i < length; i = i + 1) {
-          if (dart.equals(this[_elementAt](i), element)) {
-            this[_removeAt](i);
+      for (let index = this.indexOf(dart.nullCheck(trailingChildWithLayout)) + 1; targetLastIndex == null || index <= dart.notNull(targetLastIndex); index = index + 1) {
+        let gridGeometry = layout.getGeometryForChildIndex(index);
+        let childConstraints = gridGeometry.getBoxConstraints(constraints);
+        let child = this.childAfter(dart.nullCheck(trailingChildWithLayout));
+        if (child == null || this.indexOf(child) !== index) {
+          child = this.insertAndLayoutChild(childConstraints, {after: trailingChildWithLayout});
+          if (child == null) {
             break;
           }
-        }
-      }
-      clear() {
-        let length = this.length;
-        for (let i = 0; i < length; i = i + 1) {
-          this[_removeAt](i);
-        }
-      }
-      [_removeAt](position) {
-        let index = 0;
-        let currentNode = this[_head];
-        let previousNode = null;
-        if (this.isEmpty || this.length < position || position < 0) {
-          dart.throw(core.Exception.new("Invalid position"));
-        } else if (position === 0) {
-          this[_head] = dart.nullCheck(this[_head]).next;
         } else {
-          while (index !== position) {
-            previousNode = currentNode;
-            currentNode = dart.nullCheck(currentNode).next;
-            index = index + 1;
-          }
-          if (previousNode == null) {
-            this[_head] = null;
-          } else {
-            previousNode.next = dart.nullCheck(currentNode).next;
-          }
-          dart.nullCheck(currentNode).next = null;
+          child.layout(childConstraints);
         }
-        return dart.nullCheck(currentNode).data;
+        trailingChildWithLayout = child;
+        if (!(child != null)) dart.assertFailed(null, I[1], 667, 14, "child != null");
+        let childParentData = sliver_grid.SliverGridParentData.as(dart.nullCheck(child.parentData));
+        childParentData.layoutOffset = gridGeometry.scrollOffset;
+        childParentData.crossAxisOffset = gridGeometry.crossAxisOffset;
+        if (!(childParentData.index === index)) dart.assertFailed(null, I[1], 671, 14, "childParentData.index == index");
+        trailingScrollOffset = math.max(core.double, trailingScrollOffset, gridGeometry.trailingScrollOffset);
       }
+      let lastIndex = this.indexOf(dart.nullCheck(this.lastChild));
+      if (!this.debugAssertChildListIsNonEmptyAndContiguous()) dart.assertFailed(null, I[1], 677, 12, "debugAssertChildListIsNonEmptyAndContiguous()");
+      if (!(this.indexOf(dart.nullCheck(this.firstChild)) === firstIndex)) dart.assertFailed(null, I[1], 678, 12, "indexOf(firstChild!) == firstIndex");
+      if (!(targetLastIndex == null || lastIndex <= dart.notNull(targetLastIndex))) dart.assertFailed(null, I[1], 679, 12, "targetLastIndex == null || lastIndex <= targetLastIndex");
+      let estimatedTotalExtent = this.childManager.estimateMaxScrollOffset(constraints, {firstIndex: firstIndex, lastIndex: lastIndex, leadingScrollOffset: leadingScrollOffset, trailingScrollOffset: trailingScrollOffset});
+      let paintExtent = this.calculatePaintOffset(constraints, {from: math.min(core.double, constraints.scrollOffset, leadingScrollOffset), to: trailingScrollOffset});
+      let cacheExtent = this.calculateCacheOffset(constraints, {from: leadingScrollOffset, to: trailingScrollOffset});
+      this.geometry = new sliver.SliverGeometry.new({scrollExtent: estimatedTotalExtent, paintExtent: paintExtent, maxPaintExtent: estimatedTotalExtent, cacheExtent: cacheExtent, hasVisualOverflow: true});
+      if (estimatedTotalExtent === trailingScrollOffset) this.childManager.setDidUnderflow(true);
+      this.childManager.didFinishLayout();
     }
-    (FastList.new = function() {
-      this[_head] = null;
-      ;
-    }).prototype = FastList.prototype;
-    dart.addTypeTests(FastList);
-    FastList.prototype[_is_FastList_default] = true;
-    dart.addTypeCaches(FastList);
-    dart.setMethodSignature(FastList, () => ({
-      __proto__: dart.getMethods(FastList.__proto__),
-      [_notifyData]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [_notifyDone]: dart.fnType(dart.void, []),
-      [_notifyError]: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      [_elementAt]: dart.fnType(dart.nullable(rx_stream.MiniSubscription$(T)), [core.int]),
-      addListener: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      contains: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      removeListener: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      clear: dart.fnType(dart.void, []),
-      [_removeAt]: dart.fnType(dart.nullable(rx_stream.MiniSubscription$(T)), [core.int])
-    }));
-    dart.setGetterSignature(FastList, () => ({
-      __proto__: dart.getGetters(FastList.__proto__),
-      isEmpty: core.bool,
-      isNotEmpty: core.bool,
-      length: core.int
-    }));
-    dart.setLibraryUri(FastList, I[1]);
-    dart.setFieldSignature(FastList, () => ({
-      __proto__: dart.getFields(FastList.__proto__),
-      [_head]: dart.fieldType(dart.nullable(rx_stream.Node$(rx_stream.MiniSubscription$(T))))
-    }));
-    return FastList;
-  });
-  rx_stream.FastList = rx_stream.FastList$();
-  dart.addTypeTests(rx_stream.FastList, _is_FastList_default);
-  dart.trackLibraries("packages/get/get_rx/src/rx_stream/rx_stream.dart", {
-    "package:get/get_rx/src/rx_stream/rx_stream.dart": rx_stream
+  };
+  (sliver_grid.RenderSliverGrid.new = function(opts) {
+    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
+    let gridDelegate = opts && 'gridDelegate' in opts ? opts.gridDelegate : null;
+    if (!(gridDelegate !== null)) dart.assertFailed(null, I[1], 554, 15, "gridDelegate != null");
+    this[_gridDelegate] = gridDelegate;
+    sliver_grid.RenderSliverGrid.__proto__.new.call(this, {childManager: childManager});
+    ;
+  }).prototype = sliver_grid.RenderSliverGrid.prototype;
+  dart.addTypeTests(sliver_grid.RenderSliverGrid);
+  dart.addTypeCaches(sliver_grid.RenderSliverGrid);
+  dart.setMethodSignature(sliver_grid.RenderSliverGrid, () => ({
+    __proto__: dart.getMethods(sliver_grid.RenderSliverGrid.__proto__),
+    performLayout: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(sliver_grid.RenderSliverGrid, () => ({
+    __proto__: dart.getGetters(sliver_grid.RenderSliverGrid.__proto__),
+    gridDelegate: sliver_grid.SliverGridDelegate
+  }));
+  dart.setSetterSignature(sliver_grid.RenderSliverGrid, () => ({
+    __proto__: dart.getSetters(sliver_grid.RenderSliverGrid.__proto__),
+    gridDelegate: sliver_grid.SliverGridDelegate
+  }));
+  dart.setLibraryUri(sliver_grid.RenderSliverGrid, I[0]);
+  dart.setFieldSignature(sliver_grid.RenderSliverGrid, () => ({
+    __proto__: dart.getFields(sliver_grid.RenderSliverGrid.__proto__),
+    [_gridDelegate]: dart.fieldType(sliver_grid.SliverGridDelegate)
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/sliver_grid.dart", {
+    "package:flutter/src/rendering/sliver_grid.dart": sliver_grid
   }, {
-    "package:get/get_rx/src/rx_stream/rx_stream.dart": ["get_stream.dart", "mini_stream.dart"]
-  }, '{"version":3,"sourceRoot":"","sources":["get_stream.dart","mini_stream.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/get/get_rx/src/rx_stream/rx_stream.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["sliver_grid.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/rendering/sliver_grid.dart.lib.js"}');
   // Exports:
   return {
-    get_rx__src__rx_stream__rx_stream: rx_stream
+    src__rendering__sliver_grid: sliver_grid
   };
 }));
 
-//# sourceMappingURL=rx_stream.dart.lib.js.map
+//# sourceMappingURL=sliver_grid.dart.lib.js.map

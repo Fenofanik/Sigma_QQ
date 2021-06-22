@@ -1,96 +1,81 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pin_code_fields/flutter_pin_code_fields.dart';
+import 'package:get/get.dart';
+import 'package:pinput/pin_put/pin_put.dart';
 import 'package:sigma/Resources/App_Colors.dart';
+import 'package:sigma/Resources/App_TextStyle.dart';
+import 'package:sigma/Resources/App_borders.dart';
+import 'package:sigma/config/constant_routes.dart';
 import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
 class SmsScreen extends BaseStatelessScreen{
-  SmsScreen({
-    required this.phoneNumber
-  });
-
-
-  final TextEditingController _smsController = TextEditingController();
-  final String phoneNumber;
-
-
 
   @override
-  Widget buildBody(BuildContext context){
-    return Container(
-      decoration: BoxDecoration(
-          gradient: gradientForStart
-      ),
-      child: Scaffold(
+  Widget build(BuildContext context){
+    return Scaffold(
+        resizeToAvoidBottomInset: false,
+        key: scaffoldKey,
         backgroundColor: Colors.transparent,
-        body: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 77,),
-              Text(
-                'Войти  в аккаунт',
-                style: style_2,
-              ),
-              const SizedBox(height: 49),
-              Center(
-                child: Column(
-                  children: [
-                    PinCodeFields(
-                        controller: _smsController,
-                        length: 6,
-                        fieldBorderStyle: FieldBorderStyle.Square,
-                        responsive: false,
-                        fieldHeight:45.0,
-                        fieldWidth: 30.0,
-                        borderWidth:1.0,
-                        activeBackgroundColor: blue,
-                        borderRadius: BorderRadius.circular(10.0),
-                        keyboardType: TextInputType.number,
-                        autoHideKeyboard: false,
-                        fieldBackgroundColor: Colors.black12,
-                        borderColor: blue3,
-                        textStyle: style_6
-                    ),
-                    const SizedBox(height: 15),
-                    Text('SMS-соощение отправлено на' + '\n${phoneNumber}' + '\n${'Введите код из SMS'}',
-                      style: style_7, textAlign: TextAlign.center,),
-                    const SizedBox(height: 120,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: gradientForStart),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top:77),
+                  child: Text(
+                    'Верификация\nномера',
+                    style: style_1,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top:48),
+                  child: Center(
+                    child: Column(
                       children: [
-                        Text('Нет аккаунта?', style: style_4,),
-                        FlatButton(
-                          child: Text('Зарегистрироваться', style: style_5,),
-                          onPressed: (){},
-                        )
+                        PinPut(
+                            eachFieldHeight:40,
+                            eachFieldWidth: 30.0,
+                            obscureText: "●",
+                            animationDuration: Duration(milliseconds:300),
+                            keyboardType: TextInputType.number,
+                            submittedFieldDecoration: pinPutDecoration,
+                            selectedFieldDecoration: selected,
+                            followingFieldDecoration: pinPutDecoration,
+                            pinAnimationType: PinAnimationType.rotation,
+                            textStyle: style_6,
+                            fieldsCount: 6,
+                            withCursor: true,
+                            onSubmit: (pin){
+                              Get.toNamed(category);
+                            },
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top:40),
+                          child: Text('SMS-соощение отправлено на' + '' + '\nВведите код из SMS',
+                            style: style_13, textAlign: TextAlign.center,),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top:20),
+                          child: Text("Отправить повторно",style:style_4 ,),
+                        ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 25),
-                      child: RaisedButton(
-                          color: white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(115, 11, 115, 11),
-                            child: Text('Далі', style: style_1,),
-                          ),
-                          onPressed: () async {
-                            await UserService().getUser(phoneNumber);
-                            AuthService().signInWithPhoneNumber(_smsController);
-                          }
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+  }
+
+  @override
+  Widget buildBody(BuildContext context) {
+    // TODO: implement buildBody
+    throw UnimplementedError();
   }
 
 }
