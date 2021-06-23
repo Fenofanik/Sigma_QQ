@@ -8,18 +8,9 @@ import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
 class MainScreen extends BaseStatelessScreen{
   final FirebaseController firebaseController = Get.put(FirebaseController());
-  late final bool myCategory;
-  late final bool myCompany;
-  late final bool myProduct;
-  late final bool myChoice;
-
-  MainScreen({required this.myCategory,
-    required this.myCompany,
-    required this.myProduct,
-    required this.myChoice})
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildBody(BuildContext context) {
     return FutureBuilder<QuerySnapshot>(
       future: firebaseController.categoryRef.get(),
       builder: ( context, categorySnapshot) {
@@ -46,10 +37,10 @@ class MainScreen extends BaseStatelessScreen{
                           });
                           final userCategory = List<String>.from(user['category']);
 
-                          final productsData = myCategory?categorySnapshot.data!.docs.where((element) {
+                          final productsData = categorySnapshot.data!.docs.where((element) {
                             final id = element['id'].toString().trim();
                             return userCategory.contains(id);
-                          }):categorySnapshot.data!.docs.where((element) => false); //<===Доробити сюди фільтр
+                          });
                           return ListView(
                             children: productsData.map((document) {
                               return mainUI(context, document, userCategory);
@@ -76,9 +67,10 @@ class MainScreen extends BaseStatelessScreen{
 
   }
 
+
   @override
-  Widget buildBody(BuildContext context) {
-    // TODO: implement buildBody
+  PreferredSizeWidget? buildAppBar(BuildContext context) {
+    // TODO: implement buildAppBar
     throw UnimplementedError();
   }
 

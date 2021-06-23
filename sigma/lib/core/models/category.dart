@@ -24,17 +24,4 @@ class Category {
       required this.services,
       required this.trips});
 
-  final pressed = false.obs;
-  final pressedCafe = false.obs;
-  final pressedCar = false.obs;
-  final pressedBaby = false.obs;
-  final pressedTrips = false.obs;
-  final pressedEntertainment = false.obs;
-  final pressedServices = false.obs;
-  final pressedElectronics = false.obs;
-  final pressedMarket = false.obs;
-  final pressedBeauty = false.obs;
-  final pressedClothes = false.obs;
-
-
 }

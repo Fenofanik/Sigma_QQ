@@ -3,26 +3,17 @@ import 'package:sigma/Resources/App_Colors.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
 import 'package:sigma/Resources/App_borders.dart';
 import 'package:sigma/config/constant_routes.dart';
-import 'package:sigma/core/controllers/Firebase_controller.dart';
 import 'package:sigma/core/controllers/my_history_controller.dart';
 import 'package:get/get.dart';
 import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
 class MyHistory extends BaseStatelessScreen {
   final MyHistoryTabController _tabs = Get.put(MyHistoryTabController());
-  final FirebaseController firebaseController = Get.put(FirebaseController());
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        key: scaffoldKey,
-        body: FutureBuilder(
-          future: firebaseController.companyRef.get(),
-          builder: (context, companySnapshot) {
-            return Container(
-              decoration: BoxDecoration(gradient: gradientForStart),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
+  Widget buildBody(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Column(
                   children: [
                     Row(
@@ -135,24 +126,17 @@ class MyHistory extends BaseStatelessScreen {
                               ),
                             ],
                           ),
-                          Container(),
+                          forNoHistUI(),
                         ],
                       ),
                     ),
                   ],
                 ),
-              ),
-            );
-          },
-        ));
+              );
   }
 
   forNoHistUI() {
-    return Scaffold(
-      key: scaffoldKey,
-      body: Container(
-        decoration: BoxDecoration(gradient: gradientForStart),
-        child: Column(
+    return Column(
           children: [
             Row(
               children: [
@@ -197,14 +181,8 @@ class MyHistory extends BaseStatelessScreen {
                     height: 172, width: 139.35)),
             Expanded(child: Text("У вас еще нет заказов", style: style_9)),
           ],
-        ),
-      ),
-    );
+        );
   }
 
-  @override
-  Widget buildBody(BuildContext context) {
-    // TODO: implement buildBody
-    throw UnimplementedError();
-  }
+
 }

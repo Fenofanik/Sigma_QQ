@@ -10,17 +10,17 @@ import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
 class OnBoardingScreen extends BaseStatelessScreen {
   final _controller = OnBoardingController();
+  @override
+  PreferredSizeWidget buildAppBar(BuildContext context) {
+    return AppBar(
+      elevation:0,);
+  }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      body: Container(
-        decoration: BoxDecoration(gradient: gradientForStart),
-        child: Column(
+  Widget buildBody(BuildContext context) {
+    return Column(
           children: <Widget>[
             Expanded(
-              flex: 8,
               child: PageView.builder(
                 controller: _controller.pageController,
                 onPageChanged: _controller.selectedPageIndex,
@@ -75,14 +75,7 @@ class OnBoardingScreen extends BaseStatelessScreen {
               ),
             ),
           ],
-        ),
-      ),
-    );
+        );
   }
 
-  @override
-  Widget buildBody(BuildContext context) {
-    // TODO: implement buildBody
-    throw UnimplementedError();
-  }
 }

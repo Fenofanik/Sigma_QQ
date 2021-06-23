@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sigma/view/screens/Category_selection.dart';
-import 'package:sigma/view/screens/Reg_Screen.dart';
-import 'package:sigma/view/screens/Sign_In_Screen.dart';
+import 'package:sigma/view/screens/sign_In_screens/Category_selection.dart';
+import 'package:sigma/view/screens/sign_In_screens/Reg_Screen.dart';
+import 'package:sigma/view/screens/sign_In_screens/Sign_In_Screen.dart';
 import 'package:sigma/view/screens/history_screens/My_History_screen.dart';
 import 'package:sigma/view/screens/history_screens/filter_for_history.dart';
-import 'package:sigma/view/screens/otp_verification_screen.dart';
+import 'package:sigma/view/screens/sign_In_screens/category_test.dart';
+import 'package:sigma/view/screens/sign_In_screens/otp_verification_screen.dart';
 import 'package:sigma/view/screens/splash_screen.dart';
 import 'package:sigma/view/screens/Onboarding_screen.dart';
 import 'package:sigma/view/screens/un_defined_screen.dart';
@@ -32,7 +33,9 @@ class Routers {
       case bottomNavBar:
         return MaterialPageRoute(builder: (_) => MainBottomNavigationBar());
       case otp:
-        return MaterialPageRoute(builder: (_)=>SmsScreen());
+        return MaterialPageRoute(builder: (_) => SmsScreen());
+      case testCategory:
+        return MaterialPageRoute(builder: (_) => TestCategory());
       default:
         return MaterialPageRoute(
           builder: (_) => UndefinedScreen(),

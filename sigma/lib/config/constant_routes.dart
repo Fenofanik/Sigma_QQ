@@ -7,4 +7,4 @@ const String filterHistory = '/FilterHistory';
 const String category = '/CategorySelection';
 const String splash = '/';
 const String bottomNavBar = '/BottomBar';
-
+const String testCategory = '/TestCategory';
