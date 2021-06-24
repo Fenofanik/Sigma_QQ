@@ -18,6 +18,9 @@ class FirebaseController extends GetxController{
 
   final CollectionReference usersRef =
   FirebaseFirestore.instance.collection("users");
+
+
+
   @override
   void onInit() {
     super.onInit();
@@ -35,47 +38,20 @@ class FirebaseController extends GetxController{
 
   getUserCategory() async {
     final user = await getUser().get();
-    return List<String>.from(user['category']);
-  }
-  getUserCompany() async {
-    final user = await getUser().get();
-    return List<String>.from(user['Company']);
-  }
-  getUserProducts() async {
-    final user = await getUser().get();
-    return List<String>.from(user['Products']);
+    return List<String>.from(user['Category']);
   }
 
-  updateUserCategory(String productId, List<String> existingCategory) async {
+  updateUserCategory(String categoryId, List<String> existingCategory) async {
     final existingCategory = await getUserCategory();
     List<String> newCategory = [];
-    if (existingCategory.contains(productId)) {
-      newCategory = existingCategory.where((x) => x != productId).toList();
+    if (existingCategory.contains(categoryId)) {
+      newCategory = existingCategory.where((x) => x != categoryId).toList();
     } else {
-      newCategory = [...existingCategory, ...[productId]];
+      newCategory = [...existingCategory, ...[categoryId]];
     }
-    await usersRef.doc(getUserId()).update({'category': newCategory});
+    await usersRef.doc(getUserId()).update({'Category': newCategory});
   }
-  updateUserCompany(String productId, List<String> existingCompany) async {
-    final existingCompany = await getUserCompany();
-    List<String> newCompany = [];
-    if (existingCompany.contains(productId)) {
-      newCompany = existingCompany.where((x) => x != productId).toList();
-    } else {
-      newCompany = [...existingCompany, ...[productId]];
-    }
-    await usersRef.doc(getUserId()).update({'Company': newCompany});
-  }
-  updateUserProducts(String productId, List<String> existingProducts) async {
-    final existingProducts = await getUserProducts();
-    List<String> newProducts = [];
-    if (existingProducts.contains(productId)) {
-      newProducts = existingProducts.where((x) => x != productId).toList();
-    } else {
-      newProducts = [...existingProducts, ...[productId]];
-    }
-    await usersRef.doc(getUserId()).update({'Products': newProducts});
-  }
+
 
 
 

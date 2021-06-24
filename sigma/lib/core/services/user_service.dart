@@ -10,7 +10,8 @@ class UserService{
     FirebaseFirestore.instance.collection('users').doc(uid);
     await _productReference.set({
       'phoneNumber': phoneNumber,
-      'Category' : category
+      'Category' : category,
+      'id':uid
     });
   }
 }

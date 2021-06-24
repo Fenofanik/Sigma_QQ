@@ -10,11 +10,6 @@ import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
 class OnBoardingScreen extends BaseStatelessScreen {
   final _controller = OnBoardingController();
-  @override
-  PreferredSizeWidget buildAppBar(BuildContext context) {
-    return AppBar(
-      elevation:0,);
-  }
 
   @override
   Widget buildBody(BuildContext context) {

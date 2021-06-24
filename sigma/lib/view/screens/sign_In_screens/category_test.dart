@@ -31,13 +31,14 @@ class TestCategory  extends BaseStatelessScreen {
                   onPressed: () {
                     updateValue();
                   },
-                  style: categoryController.pressed.value ||
+                  style:
+                  categoryController.pressed.value ||
                       categoryController.pressedCafe.value
                       ? elevatedButtonStyleCategory1Active
                       : elevatedButtonStyleCategory1,
                   
 
-                  child : Text(controller.categoryNames.first.car,
+                  child : Text(controller.categoryNames.first.services,
                       style: controller.pressed.value ||
                           controller.pressedCafe.value
                           ? style_12
@@ -77,7 +78,19 @@ class TestCategory  extends BaseStatelessScreen {
                 onPressed: () {
                   Navigator.pushNamed(context, bottomNavBar);
                 },
-                style: lolKekJOPA(),
+                style: categoryController.pressed.value ||
+                    categoryController.pressedCafe.value ||
+                    categoryController.pressedClothes.value ||
+                    categoryController.pressedElectronics.value ||
+                    categoryController.pressedEntertainment.value ||
+                    categoryController.pressedServices.value ||
+                    categoryController.pressedBaby.value ||
+                    categoryController.pressedBeauty.value ||
+                    categoryController.pressedCar.value ||
+                    categoryController.pressedTrips.value ||
+                    categoryController.pressedMarket.value?
+                elevatedButtonStyleStart
+                : elevatedButtonStyleStart2,
                 child: Text(
                   "ДЕЛЕЕ",
                   style: controller.pressed.value
@@ -103,21 +116,4 @@ class TestCategory  extends BaseStatelessScreen {
    categoryController.pressedServices.toggle();
    categoryController.pressedEntertainment.toggle();
   }
-  lolKekJOPA(){
-    var style =  categoryController.pressed.value ||
-        categoryController.pressedCafe.value ||
-        categoryController.pressedClothes.value ||
-        categoryController.pressedElectronics.value ||
-        categoryController.pressedEntertainment.value ||
-        categoryController.pressedServices.value ||
-        categoryController.pressedBaby.value ||
-        categoryController.pressedBeauty.value ||
-        categoryController.pressedCar.value ||
-        categoryController.pressedTrips.value ||
-        categoryController.pressedMarket.value?
-          elevatedButtonStyleStart
-        : elevatedButtonStyleStart2;
-  }
-
-
 }

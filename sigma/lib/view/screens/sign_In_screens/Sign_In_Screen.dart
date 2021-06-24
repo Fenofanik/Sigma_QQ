@@ -7,9 +7,13 @@ import 'package:sigma/Resources/App_ElevatedButton_style.dart';
 import 'package:sigma/Resources/App_TextStyle.dart';
 import 'package:sigma/Resources/App_borders.dart';
 import 'package:sigma/config/constant_routes.dart';
+import 'package:sigma/core/services/auth_service.dart';
 import 'package:sigma/core/ui/states/base_stateless_screen.dart';
 
+import 'otp_verification_screen.dart';
+
 class SignInScreen extends BaseStatelessScreen {
+  final TextEditingController phoneNumberController = TextEditingController();
 
   @override
   Widget buildBody(BuildContext context) {
@@ -25,6 +29,7 @@ class SignInScreen extends BaseStatelessScreen {
           Padding(
             padding: const EdgeInsets.only(left: 16, right: 16, top: 61),
             child: TextFormField(
+              controller: phoneNumberController,
               decoration: InputDecoration(
                 prefixIcon: Icon(
                   Icons.phone_outlined,
@@ -69,7 +74,8 @@ class SignInScreen extends BaseStatelessScreen {
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.toNamed(otp);
+                    Get.to(SmsScreen(phoneNumber: phoneNumberController.text,));
+                    AuthService().verifyPhoneNumber(phoneNumberController);
                   },
                   style: elevatedButtonStyleStart,
                   child: Text(

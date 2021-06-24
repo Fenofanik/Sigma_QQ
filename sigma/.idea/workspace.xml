@@ -48,7 +48,10 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Flutter PROJECT KOPA/kopamain" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="experimental" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -57,11 +60,11 @@
       <recent name="D:\SIgmaProject\sigma\assets\1x" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SIgmaProject\sigma\lib\view\screens\bottom_nav_bar_sceens" />
+      <recent name="D:\SIgmaProject\sigma\android\app" />
       <recent name="D:\SIgmaProject\sigma\lib\view\screens\sign_In_screens" />
       <recent name="D:\SIgmaProject\sigma\lib\view\screens\history_screens" />
       <recent name="D:\SIgmaProject\sigma\lib\core\controlles" />
-      <recent name="D:\SIgmaProject\sigma\lib\view\screens" />
-      <recent name="D:\SIgmaProject\sigma\lib\view" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

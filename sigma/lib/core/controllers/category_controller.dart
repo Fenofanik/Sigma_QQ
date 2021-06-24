@@ -1,7 +1,11 @@
 import 'package:get/get.dart';
 import 'package:sigma/core/models/category.dart';
 
+import 'Firebase_controller.dart';
+
 class CategoryController extends GetxController {
+  final firebaseController = Get.put(FirebaseController());
+
 
   var categoryNames = <Category>[
     Category(

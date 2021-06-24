@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sigma/Resources/App_Colors.dart';
-import 'package:sigma/view/screens/history_screens/My_History_screen.dart';
+import 'package:sigma/view/screens/bottom_nav_bar_screens/history_screens/My_History_screen.dart';
 
 class BottomBarController extends GetxController {
   final _selectedIndex = 0.obs;
